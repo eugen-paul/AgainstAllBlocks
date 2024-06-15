@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://23j0ueo6o3pk"]
+
+[ext_resource type="Script" path="res://Scene/Main/Ball.cs" id="1_4twf7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e6iin"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdowj"]
+albedo_color = Color(0.0431373, 1, 0.368627, 1)
+metallic = 0.75
+
+[sub_resource type="SphereMesh" id="SphereMesh_xos57"]
+material = SubResource("StandardMaterial3D_vdowj")
+
+[node name="Ball" type="CharacterBody3D"]
+collision_mask = 7
+script = ExtResource("1_4twf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_e6iin")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("SphereMesh_xos57")

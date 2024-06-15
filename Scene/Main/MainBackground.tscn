@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://bquvs2u4hmcqp"]
+
+[ext_resource type="Script" path="res://Scene/Main/MainBackground.cs" id="1_oaryv"]
+[ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://Scene/Main/Ball.tscn" id="2_0kob1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wylba"]
+size = Vector2(20, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kd5v"]
+size = Vector3(20, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c7ox2"]
+size = Vector3(20, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cnaiq"]
+size = Vector3(20, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6h2k"]
+size = Vector3(2, 2, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_03xdp"]
+size = Vector3(2, 2, 50)
+
+[sub_resource type="Curve3D" id="Curve3D_6c75i"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8, 1, -22, 0, 0, 0, 0, 0, 0, 8, 1, -22, 0, 0, 0, 0, 0, 0, 8, 1, 22, 0, 0, 0, 0, 0, 0, -8, 1, 22, 0, 0, 0, 0, 0, 0, -8, 1, -22),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Background" type="Node"]
+script = ExtResource("1_oaryv")
+BallScene = ExtResource("2_0kob1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, -7.71341e-09, -0.965926, 0.258819, -8, 17, 5)
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 30, 13)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_wylba")
+
+[node name="Walls" type="StaticBody3D" parent="." groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="WallCollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -25)
+shape = SubResource("BoxShape3D_5kd5v")
+
+[node name="Wall" type="MeshInstance3D" parent="Walls/WallCollisionShape3D"]
+mesh = SubResource("BoxMesh_c7ox2")
+skeleton = NodePath("../..")
+
+[node name="WallCollisionShape3D2" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 25)
+shape = SubResource("BoxShape3D_cnaiq")
+
+[node name="Wall" type="MeshInstance3D" parent="Walls/WallCollisionShape3D2"]
+mesh = SubResource("BoxMesh_c7ox2")
+skeleton = NodePath("../..")
+
+[node name="WallCollisionShape3D3" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, 0)
+shape = SubResource("BoxShape3D_r6h2k")
+
+[node name="Wall" type="MeshInstance3D" parent="Walls/WallCollisionShape3D3"]
+mesh = SubResource("BoxMesh_03xdp")
+skeleton = NodePath("../..")
+
+[node name="WallCollisionShape3D4" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+shape = SubResource("BoxShape3D_r6h2k")
+
+[node name="Wall" type="MeshInstance3D" parent="Walls/WallCollisionShape3D4"]
+mesh = SubResource("BoxMesh_03xdp")
+skeleton = NodePath("../..")
+
+[node name="BallSpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_6c75i")
+
+[node name="BallSpawnLocation" type="PathFollow3D" parent="BallSpawnPath"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 1, -22)
