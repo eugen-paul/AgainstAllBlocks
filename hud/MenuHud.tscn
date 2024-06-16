@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c03r1blfxny5b"]
 
-[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://Assets/Themes/guiTheme.tres" id="1_5dcku"]
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_5dcku"]
 
 [node name="HUD" type="CanvasLayer"]
 

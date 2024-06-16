@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://23j0ueo6o3pk"]
 
-[ext_resource type="Script" path="res://Scene/Main/Ball.cs" id="1_4twf7"]
+[ext_resource type="Script" path="res://world/Ball.cs" id="1_0hqcq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e6iin"]
 
@@ -12,11 +12,16 @@ metallic = 0.75
 material = SubResource("StandardMaterial3D_vdowj")
 
 [node name="Ball" type="CharacterBody3D"]
-collision_mask = 7
-script = ExtResource("1_4twf7")
+collision_mask = 15
+script = ExtResource("1_0hqcq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_e6iin")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("SphereMesh_xos57")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="OnVisibilityNotifierScreenExited"]

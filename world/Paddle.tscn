@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmtuft6tbbo8m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0220d"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ne21x"]
+albedo_color = Color(0.167711, 0.393516, 0.391724, 1)
+refraction_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_q36il"]
+material = SubResource("StandardMaterial3D_ne21x")
+size = Vector3(3, 1, 1)
+
+[node name="Paddle" type="CharacterBody3D" groups=["Paddle"]]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_0220d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_q36il")

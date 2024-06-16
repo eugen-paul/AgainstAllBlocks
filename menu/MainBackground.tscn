@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bquvs2u4hmcqp"]
+
+[ext_resource type="Script" path="res://menu/MainBackground.cs" id="1_ur41e"]
+[ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://world/Ball.tscn" id="2_ei345"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://world/Camera.tscn" id="3_pafw0"]
+[ext_resource type="PackedScene" uid="uid://3iwcu3g62wp0" path="res://world/WallsFull.tscn" id="3_yttfj"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://world/Ground.tscn" id="4_hafct"]
+
+[sub_resource type="Curve3D" id="Curve3D_6c75i"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8, 1, -22, 0, 0, 0, 0, 0, 0, 8, 1, -22, 0, 0, 0, 0, 0, 0, 8, 1, 22, 0, 0, 0, 0, 0, 0, -8, 1, 22, 0, 0, 0, 0, 0, 0, -8, 1, -22),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Background" type="Node"]
+script = ExtResource("1_ur41e")
+BallScene = ExtResource("2_ei345")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, -7.71341e-09, -0.965926, 0.258819, -8, 17, 5)
+
+[node name="CameraPivot" parent="." instance=ExtResource("3_pafw0")]
+
+[node name="BallSpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_6c75i")
+
+[node name="BallSpawnLocation" type="PathFollow3D" parent="BallSpawnPath"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 1, -22)
+
+[node name="WallsFull" parent="." instance=ExtResource("3_yttfj")]
+
+[node name="Ground" parent="." instance=ExtResource("4_hafct")]

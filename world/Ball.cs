@@ -3,6 +3,9 @@ using System.Diagnostics;
 
 public partial class Ball : CharacterBody3D
 {
+    [Signal]
+    public delegate void BallLeavesScreenEventHandler();
+
     public float Speed { get; set; } = 20.0f;
 
     public float Weight { get; set; } = 1.0f;
@@ -12,7 +15,6 @@ public partial class Ball : CharacterBody3D
         var collision = MoveAndCollide(Velocity * (float)delta);
         if (collision != null && collision.GetCollider() is Node node)
         {
-            // If the collision is with a wall.
             if (node is Ball ball)
             {
                 //Normalvektor (Richtungsvektor zwischen den Zentren der Bälle):
@@ -36,16 +38,37 @@ public partial class Ball : CharacterBody3D
                 var v2t_vec = ball.Velocity - v2n * normal;
 
                 Velocity = v1n_new_vec + v1t_vec;
+                Velocity = removeY(Velocity);
+
                 ball.Velocity = v2n_new_vec + v2t_vec;
+                ball.Velocity = removeY(ball.Velocity);
             }
-            else if (node.IsInGroup("Wall"))
+            else if (node.IsInGroup("Wall") || node.IsInGroup("Block"))
             {
                 Velocity = Velocity.Bounce(collision.GetNormal());
+                Velocity = removeY(Velocity);
+            }
+            else if (node.IsInGroup("Paddle"))
+            {
+                Velocity = Velocity.Bounce(collision.GetNormal());
+                Velocity += new Vector3(GD.Randf() * 0.2f - 0.1f, 0, 0); //TODO
+                Velocity = removeY(Velocity);
             }
             else
             {
                 Debug.Print("Collision with somtthing. " + node.ToString());
             }
         }
+    }
+
+    private Vector3 removeY(Vector3 data)
+    {
+        return new Vector3(data.X, 0, data.Z);
+    }
+
+    private void OnVisibilityNotifierScreenExited()
+    {
+        EmitSignal(SignalName.BallLeavesScreen);
+        QueueFree();
     }
 }

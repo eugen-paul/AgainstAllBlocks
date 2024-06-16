@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://duxltcssq86s8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kd5v"]
+size = Vector3(20, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c7ox2"]
+size = Vector3(20, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6h2k"]
+size = Vector3(2, 2, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_03xdp"]
+size = Vector3(2, 2, 50)
+
+[node name="WallsFull" type="StaticBody3D" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="WallCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -25)
+shape = SubResource("BoxShape3D_5kd5v")
+
+[node name="Wall" type="MeshInstance3D" parent="WallCollisionShape3D"]
+mesh = SubResource("BoxMesh_c7ox2")
+skeleton = NodePath("../..")
+
+[node name="WallCollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, 0)
+shape = SubResource("BoxShape3D_r6h2k")
+
+[node name="Wall" type="MeshInstance3D" parent="WallCollisionShape3D3"]
+mesh = SubResource("BoxMesh_03xdp")
+skeleton = NodePath("../..")
+
+[node name="WallCollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+shape = SubResource("BoxShape3D_r6h2k")
+
+[node name="Wall" type="MeshInstance3D" parent="WallCollisionShape3D4"]
+mesh = SubResource("BoxMesh_03xdp")
+skeleton = NodePath("../..")

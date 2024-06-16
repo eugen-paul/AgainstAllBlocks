@@ -22,12 +22,9 @@ public partial class MainBackground : Node
 
             ball.Rotation = new Vector3(0, GD.Randf() * (float)Math.PI * 2f, 0);
 
-            ball.Position = ballSpawnLocation.Position;
+            ball.Position = new Vector3(ballSpawnLocation.Position.X, 1, ballSpawnLocation.Position.Z);
 
             ball.Velocity = (Vector3.Forward * ball.Speed).Rotated(Vector3.Up, ball.Rotation.Y);
-            // ball.Velocity = Vector3.Forward * ball.Speed;
-
-            Debug.Print($"Rotation {ball.Rotation}, Position {ball.Position}, Velocity {ball.Velocity}");
 
             AddChild(ball);
         }
