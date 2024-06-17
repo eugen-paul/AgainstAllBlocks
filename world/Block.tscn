@@ -22,7 +22,7 @@ collision_mask = 6
 script = ExtResource("1_la43w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ulciv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]

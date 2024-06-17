@@ -43,16 +43,27 @@ public partial class Ball : CharacterBody3D
                 ball.Velocity = v2n_new_vec + v2t_vec;
                 ball.Velocity = removeY(ball.Velocity);
             }
-            else if (node.IsInGroup("Wall") || node.IsInGroup("Block"))
+            else if (node.IsInGroup("Wall"))
             {
+                Velocity = Velocity.Bounce(collision.GetNormal());
+                Velocity = removeY(Velocity);
+            }
+            else if (node.IsInGroup("Block"))
+            {
+                if (node is Block block)
+                {
+                    block.Hit();
+                }
                 Velocity = Velocity.Bounce(collision.GetNormal());
                 Velocity = removeY(Velocity);
             }
             else if (node.IsInGroup("Paddle"))
             {
-                Velocity = Velocity.Bounce(collision.GetNormal());
-                Velocity += new Vector3(GD.Randf() * 0.2f - 0.1f, 0, 0); //TODO
-                Velocity = removeY(Velocity);
+                if (node is Paddle paddle)
+                {
+                    Velocity = Velocity.Bounce(collision.GetNormal());
+                    Velocity = removeY(Velocity);
+                }
             }
             else
             {
