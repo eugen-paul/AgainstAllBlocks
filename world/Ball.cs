@@ -38,15 +38,15 @@ public partial class Ball : CharacterBody3D
                 var v2t_vec = ball.Velocity - v2n * normal;
 
                 Velocity = v1n_new_vec + v1t_vec;
-                Velocity = removeY(Velocity);
+                Velocity = RemoveY(Velocity);
 
                 ball.Velocity = v2n_new_vec + v2t_vec;
-                ball.Velocity = removeY(ball.Velocity);
+                ball.Velocity = RemoveY(ball.Velocity);
             }
             else if (node.IsInGroup("Wall"))
             {
                 Velocity = Velocity.Bounce(collision.GetNormal());
-                Velocity = removeY(Velocity);
+                Velocity = RemoveY(Velocity);
             }
             else if (node.IsInGroup("Block"))
             {
@@ -55,14 +55,14 @@ public partial class Ball : CharacterBody3D
                     block.Hit();
                 }
                 Velocity = Velocity.Bounce(collision.GetNormal());
-                Velocity = removeY(Velocity);
+                Velocity = RemoveY(Velocity);
             }
             else if (node.IsInGroup("Paddle"))
             {
                 if (node is Paddle paddle)
                 {
                     Velocity = Velocity.Bounce(collision.GetNormal());
-                    Velocity = removeY(Velocity);
+                    Velocity = RemoveY(Velocity);
                 }
             }
             else
@@ -72,7 +72,7 @@ public partial class Ball : CharacterBody3D
         }
     }
 
-    private Vector3 removeY(Vector3 data)
+    private static Vector3 RemoveY(Vector3 data)
     {
         return new Vector3(data.X, 0, data.Z);
     }

@@ -1,30 +1,119 @@
-[gd_scene format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=7 format=3 uid="uid://dtjimqviqdhjd"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[ext_resource type="Script" path="res://hud/GameHud.cs" id="1_lvqwn"]
+[ext_resource type="Script" path="res://hud/ScoreNumberLabel.cs" id="2_dbgga"]
+[ext_resource type="Script" path="res://hud/LifesNumberLabel.cs" id="3_mk20a"]
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="4_snbc4"]
 
-[node name="ScoreLabel" type="Label" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 64.0
-offset_top = 30.0
-offset_right = -48.0
-offset_bottom = 72.0
+[sub_resource type="Animation" id="Animation_pfd3l"]
+resource_name = "show"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.392157)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kycdt"]
+_data = {
+"show": SubResource("Animation_pfd3l")
+}
+
+[node name="GameHud" type="CanvasLayer"]
+script = ExtResource("1_lvqwn")
+
+[node name="ScoreHBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 20.0
+offset_right = 56.5
+offset_bottom = 62.0
 grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="ScoreHBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Score: 0"
+text = "Score: "
+
+[node name="ScoreNumberLabel" type="Label" parent="ScoreHBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "0"
+script = ExtResource("2_dbgga")
+
+[node name="LifesHBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="LifesLabel" type="Label" parent="LifesHBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Lifes: "
+
+[node name="LifesNumberLabel" type="Label" parent="LifesHBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+script = ExtResource("3_mk20a")
 
 [node name="Button" type="Button" parent="."]
+visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Menu"
 
-[node name="LifesLabel" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
+[node name="GameOverRect" type="ColorRect" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Lifes: 5"
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_snbc4")
+theme_override_constants/separation = 20
+
+[node name="GameOverLabel" type="Label" parent="GameOverRect/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="GameOverRect/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="MenuButton" type="Button" parent="GameOverRect/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOverRect"]
+libraries = {
+"": SubResource("AnimationLibrary_kycdt")
+}
