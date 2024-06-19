@@ -1,11 +1,15 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
 using Godot;
 
 public partial class AbstractLevel : Node
 {
     [Export]
     public PackedScene BallScene { get; set; }
+
+    [Export]
+    public PackedScene ArrowScene { get; set; }
 
     [Export]
     public int Lifes { get; set; } = 5;
@@ -26,7 +30,8 @@ public partial class AbstractLevel : Node
     protected Paddle _paddle;
     protected GameHud _gameHud;
 
-    protected readonly LinkedList<Ball> _ballsOnPaddle = new();
+    protected Ball _startBall;
+    protected Arrow _startArrow;
 
     public bool Pause { get; set; } = false;
 
@@ -36,7 +41,9 @@ public partial class AbstractLevel : Node
     {
         _paddle = GetNode<Paddle>("Paddle");
         _gameHud = GetNode<GameHud>("GameHud");
-        AddBall();
+
+        GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
+        StartRound();
 
         var blocks = FindChildren("Block*");
         foreach (var nodeBlock in blocks)
@@ -56,24 +63,25 @@ public partial class AbstractLevel : Node
         _gameHud.SetScore(Score);
     }
 
-    protected void AddBall()
+    protected void AddStartBall()
     {
-        var ball = BallScene.Instantiate<Ball>();
-        BallsCount++;
-        ball.Position = new Vector3(_paddle.Position.X, 0.5f, _paddle.Position.Z - 1.001f);
+        _startArrow = ArrowScene.Instantiate<Arrow>();
+        _startArrow.Position = new Vector3(0, 0.5f, _paddle.Position.Z - 2f);
+        AddChild(_startArrow);
 
-        _ballsOnPaddle.AddLast(ball);
-        ball.BallLeavesScreen += BallLoose;
-        AddChild(ball);
+        _startBall = BallScene.Instantiate<Ball>();
+        BallsCount++;
+        _startBall.Position = _startArrow.Position;
+        _startBall.BallLeavesScreen += BallLoose;
+        AddChild(_startBall);
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event.IsActionPressed("shoot") && !Pause && _ballsOnPaddle.Count > 0)
+        if (@event.IsActionPressed("shoot") && !Pause && _startBall != null)
         {
-            var ball = _ballsOnPaddle.First.Value;
-            _ballsOnPaddle.RemoveFirst();
-            ball.Velocity = Vector3.Forward * ball.Speed;
+            _startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, _startArrow.Rotation.Y) * _startBall.Speed;
+            _startArrow.QueueFree();
         }
     }
 
@@ -90,14 +98,32 @@ public partial class AbstractLevel : Node
     {
         if (Lifes <= 0)
         {
+            GetNode<CpuParticles3D>("Explosion").Show();
+            GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
+            GetNode<CpuParticles3D>("Explosion").Restart();
+            _paddle.Hide();
             GameOver();
         }
         else
         {
             Lifes--;
             _gameHud.SetLifes(Lifes);
-            AddBall();
+
+            GetNode<CpuParticles3D>("Explosion").Show();
+            GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
+            GetNode<CpuParticles3D>("Explosion").Restart();
+            GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
+            _paddle.Hide();
         }
+    }
+    protected void StartRound()
+    {
+        GetNode<CpuParticles3D>("Explosion").Hide();
+        _paddle.Show();
+
+        GetNode<CpuParticles3D>("Explosion").Finished -= StartRound;
+
+        AddStartBall();
     }
 
     protected void GameOver()

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Godot;
 
 public partial class Paddle : CharacterBody3D
@@ -42,7 +43,15 @@ public partial class Paddle : CharacterBody3D
         {
             if (node is Ball ball)
             {
-                ball.Velocity += new Vector3(dx, 0, 0);
+                var sameDirection = (ball.Velocity.X > 0 && dx > 0) || (ball.Velocity.X < 0 && dx < 0);
+                if (sameDirection || ball.Velocity.X == 0)
+                {
+                    ball.Velocity += new Vector3(dx, 0, 0);
+                }
+                else
+                {
+                    ball.Velocity = new Vector3(-ball.Velocity.X, ball.Velocity.Y, ball.Velocity.Z);
+                }
             }
         }
     }

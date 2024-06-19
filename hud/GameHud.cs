@@ -26,11 +26,18 @@ public partial class GameHud : CanvasLayer
     public void StartGame()
     {
         GetNode<Control>("GameOverRect").Hide();
+        GetNode<Control>("WinRect").Hide();
     }
 
     public void GameOver()
     {
         GetNode<Control>("GameOverRect").Show();
         GetNode<AnimationPlayer>("GameOverRect/AnimationPlayer").Play("show");
+    }
+
+    public void EndOver()
+    {
+        GetNode<Control>("WinRect").Show();
+        GetNode<AnimationPlayer>("WinRect/AnimationPlayer").Play("show");
     }
 }
