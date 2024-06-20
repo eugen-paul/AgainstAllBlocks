@@ -78,6 +78,7 @@ offset_bottom = 8.0
 text = "Menu"
 
 [node name="GameOverRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -121,7 +122,6 @@ libraries = {
 }
 
 [node name="WinRect" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -154,6 +154,10 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Next"
 
+[node name="RestartButton" type="Button" parent="WinRect/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
 [node name="MenuButton" type="Button" parent="WinRect/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
@@ -162,3 +166,8 @@ text = "Menu"
 libraries = {
 "": SubResource("AnimationLibrary_kycdt")
 }
+
+[connection signal="pressed" from="GameOverRect/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="GameOverRect/VBoxContainer/MenuButton" to="." method="OnMenuButtonPressed"]
+[connection signal="pressed" from="WinRect/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="WinRect/VBoxContainer/MenuButton" to="." method="OnMenuButtonPressed"]

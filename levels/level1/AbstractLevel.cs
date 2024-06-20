@@ -1,18 +1,17 @@
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Reflection;
 using Godot;
 
 public partial class AbstractLevel : Node
 {
+    [Export]
+    public int LIFES_COUNT { get; set; } = 5;
+
     [Export]
     public PackedScene BallScene { get; set; }
 
     [Export]
     public PackedScene ArrowScene { get; set; }
 
-    [Export]
-    public int Lifes { get; set; } = 5;
+    public int Lifes { get; private set; }
 
     private int _score = 0;
     public int Score
@@ -35,15 +34,22 @@ public partial class AbstractLevel : Node
 
     public bool Pause { get; set; } = false;
 
-    protected int blockCount = 0;
+    public int BlockCount { get; private set; }
 
     public override void _Ready()
     {
         _paddle = GetNode<Paddle>("Paddle");
         _gameHud = GetNode<GameHud>("GameHud");
+        _gameHud.RestartLevel += Restart;
 
         GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
         StartRound();
+
+        Lifes = LIFES_COUNT;
+        BlockCount = 0;
+        _gameHud.StartGame();
+        _gameHud.SetScore(0);
+        _gameHud.SetLifes(0);
 
         var blocks = FindChildren("Block*");
         foreach (var nodeBlock in blocks)
@@ -51,16 +57,26 @@ public partial class AbstractLevel : Node
             if (nodeBlock is Block block)
             {
                 block.BlockDestroyed += BoxDestroid;
-                blockCount++;
+                BlockCount++;
             }
         }
     }
 
-    protected void BoxDestroid()
+    private void Restart()
     {
-        blockCount--;
-        Score++;
+        GetTree().ReloadCurrentScene();
+    }
+
+    protected void BoxDestroid(int scoreBonus)
+    {
+        BlockCount--;
+        Score += scoreBonus + 1;
         _gameHud.SetScore(Score);
+
+        if (BlockCount <= 0)
+        {
+            LevelDone();
+        }
     }
 
     protected void AddStartBall()
@@ -81,6 +97,7 @@ public partial class AbstractLevel : Node
         if (@event.IsActionPressed("shoot") && !Pause && _startBall != null)
         {
             _startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, _startArrow.Rotation.Y) * _startBall.Speed;
+            _startBall = null;
             _startArrow.QueueFree();
         }
     }
@@ -88,7 +105,7 @@ public partial class AbstractLevel : Node
     protected void BallLoose()
     {
         BallsCount--;
-        if (BallsCount == 0)
+        if (BallsCount == 0 && BlockCount > 0)
         {
             LifeLoose();
         }
@@ -129,5 +146,10 @@ public partial class AbstractLevel : Node
     protected void GameOver()
     {
         _gameHud.GameOver();
+    }
+
+    protected void LevelDone()
+    {
+        _gameHud.LevelDone();
     }
 }

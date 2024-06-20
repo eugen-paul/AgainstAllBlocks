@@ -43,6 +43,8 @@ public partial class Paddle : CharacterBody3D
         {
             if (node is Ball ball)
             {
+                ball.ballHitsPaddle();
+
                 var sameDirection = (ball.Velocity.X > 0 && dx > 0) || (ball.Velocity.X < 0 && dx < 0);
                 if (sameDirection || ball.Velocity.X == 0)
                 {

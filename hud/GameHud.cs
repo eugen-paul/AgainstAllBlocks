@@ -6,6 +6,9 @@ public partial class GameHud : CanvasLayer
 
     private LifesNumberLabel _lifeNumberLabel;
 
+    [Signal]
+    public delegate void RestartLevelEventHandler();
+
     public override void _Ready()
     {
         _scoreNumberLabel = GetNode<ScoreNumberLabel>("ScoreHBoxContainer/ScoreNumberLabel");
@@ -35,9 +38,20 @@ public partial class GameHud : CanvasLayer
         GetNode<AnimationPlayer>("GameOverRect/AnimationPlayer").Play("show");
     }
 
-    public void EndOver()
+    public void LevelDone()
     {
         GetNode<Control>("WinRect").Show();
         GetNode<AnimationPlayer>("WinRect/AnimationPlayer").Play("show");
+    }
+
+    private void OnMenuButtonPressed()
+    {
+        var menu = ResourceLoader.Load<PackedScene>("res://menu/Main.tscn");
+        GetTree().ChangeSceneToPacked(menu);
+    }
+
+    private void OnRestartButtonPressed()
+    {
+        EmitSignal(SignalName.RestartLevel);
     }
 }
