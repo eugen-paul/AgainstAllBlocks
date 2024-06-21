@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 
 public partial class AbstractLevel : Node
@@ -32,7 +33,7 @@ public partial class AbstractLevel : Node
     protected Ball _startBall;
     protected Arrow _startArrow;
 
-    public bool Pause { get; set; } = false;
+    private bool _running;
 
     public int BlockCount { get; private set; }
 
@@ -41,6 +42,7 @@ public partial class AbstractLevel : Node
         _paddle = GetNode<Paddle>("Paddle");
         _gameHud = GetNode<GameHud>("GameHud");
         _gameHud.RestartLevel += Restart;
+        _gameHud.PauseEvent += PauseEvent;
 
         GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
         StartRound();
@@ -64,6 +66,7 @@ public partial class AbstractLevel : Node
 
     private void Restart()
     {
+        GetTree().Paused = false;
         GetTree().ReloadCurrentScene();
     }
 
@@ -94,11 +97,25 @@ public partial class AbstractLevel : Node
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event.IsActionPressed("shoot") && !Pause && _startBall != null)
+        if (@event.IsActionPressed("shoot") && _startBall != null && !GetTree().Paused)
         {
             _startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, _startArrow.Rotation.Y) * _startBall.Speed;
             _startBall = null;
             _startArrow.QueueFree();
+        }
+    }
+
+    private void PauseEvent()
+    {
+        if (GetTree().Paused)
+        {
+            _gameHud.HidePauseScreen();
+            GetTree().Paused = false;
+        }
+        else
+        {
+            _gameHud.ShowPauseScreen();
+            GetTree().Paused = true;
         }
     }
 
@@ -135,6 +152,8 @@ public partial class AbstractLevel : Node
     }
     protected void StartRound()
     {
+        _running = true;
+
         GetNode<CpuParticles3D>("Explosion").Hide();
         _paddle.Show();
 
@@ -145,11 +164,13 @@ public partial class AbstractLevel : Node
 
     protected void GameOver()
     {
+        _running = false;
         _gameHud.GameOver();
     }
 
     protected void LevelDone()
     {
+        _running = false;
         _gameHud.LevelDone();
     }
 }

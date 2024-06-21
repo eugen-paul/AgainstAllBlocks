@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 
 public partial class GameHud : CanvasLayer
@@ -8,6 +9,9 @@ public partial class GameHud : CanvasLayer
 
     [Signal]
     public delegate void RestartLevelEventHandler();
+
+    [Signal]
+    public delegate void PauseEventEventHandler();
 
     public override void _Ready()
     {
@@ -30,6 +34,7 @@ public partial class GameHud : CanvasLayer
     {
         GetNode<Control>("GameOverRect").Hide();
         GetNode<Control>("WinRect").Hide();
+        GetNode<Control>("PauseRect").Hide();
     }
 
     public void GameOver()
@@ -47,11 +52,35 @@ public partial class GameHud : CanvasLayer
     private void OnMenuButtonPressed()
     {
         var menu = ResourceLoader.Load<PackedScene>("res://menu/Main.tscn");
+        GetTree().Paused = false;
         GetTree().ChangeSceneToPacked(menu);
+    }
+
+    private void OnContinueButtonPressed()
+    {
+        EmitSignal(SignalName.PauseEvent);
     }
 
     private void OnRestartButtonPressed()
     {
         EmitSignal(SignalName.RestartLevel);
+    }
+
+    public void ShowPauseScreen()
+    {
+        GetNode<Control>("PauseRect").Show();
+    }
+
+    public void HidePauseScreen()
+    {
+        GetNode<Control>("PauseRect").Hide();
+    }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("ui_cancel"))
+        {
+            EmitSignal(SignalName.PauseEvent);
+        }
     }
 }
