@@ -48,10 +48,11 @@ public partial class AbstractLevel : Node
         StartRound();
 
         Lifes = LIFES_COUNT;
+        _score = 0;
         BlockCount = 0;
         _gameHud.StartGame();
-        _gameHud.SetScore(0);
-        _gameHud.SetLifes(0);
+        _gameHud.SetScore(_score);
+        _gameHud.SetLifes(Lifes);
 
         var blocks = FindChildren("Block*");
         foreach (var nodeBlock in blocks)
@@ -97,7 +98,7 @@ public partial class AbstractLevel : Node
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event.IsActionPressed("shoot") && _startBall != null && !GetTree().Paused)
+        if (@event.IsActionPressed("shoot") && _startBall != null)
         {
             _startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, _startArrow.Rotation.Y) * _startBall.Speed;
             _startBall = null;
@@ -107,6 +108,11 @@ public partial class AbstractLevel : Node
 
     private void PauseEvent()
     {
+        if (!_running)
+        {
+            return;
+        }
+
         if (GetTree().Paused)
         {
             _gameHud.HidePauseScreen();
@@ -130,7 +136,7 @@ public partial class AbstractLevel : Node
 
     protected void LifeLoose()
     {
-        if (Lifes <= 0)
+        if (Lifes <= 1)
         {
             GetNode<CpuParticles3D>("Explosion").Show();
             GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;

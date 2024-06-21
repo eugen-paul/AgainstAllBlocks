@@ -27,17 +27,20 @@ transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 
 shadow_enabled = true
 
 [node name="Ground" parent="." instance=ExtResource("1_a5huw")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 13)
 
 [node name="CameraPivot" parent="." instance=ExtResource("2_cw43l")]
 
 [node name="WallsFull" parent="." instance=ExtResource("3_rnwsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
 [node name="Paddle" parent="." instance=ExtResource("6_i8d72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
 
-[node name="AllBlocks" type="Node" parent="."]
+[node name="AllBlocks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
-[node name="Row1" type="Node" parent="AllBlocks"]
+[node name="Row1" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row1" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -19)
@@ -66,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -19)
 [node name="Block9" parent="AllBlocks/Row1" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -19)
 
-[node name="Row2" type="Node" parent="AllBlocks"]
+[node name="Row2" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row2" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -17)
@@ -95,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -17)
 [node name="Block9" parent="AllBlocks/Row2" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -17)
 
-[node name="Row3" type="Node" parent="AllBlocks"]
+[node name="Row3" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row3" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -15)
@@ -124,7 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15)
 [node name="Block9" parent="AllBlocks/Row3" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -15)
 
-[node name="Row4" type="Node" parent="AllBlocks"]
+[node name="Row4" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row4" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13)
@@ -153,7 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -13)
 [node name="Block9" parent="AllBlocks/Row4" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13)
 
-[node name="Row5" type="Node" parent="AllBlocks"]
+[node name="Row5" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row5" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11)
@@ -182,7 +185,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -11)
 [node name="Block9" parent="AllBlocks/Row5" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -11)
 
-[node name="Row6" type="Node" parent="AllBlocks"]
+[node name="Row6" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row6" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9)
@@ -211,7 +214,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
 [node name="Block9" parent="AllBlocks/Row6" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -9)
 
-[node name="Row7" type="Node" parent="AllBlocks"]
+[node name="Row7" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row7" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
@@ -239,64 +242,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
 
 [node name="Block9" parent="AllBlocks/Row7" instance=ExtResource("7_mcbol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7)
-
-[node name="Row8" type="Node" parent="AllBlocks"]
-
-[node name="Block" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
-
-[node name="Block2" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
-
-[node name="Block3" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
-
-[node name="Block4" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
-
-[node name="Block5" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
-
-[node name="Block6" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
-
-[node name="Block7" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
-
-[node name="Block8" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
-
-[node name="Block9" parent="AllBlocks/Row8" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
-
-[node name="Row9" type="Node" parent="AllBlocks"]
-
-[node name="Block" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
-
-[node name="Block2" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
-
-[node name="Block3" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
-
-[node name="Block4" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
-
-[node name="Block5" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-
-[node name="Block6" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
-
-[node name="Block7" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
-
-[node name="Block8" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
-
-[node name="Block9" parent="AllBlocks/Row9" instance=ExtResource("7_mcbol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
 
 [node name="GameHud" parent="." instance=ExtResource("8_lapjc")]
 process_mode = 3
