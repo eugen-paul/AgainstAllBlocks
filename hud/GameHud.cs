@@ -3,7 +3,7 @@ using Godot;
 public partial class GameHud : CanvasLayer
 {
     [Export]
-    private Texture2D HeartPath { get; set; } = GD.Load<Texture2D>("res://assets/textures/heart.png");
+    private PackedScene HeartAnimPath { get; set; }
 
     private ScoreNumberLabel _scoreNumberLabel;
 
@@ -39,18 +39,17 @@ public partial class GameHud : CanvasLayer
         {
             for (int i = count; i < lifes; i++)
             {
-                TextureRect life = new()
-                {
-                    Texture = HeartPath
-                };
-                _lifeContainer.AddChild(life);
+                Heart heart = HeartAnimPath.Instantiate<Heart>();
+                _lifeContainer.AddChild(heart);
+                heart.PlayCreate();
             }
         }
         else if (lifes < count)
         {
             for (int i = count; i > lifes; i--)
             {
-                _lifeContainer.RemoveChild(_lifeContainer.GetChild(0));
+                Heart heart = (Heart)_lifeContainer.GetChild(0);
+                heart.PlayDestroy(() => _lifeContainer.RemoveChild(_lifeContainer.GetChild(0)));
             }
         }
     }

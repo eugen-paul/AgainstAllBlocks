@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=7 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" path="res://hud/GameHud.cs" id="1_lvqwn"]
+[ext_resource type="PackedScene" uid="uid://dfmnbce7iorhy" path="res://hud/Heart.tscn" id="2_7kf5g"]
 [ext_resource type="Script" path="res://hud/ScoreNumberLabel.cs" id="2_dbgga"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="4_snbc4"]
 
@@ -27,6 +28,7 @@ _data = {
 
 [node name="GameHud" type="CanvasLayer"]
 script = ExtResource("1_lvqwn")
+HeartAnimPath = ExtResource("2_7kf5g")
 
 [node name="ScoreHBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 5
