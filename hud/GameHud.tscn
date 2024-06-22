@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=6 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" path="res://hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="Script" path="res://hud/ScoreNumberLabel.cs" id="2_dbgga"]
-[ext_resource type="Script" path="res://hud/LifesNumberLabel.cs" id="3_mk20a"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="4_snbc4"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
@@ -33,10 +32,10 @@ script = ExtResource("1_lvqwn")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -56.5
-offset_top = 20.0
-offset_right = 56.5
-offset_bottom = 62.0
+offset_left = -58.5
+offset_top = 35.0
+offset_right = 58.5
+offset_bottom = 77.0
 grow_horizontal = 2
 
 [node name="ScoreLabel" type="Label" parent="ScoreHBoxContainer"]
@@ -56,20 +55,9 @@ script = ExtResource("2_dbgga")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -54.0
-offset_bottom = 40.0
+offset_left = -32.0
+offset_bottom = 32.0
 grow_horizontal = 0
-
-[node name="LifesLabel" type="Label" parent="LifesHBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Lifes: "
-
-[node name="LifesNumberLabel" type="Label" parent="LifesHBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "5"
-script = ExtResource("3_mk20a")
 
 [node name="Button" type="Button" parent="."]
 visible = false

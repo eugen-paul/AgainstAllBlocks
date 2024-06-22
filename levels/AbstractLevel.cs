@@ -130,32 +130,29 @@ public partial class AbstractLevel : Node
         BallsCount--;
         if (BallsCount == 0 && BlockCount > 0)
         {
-            LifeLoose();
+            Lifes--;
+            _gameHud.SetLifes(Lifes);
+
+            if (Lifes <= 0)
+            {
+                GameOver();
+            }
+            else
+            {
+                LifeLoose();
+            }
         }
     }
 
     protected void LifeLoose()
     {
-        if (Lifes <= 1)
-        {
-            GetNode<CpuParticles3D>("Explosion").Show();
-            GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
-            GetNode<CpuParticles3D>("Explosion").Restart();
-            _paddle.Hide();
-            GameOver();
-        }
-        else
-        {
-            Lifes--;
-            _gameHud.SetLifes(Lifes);
-
-            GetNode<CpuParticles3D>("Explosion").Show();
-            GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
-            GetNode<CpuParticles3D>("Explosion").Restart();
-            GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
-            _paddle.Hide();
-        }
+        GetNode<CpuParticles3D>("Explosion").Show();
+        GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
+        GetNode<CpuParticles3D>("Explosion").Restart();
+        GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
+        _paddle.Hide();
     }
+
     protected void StartRound()
     {
         _running = true;
@@ -170,6 +167,10 @@ public partial class AbstractLevel : Node
 
     protected void GameOver()
     {
+        GetNode<CpuParticles3D>("Explosion").Show();
+        GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
+        GetNode<CpuParticles3D>("Explosion").Restart();
+        _paddle.Hide();
         _running = false;
         _gameHud.GameOver();
     }

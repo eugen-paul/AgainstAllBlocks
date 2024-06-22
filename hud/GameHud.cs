@@ -1,11 +1,13 @@
-using System.Diagnostics;
 using Godot;
 
 public partial class GameHud : CanvasLayer
 {
+    [Export]
+    private Texture2D HeartPath { get; set; } = GD.Load<Texture2D>("res://assets/textures/heart.png");
+
     private ScoreNumberLabel _scoreNumberLabel;
 
-    private LifesNumberLabel _lifeNumberLabel;
+    private HBoxContainer _lifeContainer;
 
     [Signal]
     public delegate void RestartLevelEventHandler();
@@ -16,7 +18,7 @@ public partial class GameHud : CanvasLayer
     public override void _Ready()
     {
         _scoreNumberLabel = GetNode<ScoreNumberLabel>("ScoreHBoxContainer/ScoreNumberLabel");
-        _lifeNumberLabel = GetNode<LifesNumberLabel>("LifesHBoxContainer/LifesNumberLabel");
+        _lifeContainer = GetNode<HBoxContainer>("LifesHBoxContainer");
         StartGame();
     }
 
@@ -27,7 +29,30 @@ public partial class GameHud : CanvasLayer
 
     public void SetLifes(int lifes)
     {
-        _lifeNumberLabel.SetLifes(lifes);
+        if (lifes < 0)
+        {
+            return;
+        }
+
+        var count = _lifeContainer.GetChildCount();
+        if (lifes > count)
+        {
+            for (int i = count; i < lifes; i++)
+            {
+                TextureRect life = new()
+                {
+                    Texture = HeartPath
+                };
+                _lifeContainer.AddChild(life);
+            }
+        }
+        else if (lifes < count)
+        {
+            for (int i = count; i > lifes; i--)
+            {
+                _lifeContainer.RemoveChild(_lifeContainer.GetChild(0));
+            }
+        }
     }
 
     public void StartGame()
