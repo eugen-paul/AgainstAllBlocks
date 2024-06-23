@@ -29,6 +29,10 @@ project/assembly_name="AgainstAllBlocks"
 
 version_control/autoload_on_startup=true
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 shoot={
