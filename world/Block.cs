@@ -1,41 +1,40 @@
-using Godot;
 using System;
-using System.Diagnostics;
+using Godot;
 
+public enum BlockColor
+{
+    YELLOW = 0,
+    BLUE
+}
+
+[Tool]
 public partial class Block : CharacterBody3D
 {
-
-    [Export]
+    [Export(PropertyHint.Range, "1,10000,")]
     public int MaxPower { get; set; } = 1;
 
-    [Export]
-    public Texture2D PowerLeft4 { get; set; } = GD.Load<Texture2D>("res://assets/textures/PowerLeft4.png");
-    [Export]
-    public Texture2D PowerLeft3 { get; set; } = GD.Load<Texture2D>("res://assets/textures/PowerLeft3.png");
-    [Export]
-    public Texture2D PowerLeft2 { get; set; } = GD.Load<Texture2D>("res://assets/textures/PowerLeft2.png");
-    [Export]
-    public Texture2D PowerLeft1 { get; set; } = GD.Load<Texture2D>("res://assets/textures/PowerLeft1.png");
+    [Export(PropertyHint.Range, "1,10000,")]
+    public int CurrentPower { get; set; } = 1;
 
-    private int _currentPower;
-
-    private StandardMaterial3D _mat;
+    private BlockColor _color = BlockColor.YELLOW;
+    [Export]
+    public BlockColor Color
+    {
+        get => _color;
+        set
+        {
+            _color = value;
+            EditDamageEffect();
+        }
+    }
 
     [Signal]
     public delegate void BlockDestroyedEventHandler(int scoreBonus = 0);
 
-    public override void _Ready()
-    {
-        _currentPower = MaxPower;
-        var block = GetNode<MeshInstance3D>("CollisionShape3D/block/Cube");
-        _mat = (StandardMaterial3D)block.GetSurfaceOverrideMaterial(0).Duplicate();
-        block.SetSurfaceOverrideMaterial(0, _mat);
-    }
-
     public void Hit(int scoreBonus, int hitPower = 1)
     {
-        _currentPower -= hitPower;
-        if (_currentPower <= 0)
+        CurrentPower -= hitPower;
+        if (CurrentPower <= 0)
         {
             EmitSignal(SignalName.BlockDestroyed, scoreBonus);
             QueueFree();
@@ -48,24 +47,18 @@ public partial class Block : CharacterBody3D
 
     private void EditDamageEffect()
     {
-        _mat.DetailEnabled = true;
+        var left = Math.Min(CurrentPower, 5);
+        if (MaxPower == CurrentPower)
+        {
+            left = 5;
+        }
 
-        var powerLeft = MaxPower - _currentPower;
-        if (powerLeft >= 4)
+        StandardMaterial3D mat = _color switch
         {
-            _mat.DetailAlbedo = PowerLeft4;
-        }
-        else if (powerLeft == 3)
-        {
-            _mat.DetailAlbedo = PowerLeft3;
-        }
-        else if (powerLeft == 2)
-        {
-            _mat.DetailAlbedo = PowerLeft2;
-        }
-        else
-        {
-            _mat.DetailAlbedo = PowerLeft1;
-        }
+            BlockColor.YELLOW => GD.Load<StandardMaterial3D>("res://assets/textures/block/yellowMaterial" + left + "Left.tres"),
+            BlockColor.BLUE => GD.Load<StandardMaterial3D>("res://assets/textures/block/blueMaterial" + left + "Left.tres"),
+            _ => throw new ArgumentException("Illegal Color Value: " + _color.ToString()),
+        };
+        GetNode<MeshInstance3D>("CollisionShape3D/block/Cube").SetSurfaceOverrideMaterial(0, mat);
     }
 }

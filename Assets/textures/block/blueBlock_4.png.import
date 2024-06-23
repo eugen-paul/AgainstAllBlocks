@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ces8kxxl8s66g"
-path.s3tc="res://.godot/imported/yellowBlockDestroyed.png-4b155c2c1fa8ef533524de730b45641d.s3tc.ctex"
+uid="uid://cvg4xqaytkt31"
+path.s3tc="res://.godot/imported/blueBlock_4.png-eba938b5c1d7d51f2181765aaa28975c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/yellowBlockDestroyed.png"
-dest_files=["res://.godot/imported/yellowBlockDestroyed.png-4b155c2c1fa8ef533524de730b45641d.s3tc.ctex"]
+source_file="res://assets/textures/block/blueBlock_4.png"
+dest_files=["res://.godot/imported/blueBlock_4.png-eba938b5c1d7d51f2181765aaa28975c.s3tc.ctex"]
 
 [params]
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmhs6l5anm08o"]
+[gd_scene load_steps=8 format=3 uid="uid://cmhs6l5anm08o"]
 
 [ext_resource type="Script" path="res://world/Block.cs" id="1_la43w"]
 [ext_resource type="PackedScene" uid="uid://bpaxq4jjdfpng" path="res://world/block.gltf" id="2_pib55"]
-[ext_resource type="Texture2D" uid="uid://cvysvyvqa7rdp" path="res://assets/textures/yellowBlock.png" id="3_em35v"]
-[ext_resource type="Texture2D" uid="uid://ces8kxxl8s66g" path="res://assets/textures/yellowBlockDestroyed.png" id="4_yxcfr"]
+[ext_resource type="Material" uid="uid://job323gwvmy2" path="res://assets/textures/block/yellowMaterial5Left.tres" id="3_ywtve"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]
 size = Vector3(2, 1, 1)
@@ -40,10 +39,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6w6yj")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3fue"]
-albedo_texture = ExtResource("3_em35v")
-detail_albedo = ExtResource("4_yxcfr")
-
 [node name="Block" type="CharacterBody3D" groups=["Block"]]
 collision_layer = 4
 collision_mask = 6
@@ -58,6 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Cube" parent="CollisionShape3D/block" index="0"]
 mesh = SubResource("ArrayMesh_7nsk8")
-surface_material_override/0 = SubResource("StandardMaterial3D_t3fue")
+surface_material_override/0 = ExtResource("3_ywtve")
 
 [editable path="CollisionShape3D/block"]
