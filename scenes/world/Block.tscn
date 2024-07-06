@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmhs6l5anm08o"]
 
-[ext_resource type="Script" path="res://world/Block.cs" id="1_la43w"]
-[ext_resource type="PackedScene" uid="uid://bpaxq4jjdfpng" path="res://world/block.gltf" id="2_pib55"]
+[ext_resource type="Script" path="res://skripts/world/Block.cs" id="1_la43w"]
+[ext_resource type="PackedScene" uid="uid://bpaxq4jjdfpng" path="res://scenes/world/block.gltf" id="2_pib55"]
 [ext_resource type="Material" uid="uid://job323gwvmy2" path="res://assets/textures/block/yellowMaterial5Left.tres" id="3_ywtve"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]

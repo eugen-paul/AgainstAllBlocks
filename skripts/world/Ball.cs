@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Diagnostics;
 
 public partial class Ball : CharacterBody3D
@@ -6,11 +7,13 @@ public partial class Ball : CharacterBody3D
     [Signal]
     public delegate void BallLeavesScreenEventHandler();
 
-    public float Speed { get; set; } = 20.0f;
+    public float StartSpeed { get; set; } = 20.0f;
 
     public float Weight { get; set; } = 1.0f;
 
     public int ScoreBonus { get; set; } = 0;
+
+    private ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
 
     public override void _PhysicsProcess(double delta)
     {
@@ -64,7 +67,9 @@ public partial class Ball : CharacterBody3D
             {
                 if (node is Paddle paddle)
                 {
-                    Velocity = Velocity.Bounce(collision.GetNormal());
+                    Debug.Print("Ball hits paddle.");
+                    var direction = collisionBallPaddle.BallHitsPaddle(this, paddle, collision.GetNormal());
+                    Velocity = direction * Velocity.Length();
                     Velocity = RemoveY(Velocity);
                     ballHitsPaddle();
                 }

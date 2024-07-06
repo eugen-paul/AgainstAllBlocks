@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtjimqviqdhjd"]
 
-[ext_resource type="Script" path="res://hud/GameHud.cs" id="1_lvqwn"]
-[ext_resource type="PackedScene" uid="uid://dfmnbce7iorhy" path="res://hud/Heart.tscn" id="2_7kf5g"]
-[ext_resource type="Script" path="res://hud/ScoreNumberLabel.cs" id="2_dbgga"]
+[ext_resource type="Script" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
+[ext_resource type="PackedScene" uid="uid://dfmnbce7iorhy" path="res://scenes/hud/Heart.tscn" id="2_7kf5g"]
+[ext_resource type="Script" path="res://skripts/hud/ScoreNumberLabel.cs" id="2_dbgga"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="4_snbc4"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Godot;
 
 public enum BlockColor
@@ -31,6 +32,11 @@ public partial class Block : CharacterBody3D
     [Signal]
     public delegate void BlockDestroyedEventHandler(int scoreBonus = 0);
 
+    public override void _Ready()
+    {
+        EditDamageEffect();
+    }
+
     public void Hit(int scoreBonus, int hitPower = 1)
     {
         CurrentPower -= hitPower;
@@ -59,6 +65,9 @@ public partial class Block : CharacterBody3D
             BlockColor.BLUE => GD.Load<StandardMaterial3D>("res://assets/textures/block/blueMaterial" + left + "Left.tres"),
             _ => throw new ArgumentException("Illegal Color Value: " + _color.ToString()),
         };
-        GetNode<MeshInstance3D>("CollisionShape3D/block/Cube").SetSurfaceOverrideMaterial(0, mat);
+        if (GetNode<MeshInstance3D>("CollisionShape3D/block/Cube").GetSurfaceOverrideMaterialCount() > 0)
+        {
+            GetNode<MeshInstance3D>("CollisionShape3D/block/Cube").SetSurfaceOverrideMaterial(0, mat);
+        }
     }
 }

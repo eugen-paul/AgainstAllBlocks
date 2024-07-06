@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bquvs2u4hmcqp"]
 
-[ext_resource type="Script" path="res://menu/MainBackground.cs" id="1_ur41e"]
-[ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://world/Ball.tscn" id="2_ei345"]
-[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://world/Camera.tscn" id="3_pafw0"]
-[ext_resource type="PackedScene" uid="uid://3iwcu3g62wp0" path="res://world/WallsFull.tscn" id="3_yttfj"]
-[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://world/Ground.tscn" id="4_hafct"]
+[ext_resource type="Script" path="res://skripts/menu/MainBackground.cs" id="1_ur41e"]
+[ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://scenes/world/Ball.tscn" id="2_ei345"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="3_pafw0"]
+[ext_resource type="PackedScene" uid="uid://3iwcu3g62wp0" path="res://scenes/world/WallsFull.tscn" id="3_yttfj"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="4_hafct"]
 
 [sub_resource type="Curve3D" id="Curve3D_6c75i"]
 _data = {

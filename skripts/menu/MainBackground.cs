@@ -24,7 +24,7 @@ public partial class MainBackground : Node
 
             ball.Position = new Vector3(ballSpawnLocation.Position.X, 0.5f, ballSpawnLocation.Position.Z);
 
-            ball.Velocity = (Vector3.Forward * ball.Speed).Rotated(Vector3.Up, ball.Rotation.Y);
+            ball.Velocity = (Vector3.Forward * ball.StartSpeed).Rotated(Vector3.Up, ball.Rotation.Y);
 
             AddChild(ball);
         }

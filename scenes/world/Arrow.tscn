@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cmu1y0ee0ymlt"]
 
-[ext_resource type="Script" path="res://world/Arrow.cs" id="1_ff7vt"]
+[ext_resource type="Script" path="res://skripts/world/Arrow.cs" id="1_ff7vt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5shuo"]
 albedo_color = Color(0.105882, 0, 0, 1)

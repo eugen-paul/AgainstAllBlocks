@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmtuft6tbbo8m"]
 
-[ext_resource type="Script" path="res://world/Paddle.cs" id="1_7glmy"]
+[ext_resource type="Script" path="res://skripts/world/Paddle.cs" id="1_7glmy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0220d"]
 size = Vector3(3, 1, 1)
@@ -22,5 +22,5 @@ script = ExtResource("1_7glmy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_0220d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("BoxMesh_q36il")

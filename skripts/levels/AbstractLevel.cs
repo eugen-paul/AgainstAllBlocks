@@ -100,7 +100,7 @@ public partial class AbstractLevel : Node
     {
         if (@event.IsActionPressed("shoot") && _startBall != null)
         {
-            _startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, _startArrow.Rotation.Y) * _startBall.Speed;
+            _startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, _startArrow.Rotation.Y) * _startBall.StartSpeed;
             _startBall = null;
             _startArrow.QueueFree();
         }
