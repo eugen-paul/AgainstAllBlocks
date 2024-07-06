@@ -11,7 +11,7 @@ public partial class Paddle : CharacterBody3D
 
     private float movePositionX = 0f;
 
-    private ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
+    private readonly ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
 
     public override void _PhysicsProcess(double delta)
     {
@@ -22,15 +22,10 @@ public partial class Paddle : CharacterBody3D
         {
             if (node is Ball ball)
             {
-                Debug.Print("Paddle hit Ball");
-                Debug.Print($"{ball.Velocity}");
                 var normal = (ball.GlobalPosition - collision.GetPosition()).Normalized();
-                Debug.Print($"{normal}");
                 var ballDirection = collisionBallPaddle.BallHitsPaddle(ball, this, normal);
-                Debug.Print($"{ballDirection}");
                 ball.Velocity = ballDirection * ball.Velocity.Length();
-                Debug.Print($"{ball.Velocity}");
-                ball.ballHitsPaddle();
+                ball.BallHitsPaddle();
             }
         }
     }

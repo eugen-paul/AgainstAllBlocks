@@ -26,9 +26,6 @@ ArrowScene = ExtResource("3_l07l6")
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 20.2635, 10)
 shadow_enabled = true
 
-[node name="Ground" parent="." instance=ExtResource("4_74q4b")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 12)
-
 [node name="CameraPivot" parent="." instance=ExtResource("5_o0qm0")]
 
 [node name="WallsFull" parent="." instance=ExtResource("6_ugxrd")]
@@ -44,30 +41,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
 [node name="Block" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -19)
+Color = 1
 
 [node name="Block2" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -19)
+Color = 1
 
 [node name="Block3" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -19)
+Color = 1
 
 [node name="Block4" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -19)
+Color = 1
 
 [node name="Block5" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+Color = 1
 
 [node name="Block6" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -19)
+Color = 1
 
 [node name="Block7" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -19)
+Color = 1
 
 [node name="Block8" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -19)
+Color = 1
 
 [node name="Block9" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -19)
+Color = 1
 
 [node name="Row2" type="Node3D" parent="AllBlocks"]
 
@@ -102,30 +108,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -17)
 
 [node name="Block" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -15)
+Color = 2
 
 [node name="Block2" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -15)
+Color = 2
 
 [node name="Block3" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -15)
+Color = 2
 
 [node name="Block4" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -15)
+Color = 2
 
 [node name="Block5" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+Color = 2
 
 [node name="Block6" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -15)
+Color = 2
 
 [node name="Block7" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -15)
+Color = 2
 
 [node name="Block8" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15)
+Color = 2
 
 [node name="Block9" parent="AllBlocks/Row3" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -15)
+Color = 2
 
 [node name="Row4" type="Node3D" parent="AllBlocks"]
 
@@ -160,30 +175,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13)
 
 [node name="Block" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11)
+Color = 3
 
 [node name="Block2" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -11)
+Color = 3
 
 [node name="Block3" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -11)
+Color = 3
 
 [node name="Block4" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11)
+Color = 3
 
 [node name="Block5" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+Color = 3
 
 [node name="Block6" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -11)
+Color = 3
 
 [node name="Block7" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11)
+Color = 3
 
 [node name="Block8" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -11)
+Color = 3
 
 [node name="Block9" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -11)
+Color = 3
 
 [node name="Row6" type="Node3D" parent="AllBlocks"]
 
@@ -218,30 +242,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -9)
 
 [node name="Block" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
+Color = 4
 
 [node name="Block2" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7)
+Color = 4
 
 [node name="Block3" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
+Color = 4
 
 [node name="Block4" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7)
+Color = 4
 
 [node name="Block5" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+Color = 4
 
 [node name="Block6" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
+Color = 4
 
 [node name="Block7" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
+Color = 4
 
 [node name="Block8" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
+Color = 4
 
 [node name="Block9" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7)
+Color = 4
 
 [node name="GameHud" parent="." instance=ExtResource("9_6l6x7")]
 process_mode = 3
@@ -259,3 +292,6 @@ direction = Vector3(0, 1, 0)
 gravity = Vector3(0, -4, 0)
 initial_velocity_min = 4.0
 initial_velocity_max = 5.0
+
+[node name="Node3D" parent="." instance=ExtResource("4_74q4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)

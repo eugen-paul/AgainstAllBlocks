@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2gmbju8na10s"]
+[gd_scene load_steps=4 format=3 uid="uid://b2gmbju8na10s"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_wylba"]
-size = Vector2(20, 50)
+[ext_resource type="PackedScene" uid="uid://iwneoyvlb1cw" path="res://assets/blender/world/ground.gltf" id="1_j6i2i"]
+[ext_resource type="Texture2D" uid="uid://b66krb0gqsktp" path="res://assets/textures/world/ground.png" id="2_mmjoy"]
 
-[node name="Ground" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("QuadMesh_wylba")
-skeleton = NodePath("")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6lvc"]
+albedo_texture = ExtResource("2_mmjoy")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ground" parent="." instance=ExtResource("1_j6i2i")]
+
+[node name="Ground" parent="ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_b6lvc")
+
+[editable path="ground"]

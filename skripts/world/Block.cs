@@ -1,21 +1,30 @@
 using System;
-using System.Diagnostics;
 using Godot;
 
 public enum BlockColor
 {
     YELLOW = 0,
-    BLUE
+    BLUE,
+    GREEN,
+    RED,
+    PURPLE,
 }
 
 [Tool]
 public partial class Block : CharacterBody3D
 {
-    [Export(PropertyHint.Range, "1,10000,")]
-    public int MaxPower { get; set; } = 1;
+    private int _power = 1;
 
     [Export(PropertyHint.Range, "1,10000,")]
-    public int CurrentPower { get; set; } = 1;
+    public int Power
+    {
+        get => _power;
+        set
+        {
+            _power = value;
+            EditDamageEffect();
+        }
+    }
 
     private BlockColor _color = BlockColor.YELLOW;
     [Export]
@@ -39,8 +48,8 @@ public partial class Block : CharacterBody3D
 
     public void Hit(int scoreBonus, int hitPower = 1)
     {
-        CurrentPower -= hitPower;
-        if (CurrentPower <= 0)
+        Power -= hitPower;
+        if (Power <= 0)
         {
             EmitSignal(SignalName.BlockDestroyed, scoreBonus);
             QueueFree();
@@ -53,16 +62,16 @@ public partial class Block : CharacterBody3D
 
     private void EditDamageEffect()
     {
-        var left = Math.Min(CurrentPower, 5);
-        if (MaxPower == CurrentPower)
-        {
-            left = 5;
-        }
+        var powerLeft = Math.Min(Power, 5);
+        powerLeft = Math.Max(powerLeft, 1);
 
         StandardMaterial3D mat = _color switch
         {
-            BlockColor.YELLOW => GD.Load<StandardMaterial3D>("res://assets/textures/block/yellowMaterial" + left + "Left.tres"),
-            BlockColor.BLUE => GD.Load<StandardMaterial3D>("res://assets/textures/block/blueMaterial" + left + "Left.tres"),
+            BlockColor.YELLOW => GD.Load<StandardMaterial3D>("res://assets/textures/block/yellowMaterial" + powerLeft + "Left.tres"),
+            BlockColor.BLUE => GD.Load<StandardMaterial3D>("res://assets/textures/block/blueMaterial" + powerLeft + "Left.tres"),
+            BlockColor.GREEN => GD.Load<StandardMaterial3D>("res://assets/textures/block/greenMaterial" + powerLeft + "Left.tres"),
+            BlockColor.RED => GD.Load<StandardMaterial3D>("res://assets/textures/block/redMaterial" + powerLeft + "Left.tres"),
+            BlockColor.PURPLE => GD.Load<StandardMaterial3D>("res://assets/textures/block/purpleMaterial" + powerLeft + "Left.tres"),
             _ => throw new ArgumentException("Illegal Color Value: " + _color.ToString()),
         };
         if (GetNode<MeshInstance3D>("CollisionShape3D/block/Cube").GetSurfaceOverrideMaterialCount() > 0)

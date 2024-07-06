@@ -7,13 +7,13 @@ public partial class Ball : CharacterBody3D
     [Signal]
     public delegate void BallLeavesScreenEventHandler();
 
-    public float StartSpeed { get; set; } = 20.0f;
+    public float StartSpeed { get; set; } = 25.0f;
 
     public float Weight { get; set; } = 1.0f;
 
     public int ScoreBonus { get; set; } = 0;
 
-    private ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
+    private readonly ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
 
     public override void _PhysicsProcess(double delta)
     {
@@ -58,7 +58,7 @@ public partial class Ball : CharacterBody3D
                 if (node is Block block)
                 {
                     block.Hit(ScoreBonus);
-                    ballHitsBlock();
+                    BallHitsBlock();
                 }
                 Velocity = Velocity.Bounce(collision.GetNormal());
                 Velocity = RemoveY(Velocity);
@@ -67,11 +67,10 @@ public partial class Ball : CharacterBody3D
             {
                 if (node is Paddle paddle)
                 {
-                    Debug.Print("Ball hits paddle.");
                     var direction = collisionBallPaddle.BallHitsPaddle(this, paddle, collision.GetNormal());
                     Velocity = direction * Velocity.Length();
                     Velocity = RemoveY(Velocity);
-                    ballHitsPaddle();
+                    BallHitsPaddle();
                 }
             }
             else
@@ -92,12 +91,12 @@ public partial class Ball : CharacterBody3D
         QueueFree();
     }
 
-    public void ballHitsBlock()
+    private void BallHitsBlock()
     {
         ScoreBonus++;
     }
 
-    public void ballHitsPaddle()
+    public void BallHitsPaddle()
     {
         ScoreBonus = 0;
     }

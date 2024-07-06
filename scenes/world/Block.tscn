@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmhs6l5anm08o"]
 
 [ext_resource type="Script" path="res://skripts/world/Block.cs" id="1_la43w"]
-[ext_resource type="PackedScene" uid="uid://bpaxq4jjdfpng" path="res://scenes/world/block.gltf" id="2_pib55"]
-[ext_resource type="Material" uid="uid://job323gwvmy2" path="res://assets/textures/block/yellowMaterial5Left.tres" id="3_ywtve"]
+[ext_resource type="PackedScene" uid="uid://bpaxq4jjdfpng" path="res://assets/blender/world/block.gltf" id="2_x4336"]
+[ext_resource type="Material" uid="uid://3nuqb8djfq85" path="res://assets/textures/block/yellowMaterial1Left.tres" id="3_ctsrw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]
 size = Vector3(2, 1, 1)
@@ -48,11 +48,11 @@ script = ExtResource("1_la43w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ulciv")
 
-[node name="block" parent="CollisionShape3D" instance=ExtResource("2_pib55")]
+[node name="block" parent="CollisionShape3D" instance=ExtResource("2_x4336")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Cube" parent="CollisionShape3D/block" index="0"]
 mesh = SubResource("ArrayMesh_7nsk8")
-surface_material_override/0 = ExtResource("3_ywtve")
+surface_material_override/0 = ExtResource("3_ctsrw")
 
 [editable path="CollisionShape3D/block"]
