@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d05n166wjq06y"]
+
+[ext_resource type="PackedScene" uid="uid://cf2gnbrem02cw" path="res://assets/blender/world/tetris_t.gltf" id="1_mukh8"]
+[ext_resource type="Texture2D" uid="uid://bwufadrragqdj" path="res://assets/textures/world/tetris_t.png" id="2_cmnbx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vnpx"]
+albedo_texture = ExtResource("2_cmnbx")
+
+[node name="TetrisT" type="Node3D"]
+
+[node name="tetris_t" parent="." instance=ExtResource("1_mukh8")]
+
+[node name="tetris_t" parent="tetris_t" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1vnpx")
+
+[editable path="tetris_t"]

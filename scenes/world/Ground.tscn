@@ -6,7 +6,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6lvc"]
 albedo_texture = ExtResource("2_mmjoy")
 
-[node name="Node3D" type="Node3D"]
+[node name="Ground" type="Node3D"]
 
 [node name="ground" parent="." instance=ExtResource("1_j6i2i")]
 

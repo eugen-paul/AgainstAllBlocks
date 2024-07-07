@@ -75,8 +75,8 @@ public partial class Paddle : CharacterBody3D
 
     public float GetWidth()
     {
-        var mesh = GetNode<MeshInstance3D>("CollisionShape3D/Mesh");
-        var box = (BoxMesh)mesh.Mesh;
+        var mesh = GetNode<CollisionShape3D>("CollisionShape3D");
+        var box = (BoxShape3D)mesh.Shape;
         return box.Size.X;
     }
 }

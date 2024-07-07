@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxuge1xfrwld3"]
+[gd_scene load_steps=17 format=3 uid="uid://dxuge1xfrwld3"]
 
 [ext_resource type="Script" path="res://skripts/levels/Level1.cs" id="1_25nbf"]
 [ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://scenes/world/Ball.tscn" id="2_4rllj"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="7_6geyi"]
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="8_uyx01"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="9_6l6x7"]
+[ext_resource type="PackedScene" uid="uid://bd78x1t282gks" path="res://scenes/world/Target.tscn" id="10_2tr57"]
+[ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="11_4vqcv"]
+[ext_resource type="PackedScene" uid="uid://bn6i1t58svkgr" path="res://scenes/world/TetrisI.tscn" id="12_5vhtg"]
+[ext_resource type="PackedScene" uid="uid://c44r1l7six3en" path="res://scenes/world/TetrisO.tscn" id="13_a3n23"]
+[ext_resource type="PackedScene" uid="uid://d05n166wjq06y" path="res://scenes/world/TetrisT.tscn" id="14_dmpbu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uvmx"]
 albedo_color = Color(1, 0, 0, 1)
@@ -143,136 +148,80 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -15)
 Color = 2
 
 [node name="Row4" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Block" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13)
-
-[node name="Block2" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -13)
-
-[node name="Block3" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13)
-
-[node name="Block4" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -13)
-
-[node name="Block5" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
-
-[node name="Block6" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -13)
-
-[node name="Block7" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -13)
-
-[node name="Block8" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -13)
-
-[node name="Block9" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13)
-
-[node name="Row5" type="Node3D" parent="AllBlocks"]
-
-[node name="Block" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11)
 Color = 3
 
-[node name="Block2" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block2" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -11)
 Color = 3
 
-[node name="Block3" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block3" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -11)
 Color = 3
 
-[node name="Block4" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block4" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11)
 Color = 3
 
-[node name="Block5" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block5" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 Color = 3
 
-[node name="Block6" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block6" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -11)
 Color = 3
 
-[node name="Block7" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block7" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11)
 Color = 3
 
-[node name="Block8" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block8" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -11)
 Color = 3
 
-[node name="Block9" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
+[node name="Block9" parent="AllBlocks/Row4" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -11)
 Color = 3
 
-[node name="Row6" type="Node3D" parent="AllBlocks"]
+[node name="Row5" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="Block" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9)
-
-[node name="Block2" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9)
-
-[node name="Block3" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9)
-
-[node name="Block4" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9)
-
-[node name="Block5" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
-
-[node name="Block6" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
-
-[node name="Block7" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9)
-
-[node name="Block8" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
-
-[node name="Block9" parent="AllBlocks/Row6" instance=ExtResource("8_uyx01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -9)
-
-[node name="Row7" type="Node3D" parent="AllBlocks"]
-
-[node name="Block" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
 Color = 4
 
-[node name="Block2" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block2" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7)
 Color = 4
 
-[node name="Block3" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block3" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
 Color = 4
 
-[node name="Block4" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block4" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7)
 Color = 4
 
-[node name="Block5" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block5" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 Color = 4
 
-[node name="Block6" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block6" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
 Color = 4
 
-[node name="Block7" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block7" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
 Color = 4
 
-[node name="Block8" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block8" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
 Color = 4
 
-[node name="Block9" parent="AllBlocks/Row7" instance=ExtResource("8_uyx01")]
+[node name="Block9" parent="AllBlocks/Row5" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7)
 Color = 4
 
@@ -293,5 +242,69 @@ gravity = Vector3(0, -4, 0)
 initial_velocity_min = 4.0
 initial_velocity_max = 5.0
 
-[node name="Node3D" parent="." instance=ExtResource("4_74q4b")]
+[node name="Ground" parent="." instance=ExtResource("4_74q4b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Target" parent="Background" instance=ExtResource("10_2tr57")]
+transform = Transform3D(2.00115, 0, -0.192672, 0, 1.89554, 0, 0.879317, 0, 0.438482, 10.8189, 2.07787, -14.1749)
+
+[node name="Target2" parent="Background" instance=ExtResource("10_2tr57")]
+transform = Transform3D(0.430038, 0, -0.902811, 0, 1, 0, 0.902811, 0, 0.430038, 7.10042, -0.0272862, -20.3948)
+
+[node name="Target3" parent="Background" instance=ExtResource("10_2tr57")]
+transform = Transform3D(0.895774, 0, 0.44451, 0, 1, 0, -0.44451, 0, 0.895774, 7.84193, -0.0272862, -23.2701)
+
+[node name="Target4" parent="Background" instance=ExtResource("10_2tr57")]
+transform = Transform3D(-0.7973, 0, -0.603584, 0, 1, 0, 0.603584, 0, -0.7973, 10.1703, -0.0272866, -20.6634)
+
+[node name="SmallWall" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -24)
+
+[node name="SmallWall6" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -24)
+
+[node name="SmallWall9" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -24)
+
+[node name="SmallWall2" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -24)
+
+[node name="SmallWall3" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -24)
+
+[node name="SmallWall4" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, -26.5)
+
+[node name="SmallWall5" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, -30.5)
+
+[node name="SmallWall7" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, -34.5)
+
+[node name="SmallWall8" parent="Background" instance=ExtResource("11_4vqcv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, -38.5)
+
+[node name="TetrisI" parent="Background" instance=ExtResource("12_5vhtg")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -15, 0, -29)
+
+[node name="TetrisI2" parent="Background" instance=ExtResource("12_5vhtg")]
+transform = Transform3D(1.74735e-08, -0.258819, 0.965926, 1, -4.37114e-08, -2.98023e-08, 4.99354e-08, 0.965926, 0.258819, -4, 2, -34)
+
+[node name="TetrisO" parent="Background" instance=ExtResource("13_a3n23")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -16.0043, 1, -27.3173)
+
+[node name="TetrisO2" parent="Background" instance=ExtResource("13_a3n23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0136, 0, -32.9117)
+
+[node name="TetrisO3" parent="Background" instance=ExtResource("13_a3n23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0136, 0, -36.9117)
+
+[node name="TetrisT" parent="Background" instance=ExtResource("14_dmpbu")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7, 0, -28)
+
+[node name="TetrisT2" parent="Background" instance=ExtResource("14_dmpbu")]
+transform = Transform3D(-3.78552e-08, 0.866025, -0.5, -1, -4.37114e-08, 0, -2.18557e-08, 0.5, 0.866025, -14.8533, 2, -31.2469)
+
+[editable path="CameraPivot"]

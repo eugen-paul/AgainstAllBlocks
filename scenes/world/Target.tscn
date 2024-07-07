@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd78x1t282gks"]
+
+[ext_resource type="PackedScene" uid="uid://blmnj1lo6d1pa" path="res://assets/blender/world/target.gltf" id="1_og87t"]
+[ext_resource type="Texture2D" uid="uid://docneu6xqalth" path="res://assets/textures/world/target.png" id="2_nod01"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4skl5"]
+albedo_texture = ExtResource("2_nod01")
+
+[node name="Target" type="Node3D"]
+
+[node name="target" parent="." instance=ExtResource("1_og87t")]
+
+[node name="Target" parent="target" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4skl5")
+
+[editable path="target"]

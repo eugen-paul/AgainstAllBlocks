@@ -1,17 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmtuft6tbbo8m"]
+[gd_scene load_steps=6 format=3 uid="uid://bmtuft6tbbo8m"]
 
 [ext_resource type="Script" path="res://skripts/world/Paddle.cs" id="1_7glmy"]
+[ext_resource type="PackedScene" uid="uid://dnq8cj2nmc4ni" path="res://assets/blender/world/paddle.gltf" id="2_edqxq"]
+[ext_resource type="Texture2D" uid="uid://myttsji1hrh1" path="res://assets/textures/world/paddle.png" id="3_3f3vg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0220d"]
 size = Vector3(3, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ne21x"]
-albedo_color = Color(0.167711, 0.393516, 0.391724, 1)
-refraction_enabled = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_q36il"]
-material = SubResource("StandardMaterial3D_ne21x")
-size = Vector3(3, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gksm"]
+albedo_texture = ExtResource("3_3f3vg")
 
 [node name="Paddle" type="CharacterBody3D" groups=["Paddle"]]
 collision_layer = 8
@@ -22,5 +19,10 @@ script = ExtResource("1_7glmy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_0220d")
 
-[node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("BoxMesh_q36il")
+[node name="paddle" parent="CollisionShape3D" instance=ExtResource("2_edqxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Cube" parent="CollisionShape3D/paddle" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7gksm")
+
+[editable path="CollisionShape3D/paddle"]

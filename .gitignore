@@ -15,5 +15,6 @@ data_*/
 mono_crash.*.json
 
 #blender
+assets_blender/
 *.blend
 *.blend1
