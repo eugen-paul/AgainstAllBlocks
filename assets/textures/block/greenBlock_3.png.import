@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5mml0nsa6sxj"
 path.s3tc="res://.godot/imported/greenBlock_3.png-dd1bc5e9a70f9150ef791fa7cda222dc.s3tc.ctex"
+path.etc2="res://.godot/imported/greenBlock_3.png-dd1bc5e9a70f9150ef791fa7cda222dc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/block/greenBlock_3.png"
-dest_files=["res://.godot/imported/greenBlock_3.png-dd1bc5e9a70f9150ef791fa7cda222dc.s3tc.ctex"]
+dest_files=["res://.godot/imported/greenBlock_3.png-dd1bc5e9a70f9150ef791fa7cda222dc.s3tc.ctex", "res://.godot/imported/greenBlock_3.png-dd1bc5e9a70f9150ef791fa7cda222dc.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1wiegems7kgc"
 path.s3tc="res://.godot/imported/blueBlock_2.png-35ce18e2fa38b14c138cf6439ea3dc91.s3tc.ctex"
+path.etc2="res://.godot/imported/blueBlock_2.png-35ce18e2fa38b14c138cf6439ea3dc91.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/block/blueBlock_2.png"
-dest_files=["res://.godot/imported/blueBlock_2.png-35ce18e2fa38b14c138cf6439ea3dc91.s3tc.ctex"]
+dest_files=["res://.godot/imported/blueBlock_2.png-35ce18e2fa38b14c138cf6439ea3dc91.s3tc.ctex", "res://.godot/imported/blueBlock_2.png-35ce18e2fa38b14c138cf6439ea3dc91.etc2.ctex"]
 
 [params]
 

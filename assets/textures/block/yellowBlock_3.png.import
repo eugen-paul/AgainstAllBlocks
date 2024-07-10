@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg03siu2tldrs"
 path.s3tc="res://.godot/imported/yellowBlock_3.png-9ca13469dc4b232adf9afc637835baef.s3tc.ctex"
+path.etc2="res://.godot/imported/yellowBlock_3.png-9ca13469dc4b232adf9afc637835baef.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/block/yellowBlock_3.png"
-dest_files=["res://.godot/imported/yellowBlock_3.png-9ca13469dc4b232adf9afc637835baef.s3tc.ctex"]
+dest_files=["res://.godot/imported/yellowBlock_3.png-9ca13469dc4b232adf9afc637835baef.s3tc.ctex", "res://.godot/imported/yellowBlock_3.png-9ca13469dc4b232adf9afc637835baef.etc2.ctex"]
 
 [params]
 

@@ -12,6 +12,7 @@ config_version=5
 
 config/name="AgainstAllBlocks"
 run/main_scene="res://scenes/menu/Main.tscn"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
 
@@ -20,6 +21,7 @@ config/icon="res://icon.svg"
 window/size/viewport_width=432
 window/size/viewport_height=768
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [dotnet]
 
@@ -52,3 +54,4 @@ shoot={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

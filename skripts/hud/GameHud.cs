@@ -107,4 +107,19 @@ public partial class GameHud : CanvasLayer
             EmitSignal(SignalName.PauseEvent);
         }
     }
+
+    public override void _Notification(int what)
+    {
+        switch ((long)what)
+        {
+            case NotificationWMGoBackRequest:
+                HandleBackButton();
+                break;
+        }
+    }
+
+    private void HandleBackButton()
+    {
+        EmitSignal(SignalName.PauseEvent);
+    }
 }
