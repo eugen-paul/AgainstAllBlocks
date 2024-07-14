@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlcnono2jsuiy"
-path="res://.godot/imported/heartAnimation.png-71a76c55780fd5910e42ff972d9e1ddf.ctex"
+uid="uid://co7xmmwnif7i5"
+path="res://.godot/imported/menuButton.png-d242014c111d40ded6f6fd43d6afa924.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/heartAnimation.png"
-dest_files=["res://.godot/imported/heartAnimation.png-71a76c55780fd5910e42ff972d9e1ddf.ctex"]
+source_file="res://assets/textures/gui/menuButton.png"
+dest_files=["res://.godot/imported/menuButton.png-d242014c111d40ded6f6fd43d6afa924.ctex"]
 
 [params]
 

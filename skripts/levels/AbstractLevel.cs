@@ -4,7 +4,7 @@ using Godot;
 public partial class AbstractLevel : Node
 {
     [Export]
-    public int LIFES_COUNT { get; set; } = 5;
+    public int LIFES_COUNT { get; set; } = 3;
 
     [Export]
     public PackedScene BallScene { get; set; }

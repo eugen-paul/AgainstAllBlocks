@@ -17,8 +17,8 @@ public partial class GameHud : CanvasLayer
 
     public override void _Ready()
     {
-        _scoreNumberLabel = GetNode<ScoreNumberLabel>("ScoreHBoxContainer/ScoreNumberLabel");
-        _lifeContainer = GetNode<HBoxContainer>("LifesHBoxContainer");
+        _scoreNumberLabel = GetNode<ScoreNumberLabel>("TopPanel/ScoreNumberLabel");
+        _lifeContainer = GetNode<HBoxContainer>("TopPanel/LifesHBoxContainer");
         StartGame();
     }
 
@@ -73,11 +73,16 @@ public partial class GameHud : CanvasLayer
         GetNode<AnimationPlayer>("WinRect/AnimationPlayer").Play("show");
     }
 
-    private void OnMenuButtonPressed()
+    private void OnMainMenuButtonPressed()
     {
         var menu = ResourceLoader.Load<PackedScene>("res://scenes/menu/Main.tscn");
         GetTree().Paused = false;
         GetTree().ChangeSceneToPacked(menu);
+    }
+
+    private void OnPauseButtonPressed()
+    {
+        EmitSignal(SignalName.PauseEvent);
     }
 
     private void OnContinueButtonPressed()
@@ -104,7 +109,7 @@ public partial class GameHud : CanvasLayer
     {
         if (@event.IsActionPressed("ui_cancel"))
         {
-            EmitSignal(SignalName.PauseEvent);
+            OnPauseButtonPressed();
         }
     }
 
@@ -113,13 +118,8 @@ public partial class GameHud : CanvasLayer
         switch ((long)what)
         {
             case NotificationWMGoBackRequest:
-                HandleBackButton();
+                OnPauseButtonPressed();
                 break;
         }
-    }
-
-    private void HandleBackButton()
-    {
-        EmitSignal(SignalName.PauseEvent);
     }
 }
