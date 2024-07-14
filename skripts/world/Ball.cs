@@ -7,7 +7,7 @@ public partial class Ball : CharacterBody3D
     [Signal]
     public delegate void BallLeavesScreenEventHandler();
 
-    public float StartSpeed { get; set; } = 25.0f;
+    public float StartSpeed { get; set; } = 23.0f;
 
     public float Weight { get; set; } = 1.0f;
 
