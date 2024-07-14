@@ -7,40 +7,60 @@
 [ext_resource type="Texture2D" uid="uid://dwk8ytdpivgpa" path="res://assets/textures/gui/button_pressed.png" id="4_frcyr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dlh27"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 texture = ExtResource("1_tjhgu")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture_margin_right = 47.0
+texture_margin_bottom = 47.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ckag"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 texture = ExtResource("1_3170b")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture_margin_right = 47.0
+texture_margin_bottom = 47.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pffrl"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 texture = ExtResource("2_g6j8x")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture_margin_right = 47.0
+texture_margin_bottom = 47.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1g8r"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 texture = ExtResource("3_odr2a")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture_margin_right = 47.0
+texture_margin_bottom = 47.0
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8h2e"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 texture = ExtResource("4_frcyr")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture_margin_right = 47.0
+texture_margin_bottom = 47.0
 
 [resource]
 default_font_size = 34
