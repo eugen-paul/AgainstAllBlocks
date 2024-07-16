@@ -23,6 +23,7 @@ theme_override_font_sizes/font_size = 40
 text = "Against All Blocks"
 
 [node name="Main" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Main"]
 anchors_preset = 15
@@ -117,7 +118,38 @@ offset_bottom = 8.0
 text = "EMPTY"
 
 [node name="Settings" type="CanvasLayer" parent="."]
-visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Settings"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5dcku")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GridContainer" type="GridContainer" parent="Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Show FPS:"
+
+[node name="ShowFpsCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Settings/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Back"
 
 [node name="Highscore" type="CanvasLayer" parent="."]
 visible = false
@@ -178,3 +210,6 @@ layout_mode = 2
 text = "Score"
 
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/StartLoadGameButton" to="." method="OnStartLoadGameButtonPressed"]
+[connection signal="pressed" from="Main/CenterContainer/VBoxContainer/SettingsButton" to="." method="OnSettingsButtonPressed"]
+[connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox" to="." method="TogleShowFps"]
+[connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="OnSettingsBackPressed"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://2u3mfphi8ajw"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://2u3mfphi8ajw"]
 
 [ext_resource type="Texture2D" uid="uid://bofd5qyat8hdg" path="res://assets/textures/gui/button_focus.png" id="1_3170b"]
 [ext_resource type="Texture2D" uid="uid://b30y0utuj2g4s" path="res://assets/textures/gui/button_disabled.png" id="1_tjhgu"]
@@ -62,6 +62,18 @@ texture_margin_top = 16.0
 texture_margin_right = 47.0
 texture_margin_bottom = 47.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5gjl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2y0se"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eq1j6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mj7hc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8k6j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bf4db"]
+
 [resource]
 default_font_size = 34
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -71,3 +83,9 @@ Button/styles/focus = SubResource("StyleBoxTexture_5ckag")
 Button/styles/hover = SubResource("StyleBoxTexture_pffrl")
 Button/styles/normal = SubResource("StyleBoxTexture_w1g8r")
 Button/styles/pressed = SubResource("StyleBoxTexture_g8h2e")
+CheckBox/styles/disabled = SubResource("StyleBoxEmpty_s5gjl")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_2y0se")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_eq1j6")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_mj7hc")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_t8k6j")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_bf4db")

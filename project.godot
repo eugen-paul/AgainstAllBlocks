@@ -12,6 +12,7 @@ config_version=5
 
 config/name="AgainstAllBlocks"
 run/main_scene="res://scenes/menu/Main.tscn"
+config/use_custom_user_dir=true
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
