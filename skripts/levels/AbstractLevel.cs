@@ -63,6 +63,12 @@ public partial class AbstractLevel : Node
                 BlockCount++;
             }
         }
+
+        var prefs = GameComponets.Instance.Get<UserPreferences>();
+        if(!prefs.GetParamShowBackground()){
+            var bg = GetNode<Node>("Background");
+            bg.QueueFree();
+        }
     }
 
     private void Restart()
