@@ -75,7 +75,7 @@ public partial class GameHud : CanvasLayer
 
     private void OnMainMenuButtonPressed()
     {
-        var menu = ResourceLoader.Load<PackedScene>("res://scenes/menu/Main.tscn");
+        var menu = ResourceLoader.Load<PackedScene>(GamePaths.MAIN_SCENE);
         GetTree().Paused = false;
         GetTree().ChangeSceneToPacked(menu);
     }

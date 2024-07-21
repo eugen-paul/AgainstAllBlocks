@@ -24,13 +24,13 @@ public partial class MenuHud : CanvasLayer
     public override void _Ready()
     {
         userPreferences = UserPreferences.LoadOrCreate();
-        GetNode<CheckBox>(PREFERENCE_SHOW_FPS).ButtonPressed = userPreferences.ShowFps;
+        GetNode<CheckBox>(PREFERENCE_SHOW_FPS).SetPressedNoSignal(userPreferences.ShowFps);
         ShowOnly(MenuOptions.MAIN);
     }
 
     private void OnStartLoadGameButtonPressed()
     {
-        var menu = ResourceLoader.Load<PackedScene>("res://scenes/levels/Level1.tscn");
+        var menu = ResourceLoader.Load<PackedScene>(GamePaths.getLevelPath(1));
         GetTree().ChangeSceneToPacked(menu);
     }
 

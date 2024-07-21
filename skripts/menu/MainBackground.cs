@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Diagnostics;
 
 public partial class MainBackground : Node
 {
@@ -10,7 +9,6 @@ public partial class MainBackground : Node
     [Export]
     public int BallCount { get; set; } = 10;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         for (int i = 0; i < BallCount; i++)
@@ -28,10 +26,5 @@ public partial class MainBackground : Node
 
             AddChild(ball);
         }
-    }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
     }
 }

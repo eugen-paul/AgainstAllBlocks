@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dxuge1xfrwld3"]
+[gd_scene load_steps=34 format=3 uid="uid://dxuge1xfrwld3"]
 
 [ext_resource type="Script" path="res://skripts/levels/Level1.cs" id="1_25nbf"]
 [ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://scenes/world/Ball.tscn" id="2_4rllj"]
@@ -42,12 +42,9 @@ uv1_scale = Vector3(10, 10, 10)
 [sub_resource type="PlaneMesh" id="PlaneMesh_mfqtq"]
 size = Vector2(50, 100)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_48pnh"]
-load_path = "res://.godot/imported/dirt.png-450d782ec8a4f796b84d8f516a1b1df3.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7tild"]
-albedo_texture = SubResource("CompressedTexture2D_48pnh")
-uv1_scale = Vector3(6, 6, 6)
+albedo_texture = ExtResource("16_f8ypa")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_krsc1"]
 size = Vector2(30, 2)
