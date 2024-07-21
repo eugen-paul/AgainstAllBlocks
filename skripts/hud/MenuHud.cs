@@ -18,19 +18,24 @@ public partial class MenuHud : CanvasLayer
     };
 
     private const string PREFERENCE_SHOW_FPS = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox";
-
-    private UserPreferences userPreferences;
+    private const string PREFERENCE_SHOW_BG = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox";
 
     public override void _Ready()
     {
-        userPreferences = UserPreferences.LoadOrCreate();
-        GetNode<CheckBox>(PREFERENCE_SHOW_FPS).SetPressedNoSignal(userPreferences.ShowFps);
+        var userPreferences = GameComponets.Instance.Get<UserPreferences>();
+        GetNode<CheckBox>(PREFERENCE_SHOW_FPS).SetPressedNoSignal(userPreferences.GetParamShowFps());
+        if (userPreferences.GetParamShowFps())
+        {
+            GetNode<CanvasLayer>("Fps").Show();
+        }
+
+        GetNode<CheckBox>(PREFERENCE_SHOW_BG).SetPressedNoSignal(userPreferences.GetParamShowBackground());
         ShowOnly(MenuOptions.MAIN);
     }
 
     private void OnStartLoadGameButtonPressed()
     {
-        var menu = ResourceLoader.Load<PackedScene>(GamePaths.getLevelPath(1));
+        var menu = ResourceLoader.Load<PackedScene>(GameScenePaths.getLevelPath(1));
         GetTree().ChangeSceneToPacked(menu);
     }
 
@@ -61,7 +66,22 @@ public partial class MenuHud : CanvasLayer
 
     public void TogleShowFps(bool value)
     {
-        userPreferences.ShowFps = value;
-        userPreferences.Save();
+        var userPreferences = GameComponets.Instance.Get<UserPreferences>();
+        userPreferences.SetParamShowFps(value);
+        if (value)
+        {
+            GetNode<CanvasLayer>("Fps").Show();
+        }
+        else
+        {
+            GetNode<CanvasLayer>("Fps").Hide();
+        }
     }
+
+    public static void TogleShowBg(bool value)
+    {
+        var userPreferences = GameComponets.Instance.Get<UserPreferences>();
+        userPreferences.SetParamShowBackground(value);
+    }
+
 }

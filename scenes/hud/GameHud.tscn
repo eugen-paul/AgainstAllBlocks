@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=10 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="PackedScene" uid="uid://dfmnbce7iorhy" path="res://scenes/hud/Heart.tscn" id="2_7kf5g"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dmq3otg71rq3x" path="res://assets/textures/gui/menuTop.png" id="3_mh67h"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="4_snbc4"]
 [ext_resource type="Texture2D" uid="uid://co7xmmwnif7i5" path="res://assets/textures/gui/menuButton.png" id="5_ggb5q"]
+[ext_resource type="PackedScene" uid="uid://dpvjyg48jchp2" path="res://scenes/menu/Fps.tscn" id="7_efxpt"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
 resource_name = "show"
@@ -217,6 +218,9 @@ text = "Restart"
 [node name="MainMenuButton" type="Button" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="Fps" parent="." instance=ExtResource("7_efxpt")]
+visible = false
 
 [connection signal="pressed" from="TopPanel/PauseButton" to="." method="OnPauseButtonPressed"]
 [connection signal="pressed" from="GameOverRect/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]

@@ -19,6 +19,11 @@ public partial class GameHud : CanvasLayer
     {
         _scoreNumberLabel = GetNode<ScoreNumberLabel>("TopPanel/ScoreNumberLabel");
         _lifeContainer = GetNode<HBoxContainer>("TopPanel/LifesHBoxContainer");
+        var prefs = GameComponets.Instance.Get<UserPreferences>();
+        if (prefs.GetParamShowFps())
+        {
+            GetNode<CanvasLayer>("Fps").Show();
+        }
         StartGame();
     }
 
@@ -75,7 +80,7 @@ public partial class GameHud : CanvasLayer
 
     private void OnMainMenuButtonPressed()
     {
-        var menu = ResourceLoader.Load<PackedScene>(GamePaths.MAIN_SCENE);
+        var menu = ResourceLoader.Load<PackedScene>(GameScenePaths.MAIN_SCENE);
         GetTree().Paused = false;
         GetTree().ChangeSceneToPacked(menu);
     }

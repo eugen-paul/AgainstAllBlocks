@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpvjyg48jchp2"]
+
+[ext_resource type="Script" path="res://skripts/hud/FpsScene.cs" id="1_gjf2w"]
+[ext_resource type="Script" path="res://skripts/hud/FpsLabel.cs" id="1_llxkq"]
+
+[node name="Fps" type="CanvasLayer"]
+script = ExtResource("1_gjf2w")
+
+[node name="FpsLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+script = ExtResource("1_llxkq")
