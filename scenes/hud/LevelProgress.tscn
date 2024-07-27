@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://02acrbjo7gjn"]
+
+[ext_resource type="Texture2D" uid="uid://dmnhayqhr542v" path="res://assets/textures/gui/bgGameSlot.png" id="1_6jyb7"]
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_sf5xj"]
+[ext_resource type="Texture2D" uid="uid://djmattfvm1k0t" path="res://assets/textures/gui/ball_Gray.png" id="2_82fpi"]
+
+[node name="LevelProgress" type="Control"]
+custom_minimum_size = Vector2(368, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 368.0
+offset_bottom = 60.0
+theme = ExtResource("1_sf5xj")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 368.0
+offset_bottom = 60.0
+texture_normal = ExtResource("1_6jyb7")
+
+[node name="LevelLabel" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -23.5
+offset_right = 54.0
+offset_bottom = 23.5
+grow_vertical = 2
+text = "1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -16.0
+offset_right = 52.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Ball1" type="TextureRect" parent="TextureButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_82fpi")
+stretch_mode = 2
+
+[node name="Ball2" type="TextureRect" parent="TextureButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_82fpi")
+stretch_mode = 2
+
+[node name="Ball3" type="TextureRect" parent="TextureButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_82fpi")
+stretch_mode = 2
+
+[node name="StartButton" type="Button" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -25.0
+offset_right = -5.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "START"

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dmnhayqhr542v" path="res://assets/textures/gui/bgGameSlot.png" id="3_7bfle"]
 
 [node name="GameSlotEmpty" type="Control"]
-custom_minimum_size = Vector2(350, 150)
+custom_minimum_size = Vector2(400, 150)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_1eag2")

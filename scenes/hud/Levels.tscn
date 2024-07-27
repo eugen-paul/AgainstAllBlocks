@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrl878ej5bb1"]
+
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_3xlpp"]
+[ext_resource type="PackedScene" uid="uid://02acrbjo7gjn" path="res://scenes/hud/LevelProgress.tscn" id="3_i3hmt"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3xlpp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -280.0
+offset_right = 188.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="LevelProgress" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress2" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress3" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress4" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress5" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress6" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress7" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress8" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress9" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress10" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
+
+[node name="LevelProgress11" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_i3hmt")]
+layout_mode = 2
