@@ -10,9 +10,12 @@ public sealed class GameComponets
 
     private GameComponets()
     {
+        PreferencePaths.MkDir();
+
         data = new()
         {
-            { typeof(UserPreferences).FullName, new UserPreferences() }
+            { typeof(UserPreferences).FullName, new UserPreferences() },
+            { typeof(GameProgress).FullName, new GameProgress() },
         };
     }
 

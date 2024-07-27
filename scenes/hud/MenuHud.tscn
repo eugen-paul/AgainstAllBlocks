@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c03r1blfxny5b"]
+[gd_scene load_steps=6 format=3 uid="uid://c03r1blfxny5b"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_5dcku"]
 [ext_resource type="Script" path="res://skripts/hud/MenuHud.cs" id="1_mh2sp"]
+[ext_resource type="PackedScene" uid="uid://bef6f0qps8e14" path="res://scenes/hud/GameSlotEmpty.tscn" id="3_3oa8s"]
+[ext_resource type="PackedScene" uid="uid://puxcdhmkm8fi" path="res://scenes/hud/GameSlotSave.tscn" id="3_c284c"]
 [ext_resource type="PackedScene" uid="uid://dpvjyg48jchp2" path="res://scenes/menu/Fps.tscn" id="3_qpr6h"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_mh2sp")
+GameSlotEmpty = ExtResource("3_3oa8s")
+GameSlotSave = ExtResource("3_c284c")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -60,7 +64,6 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Game" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Game"]
 anchors_preset = 15
@@ -68,57 +71,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5dcku")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Game/CenterContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Game/CenterContainer/VBoxContainer"]
+[node name="GameProgressGridContainer" type="GridContainer" parent="Game/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 2
 
-[node name="Panel" type="Panel" parent="Game/CenterContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="GameSlotEmpty" parent="Game/CenterContainer/VBoxContainer/GameProgressGridContainer" instance=ExtResource("3_3oa8s")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Game/CenterContainer/VBoxContainer/GridContainer/Panel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "EMPTY"
-
-[node name="Panel2" type="Panel" parent="Game/CenterContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="GameSlotEmpty2" parent="Game/CenterContainer/VBoxContainer/GameProgressGridContainer" instance=ExtResource("3_3oa8s")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Game/CenterContainer/VBoxContainer/GridContainer/Panel2"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "EMPTY"
-
-[node name="Panel3" type="Panel" parent="Game/CenterContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="GameSlotEmpty3" parent="Game/CenterContainer/VBoxContainer/GameProgressGridContainer" instance=ExtResource("3_3oa8s")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Game/CenterContainer/VBoxContainer/GridContainer/Panel3"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "EMPTY"
-
-[node name="Panel4" type="Panel" parent="Game/CenterContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/CenterContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="Button" type="Button" parent="Game/CenterContainer/VBoxContainer/GridContainer/Panel4"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "EMPTY"
+[node name="Button" type="Button" parent="Game/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Back"
 
 [node name="Settings" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Settings"]
 anchors_preset = 15
@@ -222,6 +204,7 @@ visible = false
 
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/StartLoadGameButton" to="." method="OnStartLoadGameButtonPressed"]
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/SettingsButton" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="Game/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="OnGameBackPressed"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox" to="." method="TogleShowFps"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox" to="." method="TogleShowBg"]
 [connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="OnSettingsBackPressed"]

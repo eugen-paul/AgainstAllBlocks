@@ -1,40 +1,32 @@
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.Json;
 using Godot;
 
-public class UserPreferencesData
+public class GameProgressData
 {
-    public bool ShowFps { get; set; } = false;
-    public bool ShowBackground { get; set; } = true;
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public int TotalScore { get; set; } = 0;
+    public int Level { get; set; } = 1;
 }
 
-public class UserPreferences : GameComponet
+public class GameProgressDataGlobal
 {
-    private UserPreferencesData data;
+    public List<GameProgressData> games { get; set; } = new();
+}
+
+public class GameProgress : GameComponet
+{
+    private GameProgressDataGlobal data;
 
     private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
 
-    private readonly string FULL_PATH = PreferencePaths.CONFIG_DIR_PATH + "user_prefs.json";
+    private readonly string FULL_PATH = PreferencePaths.CONFIG_DIR_PATH + "gameProgress.json";
 
-    public UserPreferences()
+    public GameProgress()
     {
         CreateOrLoad();
-    }
-
-    public bool GetParamShowFps() => data.ShowFps;
-
-    public void SetParamShowFps(bool value)
-    {
-        data.ShowFps = value;
-        Save();
-    }
-
-    public bool GetParamShowBackground() => data.ShowBackground;
-
-    public void SetParamShowBackground(bool value)
-    {
-        data.ShowBackground = value;
-        Save();
     }
 
     private void Save()
@@ -71,11 +63,11 @@ public class UserPreferences : GameComponet
             {
                 file = FileAccess.Open(FULL_PATH, FileAccess.ModeFlags.Read);
                 var jsonString = file.GetAsText();
-                data = JsonSerializer.Deserialize<UserPreferencesData>(jsonString);
+                data = JsonSerializer.Deserialize<GameProgressDataGlobal>(jsonString);
             }
             catch
             {
-                Debug.Print("Can't load UserPreferencesData File.");
+                Debug.Print("Can't load GameProgress File.");
                 data = new();
                 Save();
             }
@@ -84,6 +76,11 @@ public class UserPreferences : GameComponet
                 file?.Close();
             }
         }
+    }
+
+    public List<GameProgressData> GetGameProgresses()
+    {
+        return data.games;
     }
 
 }
