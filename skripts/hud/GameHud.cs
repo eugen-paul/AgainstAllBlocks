@@ -82,7 +82,7 @@ public partial class GameHud : CanvasLayer
     {
         var menu = ResourceLoader.Load<PackedScene>(GameScenePaths.MAIN_SCENE);
         GetTree().Paused = false;
-        GetTree().ChangeSceneToPacked(menu);
+        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, menu);
     }
 
     private void OnPauseButtonPressed()

@@ -17,7 +17,7 @@ public partial class StartGame : CanvasLayer
         {
             case ResourceLoader.ThreadLoadStatus.Loaded:
                 var menu = (PackedScene)ResourceLoader.LoadThreadedGet(GameScenePaths.MAIN_SCENE);
-                GetTree().ChangeSceneToPacked(menu);
+                GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, menu);
                 break;
             case ResourceLoader.ThreadLoadStatus.InProgress:
                 var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");

@@ -87,7 +87,7 @@ public partial class MenuHud : CanvasLayer
     {
         var next = ResourceLoader.Load<PackedScene>(GameScenePaths.LEVEL_SELECTION_SCENE);
         GameComponets.Instance.Get<CurrentGame>().CreateNewGame();
-        GetTree().ChangeSceneToPacked(next);
+        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 
     public void OnSettingsButtonPressed()
