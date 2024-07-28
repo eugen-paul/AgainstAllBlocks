@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AgainstAllBlocks"
-run/main_scene="res://scenes/menu/StartGame.tscn"
+run/main_scene="res://scenes/mainmenu/StartGame.tscn"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.2", "C#", "Mobile")

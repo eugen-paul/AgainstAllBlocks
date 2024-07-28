@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Godot;
 
 
@@ -86,8 +85,9 @@ public partial class MenuHud : CanvasLayer
 
     private void NewGame()
     {
-        var menu = ResourceLoader.Load<PackedScene>(GameScenePaths.getLevelPath(1));
-        GetTree().ChangeSceneToPacked(menu);
+        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.LEVEL_SELECTION_SCENE);
+        GameComponets.Instance.Get<CurrentGame>().CreateNewGame();
+        GetTree().ChangeSceneToPacked(next);
     }
 
     public void OnSettingsButtonPressed()

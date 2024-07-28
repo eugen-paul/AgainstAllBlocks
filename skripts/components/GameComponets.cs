@@ -16,6 +16,7 @@ public sealed class GameComponets
         {
             { typeof(UserPreferences).FullName, new UserPreferences() },
             { typeof(GameProgress).FullName, new GameProgress() },
+            { typeof(CurrentGame).FullName, new CurrentGame() },
         };
     }
 
