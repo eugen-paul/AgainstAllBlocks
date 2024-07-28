@@ -33,6 +33,8 @@ public partial class LevelProgress : Control
         }
 
         GetNode<Button>(BSTART_BUTTON_PATH).Disabled = !levelProgressData.Reached;
+
+        MouseFilter = MouseFilterEnum.Ignore;
     }
 
     public void Init(LevelProgressData levelProgressData)

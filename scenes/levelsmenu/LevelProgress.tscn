@@ -13,6 +13,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 368.0
 offset_bottom = 60.0
+mouse_filter = 2
 theme = ExtResource("1_sf5xj")
 script = ExtResource("2_43pc2")
 
@@ -20,6 +21,7 @@ script = ExtResource("2_43pc2")
 layout_mode = 0
 offset_right = 368.0
 offset_bottom = 60.0
+mouse_filter = 1
 texture_normal = ExtResource("3_ykniq")
 
 [node name="LevelLabel" type="Label" parent="TextureButton"]
