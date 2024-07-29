@@ -121,9 +121,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "Restart"
 
-[node name="MainMenuButton" type="Button" parent="GameOverRect/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="GameOverRect/VBoxContainer"]
 layout_mode = 2
-text = "Menu"
+text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameOverRect"]
 libraries = {
@@ -131,6 +131,7 @@ libraries = {
 }
 
 [node name="WinRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -168,9 +169,9 @@ text = "Next"
 layout_mode = 2
 text = "Restart"
 
-[node name="MenuButton" type="Button" parent="WinRect/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="WinRect/VBoxContainer"]
 layout_mode = 2
-text = "Menu"
+text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WinRect"]
 libraries = {
@@ -200,6 +201,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_snbc4")
+theme_override_constants/separation = 20
 
 [node name="PauseLabel" type="Label" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
@@ -215,18 +217,18 @@ text = "Continue"
 layout_mode = 2
 text = "Restart"
 
-[node name="MainMenuButton" type="Button" parent="PauseRect/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
-text = "Menu"
+text = "Exit"
 
 [node name="Fps" parent="." instance=ExtResource("7_efxpt")]
 visible = false
 
 [connection signal="pressed" from="TopPanel/PauseButton" to="." method="OnPauseButtonPressed"]
 [connection signal="pressed" from="GameOverRect/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
-[connection signal="pressed" from="GameOverRect/VBoxContainer/MainMenuButton" to="." method="OnMainMenuButtonPressed"]
+[connection signal="pressed" from="GameOverRect/VBoxContainer/ExitButton" to="." method="OnExitButtonPressed"]
 [connection signal="pressed" from="WinRect/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
-[connection signal="pressed" from="WinRect/VBoxContainer/MenuButton" to="." method="OnMainMenuButtonPressed"]
+[connection signal="pressed" from="WinRect/VBoxContainer/ExitButton" to="." method="OnExitButtonPressed"]
 [connection signal="pressed" from="PauseRect/VBoxContainer/ContinueButton" to="." method="OnContinueButtonPressed"]
 [connection signal="pressed" from="PauseRect/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
-[connection signal="pressed" from="PauseRect/VBoxContainer/MainMenuButton" to="." method="OnMainMenuButtonPressed"]
+[connection signal="pressed" from="PauseRect/VBoxContainer/ExitButton" to="." method="OnExitButtonPressed"]

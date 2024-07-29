@@ -78,11 +78,12 @@ public partial class GameHud : CanvasLayer
         GetNode<AnimationPlayer>("WinRect/AnimationPlayer").Play("show");
     }
 
-    private void OnMainMenuButtonPressed()
+
+    private void OnExitButtonPressed()
     {
-        var menu = ResourceLoader.Load<PackedScene>(GameScenePaths.MAIN_SCENE);
+        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.LEVEL_SELECTION_SCENE);
+        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
         GetTree().Paused = false;
-        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, menu);
     }
 
     private void OnPauseButtonPressed()
