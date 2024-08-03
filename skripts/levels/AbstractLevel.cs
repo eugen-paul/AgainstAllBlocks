@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Godot;
 
 public partial class AbstractLevel : Node
@@ -54,21 +53,33 @@ public partial class AbstractLevel : Node
         _gameHud.SetScore(_score);
         _gameHud.SetLifes(Lifes);
 
+        BlockCount = CountBlocks();
+
+        var prefs = GameComponets.Instance.Get<UserPreferences>();
+        if (!prefs.GetParamShowBackground())
+        {
+            var bg = GetNode<Node>("Background");
+            bg.QueueFree();
+        }
+    }
+
+    /// <summary>
+    /// Counts all undestroyed blocks on the field. The objects with the name <c>Block*</c> are counted.
+    /// </summary>
+    /// <returns>Number of blocks on the field</returns>
+    protected virtual int CountBlocks()
+    {
         var blocks = FindChildren("Block*");
+        var count = 0;
         foreach (var nodeBlock in blocks)
         {
             if (nodeBlock is Block block)
             {
                 block.BlockDestroyed += BoxDestroid;
-                BlockCount++;
+                count++;
             }
         }
-
-        var prefs = GameComponets.Instance.Get<UserPreferences>();
-        if(!prefs.GetParamShowBackground()){
-            var bg = GetNode<Node>("Background");
-            bg.QueueFree();
-        }
+        return count;
     }
 
     private void Restart()

@@ -18,11 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="16_f8ypa"]
 [ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="17_p0tyd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uvmx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqck5"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bv3tw"]
-material = SubResource("StandardMaterial3D_7uvmx")
+material = SubResource("StandardMaterial3D_aqck5")
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2c5ih"]
@@ -53,23 +53,23 @@ size = Vector2(30, 2)
 albedo_texture = ExtResource("17_p0tyd")
 uv1_scale = Vector3(15, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h42ch"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lis3p"]
 albedo_color = Color(1, 0.366667, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_vombc"]
-material = SubResource("StandardMaterial3D_h42ch")
+material = SubResource("StandardMaterial3D_lis3p")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7ln3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cxo4"]
 albedo_color = Color(0.0431373, 0.368627, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_afkmd"]
-material = SubResource("StandardMaterial3D_l7ln3")
+material = SubResource("StandardMaterial3D_2cxo4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cjtr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sa5p8"]
 albedo_color = Color(0.159595, 0.240105, 0.667444, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_65wdj"]
-material = SubResource("StandardMaterial3D_4cjtr")
+material = SubResource("StandardMaterial3D_sa5p8")
 
 [node name="Level" type="Node"]
 script = ExtResource("1_25nbf")

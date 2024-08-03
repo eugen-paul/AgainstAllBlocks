@@ -20,6 +20,8 @@ public class LevelProgressData
     public bool Ball2 { get; set; } = false;
     public bool Ball3 { get; set; } = false;
 
+    public LevelProgressData() { }
+
     public LevelProgressData(int level, bool reached = false)
     {
         Level = level;
@@ -79,6 +81,7 @@ public class GameProgress : GameComponet
     {
         if (!FileAccess.FileExists(FULL_PATH))
         {
+            Debug.Print("Save game not found. Create a new save game file.");
             data = new();
             Save();
         }
@@ -90,10 +93,12 @@ public class GameProgress : GameComponet
                 file = FileAccess.Open(FULL_PATH, FileAccess.ModeFlags.Read);
                 var jsonString = file.GetAsText();
                 data = JsonSerializer.Deserialize<GameProgressDataGlobal>(jsonString);
+                Debug.Print("loaded " + data.Games.Count + " saves");
             }
-            catch
+            catch (Exception ex)
             {
                 Debug.Print("Can't load GameProgress File.");
+                Debug.WriteLine(ex.ToString());
                 data = new();
                 Save();
             }
