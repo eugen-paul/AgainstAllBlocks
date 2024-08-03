@@ -7,6 +7,8 @@ public sealed class GameScenePaths
     public const string LEVEL_SELECTION_SCENE = "res://scenes/levelsmenu/Levels.tscn";
     private const string LEVEL_SCENE_PREFIX = "res://scenes/levels/Level";
     private const string LEVEL_SCENE_SUFFIX = ".tscn";
+    public const string DEFAULT_BALL_SCENE = "res://scenes/world/Ball.tscn";
+    public const string DEFAULT_ARROW_SCENE = "res://scenes/world/Arrow.tscn";
 
     public static string GetLevelPath(int level)
     {

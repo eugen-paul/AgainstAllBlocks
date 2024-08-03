@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
 
 
@@ -75,7 +76,18 @@ public partial class MenuHud : CanvasLayer
 
     private void LoadGame(Guid id)
     {
+        var games = GameComponets.Instance.Get<GameProgress>().GetGameProgresses();
+        GameProgressData gameData = games.Find(g => g.Id == id);
 
+        if (gameData == null)
+        {
+            Debug.Print("Cann't find Savegame with id " + id);
+            return;
+        }
+
+        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.LEVEL_SELECTION_SCENE);
+        GameComponets.Instance.Get<CurrentGame>().LoadNewGame(gameData);
+        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 
     private void DeleteGame(Guid id)

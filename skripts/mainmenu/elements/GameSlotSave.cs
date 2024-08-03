@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class GameSlotSave : GameSlot
 {
@@ -10,7 +11,8 @@ public partial class GameSlotSave : GameSlot
 
     public override void _Ready()
     {
-
+        var levelLabel = GetNode<GameSlotLevelLabel>("BgTextureRect/LevelLabel");
+        levelLabel.SetLevel(gameProgressData.Levels.Count);
     }
 
     public void Init(GameProgressData gameProgressData, Action loadGameCallback, Action deleteGameCallback)
@@ -20,4 +22,8 @@ public partial class GameSlotSave : GameSlot
         this.deleteGameCallback = deleteGameCallback;
     }
 
+    private void OnLoadButtonPressed()
+    {
+        loadGameCallback.Invoke();
+    }
 }

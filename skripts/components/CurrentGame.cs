@@ -33,7 +33,7 @@ public class CurrentGame : GameComponet
         {
             if (!lastLvl && data.Levels.ContainsKey(i))
             {
-                Game.Levels.Add(i, new LevelProgressData(data.Levels[i]));
+                Game.Levels[i] = new LevelProgressData(data.Levels[i]);
             }
             else
             {
@@ -42,7 +42,7 @@ public class CurrentGame : GameComponet
 
             if (lastLvl)
             {
-                Game.Levels.Add(i, new LevelProgressData(i));
+                Game.Levels[i] = new LevelProgressData(i);
             }
         }
     }
@@ -62,7 +62,7 @@ public class CurrentGameData
     {
         for (int i = 1; i < GameScenePaths.LEVELS.Count; i++)
         {
-            Levels.Add(i, new LevelProgressData(i, i == 1));
+            Levels[i] = new LevelProgressData(i, i == 1);
         }
     }
 }

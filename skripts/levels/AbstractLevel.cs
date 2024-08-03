@@ -6,10 +6,10 @@ public partial class AbstractLevel : Node
     public int LIFES_COUNT { get; set; } = 3;
 
     [Export]
-    public PackedScene BallScene { get; set; }
+    public PackedScene BallScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_BALL_SCENE);
 
     [Export]
-    public PackedScene ArrowScene { get; set; }
+    public PackedScene ArrowScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_ARROW_SCENE);
 
     public int Lifes { get; private set; }
 
