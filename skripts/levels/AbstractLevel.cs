@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class AbstractLevel : Node
+public abstract partial class AbstractLevel : Node
 {
     [Export]
     public int LIFES_COUNT { get; set; } = 3;
@@ -81,6 +81,11 @@ public partial class AbstractLevel : Node
         }
         return count;
     }
+
+    protected abstract int GetLevel();
+    protected abstract bool GetBall1();
+    protected abstract bool GetBall2();
+    protected abstract bool GetBall3();
 
     private void Restart()
     {
@@ -192,9 +197,26 @@ public partial class AbstractLevel : Node
         _gameHud.GameOver();
     }
 
+    /// <summary>
+    /// Level has been successfully completed. Score is being updated.
+    /// </summary>
     protected void LevelDone()
     {
         _running = false;
+        SaveProgress();
         _gameHud.LevelDone();
+    }
+
+    private void SaveProgress()
+    {
+        var progress = new CurrentProgress
+        {
+            Level = GetLevel(),
+            Score = Score,
+            Ball1 = GetBall1(),
+            Ball2 = GetBall2(),
+            Ball3 = GetBall3(),
+        };
+        GameComponets.Instance.Get<CurrentGame>().SaveProgress(progress);
     }
 }

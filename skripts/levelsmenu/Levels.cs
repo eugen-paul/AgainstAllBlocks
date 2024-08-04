@@ -75,7 +75,7 @@ public partial class Levels : CanvasLayer
     private void OnExitYesButtonPressed()
     {
         var next = ResourceLoader.Load<PackedScene>(GameScenePaths.MAIN_SCENE);
-        GameComponets.Instance.Get<CurrentGame>().CreateNewGame();
+        GameComponets.Instance.Get<CurrentGame>().ResetGame();
         GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 }

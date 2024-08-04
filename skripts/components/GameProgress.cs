@@ -7,8 +7,9 @@ using Godot;
 public class GameProgressData
 {
     public Guid Id { get; set; } = Guid.NewGuid();
-    public int TotalScore { get; set; } = 0;
     public Dictionary<int, LevelProgressData> Levels { get; set; } = new();
+
+    public GameProgressData() { }
 }
 
 public class LevelProgressData
@@ -37,6 +38,11 @@ public class LevelProgressData
         Ball2 = other.Ball2;
         Ball3 = other.Ball3;
     }
+
+    public LevelProgressData Copy()
+    {
+        return new LevelProgressData(this);
+    }
 }
 
 public class GameProgressDataGlobal
@@ -46,6 +52,8 @@ public class GameProgressDataGlobal
 
 public class GameProgress : GameComponet
 {
+    public readonly int MAX_GAMES = 4;
+
     private GameProgressDataGlobal data;
 
     private readonly JsonSerializerOptions options = new() { WriteIndented = true };
@@ -112,6 +120,27 @@ public class GameProgress : GameComponet
     public List<GameProgressData> GetGameProgresses()
     {
         return data.Games;
+    }
+
+    public void Save(GameProgressData dataToSave)
+    {
+        var game = data.Games.Find(x => x.Id == dataToSave.Id);
+
+
+        if (game == null)
+        {
+            if (data.Games.Count >= MAX_GAMES)
+            {
+                Debug.Print("Maximum number of save games reached.");
+                return;
+            }
+        }
+        else
+        {
+            data.Games.Remove(game);
+        }
+        data.Games.Add(dataToSave);
+        Save();
     }
 
 }
