@@ -77,6 +77,21 @@ public partial class GameHud : CanvasLayer
     {
         GetNode<Control>("WinRect").Show();
         GetNode<AnimationPlayer>("WinRect/AnimationPlayer").Play("show");
+        LevelDoneAnimation();
+    }
+
+    private async void LevelDoneAnimation()
+    {
+        GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D1").Show();
+        GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D1").Restart();
+        await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
+
+        GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D2").Show();
+        GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D2").Restart();
+        await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
+
+        GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D3").Show();
+        GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D3").Restart();
     }
 
 

@@ -13,17 +13,17 @@ public partial class Level1 : AbstractLevel
 
     protected override bool GetBall1()
     {
-        return Score >= 75;
+        return Score >= 5;
     }
 
     protected override bool GetBall2()
     {
-        return Score >= 100;
+        return Score >= 6;
     }
 
     protected override bool GetBall3()
     {
-        return false;
+        return Score >= 7;
     }
 
 }

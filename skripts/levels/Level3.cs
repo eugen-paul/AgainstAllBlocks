@@ -1,5 +1,5 @@
 
-public partial class Level2 : AbstractLevel
+public partial class Level3 : AbstractLevel
 {
     public override void _Ready()
     {
@@ -8,7 +8,7 @@ public partial class Level2 : AbstractLevel
 
     protected override int GetLevel()
     {
-        return 2;
+        return 3;
     }
 
     protected override bool GetBall1()
