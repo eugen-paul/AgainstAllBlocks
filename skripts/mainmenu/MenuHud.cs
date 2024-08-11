@@ -66,7 +66,7 @@ public partial class MenuHud : CanvasLayer
             gameProgressGrid.AddChild(gameSlot);
         }
 
-        if (games.Count == 0 || games.Count <= 2)
+        if (games.Count == 0 || games.Count < GameProgress.MAX_GAMES)
         {
             var gameSlot = GameSlotEmpty.Instantiate<GameSlotEmpty>();
             gameSlot.Init(() => NewGame());
@@ -92,7 +92,9 @@ public partial class MenuHud : CanvasLayer
 
     private void DeleteGame(Guid id)
     {
-
+        var gp = GameComponets.Instance.Get<GameProgress>();
+        gp.Delete(id);
+        LoadGameProgress();
     }
 
     private void NewGame()

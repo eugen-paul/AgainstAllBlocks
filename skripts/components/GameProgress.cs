@@ -52,7 +52,7 @@ public class GameProgressDataGlobal
 
 public class GameProgress : GameComponet
 {
-    public readonly int MAX_GAMES = 4;
+    public static readonly int MAX_GAMES = 3;
 
     private GameProgressDataGlobal data;
 
@@ -140,6 +140,23 @@ public class GameProgress : GameComponet
             data.Games.Remove(game);
         }
         data.Games.Add(dataToSave);
+        Save();
+    }
+
+    public void Delete(Guid Id)
+    {
+        var game = data.Games.Find(x => x.Id == Id);
+
+        if (game == null)
+        {
+            Debug.Print($"Cann't delte gaslot. Game with ID {Id} not found.");
+            return;
+        }
+        else
+        {
+            Debug.Print($"Removing gameslot with ID {Id}.");
+            data.Games.Remove(game);
+        }
         Save();
     }
 
