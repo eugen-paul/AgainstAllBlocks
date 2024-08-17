@@ -80,7 +80,7 @@ offset_right = 57.5
 offset_bottom = 67.0
 grow_horizontal = 2
 theme = ExtResource("1_p8xvk")
-text = "Menu"
+text = "Main menu"
 
 [node name="ExitFrame" type="ColorRect" parent="."]
 visible = false

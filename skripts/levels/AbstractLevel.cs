@@ -42,6 +42,7 @@ public abstract partial class AbstractLevel : Node
         _gameHud = GetNode<GameHud>("GameHud");
         _gameHud.RestartLevel += Restart;
         _gameHud.PauseEvent += PauseEvent;
+        _gameHud.CurrentLevel = GetLevel();
 
         GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
         StartRound();

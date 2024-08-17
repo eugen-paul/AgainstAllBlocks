@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://csmrbw0f2gl5i"]
 
+[ext_resource type="Script" path="res://skripts/levels/Level3.cs" id="1_28cnc"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_lj2gg"]
-[ext_resource type="Script" path="res://skripts/levels/Level2.cs" id="1_yob5y"]
 [ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="2_fpded"]
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="3_6vroy"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="4_443yv"]
@@ -72,7 +72,7 @@ albedo_color = Color(0.0431373, 0.368627, 0, 1)
 material = SubResource("StandardMaterial3D_j36i2")
 
 [node name="Level" type="Node"]
-script = ExtResource("1_yob5y")
+script = ExtResource("1_28cnc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.258819, -0.25, 0.933013, -1.13133e-08, 0.965926, 0.258819, -0.965926, 0.0669873, -0.25, 5, 3, -3)

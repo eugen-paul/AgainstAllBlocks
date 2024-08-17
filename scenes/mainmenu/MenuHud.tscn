@@ -28,7 +28,6 @@ theme_override_font_sizes/font_size = 40
 text = "Against All Blocks"
 
 [node name="Main" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Main"]
 anchors_preset = 15
@@ -54,6 +53,7 @@ layout_mode = 2
 text = "Settings"
 
 [node name="HighscoreButton" type="Button" parent="Main/CenterContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Highscore"
@@ -64,6 +64,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Game" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Game"]
 anchors_preset = 15
@@ -204,6 +205,7 @@ visible = false
 
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/StartLoadGameButton" to="." method="OnStartLoadGameButtonPressed"]
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/SettingsButton" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="Main/CenterContainer/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
 [connection signal="pressed" from="Game/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="OnGameBackPressed"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox" to="." method="TogleShowFps"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox" to="." method="TogleShowBg"]

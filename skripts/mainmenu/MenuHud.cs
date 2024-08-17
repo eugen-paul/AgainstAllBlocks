@@ -109,6 +109,12 @@ public partial class MenuHud : CanvasLayer
         ShowOnly(MenuOptions.SETTING);
     }
 
+    public void OnQuitButtonPressed()
+    {
+        // GetTree().Root.PropagateNotification((int)NotificationWMCloseRequest);
+        GetTree().Quit();
+    }
+
     public void OnSettingsBackPressed()
     {
         ShowOnly(MenuOptions.MAIN);

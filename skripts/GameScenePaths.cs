@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using Godot;
 
 public sealed class GameScenePaths
 {
@@ -15,7 +16,7 @@ public sealed class GameScenePaths
         return $"{LEVEL_SCENE_PREFIX}{level}{LEVEL_SCENE_SUFFIX}";
     }
 
-    public readonly static ImmutableDictionary<int, string> LEVELS = new Dictionary<int, string> {
+    public readonly static IDictionary<int, string> LEVELS = new Dictionary<int, string> {
         {  1, GetLevelPath( 1) },
         {  2, GetLevelPath( 2) },
         {  3, GetLevelPath( 3) },
@@ -32,4 +33,6 @@ public sealed class GameScenePaths
         { 14, GetLevelPath(14) },
         }
         .ToImmutableDictionary();
+
+    public readonly static int MaxLevel = LEVELS.Count;
 }
