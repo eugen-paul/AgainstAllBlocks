@@ -1,16 +1,13 @@
-using System.Diagnostics;
 using Godot;
 
 public partial class GameHud : CanvasLayer
 {
-    [Export]
-    private PackedScene HeartAnimPath { get; set; }
 
     public int CurrentLevel { get; set; }
 
-    private ScoreNumberLabel _scoreNumberLabel;
+    private ScoreNumberLabel scoreNumberLabel;
 
-    private HBoxContainer _lifeContainer;
+    private LifeContainer lifeContainer;
 
     [Signal]
     public delegate void RestartLevelEventHandler();
@@ -20,8 +17,8 @@ public partial class GameHud : CanvasLayer
 
     public override void _Ready()
     {
-        _scoreNumberLabel = GetNode<ScoreNumberLabel>("TopPanel/ScoreNumberLabel");
-        _lifeContainer = GetNode<HBoxContainer>("TopPanel/LifesHBoxContainer");
+        scoreNumberLabel = GetNode<ScoreNumberLabel>("TopPanel/ScoreNumberLabel");
+        lifeContainer = GetNode<LifeContainer>("TopPanel/LifesHBoxContainer");
         var prefs = GameComponets.Instance.Get<UserPreferences>();
         if (prefs.GetParamShowFps())
         {
@@ -36,34 +33,12 @@ public partial class GameHud : CanvasLayer
 
     public void SetScore(int score)
     {
-        _scoreNumberLabel.SetScore(score);
+        scoreNumberLabel.SetScore(score);
     }
 
     public void SetLifes(int lifes)
     {
-        if (lifes < 0)
-        {
-            return;
-        }
-
-        var count = _lifeContainer.GetChildCount();
-        if (lifes > count)
-        {
-            for (int i = count; i < lifes; i++)
-            {
-                Heart heart = HeartAnimPath.Instantiate<Heart>();
-                _lifeContainer.AddChild(heart);
-                heart.PlayCreate();
-            }
-        }
-        else if (lifes < count)
-        {
-            for (int i = count; i > lifes; i--)
-            {
-                Heart heart = (Heart)_lifeContainer.GetChild(0);
-                heart.PlayDestroy(() => _lifeContainer.RemoveChild(_lifeContainer.GetChild(0)));
-            }
-        }
+        lifeContainer.SetLifes(lifes);
     }
 
     public void StartGame()
