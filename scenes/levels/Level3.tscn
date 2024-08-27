@@ -75,7 +75,8 @@ material = SubResource("StandardMaterial3D_j36i2")
 script = ExtResource("1_28cnc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.258819, -0.25, 0.933013, -1.13133e-08, 0.965926, 0.258819, -0.965926, 0.0669873, -0.25, 5, 3, -3)
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, -1, 17, -14)
+shadow_enabled = true
 
 [node name="CameraPivot" parent="." instance=ExtResource("1_lj2gg")]
 

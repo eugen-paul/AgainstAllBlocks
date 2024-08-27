@@ -6,6 +6,7 @@ public class UserPreferencesData
 {
     public bool ShowFps { get; set; } = false;
     public bool ShowBackground { get; set; } = true;
+    public bool ShowShadow { get; set; } = true;
 }
 
 public class UserPreferences : GameComponet
@@ -34,6 +35,14 @@ public class UserPreferences : GameComponet
     public void SetParamShowBackground(bool value)
     {
         data.ShowBackground = value;
+        Save();
+    }
+
+    public bool GetParamShowShadow() => data.ShowShadow;
+
+    public void SetParamShowShadow(bool value)
+    {
+        data.ShowShadow = value;
         Save();
     }
 

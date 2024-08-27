@@ -28,6 +28,7 @@ theme_override_font_sizes/font_size = 40
 text = "Against All Blocks"
 
 [node name="Main" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Main"]
 anchors_preset = 15
@@ -101,7 +102,6 @@ layout_mode = 2
 text = "Back"
 
 [node name="Settings" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Settings"]
 anchors_preset = 15
@@ -131,6 +131,13 @@ layout_mode = 2
 text = "Show Background"
 
 [node name="ShowBgCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ShowShadowLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Show Shadow"
+
+[node name="ShowShadowCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
@@ -209,4 +216,5 @@ visible = false
 [connection signal="pressed" from="Game/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="OnGameBackPressed"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox" to="." method="TogleShowFps"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox" to="." method="TogleShowBg"]
+[connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowShadowCheckBox" to="." method="TogleShadow"]
 [connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="OnSettingsBackPressed"]

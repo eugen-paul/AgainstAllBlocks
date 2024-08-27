@@ -62,6 +62,12 @@ public abstract partial class AbstractLevel : Node
             var bg = GetNode<Node>("Background");
             bg.QueueFree();
         }
+        if (!prefs.GetParamShowShadow())
+        {
+            var light = GetNode<DirectionalLight3D>("DirectionalLight3D");
+            light.ShadowEnabled = false;
+        }
+
     }
 
     /// <summary>

@@ -27,6 +27,7 @@ public partial class MenuHud : CanvasLayer
 
     private const string PREFERENCE_SHOW_FPS = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox";
     private const string PREFERENCE_SHOW_BG = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox";
+    private const string PREFERENCE_SHOW_SHADOW = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowShadowCheckBox";
     private const string GAMEPROGRESS_GRID = "Game/CenterContainer/VBoxContainer/GameProgressGridContainer";
 
     public override void _Ready()
@@ -39,6 +40,7 @@ public partial class MenuHud : CanvasLayer
         }
 
         GetNode<CheckBox>(PREFERENCE_SHOW_BG).SetPressedNoSignal(userPreferences.GetParamShowBackground());
+        GetNode<CheckBox>(PREFERENCE_SHOW_SHADOW).SetPressedNoSignal(userPreferences.GetParamShowShadow());
         ShowOnly(MenuOptions.MAIN);
     }
 
@@ -158,6 +160,12 @@ public partial class MenuHud : CanvasLayer
     {
         var userPreferences = GameComponets.Instance.Get<UserPreferences>();
         userPreferences.SetParamShowBackground(value);
+    }
+
+    public static void TogleShadow(bool value)
+    {
+        var userPreferences = GameComponets.Instance.Get<UserPreferences>();
+        userPreferences.SetParamShowShadow(value);
     }
 
 }
