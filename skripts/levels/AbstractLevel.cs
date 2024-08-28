@@ -13,46 +13,46 @@ public abstract partial class AbstractLevel : Node
 
     public int Lifes { get; private set; }
 
-    private int _score = 0;
+    private int score = 0;
     public int Score
     {
-        get => _score;
+        get => score;
         set
         {
-            _score = value;
-            _gameHud.SetScore(Score);
+            score = value;
+            gameHud.SetScore(Score);
         }
     }
 
     public int BallsCount { get; private set; } = 0;
 
-    protected Paddle _paddle;
-    protected GameHud _gameHud;
+    protected Paddle paddle;
+    protected GameHud gameHud;
 
-    protected Ball _startBall;
-    protected Arrow _startArrow;
+    protected Ball startBall;
+    protected Arrow startArrow;
 
-    private bool _running;
+    private bool running;
 
     public int BlockCount { get; private set; }
 
     public override void _Ready()
     {
-        _paddle = GetNode<Paddle>("Paddle");
-        _gameHud = GetNode<GameHud>("GameHud");
-        _gameHud.RestartLevel += Restart;
-        _gameHud.PauseEvent += PauseEvent;
-        _gameHud.CurrentLevel = GetLevel();
+        paddle = GetNode<Paddle>("Paddle");
+        gameHud = GetNode<GameHud>("GameHud");
+        gameHud.RestartLevel += Restart;
+        gameHud.PauseEvent += PauseEvent;
+        gameHud.CurrentLevel = GetLevel();
 
         GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
         StartRound();
 
         Lifes = LIFES_COUNT;
-        _score = 0;
+        score = 0;
         BlockCount = 0;
-        _gameHud.StartGame();
-        _gameHud.SetScore(_score);
-        _gameHud.SetLifes(Lifes);
+        gameHud.StartGame();
+        gameHud.SetScore(score);
+        gameHud.SetLifes(Lifes);
 
         BlockCount = CountBlocks();
 
@@ -62,12 +62,31 @@ public abstract partial class AbstractLevel : Node
             var bg = GetNode<Node>("Background");
             bg.QueueFree();
         }
-        if (!prefs.GetParamShowShadow())
+
+        SetLights();
+    }
+
+    private void SetLights()
+    {
+        var prefs = GameComponets.Instance.Get<UserPreferences>();
+        if (prefs.GetParamShowShadow())
         {
-            var light = GetNode<DirectionalLight3D>("DirectionalLight3D");
-            light.ShadowEnabled = false;
+            return;
         }
 
+        var lights = GetNodeOrNull<Node>("Lights");
+        if (lights == null)
+        {
+            return;
+        }
+
+        foreach (var light in lights.GetChildren())
+        {
+            if (light is Light3D light3D)
+            {
+                light3D.ShadowEnabled = false;
+            }
+        }
     }
 
     /// <summary>
@@ -104,7 +123,7 @@ public abstract partial class AbstractLevel : Node
     {
         BlockCount--;
         Score += scoreBonus + 1;
-        _gameHud.SetScore(Score);
+        gameHud.SetScore(Score);
 
         if (BlockCount <= 0)
         {
@@ -114,42 +133,42 @@ public abstract partial class AbstractLevel : Node
 
     protected void AddStartBall()
     {
-        _startArrow = ArrowScene.Instantiate<Arrow>();
-        _startArrow.Position = new Vector3(0, 0.5f, _paddle.Position.Z - 2f);
-        AddChild(_startArrow);
+        startArrow = ArrowScene.Instantiate<Arrow>();
+        startArrow.Position = new Vector3(0, 0.5f, paddle.Position.Z - 2f);
+        AddChild(startArrow);
 
-        _startBall = BallScene.Instantiate<Ball>();
+        startBall = BallScene.Instantiate<Ball>();
         BallsCount++;
-        _startBall.Position = _startArrow.Position;
-        _startBall.BallLeavesScreen += BallLoose;
-        AddChild(_startBall);
+        startBall.Position = startArrow.Position;
+        startBall.BallLeavesScreen += BallLoose;
+        AddChild(startBall);
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event.IsActionPressed("shoot") && _startBall != null)
+        if (@event.IsActionPressed("shoot") && startBall != null)
         {
-            _startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, _startArrow.Rotation.Y) * _startBall.StartSpeed;
-            _startBall = null;
-            _startArrow.QueueFree();
+            startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, startArrow.Rotation.Y) * startBall.StartSpeed;
+            startBall = null;
+            startArrow.QueueFree();
         }
     }
 
     private void PauseEvent()
     {
-        if (!_running)
+        if (!running)
         {
             return;
         }
 
         if (GetTree().Paused)
         {
-            _gameHud.HidePauseScreen();
+            gameHud.HidePauseScreen();
             GetTree().Paused = false;
         }
         else
         {
-            _gameHud.ShowPauseScreen();
+            gameHud.ShowPauseScreen();
             GetTree().Paused = true;
         }
     }
@@ -160,7 +179,7 @@ public abstract partial class AbstractLevel : Node
         if (BallsCount == 0 && BlockCount > 0)
         {
             Lifes--;
-            _gameHud.SetLifes(Lifes);
+            gameHud.SetLifes(Lifes);
 
             if (Lifes <= 0)
             {
@@ -176,18 +195,18 @@ public abstract partial class AbstractLevel : Node
     protected void LifeLoose()
     {
         GetNode<CpuParticles3D>("Explosion").Show();
-        GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
+        GetNode<CpuParticles3D>("Explosion").Position = paddle.Position;
         GetNode<CpuParticles3D>("Explosion").Restart();
         GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
-        _paddle.Hide();
+        paddle.Hide();
     }
 
     protected void StartRound()
     {
-        _running = true;
+        running = true;
 
         GetNode<CpuParticles3D>("Explosion").Hide();
-        _paddle.Show();
+        paddle.Show();
 
         GetNode<CpuParticles3D>("Explosion").Finished -= StartRound;
 
@@ -197,11 +216,11 @@ public abstract partial class AbstractLevel : Node
     protected void GameOver()
     {
         GetNode<CpuParticles3D>("Explosion").Show();
-        GetNode<CpuParticles3D>("Explosion").Position = _paddle.Position;
+        GetNode<CpuParticles3D>("Explosion").Position = paddle.Position;
         GetNode<CpuParticles3D>("Explosion").Restart();
-        _paddle.Hide();
-        _running = false;
-        _gameHud.GameOver();
+        paddle.Hide();
+        running = false;
+        gameHud.GameOver();
     }
 
     /// <summary>
@@ -209,9 +228,9 @@ public abstract partial class AbstractLevel : Node
     /// </summary>
     protected void LevelDone()
     {
-        _running = false;
+        running = false;
         SaveProgress();
-        _gameHud.LevelDone();
+        gameHud.LevelDone();
     }
 
     private void SaveProgress()

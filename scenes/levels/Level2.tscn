@@ -72,9 +72,12 @@ material = SubResource("StandardMaterial3D_sa5p8")
 [node name="Level" type="Node"]
 script = ExtResource("1_lwdn8")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Lights" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 20.2635, 10)
 shadow_enabled = true
+sky_mode = 1
 
 [node name="CameraPivot" parent="." instance=ExtResource("1_lj2gg")]
 
