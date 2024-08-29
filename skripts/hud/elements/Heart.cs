@@ -4,32 +4,40 @@ using Godot;
 public partial class Heart : Control
 {
     public delegate void AnimationFinishedCallBack();
+    private AnimatedSprite2D sprite;
 
     public override void _Ready()
     {
+        sprite = GetNode<AnimatedSprite2D>("Sprite");
         PlayIdle();
     }
 
     public void PlayIdle()
     {
-        GetNode<AnimatedSprite2D>("Sprite").Play("idle");
+        sprite.Play("idle");
     }
 
     public void PlayDestroy(AnimationFinishedCallBack onAnimationEnd = null)
     {
-        GetNode<AnimatedSprite2D>("Sprite").Play("destroy");
+        if (sprite.Animation == "destroy")
+        {
+            return;
+        }
+
+        sprite.Play("destroy");
         if (onAnimationEnd != null)
         {
-            GetNode<AnimatedSprite2D>("Sprite").AnimationFinished += () => onAnimationEnd();
+            sprite.AnimationFinished += () => onAnimationEnd();
         }
     }
 
     public void PlayCreate(AnimationFinishedCallBack onAnimationEnd = null)
     {
-        GetNode<AnimatedSprite2D>("Sprite").Play("create");
-        if (onAnimationEnd != null)
+        sprite.Play("create");
+        sprite.AnimationFinished += () =>
         {
-            GetNode<AnimatedSprite2D>("Sprite").AnimationFinished += () => onAnimationEnd();
-        }
+            PlayIdle();
+            onAnimationEnd?.Invoke();
+        };
     }
 }

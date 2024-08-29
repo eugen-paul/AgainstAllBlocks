@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Godot;
 
 public enum BlockColor
@@ -11,7 +12,7 @@ public enum BlockColor
 }
 
 [Tool]
-public partial class Block : CharacterBody3D
+public partial class Block : CharacterBody3D, ContainItem
 {
     private int _power = 1;
 
@@ -38,26 +39,60 @@ public partial class Block : CharacterBody3D
         }
     }
 
-    [Signal]
-    public delegate void BlockDestroyedEventHandler(int scoreBonus = 0);
+    public ItemType _itemType = ItemType.NONE;
+    [Export]
+    public ItemType ItemType
+    {
+        get => _itemType;
+        set
+        {
+            _itemType = value;
+            ShowItem();
+        }
+    }
+
+    [Export]
+    public PackedScene ItemScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_ITEM_SCENE);
+
+    public event Action<int, ContainItem> BlockDestroyed;
 
     public override void _Ready()
     {
         EditDamageEffect();
+        ShowItem();
     }
 
+    /// <summary>
+    /// Block is hit.
+    /// </summary>
+    /// <param name="scoreBonus"></param>
+    /// <param name="hitPower"></param>
     public void Hit(int scoreBonus, int hitPower = 1)
     {
         Power -= hitPower;
         if (Power <= 0)
         {
-            EmitSignal(SignalName.BlockDestroyed, scoreBonus);
+            BlockDestroyed.Invoke(scoreBonus, this);
             QueueFree();
         }
         else
         {
             EditDamageEffect();
         }
+    }
+
+    public Item CreateItem(AbstractLevel level)
+    {
+        if (ItemType == ItemType.NONE)
+        {
+            return null;
+        }
+
+        var item = ItemScene.Instantiate<Item>();
+        item.Level = level;
+        item.ItemType = ItemType;
+        item.Position = GlobalPosition + new Vector3(0, 0.5f, 0);
+        return item;
     }
 
     private void EditDamageEffect()
@@ -77,6 +112,24 @@ public partial class Block : CharacterBody3D
         if (GetNode<MeshInstance3D>("CollisionShape3D/block/Cube").GetSurfaceOverrideMaterialCount() > 0)
         {
             GetNode<MeshInstance3D>("CollisionShape3D/block/Cube").SetSurfaceOverrideMaterial(0, mat);
+        }
+    }
+
+    private void ShowItem()
+    {
+        if (Engine.IsEditorHint())
+        {
+            if (ItemType == ItemType.NONE)
+            {
+                GetNode<Sprite3D>("Sprite3D").Hide();
+                GetNode<Sprite3D>("Sprite3D").Texture = null;
+            }
+            else
+            {
+                GetNode<Sprite3D>("Sprite3D").Show();
+                var texture = GD.Load<Texture2D>("res://assets/textures/world/Items.png");
+                GetNode<Sprite3D>("Sprite3D").Texture = texture;
+            }
         }
     }
 }

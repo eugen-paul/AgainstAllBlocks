@@ -110,5 +110,3 @@ script = ExtResource("1_7esaf")
 position = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_4546j")
 animation = &"create"
-frame = 5
-frame_progress = 1.0

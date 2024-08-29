@@ -1,11 +1,9 @@
 using Godot;
-using System;
 using System.Diagnostics;
 
 public partial class Ball : CharacterBody3D
 {
-    [Signal]
-    public delegate void BallLeavesScreenEventHandler();
+    public System.Action<Ball> BallLeavesScreen;
 
     public float StartSpeed { get; set; } = 23.0f;
 
@@ -87,7 +85,7 @@ public partial class Ball : CharacterBody3D
 
     private void OnVisibilityNotifierScreenExited()
     {
-        EmitSignal(SignalName.BallLeavesScreen);
+        BallLeavesScreen.Invoke(this);
         QueueFree();
     }
 

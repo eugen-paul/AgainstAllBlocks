@@ -55,4 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("ArrayMesh_7nsk8")
 surface_material_override/0 = ExtResource("3_ctsrw")
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, 0)
+visible = false
+billboard = 1
+
 [editable path="CollisionShape3D/block"]
