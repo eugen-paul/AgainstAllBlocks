@@ -127,7 +127,7 @@ public partial class Block : CharacterBody3D, ContainItem
             else
             {
                 GetNode<Sprite3D>("Sprite3D").Show();
-                var texture = GD.Load<Texture2D>("res://assets/textures/world/Items.png");
+                var texture = GD.Load<Texture2D>(ItemBehaviorFactory.getIconPath(ItemType));
                 GetNode<Sprite3D>("Sprite3D").Texture = texture;
             }
         }

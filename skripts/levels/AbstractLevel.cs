@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
 
 public abstract partial class AbstractLevel : Node
@@ -61,16 +63,6 @@ public abstract partial class AbstractLevel : Node
 
         SetBackground();
         SetLights();
-    }
-
-    private void OnScoreChanged()
-    {
-        gameHud.SetScore(Score);
-    }
-
-    private void OnLifesChanged()
-    {
-        gameHud.SetLifes(Lifes);
     }
 
     private void SetBackground()
@@ -173,6 +165,21 @@ public abstract partial class AbstractLevel : Node
         AddChild(startBall);
     }
 
+    public void AddBall(float x)
+    {
+        var ball = BallScene.Instantiate<Ball>();
+        ball.Position = new Vector3(x, 0.5f, paddle.Position.Z - 1f);
+        ball.BallLeavesScreen += BallLoose;
+        ball.Velocity = Vector3.Back * ball.StartSpeed;
+        balls.Add(ball);
+        AddChild(ball);
+    }
+
+    public HashSet<Ball> GetAllBalls()
+    {
+        return balls;
+    }
+
     public override void _UnhandledInput(InputEvent @event)
     {
         if (@event.IsActionPressed("shoot") && startBall != null)
@@ -222,9 +229,24 @@ public abstract partial class AbstractLevel : Node
     public void LifesAdd(int value)
     {
         Lifes += value;
+        gameHud.SetLifes(Lifes);
         if (Lifes <= 0)
         {
             GameOver();
+        }
+    }
+
+    public void Death()
+    {
+        Lifes--;
+        gameHud.SetLifes(Lifes);
+        if (Lifes <= 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            LifeLoose();
         }
     }
 
@@ -235,6 +257,7 @@ public abstract partial class AbstractLevel : Node
         GetNode<CpuParticles3D>("Explosion").Position = paddle.Position;
         GetNode<CpuParticles3D>("Explosion").Restart();
         GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
+        gameHud.SetLifes(Lifes);
         paddle.Hide();
     }
 

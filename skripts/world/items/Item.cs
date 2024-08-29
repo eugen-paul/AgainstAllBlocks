@@ -5,6 +5,7 @@ public enum ItemType
     NONE = 0,
     LIFE_ADD,
     LIFE_REMOVE,
+    DEATH,
     BALL_ADD,
     BALL_SPEED_INCREASE,
     BALL_SPEED_DECREASE,
@@ -21,14 +22,23 @@ public class ItemBehaviorFactory
 {
     private ItemBehaviorFactory() { }
 
-    public static ItemBehavior Create(ItemType type, AbstractLevel level)
+    public static ItemBehavior Create(ItemType type, Item item, AbstractLevel level)
     {
         return type switch
         {
             ItemType.LIFE_ADD => new LifeBehavior(1, level),
             ItemType.LIFE_REMOVE => new LifeBehavior(-1, level),
+            ItemType.DEATH => new DeathBehavior(level),
+            ItemType.BALL_ADD => new BallAddBehavior(item, level),
+            ItemType.BALL_SPEED_INCREASE => new BallSpeedIncrease(level),
+            ItemType.BALL_SPEED_DECREASE => new BallSpeedDecrease(level),
             _ => new EmptyItemBehavior(),
         };
+    }
+
+    public static string getIconPath(ItemType type)
+    {
+        return "res://assets/textures/world/Items-" + type + ".png";
     }
 }
 
@@ -42,9 +52,21 @@ public class EmptyItemBehavior : ItemBehavior
     public override void DoBehavior() { }
 }
 
+[Tool]
 public partial class Item : CharacterBody3D
 {
-    public ItemType ItemType { get; set; } = ItemType.NONE;
+    public ItemType _itemType = ItemType.NONE;
+
+    [Export]
+    public ItemType ItemType
+    {
+        get => _itemType;
+        set
+        {
+            _itemType = value;
+            RefreshTexture();
+        }
+    }
 
     public AbstractLevel Level { get; set; } = null;
 
@@ -54,6 +76,20 @@ public partial class Item : CharacterBody3D
     public override void _EnterTree()
     {
         Velocity = Vector3.Back * ItemSpeed;
+    }
+
+    public override void _Ready()
+    {
+        RefreshTexture();
+    }
+
+    private void RefreshTexture()
+    {
+        var texture = GD.Load<Texture2D>(ItemBehaviorFactory.getIconPath(ItemType));
+        if (GetNodeOrNull<Sprite3D>("Sprite3D") != null)
+        {
+            GetNode<Sprite3D>("Sprite3D").Texture = texture;
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -70,7 +106,7 @@ public partial class Item : CharacterBody3D
     public void OnPaddleDetectorBodyEntered(Node3D paddle)
     {
         Level.ItemDestroyd(this);
-        ItemBehaviorFactory.Create(ItemType, Level)?.DoBehavior();
+        ItemBehaviorFactory.Create(ItemType, this, Level)?.DoBehavior();
         QueueFree();
     }
 }

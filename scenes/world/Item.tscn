@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://k1x2ko4u75y0"]
 
 [ext_resource type="Script" path="res://skripts/world/items/Item.cs" id="1_h6hlp"]
-[ext_resource type="Texture2D" uid="uid://dqhpcjm3pey6m" path="res://assets/textures/world/Items.png" id="2_vk8c8"]
+[ext_resource type="Texture2D" uid="uid://c2dn6pvyee3m7" path="res://assets/textures/world/Items-NONE.png" id="2_gw3le"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0myop"]
 
@@ -11,6 +11,7 @@ radius = 1.0
 [node name="Item" type="CharacterBody3D"]
 collision_layer = 0
 collision_mask = 0
+velocity = Vector3(0, 0, 10)
 script = ExtResource("1_h6hlp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -22,7 +23,7 @@ transform = Transform3D(3, 0, 0, 0, 0.776457, 2.89778, 0, -2.89778, 0.776457, 0,
 billboard = 1
 double_sided = false
 texture_filter = 0
-texture = ExtResource("2_vk8c8")
+texture = ExtResource("2_gw3le")
 
 [node name="PaddleDetector" type="Area3D" parent="."]
 collision_layer = 0
