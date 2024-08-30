@@ -7,6 +7,8 @@ public partial class Paddle : CharacterBody3D
     [Export]
     public float MaxPaddleSpeed { get; set; } = 30.0f;
 
+    private float bonusSpeed = 0.0f;
+
     public bool Pause { get; set; } = false;
 
     private float movePositionX = 0f;
@@ -46,7 +48,7 @@ public partial class Paddle : CharacterBody3D
         var d = paddleMoveX * 100f / viewportSizeX;
         var dx = d * sceeneSizeX / 100f;
 
-        var maxXVelocity = MaxPaddleSpeed * (float)delta;
+        var maxXVelocity = Mathf.Max(0f, (MaxPaddleSpeed + bonusSpeed) * (float)delta);
 
         if (dx > 0)
         {
@@ -58,6 +60,16 @@ public partial class Paddle : CharacterBody3D
         }
 
         return new Vector3(dx, 0, 0);
+    }
+
+    public void AddSpeed(float value)
+    {
+        bonusSpeed += value;
+    }
+
+    public void Reset()
+    {
+        bonusSpeed += 0;
     }
 
     private static Vector3 RemoveY(Vector3 data)

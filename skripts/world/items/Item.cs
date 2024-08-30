@@ -9,13 +9,11 @@ public enum ItemType
     BALL_ADD,
     BALL_SPEED_INCREASE,
     BALL_SPEED_DECREASE,
-    BALL_SPEED_DIRECTION_RANDOM,
+    BALL_DIRECTION_RANDOM,
     PADDLE_SPEED_INCREASE,
     PADDLE_SPEED_DECREASE,
-    PADDLE_SPEED_STOP,
-    SCORE_DOUBLING,
-    SCORE_HALVING,
-    SCORE_DELETION,
+    SCORE_BONUS,
+    SCORE_MANUS,
 }
 
 public class ItemBehaviorFactory
@@ -32,6 +30,11 @@ public class ItemBehaviorFactory
             ItemType.BALL_ADD => new BallAddBehavior(item, level),
             ItemType.BALL_SPEED_INCREASE => new BallSpeedIncrease(level),
             ItemType.BALL_SPEED_DECREASE => new BallSpeedDecrease(level),
+            ItemType.BALL_DIRECTION_RANDOM => new BallDirectionRandom(level),
+            ItemType.PADDLE_SPEED_INCREASE => new PaddleSpeedIncrease(level),
+            ItemType.PADDLE_SPEED_DECREASE => new PaddleSpeedDecrease(level),
+            ItemType.SCORE_BONUS => new ScoreBonus(level),
+            ItemType.SCORE_MANUS => new ScoreManus(level),
             _ => new EmptyItemBehavior(),
         };
     }

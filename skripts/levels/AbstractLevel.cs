@@ -26,8 +26,8 @@ public abstract partial class AbstractLevel : Node
         }
     }
 
-    private System.Collections.Generic.HashSet<Item> items;
-    private System.Collections.Generic.HashSet<Ball> balls;
+    private HashSet<Item> items;
+    private HashSet<Ball> balls;
 
     protected Paddle paddle;
     protected GameHud gameHud;
@@ -180,6 +180,11 @@ public abstract partial class AbstractLevel : Node
         return balls;
     }
 
+    public Paddle GetPaddle()
+    {
+        return paddle;
+    }
+
     public override void _UnhandledInput(InputEvent @event)
     {
         if (@event.IsActionPressed("shoot") && startBall != null)
@@ -267,6 +272,7 @@ public abstract partial class AbstractLevel : Node
 
         GetNode<CpuParticles3D>("Explosion").Hide();
         paddle.Show();
+        paddle.Reset();
 
         GetNode<CpuParticles3D>("Explosion").Finished -= StartRound;
 
