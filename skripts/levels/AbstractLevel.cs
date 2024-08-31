@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Godot;
+using Godot.Collections;
 
 public abstract partial class AbstractLevel : Node
 {
@@ -27,6 +28,7 @@ public abstract partial class AbstractLevel : Node
     }
 
     private HashSet<Item> items;
+    private HashSet<Rocket> rockets;
     private HashSet<Ball> balls;
 
     protected Paddle paddle;
@@ -42,6 +44,7 @@ public abstract partial class AbstractLevel : Node
     public override void _Ready()
     {
         items = new();
+        rockets = new();
         balls = new();
 
         paddle = GetNode<Paddle>("Paddle");
@@ -117,6 +120,11 @@ public abstract partial class AbstractLevel : Node
         return count;
     }
 
+    public virtual Array<Node> GetBlocks()
+    {
+        return FindChildren("Block*");
+    }
+
     protected abstract int GetLevel();
     protected abstract bool GetBall1();
     protected abstract bool GetBall2();
@@ -152,6 +160,11 @@ public abstract partial class AbstractLevel : Node
         items.Remove(item);
     }
 
+    public void RocketDestroyd(Rocket rocket)
+    {
+        rockets.Remove(rocket);
+    }
+
     protected void AddStartBall()
     {
         startArrow = ArrowScene.Instantiate<Arrow>();
@@ -178,6 +191,11 @@ public abstract partial class AbstractLevel : Node
     public HashSet<Ball> GetAllBalls()
     {
         return balls;
+    }
+
+    public HashSet<Rocket> GetAllRockets()
+    {
+        return rockets;
     }
 
     public Paddle GetPaddle()
@@ -303,6 +321,12 @@ public abstract partial class AbstractLevel : Node
             ball.QueueFree();
         }
         balls.Clear();
+
+        foreach (var rocket in rockets)
+        {
+            rocket.QueueFree();
+        }
+        rockets.Clear();
     }
 
     /// <summary>

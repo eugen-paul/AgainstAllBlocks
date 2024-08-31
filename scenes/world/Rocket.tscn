@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cn4grlo52b6kw"]
+
+[ext_resource type="PackedScene" uid="uid://c2ccwnt8jiwu4" path="res://assets/blender/world/rocket.gltf" id="1_r0io3"]
+[ext_resource type="Script" path="res://skripts/world/Rocket.cs" id="1_wmtfg"]
+[ext_resource type="Texture2D" uid="uid://b8coqlhe3qr3w" path="res://assets/textures/world/rocket.png" id="2_nwdtu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxsn0"]
+radius = 0.25
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgkji"]
+albedo_texture = ExtResource("2_nwdtu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctm84"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vbn6f"]
+material = SubResource("StandardMaterial3D_ctm84")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="Curve" id="Curve_t2gc5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.409524, 0.935353), 0.0, 0.0, 0, 0, Vector2(0.804762, 0.124322), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_wgvr1"]
+offsets = PackedFloat32Array(0, 0.329082)
+colors = PackedColorArray(1, 0.513726, 0, 1, 1, 0, 0, 1)
+
+[node name="Rocket" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.622973)
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_wmtfg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.00618672, -0.828795)
+shape = SubResource("CapsuleShape3D_bxsn0")
+
+[node name="rocket2" parent="." instance=ExtResource("1_r0io3")]
+transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, 0.3, 0, -0.3, -1.31134e-08, 0, 0, 0)
+
+[node name="rocket" parent="rocket2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lgkji")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0589008)
+amount = 20
+lifetime = 1.5
+mesh = SubResource("PlaneMesh_vbn6f")
+direction = Vector3(0, 0, 1)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.25
+initial_velocity_max = 2.0
+scale_amount_curve = SubResource("Curve_t2gc5")
+color_ramp = SubResource("Gradient_wgvr1")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.786771)
+aabb = AABB(-0.436891, -0.325377, -1, 0.873781, 0.650753, 2)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler3D" to="." method="OnVisibilityNotifierScreenExited"]
+
+[editable path="rocket2"]
