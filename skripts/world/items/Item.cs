@@ -56,9 +56,11 @@ public class EmptyItemBehavior : ItemBehavior
 }
 
 [Tool]
-public partial class Item : CharacterBody3D
+public partial class Item : Node3D
 {
     public ItemType _itemType = ItemType.NONE;
+
+    private Vector3 velocity = Vector3.Back;
 
     [Export]
     public ItemType ItemType
@@ -76,13 +78,9 @@ public partial class Item : CharacterBody3D
     [Export]
     public int ItemSpeed { get; set; } = 10;
 
-    public override void _EnterTree()
-    {
-        Velocity = Vector3.Back * ItemSpeed;
-    }
-
     public override void _Ready()
     {
+        velocity = Vector3.Back * ItemSpeed;
         RefreshTexture();
     }
 
@@ -97,7 +95,7 @@ public partial class Item : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        MoveAndSlide();
+        Position += velocity * (float)delta;
     }
 
     public void OnVisibilityNotifierScreenExited()
