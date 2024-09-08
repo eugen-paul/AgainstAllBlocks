@@ -15,17 +15,27 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"tetris_t",
+			"name":"tetris_s",
 			"translation":[
-				0,
-				1,
-				0
+				0.004982970654964447,
+				1.9999573230743408,
+				0.009965931996703148
 			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"Background",
+			"pbrMetallicRoughness":{
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
 		}
 	],
 	"meshes":[
 		{
-			"name":"Cube.006",
+			"name":"Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -33,7 +43,8 @@
 						"NORMAL":1,
 						"TEXCOORD_0":2
 					},
-					"indices":3
+					"indices":3,
+					"material":0
 				}
 			]
 		}
@@ -42,68 +53,68 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":52,
+			"count":56,
 			"max":[
-				2,
-				0,
-				1
+				1.9950170516967773,
+				-0.999957263469696,
+				-0.009965896606445312
 			],
 			"min":[
-				-1,
-				-1,
-				-1
+				-1.0049829483032227,
+				-1.9999573230743408,
+				-2.0099658966064453
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":52,
+			"count":56,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":52,
+			"count":56,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":84,
+			"count":108,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":624,
+			"byteLength":672,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":624,
-			"byteOffset":624,
+			"byteLength":672,
+			"byteOffset":672,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":416,
-			"byteOffset":1248,
+			"byteLength":448,
+			"byteOffset":1344,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":168,
-			"byteOffset":1664,
+			"byteLength":216,
+			"byteOffset":1792,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":1832,
-			"uri":"tetris_t.bin"
+			"byteLength":2008,
+			"uri":"tetris_s.bin"
 		}
 	]
 }

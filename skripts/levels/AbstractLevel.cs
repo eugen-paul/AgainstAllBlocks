@@ -308,6 +308,12 @@ public abstract partial class AbstractLevel : Node
             obj.QueueFree();
         }
         temporaryObjects.Clear();
+
+        foreach (var ball in balls)
+        {
+            ball.QueueFree();
+        }
+        balls.Clear();
     }
 
     /// <summary>

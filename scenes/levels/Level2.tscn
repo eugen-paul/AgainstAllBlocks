@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dxuge1xfrwld3"]
+[gd_scene load_steps=34 format=3 uid="uid://dxuge1xfrwld3"]
 
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_lj2gg"]
 [ext_resource type="Script" path="res://skripts/levels/Level2.cs" id="1_lwdn8"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://c44r1l7six3en" path="res://scenes/world/TetrisO.tscn" id="11_2gyhk"]
 [ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="11_jsk60"]
 [ext_resource type="PackedScene" uid="uid://d05n166wjq06y" path="res://scenes/world/TetrisT.tscn" id="12_yrvr8"]
+[ext_resource type="PackedScene" uid="uid://uubm218nn71y" path="res://scenes/world/TetrisS.tscn" id="16_5515r"]
+[ext_resource type="PackedScene" uid="uid://crxlwe2ku2wvo" path="res://scenes/world/TetrisZ.tscn" id="17_01yu0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjfcd"]
 albedo_color = Color(1, 0, 0, 1)
@@ -256,6 +258,7 @@ Color = 4
 [node name="Block5" parent="AllBlocks/Row5" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 Color = 4
+ItemType = 13
 
 [node name="Block6" parent="AllBlocks/Row5" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
@@ -354,6 +357,12 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="TetrisT2" parent="Background" instance=ExtResource("12_yrvr8")]
 transform = Transform3D(-2.7285e-08, 0.624207, -0.781259, -1, -4.37114e-08, 0, -3.41499e-08, 0.781259, 0.624207, -13.0469, 2, -28.9644)
+
+[node name="TetrisS" parent="Background" instance=ExtResource("16_5515r")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -21, 0, -32)
+
+[node name="TetrisZ" parent="Background" instance=ExtResource("17_01yu0")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -18, 0, -28)
 
 [node name="Grass" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(0.968, 0, 0, 0, 1, 0, 0, 0, 0.691891, 0, -0.01, -7)
