@@ -15,6 +15,7 @@ public enum ItemType
     SCORE_BONUS,
     SCORE_MANUS,
     ROCKET,
+    BOMBS,
 }
 
 public class ItemBehaviorFactory
@@ -37,6 +38,7 @@ public class ItemBehaviorFactory
             ItemType.SCORE_BONUS => new ScoreBonus(level),
             ItemType.SCORE_MANUS => new ScoreManus(level),
             ItemType.ROCKET => new RocketBehavior(item, level),
+            ItemType.BOMBS => new BombsBehavior(item, level),
             _ => new EmptyItemBehavior(),
         };
     }
@@ -97,18 +99,22 @@ public partial class Item : Node3D
 
     public override void _PhysicsProcess(double delta)
     {
+        if (Engine.IsEditorHint())
+        {
+            return;
+        }
         Position += velocity * (float)delta;
     }
 
     public void OnVisibilityNotifierScreenExited()
     {
-        Level.ItemDestroyd(this);
+        Level.TemporaryDestroyd(this);
         QueueFree();
     }
 
     public void OnPaddleDetectorBodyEntered(Node3D paddle)
     {
-        Level.ItemDestroyd(this);
+        Level.TemporaryDestroyd(this);
         ItemBehaviorFactory.Create(ItemType, this, Level)?.DoBehavior();
         QueueFree();
     }

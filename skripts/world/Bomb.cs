@@ -1,10 +1,12 @@
-using System.Diagnostics;
 using Godot;
 
-public partial class Rocket : CharacterBody3D
+public partial class Bomb : CharacterBody3D
 {
     [Export]
     public float StartSpeed { get; set; } = 22.0f;
+
+    [Export]
+    public float StartHeight { get; set; } = 22.0f;
 
     [Export]
     public int ScoreBonus { get; set; } = 20;
@@ -13,8 +15,8 @@ public partial class Rocket : CharacterBody3D
 
     public void SetTarget(Vector3 targetPosition)
     {
-        LookAt(targetPosition, Vector3.Up);
-        Velocity = RemoveY(Vector3.Forward.Rotated(Vector3.Up, Rotation.Y) * StartSpeed);
+        Position = new Vector3(targetPosition.X, StartHeight, targetPosition.Z - 5);
+        Velocity = Vector3.Down * StartSpeed;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -22,7 +24,7 @@ public partial class Rocket : CharacterBody3D
         var collision = MoveAndCollide(Velocity * (float)delta);
         if (collision != null && collision.GetCollider() is Node node)
         {
-            if (node.IsInGroup("Wall"))
+            if (node.IsInGroup("Wall") || node.IsInGroup("Ground"))
             {
                 Level.TemporaryDestroyd(this);
                 QueueFree();
@@ -37,16 +39,5 @@ public partial class Rocket : CharacterBody3D
                 QueueFree();
             }
         }
-    }
-
-    private static Vector3 RemoveY(Vector3 data)
-    {
-        return new Vector3(data.X, 0, data.Z);
-    }
-
-    private void OnVisibilityNotifierScreenExited()
-    {
-        Level.TemporaryDestroyd(this);
-        QueueFree();
     }
 }

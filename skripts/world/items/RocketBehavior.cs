@@ -29,7 +29,7 @@ public class RocketBehavior : ItemBehavior
             rocket.Position = item.GlobalPosition;
             level.AddChild(rocket);
             rocket.SetTarget(block.GlobalPosition);
-            level.GetAllRockets().Add(rocket);
+            level.TemporaryAdd(rocket);
         }
     }
 }

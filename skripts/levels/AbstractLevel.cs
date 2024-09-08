@@ -27,8 +27,7 @@ public abstract partial class AbstractLevel : Node
         }
     }
 
-    private HashSet<Item> items;
-    private HashSet<Rocket> rockets;
+    private HashSet<Node3D> temporaryObjects;
     private HashSet<Ball> balls;
 
     protected Paddle paddle;
@@ -43,8 +42,7 @@ public abstract partial class AbstractLevel : Node
 
     public override void _Ready()
     {
-        items = new();
-        rockets = new();
+        temporaryObjects = new();
         balls = new();
 
         paddle = GetNode<Paddle>("Paddle");
@@ -149,20 +147,25 @@ public abstract partial class AbstractLevel : Node
             var item = itemToCreate.CreateItem(this);
             if (item != null)
             {
-                items.Add(item);
+                temporaryObjects.Add(item);
                 AddChild(item);
             }
         }
     }
 
-    public void ItemDestroyd(Item item)
+    public void TemporaryAdd(Node3D obj)
     {
-        items.Remove(item);
+        temporaryObjects.Add(obj);
     }
 
-    public void RocketDestroyd(Rocket rocket)
+    public void TemporaryDestroyd(Node3D obj)
     {
-        rockets.Remove(rocket);
+        temporaryObjects.Remove(obj);
+    }
+
+    public Paddle GetPaddle()
+    {
+        return paddle;
     }
 
     protected void AddStartBall()
@@ -191,16 +194,6 @@ public abstract partial class AbstractLevel : Node
     public HashSet<Ball> GetAllBalls()
     {
         return balls;
-    }
-
-    public HashSet<Rocket> GetAllRockets()
-    {
-        return rockets;
-    }
-
-    public Paddle GetPaddle()
-    {
-        return paddle;
     }
 
     public override void _UnhandledInput(InputEvent @event)
@@ -310,23 +303,11 @@ public abstract partial class AbstractLevel : Node
 
     private void DestroyAllTemporary()
     {
-        foreach (var item in items)
+        foreach (var obj in temporaryObjects)
         {
-            item.QueueFree();
+            obj.QueueFree();
         }
-        items.Clear();
-
-        foreach (var ball in balls)
-        {
-            ball.QueueFree();
-        }
-        balls.Clear();
-
-        foreach (var rocket in rockets)
-        {
-            rocket.QueueFree();
-        }
-        rockets.Clear();
+        temporaryObjects.Clear();
     }
 
     /// <summary>
