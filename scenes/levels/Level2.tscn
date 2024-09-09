@@ -117,6 +117,7 @@ Color = 1
 [node name="Block6" parent="AllBlocks/Row1" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -19)
 Color = 1
+ItemType = 3
 
 [node name="Block7" parent="AllBlocks/Row1" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -19)
@@ -168,6 +169,7 @@ Color = 2
 [node name="Block2" parent="AllBlocks/Row3" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -15)
 Color = 2
+ItemType = 4
 
 [node name="Block3" parent="AllBlocks/Row3" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -15)
@@ -207,6 +209,7 @@ Color = 3
 [node name="Block2" parent="AllBlocks/Row4" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -11)
 Color = 3
+ItemType = 5
 
 [node name="Block3" parent="AllBlocks/Row4" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -11)
@@ -231,6 +234,7 @@ Color = 3
 [node name="Block8" parent="AllBlocks/Row4" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -11)
 Color = 3
+ItemType = 5
 
 [node name="Block9" parent="AllBlocks/Row4" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -11)
@@ -258,7 +262,7 @@ Color = 4
 [node name="Block5" parent="AllBlocks/Row5" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 Color = 4
-ItemType = 13
+ItemType = 12
 
 [node name="Block6" parent="AllBlocks/Row5" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)

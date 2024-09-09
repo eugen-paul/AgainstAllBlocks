@@ -13,11 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="10_8pb53"]
 [ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="11_jsk60"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwpvo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7nmb"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vkdcj"]
-material = SubResource("StandardMaterial3D_pwpvo")
+material = SubResource("StandardMaterial3D_r7nmb")
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jl32k"]
@@ -112,6 +112,7 @@ Color = 2
 [node name="Block5" parent="AllBlocks/Row1" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 Color = 2
+ItemType = 4
 
 [node name="Block6" parent="AllBlocks/Row1" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
@@ -158,12 +159,14 @@ Color = 4
 [node name="Block7" parent="AllBlocks/Row2" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
 Color = 4
+ItemType = 11
 
 [node name="Row3" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row3" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
 Color = 1
+ItemType = 11
 
 [node name="Block2" parent="AllBlocks/Row3" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
@@ -205,6 +208,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 
 [node name="Block2" parent="AllBlocks/Row6" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+ItemType = 12
 
 [node name="Block3" parent="AllBlocks/Row6" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
@@ -218,6 +222,7 @@ Color = 1
 [node name="Block2" parent="AllBlocks/Row7" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
 Color = 1
+ItemType = 11
 
 [node name="Block3" parent="AllBlocks/Row7" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
@@ -226,6 +231,7 @@ Color = 1
 [node name="Block4" parent="AllBlocks/Row7" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
 Color = 1
+ItemType = 11
 
 [node name="Block5" parent="AllBlocks/Row7" instance=ExtResource("4_vnv4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)

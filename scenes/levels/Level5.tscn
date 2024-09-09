@@ -1,0 +1,346 @@
+[gd_scene load_steps=22 format=3 uid="uid://b3hdlmciuyq2b"]
+
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_7t77g"]
+[ext_resource type="Script" path="res://skripts/levels/Level5.cs" id="1_hcvei"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="2_v7oqm"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="3_ukj55"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="4_k00ax"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="4_vy87x"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="5_e03j5"]
+[ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="7_xlhox"]
+[ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="8_4v1kh"]
+[ext_resource type="PackedScene" uid="uid://cn4grlo52b6kw" path="res://scenes/world/Rocket.tscn" id="9_mn2vc"]
+[ext_resource type="Script" path="res://skripts/world/RocketFun.cs" id="11_wx2f3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwpvo"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_chjki"]
+material = SubResource("StandardMaterial3D_pwpvo")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n3ft6"]
+size = Vector2(50, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8d3o"]
+albedo_texture = ExtResource("7_xlhox")
+uv1_scale = Vector3(10, 20, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_phuku"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofht0"]
+albedo_texture = ExtResource("8_4v1kh")
+uv1_scale = Vector3(3, 3, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oswbt"]
+radial_segments = 8
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cd87"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8aiys"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 5.0
+radial_segments = 4
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxa5a"]
+albedo_color = Color(0.770298, 0.437383, 0.265056, 1)
+
+[node name="Level" type="Node"]
+script = ExtResource("1_hcvei")
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.965926, 1.13133e-08, -0.258819, 0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, 0, 16, 0)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="CameraPivot" parent="." instance=ExtResource("1_7t77g")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("2_v7oqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Paddle" parent="." instance=ExtResource("3_ukj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Row1" type="Node3D" parent="AllBlocks"]
+
+[node name="Block" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -7)
+
+[node name="Block12" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2)
+ItemType = 4
+
+[node name="Block2" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+
+[node name="Block11" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -2)
+
+[node name="Block3" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7)
+
+[node name="Block10" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
+
+[node name="Block4" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+
+[node name="Block7" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+
+[node name="Block5" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -7)
+
+[node name="Block8" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2)
+
+[node name="Block6" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
+
+[node name="Block9" parent="AllBlocks/Row1" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -2)
+ItemType = 4
+
+[node name="Row2" type="Node3D" parent="AllBlocks"]
+
+[node name="Block" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+Color = 1
+
+[node name="Block10" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+Color = 1
+
+[node name="Block2" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+Color = 1
+
+[node name="Block9" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+Color = 1
+ItemType = 11
+
+[node name="Block3" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+Color = 1
+
+[node name="Block8" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+Color = 1
+ItemType = 11
+
+[node name="Block4" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+Color = 1
+
+[node name="Block7" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+Color = 1
+ItemType = 11
+
+[node name="Block5" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+Color = 1
+
+[node name="Block6" parent="AllBlocks/Row2" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+Color = 1
+
+[node name="Row3" type="Node3D" parent="AllBlocks"]
+
+[node name="Block" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 0)
+Color = 4
+
+[node name="Block2" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 0)
+Color = 4
+
+[node name="Block3" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+Color = 4
+
+[node name="Block6" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, 2)
+Color = 4
+
+[node name="Block7" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 2)
+Color = 4
+
+[node name="Block8" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 2)
+Color = 4
+
+[node name="Block4" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 0)
+Color = 4
+
+[node name="Block5" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 0)
+Color = 4
+
+[node name="Block9" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 1)
+Color = 4
+
+[node name="Block10" parent="AllBlocks/Row3" instance=ExtResource("4_k00ax")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 1)
+Color = 4
+
+[node name="Row4" type="Node3D" parent="AllBlocks"]
+
+[node name="Block" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+Power = 3
+Color = 2
+
+[node name="Block2" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+Power = 3
+Color = 2
+
+[node name="Block3" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+Power = 3
+Color = 2
+
+[node name="Block6" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 4)
+Color = 2
+
+[node name="Block7" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 4)
+Color = 2
+
+[node name="Block8" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 5)
+Color = 3
+ItemType = 12
+
+[node name="Block9" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
+Color = 3
+ItemType = 12
+
+[node name="Block10" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+Color = 3
+ItemType = 12
+
+[node name="Block11" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
+Color = 3
+ItemType = 12
+
+[node name="Block12" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
+Color = 3
+ItemType = 12
+
+[node name="Block4" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+Power = 3
+Color = 2
+
+[node name="Block5" parent="AllBlocks/Row4" instance=ExtResource("4_k00ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
+Power = 3
+Color = 2
+
+[node name="GameHud" parent="." instance=ExtResource("4_vy87x")]
+
+[node name="Explosion" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 23)
+emitting = false
+amount = 32
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+mesh = SubResource("PlaneMesh_chjki")
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 5.0
+
+[node name="Ground" parent="." instance=ExtResource("5_e03j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Grass" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_n3ft6")
+surface_material_override/0 = SubResource("StandardMaterial3D_l8d3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -23)
+mesh = SubResource("PlaneMesh_phuku")
+surface_material_override/0 = SubResource("StandardMaterial3D_ofht0")
+
+[node name="Rocket" parent="Background" instance=ExtResource("9_mn2vc")]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -16, 0.0140594, -25.377)
+
+[node name="CPUParticles3D" parent="Background/Rocket" index="2"]
+emitting = false
+
+[node name="VisibleOnScreenEnabler3D" parent="Background/Rocket" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.786771)
+
+[node name="Rocket2" parent="Background" instance=ExtResource("9_mn2vc")]
+transform = Transform3D(2.41533, -1.55558e-07, -1.77937, 0, -3, 2.62268e-07, -1.77937, -2.11155e-07, -2.41533, 12, 0.745139, -21.377)
+
+[node name="CollisionShape3D" parent="Background/Rocket2" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.00618744, -0.828795)
+
+[node name="CPUParticles3D" parent="Background/Rocket2" index="2"]
+emitting = false
+
+[node name="Rocket4" parent="Background" instance=ExtResource("9_mn2vc")]
+transform = Transform3D(1.54098, -1.5, 2.09174, -0.889686, -2.59808, -1.20767, 2.41533, -1.55558e-07, -1.77937, 16, 0.745139, -21.377)
+
+[node name="CollisionShape3D" parent="Background/Rocket4" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.00618744, -0.828795)
+
+[node name="CPUParticles3D" parent="Background/Rocket4" index="2"]
+emitting = false
+
+[node name="Rocket3" parent="Background" instance=ExtResource("9_mn2vc")]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -15, 0.0632108, -20.377)
+
+[node name="CPUParticles3D" parent="Background/Rocket3" index="2"]
+emitting = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -24)
+mesh = SubResource("CylinderMesh_oswbt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5cd87")
+script = ExtResource("11_wx2f3")
+
+[node name="Rocket4" parent="Background/MeshInstance3D2" instance=ExtResource("9_mn2vc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 0, 1.62297)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/MeshInstance3D2"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 0, 0)
+mesh = SubResource("CylinderMesh_8aiys")
+surface_material_override/0 = SubResource("StandardMaterial3D_rxa5a")
+
+[editable path="CameraPivot"]
+[editable path="Background/Rocket"]
+[editable path="Background/Rocket/rocket2"]
+[editable path="Background/Rocket2"]
+[editable path="Background/Rocket2/rocket2"]
+[editable path="Background/Rocket4"]
+[editable path="Background/Rocket4/rocket2"]
+[editable path="Background/Rocket3"]
+[editable path="Background/Rocket3/rocket2"]
