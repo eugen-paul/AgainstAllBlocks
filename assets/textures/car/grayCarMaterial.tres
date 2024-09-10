@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cxhjxfd481aqn"]
+
+[ext_resource type="Texture2D" uid="uid://b04flbkl4qjnb" path="res://assets/textures/car/car-Gray.png" id="1_4str1"]
+
+[resource]
+albedo_texture = ExtResource("1_4str1")

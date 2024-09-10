@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci87xyrsnk0lq"]
+
+[ext_resource type="PackedScene" uid="uid://ceecriucebfhc" path="res://assets/blender/world/car.gltf" id="1_0u06c"]
+[ext_resource type="Script" path="res://skripts/world/Car.cs" id="1_ogd1v"]
+[ext_resource type="Material" uid="uid://dhdax3646sbpv" path="res://assets/textures/car/yellowCarMaterial.tres" id="3_quijj"]
+
+[node name="Car" type="Node3D"]
+script = ExtResource("1_ogd1v")
+
+[node name="car" parent="." instance=ExtResource("1_0u06c")]
+
+[node name="Cube" parent="car" index="0"]
+surface_material_override/0 = ExtResource("3_quijj")
+
+[node name="wheel" parent="car" index="1"]
+surface_material_override/0 = ExtResource("3_quijj")
+
+[node name="wheel_001" parent="car" index="2"]
+surface_material_override/0 = ExtResource("3_quijj")
+
+[node name="wheel_002" parent="car" index="3"]
+surface_material_override/0 = ExtResource("3_quijj")
+
+[node name="wheel_003" parent="car" index="4"]
+surface_material_override/0 = ExtResource("3_quijj")
+
+[editable path="car"]
