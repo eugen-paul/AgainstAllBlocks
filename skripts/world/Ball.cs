@@ -64,7 +64,7 @@ public partial class Ball : CharacterBody3D
                 {
                     block.Hit(ScoreBonus);
                 }
-                if (node is Block)
+                if (node is ABlock)
                 {
                     BallHitsBlock();
                 }

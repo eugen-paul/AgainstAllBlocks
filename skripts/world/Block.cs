@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using Godot;
 
 public enum BlockColor
@@ -12,20 +11,8 @@ public enum BlockColor
 }
 
 [Tool]
-public partial class Block : CharacterBody3D, ContainItem, Hitable
+public partial class Block : ABlock
 {
-    private int _power = 1;
-
-    [Export(PropertyHint.Range, "1,10000,")]
-    public int Power
-    {
-        get => _power;
-        set
-        {
-            _power = value;
-            EditDamageEffect();
-        }
-    }
 
     private BlockColor _color = BlockColor.YELLOW;
     [Export]
@@ -39,58 +26,13 @@ public partial class Block : CharacterBody3D, ContainItem, Hitable
         }
     }
 
-    public ItemType _itemType = ItemType.NONE;
-    [Export]
-    public ItemType ItemType
-    {
-        get => _itemType;
-        set
-        {
-            _itemType = value;
-            ShowItem();
-        }
-    }
-
-    [Export]
-    public PackedScene ItemScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_ITEM_SCENE);
-
-    public event Action<int, ContainItem> BlockDestroyed;
-
     public override void _Ready()
     {
         EditDamageEffect();
         ShowItem();
     }
 
-    public void Hit(int scoreBonus, int hitPower = 1)
-    {
-        Power -= hitPower;
-        if (Power <= 0)
-        {
-            BlockDestroyed.Invoke(scoreBonus, this);
-            QueueFree();
-        }
-        else
-        {
-            EditDamageEffect();
-        }
-    }
-
-    public Item CreateItem(AbstractLevel level)
-    {
-        if (ItemType == ItemType.NONE)
-        {
-            return null;
-        }
-
-        var item = ItemScene.Instantiate<Item>();
-        item.Level = level;
-        item.ItemType = ItemType;
-        item.Position = GlobalPosition + new Vector3(0, 0.5f, 0);
-        return item;
-    }
-
-    private void EditDamageEffect()
+    protected override void EditDamageEffect()
     {
         var powerLeft = Math.Min(Power, 5);
         powerLeft = Math.Max(powerLeft, 1);
@@ -110,21 +52,4 @@ public partial class Block : CharacterBody3D, ContainItem, Hitable
         }
     }
 
-    private void ShowItem()
-    {
-        if (Engine.IsEditorHint())
-        {
-            if (ItemType == ItemType.NONE)
-            {
-                GetNode<Sprite3D>("Sprite3D").Hide();
-                GetNode<Sprite3D>("Sprite3D").Texture = null;
-            }
-            else
-            {
-                GetNode<Sprite3D>("Sprite3D").Show();
-                var texture = GD.Load<Texture2D>(ItemBehaviorFactory.getIconPath(ItemType));
-                GetNode<Sprite3D>("Sprite3D").Texture = texture;
-            }
-        }
-    }
 }

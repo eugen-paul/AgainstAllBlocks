@@ -42,7 +42,7 @@ public partial class Bomb : CharacterBody3D
         var hits = new Array<Node>();
         foreach (var node in Level.GetBlocks())
         {
-            if (node is Block block)
+            if (node is ABlock block)
             {
                 if (GlobalPosition.DistanceTo(block.GlobalPosition) <= Explosionradius)
                 {
@@ -53,7 +53,7 @@ public partial class Bomb : CharacterBody3D
 
         foreach (var node in hits)
         {
-            if (node is Block block)
+            if (node is ABlock block)
             {
                 block.Hit(ScoreBonus);
             }

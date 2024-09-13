@@ -32,7 +32,7 @@ public partial class Rocket : CharacterBody3D
             }
             else if (node.IsInGroup("Block"))
             {
-                if (node is Block block)
+                if (node is ABlock block)
                 {
                     block.Hit(ScoreBonus, Power);
                 }

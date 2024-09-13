@@ -22,7 +22,7 @@ public class BombsBehavior : ItemBehavior
         int position = random.Next(0, blocks.Count);
         var blockFromArray = blocks[position];
 
-        if (blockFromArray is Block block)
+        if (blockFromArray is ABlock block)
         {
             var bomb = BombScene.Instantiate<Bomb>();
             bomb.Level = level;

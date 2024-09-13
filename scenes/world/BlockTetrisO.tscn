@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvo5nc236kqy"]
+
+[ext_resource type="Script" path="res://skripts/world/BlockTetrisI.cs" id="1_gjc8c"]
+[ext_resource type="PackedScene" uid="uid://c44r1l7six3en" path="res://scenes/world/TetrisO.tscn" id="2_sl5ic"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]
+
+[node name="Block" type="CharacterBody3D" groups=["Block"]]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_gjc8c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
+shape = SubResource("BoxShape3D_ulciv")
+
+[node name="TetrisO" parent="." instance=ExtResource("2_sl5ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, 0)
+visible = false
+billboard = 1

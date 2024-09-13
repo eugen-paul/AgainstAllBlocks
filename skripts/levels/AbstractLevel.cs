@@ -110,7 +110,7 @@ public abstract partial class AbstractLevel : Node
         var count = 0;
         foreach (var nodeBlock in blocks)
         {
-            if (nodeBlock is Block block)
+            if (nodeBlock is ABlock block)
             {
                 block.BlockDestroyed += BlockDestroid;
                 count++;

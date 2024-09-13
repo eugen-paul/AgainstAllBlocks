@@ -1,0 +1,107 @@
+[gd_scene load_steps=20 format=3 uid="uid://dq1y7ads1iroi"]
+
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_ccyil"]
+[ext_resource type="Script" path="res://skripts/levels/Level7.cs" id="1_fp2a6"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="2_niect"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="3_wa3r6"]
+[ext_resource type="PackedScene" uid="uid://c6nck4s02ppm0" path="res://scenes/world/BlockTetrisL.tscn" id="4_tnmb7"]
+[ext_resource type="PackedScene" uid="uid://cohv2lojgck8e" path="res://scenes/world/BlockTetrisI.tscn" id="5_ngbfq"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="5_tepc7"]
+[ext_resource type="PackedScene" uid="uid://crx2108kah47v" path="res://scenes/world/BlockTetrisJ.tscn" id="6_n5gwa"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="6_od4t4"]
+[ext_resource type="PackedScene" uid="uid://cjvo5nc236kqy" path="res://scenes/world/BlockTetrisO.tscn" id="7_jhsng"]
+[ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="7_mu46r"]
+[ext_resource type="PackedScene" uid="uid://diie3y4utlcq" path="res://scenes/world/BlockTetrisS.tscn" id="8_n7wvl"]
+[ext_resource type="PackedScene" uid="uid://oelc8xv1mmug" path="res://scenes/world/BlockTetrisT.tscn" id="9_wwqcu"]
+[ext_resource type="PackedScene" uid="uid://dphgciccoudk6" path="res://scenes/world/BlockTetrisZ.tscn" id="10_aco6p"]
+[ext_resource type="PackedScene" uid="uid://mljipl60q0uq" path="res://scenes/world/StageSquare.tscn" id="12_cfx3b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwpvo"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_708x1"]
+material = SubResource("StandardMaterial3D_pwpvo")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ljuuu"]
+size = Vector2(50, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nfcn"]
+albedo_texture = ExtResource("7_mu46r")
+uv1_scale = Vector3(10, 20, 1)
+
+[node name="Level7" type="Node"]
+script = ExtResource("1_fp2a6")
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.965926, 0.0669873, -0.25, 0.258819, -0.25, 0.933013, 0, -0.965926, -0.258819, -5, 13, 0)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="CameraPivot" parent="." instance=ExtResource("1_ccyil")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("2_niect")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Paddle" parent="." instance=ExtResource("3_wa3r6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Raw1" type="Node3D" parent="AllBlocks"]
+
+[node name="Block" parent="AllBlocks/Raw1" instance=ExtResource("4_tnmb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -10)
+
+[node name="Block2" parent="AllBlocks/Raw1" instance=ExtResource("5_ngbfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -11)
+
+[node name="Block3" parent="AllBlocks/Raw1" instance=ExtResource("6_n5gwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -10)
+
+[node name="Block4" parent="AllBlocks/Raw1" instance=ExtResource("7_jhsng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
+
+[node name="Block5" parent="AllBlocks/Raw1" instance=ExtResource("8_n7wvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9)
+
+[node name="Block6" parent="AllBlocks/Raw1" instance=ExtResource("9_wwqcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9)
+
+[node name="Block7" parent="AllBlocks/Raw1" instance=ExtResource("10_aco6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
+
+[node name="Raw2" type="Node3D" parent="AllBlocks"]
+
+[node name="Stage" parent="AllBlocks" instance=ExtResource("12_cfx3b")]
+Items = [12]
+
+[node name="GameHud" parent="." instance=ExtResource("5_tepc7")]
+
+[node name="Explosion" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 23)
+emitting = false
+amount = 32
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+mesh = SubResource("PlaneMesh_708x1")
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 5.0
+
+[node name="Ground" parent="." instance=ExtResource("6_od4t4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Grass" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_ljuuu")
+surface_material_override/0 = SubResource("StandardMaterial3D_7nfcn")
+
+[editable path="CameraPivot"]
