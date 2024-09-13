@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://mljipl60q0uq"]
+
+[ext_resource type="Script" path="res://skripts/world/StageSquare.cs" id="1_o5cqu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4x8l"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nu7a"]
+albedo_color = Color(0.733002, 2.75549e-06, 6.73831e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_isawo"]
+material = SubResource("StandardMaterial3D_3nu7a")
+size = Vector3(2, 0.8, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lm3jm"]
+material = SubResource("StandardMaterial3D_3nu7a")
+size = Vector3(1.5, 0.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ewyb"]
+material = SubResource("StandardMaterial3D_3nu7a")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7che5"]
+albedo_color = Color(4.06705e-06, 0.69624, 5.77569e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d7r2m"]
+material = SubResource("StandardMaterial3D_7che5")
+size = Vector3(1.55, 0.55, 1.55)
+
+[node name="Stage" type="StaticBody3D" groups=["Block"]]
+script = ExtResource("1_o5cqu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_n4x8l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_isawo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_lm3jm")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+mesh = SubResource("BoxMesh_2ewyb")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2.33651, 0)
+visible = false
+billboard = 1
+
+[node name="Status" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_d7r2m")

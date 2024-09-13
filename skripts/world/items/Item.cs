@@ -80,11 +80,17 @@ public partial class Item : Node3D
     public AbstractLevel Level { get; set; } = null;
 
     [Export]
-    public int ItemSpeed { get; set; } = 10;
+    public float ItemSpeedZ { get; set; } = 10;
+
+    [Export]
+    public float ItemSpeedX { get; set; } = 0;
+
+    [Export]
+    public float ItemDecelerationX { get; set; } = 0;
 
     public override void _Ready()
     {
-        velocity = Vector3.Back * ItemSpeed;
+        velocity = new Vector3(ItemSpeedX, 0, ItemSpeedZ);
         RefreshTexture();
     }
 
@@ -102,6 +108,14 @@ public partial class Item : Node3D
         if (Engine.IsEditorHint())
         {
             return;
+        }
+        if (velocity.X > 0)
+        {
+            velocity.X -= (float)delta * ItemDecelerationX;
+        }
+        else
+        {
+            velocity.X += (float)delta * ItemDecelerationX;
         }
         Position += velocity * (float)delta;
     }

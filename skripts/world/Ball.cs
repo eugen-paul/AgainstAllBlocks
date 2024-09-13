@@ -7,6 +7,10 @@ public partial class Ball : CharacterBody3D
 
     public float StartSpeed { get; set; } = 23.0f;
 
+    public float MaxSpeed { get; set; } = 40f;
+
+    public float MinSpeed { get; set; } = 15f;
+
     public float Weight { get; set; } = 1.0f;
 
     public int ScoreBonus { get; set; } = 0;
@@ -45,6 +49,9 @@ public partial class Ball : CharacterBody3D
 
                 ball.Velocity = v2n_new_vec + v2t_vec;
                 ball.Velocity = RemoveY(ball.Velocity);
+
+                LimitSpeed(ball);
+                LimitSpeed(this);
             }
             else if (node.IsInGroup("Wall"))
             {
@@ -53,9 +60,12 @@ public partial class Ball : CharacterBody3D
             }
             else if (node.IsInGroup("Block"))
             {
-                if (node is Block block)
+                if (node is Hitable block)
                 {
                     block.Hit(ScoreBonus);
+                }
+                if (node is Block)
+                {
                     BallHitsBlock();
                 }
                 Velocity = Velocity.Bounce(collision.GetNormal());
@@ -75,6 +85,18 @@ public partial class Ball : CharacterBody3D
             {
                 Debug.Print("Collision with somtthing. " + node.ToString());
             }
+        }
+    }
+
+    private static void LimitSpeed(Ball ball)
+    {
+        if (ball.Velocity.Length() < ball.MinSpeed)
+        {
+            ball.Velocity = ball.Velocity.Normalized() * ball.MinSpeed;
+        }
+        if (ball.Velocity.Length() > ball.MaxSpeed)
+        {
+            ball.Velocity = ball.Velocity.Normalized() * ball.MaxSpeed;
         }
     }
 

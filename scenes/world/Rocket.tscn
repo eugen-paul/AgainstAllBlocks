@@ -11,11 +11,11 @@ height = 1.8
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgkji"]
 albedo_texture = ExtResource("2_nwdtu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctm84"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uwhh"]
 vertex_color_use_as_albedo = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vbn6f"]
-material = SubResource("StandardMaterial3D_ctm84")
+material = SubResource("StandardMaterial3D_6uwhh")
 size = Vector2(0.2, 0.2)
 
 [sub_resource type="Curve" id="Curve_t2gc5"]

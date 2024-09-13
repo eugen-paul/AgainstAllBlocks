@@ -62,6 +62,7 @@ public abstract partial class AbstractLevel : Node
 
         BlockCount = CountBlocks();
 
+        InitStages();
         SetBackground();
         SetLights();
     }
@@ -116,6 +117,18 @@ public abstract partial class AbstractLevel : Node
             }
         }
         return count;
+    }
+
+    protected virtual void InitStages()
+    {
+        var stages = FindChildren("Stage*");
+        foreach (var nodeStage in stages)
+        {
+            if (nodeStage is StageSquare stage)
+            {
+                stage.Level = this;
+            }
+        }
     }
 
     public virtual Array<Node> GetBlocks()

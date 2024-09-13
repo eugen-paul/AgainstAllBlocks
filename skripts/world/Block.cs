@@ -12,7 +12,7 @@ public enum BlockColor
 }
 
 [Tool]
-public partial class Block : CharacterBody3D, ContainItem
+public partial class Block : CharacterBody3D, ContainItem, Hitable
 {
     private int _power = 1;
 
@@ -62,11 +62,6 @@ public partial class Block : CharacterBody3D, ContainItem
         ShowItem();
     }
 
-    /// <summary>
-    /// Block is hit.
-    /// </summary>
-    /// <param name="scoreBonus"></param>
-    /// <param name="hitPower"></param>
     public void Hit(int scoreBonus, int hitPower = 1)
     {
         Power -= hitPower;

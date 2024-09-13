@@ -9,6 +9,9 @@ public partial class Rocket : CharacterBody3D
     [Export]
     public int ScoreBonus { get; set; } = 20;
 
+    [Export]
+    public int Power { get; set; } = 5;
+
     public AbstractLevel Level { get; set; } = null;
 
     public void SetTarget(Vector3 targetPosition)
@@ -31,7 +34,7 @@ public partial class Rocket : CharacterBody3D
             {
                 if (node is Block block)
                 {
-                    block.Hit(ScoreBonus);
+                    block.Hit(ScoreBonus, Power);
                 }
                 Level.TemporaryDestroyd(this);
                 QueueFree();
