@@ -1,5 +1,16 @@
 using Godot;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics;
+
+public enum BallSounds
+{
+    KICK,
+    HIT_BALL,
+    HIT_BLOCK,
+    HIT_PADDLE,
+    HIT_WALL,
+}
 
 public partial class Ball : CharacterBody3D
 {
@@ -14,6 +25,15 @@ public partial class Ball : CharacterBody3D
     public float Weight { get; set; } = 1.0f;
 
     public int ScoreBonus { get; set; } = 0;
+
+    private readonly static IDictionary<BallSounds, string> SOUND_TO_PATH = new Dictionary<BallSounds, string> {
+            {  BallSounds.KICK, "Kick" },
+            {  BallSounds.HIT_BALL, "HitBall" },
+            {  BallSounds.HIT_BLOCK, "HitBlock" },
+            {  BallSounds.HIT_PADDLE, "HitPaddle" },
+            {  BallSounds.HIT_WALL, "HitWall" },
+        }
+        .ToImmutableDictionary();
 
     private readonly ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
 
@@ -52,11 +72,13 @@ public partial class Ball : CharacterBody3D
 
                 LimitSpeed(ball);
                 LimitSpeed(this);
+                PlaySound(BallSounds.HIT_BALL);
             }
             else if (node.IsInGroup("Wall"))
             {
                 Velocity = Velocity.Bounce(collision.GetNormal());
                 Velocity = RemoveY(Velocity);
+                PlaySound(BallSounds.HIT_WALL);
             }
             else if (node.IsInGroup("Block"))
             {
@@ -70,6 +92,7 @@ public partial class Ball : CharacterBody3D
                 }
                 Velocity = Velocity.Bounce(collision.GetNormal());
                 Velocity = RemoveY(Velocity);
+                PlaySound(BallSounds.HIT_BLOCK);
             }
             else if (node.IsInGroup("Paddle"))
             {
@@ -79,6 +102,7 @@ public partial class Ball : CharacterBody3D
                     Velocity = direction * Velocity.Length();
                     Velocity = RemoveY(Velocity);
                     BallHitsPaddle();
+                    PlaySound(BallSounds.HIT_PADDLE);
                 }
             }
             else
@@ -119,5 +143,10 @@ public partial class Ball : CharacterBody3D
     public void BallHitsPaddle()
     {
         ScoreBonus = 0;
+    }
+
+    public void PlaySound(BallSounds sound)
+    {
+        GetNode<AudioStreamPlayer>(SOUND_TO_PATH[sound]).Play();
     }
 }

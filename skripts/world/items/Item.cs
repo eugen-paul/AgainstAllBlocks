@@ -126,10 +126,14 @@ public partial class Item : Node3D
         QueueFree();
     }
 
-    public void OnPaddleDetectorBodyEntered(Node3D paddle)
+    public void OnPaddleDetectorBodyEntered(Node3D node)
     {
         Level.TemporaryDestroyd(this);
         ItemBehaviorFactory.Create(ItemType, this, Level)?.DoBehavior();
+        if (node is Paddle paddle)
+        {
+            paddle.PlayCatchItem();
+        }
         QueueFree();
     }
 }

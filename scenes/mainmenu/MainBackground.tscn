@@ -16,6 +16,7 @@ point_count = 5
 [node name="Background" type="Node"]
 script = ExtResource("1_ur41e")
 BallScene = ExtResource("2_ei345")
+BallCount = 3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, -7.71341e-09, -0.965926, 0.258819, -8, 17, 5)

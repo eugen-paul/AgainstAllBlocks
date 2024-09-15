@@ -28,6 +28,7 @@ public partial class Paddle : CharacterBody3D
                 var ballDirection = collisionBallPaddle.BallHitsPaddle(ball, this, normal);
                 ball.Velocity = ballDirection * ball.Velocity.Length();
                 ball.BallHitsPaddle();
+                PlayHitBAll();
             }
         }
     }
@@ -90,5 +91,15 @@ public partial class Paddle : CharacterBody3D
         var mesh = GetNode<CollisionShape3D>("CollisionShape3D");
         var box = (BoxShape3D)mesh.Shape;
         return box.Size.X;
+    }
+
+    public void PlayHitBAll()
+    {
+        GetNode<AudioStreamPlayer>("HitBall").Play();
+    }
+
+    public void PlayCatchItem()
+    {
+        GetNode<AudioStreamPlayer>("CatchItem").Play();
     }
 }

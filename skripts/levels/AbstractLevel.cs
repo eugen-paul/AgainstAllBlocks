@@ -214,6 +214,7 @@ public abstract partial class AbstractLevel : Node
         if (@event.IsActionPressed("shoot") && startBall != null)
         {
             startBall.Velocity = Vector3.Forward.Rotated(Vector3.Up, startArrow.Rotation.Y) * startBall.StartSpeed;
+            startBall.PlaySound(BallSounds.KICK);
             startBall = null;
             startArrow.QueueFree();
         }
