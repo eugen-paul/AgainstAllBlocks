@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://q8ppf5s0nf4k"]
+[gd_scene load_steps=7 format=3 uid="uid://q8ppf5s0nf4k"]
 
 [ext_resource type="Script" path="res://skripts/world/Bomb.cs" id="1_mvvf3"]
 [ext_resource type="PackedScene" uid="uid://8c7u05jnphg" path="res://assets/blender/world/bomb.gltf" id="2_2216y"]
 [ext_resource type="Texture2D" uid="uid://1jp3nju4f5vb" path="res://assets/textures/world/bomb.png" id="3_nlnor"]
+[ext_resource type="AudioStream" uid="uid://ci8pf2ao6e1cn" path="res://assets/sounds/fallingBomb.wav" id="4_okwwf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gmm0g"]
 size = Vector3(1.2, 2.734, 1.2)
@@ -23,5 +24,10 @@ shape = SubResource("BoxShape3D_gmm0g")
 
 [node name="Cylinder" parent="bomb" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_sivcp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_okwwf")
+volume_db = -5.0
+autoplay = true
 
 [editable path="bomb"]

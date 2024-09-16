@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn4grlo52b6kw"]
+[gd_scene load_steps=11 format=3 uid="uid://cn4grlo52b6kw"]
 
 [ext_resource type="PackedScene" uid="uid://c2ccwnt8jiwu4" path="res://assets/blender/world/rocket.gltf" id="1_r0io3"]
 [ext_resource type="Script" path="res://skripts/world/Rocket.cs" id="1_wmtfg"]
 [ext_resource type="Texture2D" uid="uid://b8coqlhe3qr3w" path="res://assets/textures/world/rocket.png" id="2_nwdtu"]
+[ext_resource type="AudioStream" uid="uid://g6yntnnd0q0d" path="res://assets/sounds/rocket.wav" id="4_q5bfq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxsn0"]
 radius = 0.25
@@ -54,6 +55,12 @@ initial_velocity_min = 1.25
 initial_velocity_max = 2.0
 scale_amount_curve = SubResource("Curve_t2gc5")
 color_ramp = SubResource("Gradient_wgvr1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q5bfq")
+volume_db = -15.0
+pitch_scale = 2.0
+autoplay = true
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.786771)

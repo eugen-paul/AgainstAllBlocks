@@ -15,6 +15,9 @@ public partial class Bomb : CharacterBody3D
     [Export]
     public int ScoreBonus { get; set; } = 20;
 
+    [Export]
+    public PackedScene ExplosionScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_BOMB_EXPLOSION_SCENE);
+
     public AbstractLevel Level { get; set; } = null;
 
     public void SetTarget(Vector3 targetPosition)
@@ -58,5 +61,12 @@ public partial class Bomb : CharacterBody3D
                 block.Hit(ScoreBonus);
             }
         }
+
+        var explosion = ExplosionScene.Instantiate<Explosion>();
+        explosion.Level = Level;
+        explosion.Position = GlobalPosition;
+        Level.AddChild(explosion);
+        Level.TemporaryAdd(explosion);
+        explosion.Explode();
     }
 }

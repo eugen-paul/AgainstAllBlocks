@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Godot;
 
 public partial class Rocket : CharacterBody3D
@@ -11,6 +10,9 @@ public partial class Rocket : CharacterBody3D
 
     [Export]
     public int Power { get; set; } = 5;
+
+    [Export]
+    public PackedScene ExplosionScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_ROCKET_EXPLOSION_SCENE);
 
     public AbstractLevel Level { get; set; } = null;
 
@@ -27,11 +29,13 @@ public partial class Rocket : CharacterBody3D
         {
             if (node.IsInGroup("Wall"))
             {
+                SpawnExplosion(collision.GetPosition());
                 Level.TemporaryDestroyd(this);
                 QueueFree();
             }
             else if (node.IsInGroup("Block"))
             {
+                SpawnExplosion(collision.GetPosition());
                 if (node is ABlock block)
                 {
                     block.Hit(ScoreBonus, Power);
@@ -40,6 +44,16 @@ public partial class Rocket : CharacterBody3D
                 QueueFree();
             }
         }
+    }
+
+    private void SpawnExplosion(Vector3 pos)
+    {
+        var explosion = ExplosionScene.Instantiate<Explosion>();
+        explosion.Level = Level;
+        explosion.Position = pos;
+        Level.AddChild(explosion);
+        Level.TemporaryAdd(explosion);
+        explosion.Explode();
     }
 
     private static Vector3 RemoveY(Vector3 data)

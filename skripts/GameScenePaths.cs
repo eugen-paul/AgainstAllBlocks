@@ -12,7 +12,9 @@ public sealed class GameScenePaths
     public const string DEFAULT_PADDLE_SCENE = "res://scenes/world/Paddle.tscn";
     public const string DEFAULT_ITEM_SCENE = "res://scenes/world/Item.tscn";
     public const string DEFAULT_ROCKET_SCENE = "res://scenes/world/Rocket.tscn";
+    public const string DEFAULT_ROCKET_EXPLOSION_SCENE = "res://scenes/world/RocketExplosion.tscn";
     public const string DEFAULT_BOMB_SCENE = "res://scenes/world/Bomb.tscn";
+    public const string DEFAULT_BOMB_EXPLOSION_SCENE = "res://scenes/world/BombExplosion.tscn";
 
     public static string GetLevelPath(int level)
     {
