@@ -7,6 +7,14 @@ public class UserPreferencesData
     public bool ShowFps { get; set; } = false;
     public bool ShowBackground { get; set; } = true;
     public bool ShowShadow { get; set; } = true;
+    public EffectsPreferences Effects { get; set; } = EffectsPreferences.HIGH;
+}
+
+public enum EffectsPreferences
+{
+    OFF = 0,
+    LOW = 1,
+    HIGH = 2,
 }
 
 public class UserPreferences : GameComponet
@@ -44,6 +52,19 @@ public class UserPreferences : GameComponet
     {
         data.ShowShadow = value;
         Save();
+    }
+
+    public EffectsPreferences GetParamEffects() => data.Effects;
+
+    public void SetParamEffects(EffectsPreferences value)
+    {
+        data.Effects = value;
+        Save();
+    }
+
+    public void SetParamEffects(int value)
+    {
+        SetParamEffects((EffectsPreferences)value);
     }
 
     private void Save()

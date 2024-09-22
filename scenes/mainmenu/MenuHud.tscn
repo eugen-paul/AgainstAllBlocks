@@ -125,6 +125,7 @@ text = "Show FPS:"
 
 [node name="ShowFpsCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="ShowBgLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -132,6 +133,7 @@ text = "Show Background"
 
 [node name="ShowBgCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="ShowShadowLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -139,6 +141,24 @@ text = "Show Shadow"
 
 [node name="ShowShadowCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EffectsLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Effects"
+
+[node name="EffectsOptionButton" type="OptionButton" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+item_count = 3
+selected = 2
+allow_reselect = true
+popup/item_0/text = "OFF"
+popup/item_0/id = 0
+popup/item_1/text = "LOW"
+popup/item_1/id = 1
+popup/item_2/text = "HIGH"
+popup/item_2/id = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -217,4 +237,5 @@ visible = false
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox" to="." method="TogleShowFps"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox" to="." method="TogleShowBg"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowShadowCheckBox" to="." method="TogleShadow"]
+[connection signal="item_selected" from="Settings/CenterContainer/VBoxContainer/GridContainer/EffectsOptionButton" to="." method="OnEffectsOptionButtonItemSelected"]
 [connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="OnSettingsBackPressed"]

@@ -7,9 +7,27 @@ public partial class BombExplosion : Explosion
 
     public override void Explode()
     {
-        GetNode<GpuParticles3D>("Debris").Emitting = true;
-        GetNode<GpuParticles3D>("Smoke").Emitting = true;
-        GetNode<GpuParticles3D>("Fire").Emitting = true;
+        var userPreferences = GameComponets.Instance.Get<UserPreferences>();
+
+        switch (userPreferences.GetParamEffects())
+        {
+            case EffectsPreferences.HIGH:
+                GetNode<GpuParticles3D>("Debris").Emitting = true;
+                GetNode<GpuParticles3D>("Fire").Emitting = true;
+                GetNode<GpuParticles3D>("Smoke").Emitting = true;
+                done = 4;
+                break;
+            case EffectsPreferences.LOW:
+                GetNode<GpuParticles3D>("Debris").Emitting = true;
+                GetNode<GpuParticles3D>("Fire").Emitting = true;
+                done = 3;
+                break;
+            case EffectsPreferences.OFF:
+            default:
+                done = 1;
+                break;
+        }
+
         GetNode<AudioStreamPlayer>("Sound").Play();
     }
 

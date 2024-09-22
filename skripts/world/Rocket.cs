@@ -22,6 +22,15 @@ public partial class Rocket : CharacterBody3D
         Velocity = RemoveY(Vector3.Forward.Rotated(Vector3.Up, Rotation.Y) * StartSpeed);
     }
 
+    public override void _Ready()
+    {
+        var userPreferences = GameComponets.Instance.Get<UserPreferences>();
+        if (userPreferences.GetParamEffects() == EffectsPreferences.OFF)
+        {
+            GetNode<CpuParticles3D>("CPUParticles3D").Emitting = false;
+        }
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         var collision = MoveAndCollide(Velocity * (float)delta);
@@ -35,11 +44,11 @@ public partial class Rocket : CharacterBody3D
             }
             else if (node.IsInGroup("Block"))
             {
-                SpawnExplosion(collision.GetPosition());
                 if (node is ABlock block)
                 {
                     block.Hit(ScoreBonus, Power);
                 }
+                SpawnExplosion(collision.GetPosition());
                 Level.TemporaryDestroyd(this);
                 QueueFree();
             }
