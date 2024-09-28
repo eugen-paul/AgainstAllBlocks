@@ -116,7 +116,6 @@ draw_pass_1 = SubResource("SphereMesh_w11wk")
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w4cs1")
-autoplay = true
 
 [connection signal="finished" from="Debris" to="." method="OnDone"]
 [connection signal="finished" from="Smoke" to="." method="OnDone"]

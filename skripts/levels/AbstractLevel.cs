@@ -144,7 +144,7 @@ public abstract partial class AbstractLevel : Node
     private void Restart()
     {
         GetTree().Paused = false;
-        GetTree().ReloadCurrentScene();
+        GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
     }
 
     protected void BlockDestroid(int scoreBonus, ContainItem itemToCreate)
