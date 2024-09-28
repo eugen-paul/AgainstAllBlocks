@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
 
 public partial class SceneLoader : CanvasLayer
@@ -15,37 +16,50 @@ public partial class SceneLoader : CanvasLayer
             GameScenePaths.DEFAULT_BOMB_EXPLOSION_SCENE,
         };
 
+    private List<string> toLoad;
+
     private string NextScene = GameScenePaths.MAIN_SCENE;
 
     public override void _Ready()
     {
-        foreach (var path in pathsToLoad)
+        toLoad = new(pathsToLoad);
+        if (toLoad.Count != 0)
         {
-            ResourceLoader.LoadThreadedRequest(path);
+            ResourceLoader.LoadThreadedRequest(pathsToLoad[0]);
         }
+    }
+
+    private void GoToNext()
+    {
+        var next = (PackedScene)ResourceLoader.LoadThreadedGet(NextScene);
+        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 
     public override void _Process(double delta)
     {
-        double fullProgress = 0;
-        int loaded = 0;
-
-        foreach (var path in pathsToLoad)
+        if (toLoad.Count == 0)
         {
-            Godot.Collections.Array progress = new();
-            var status = ResourceLoader.LoadThreadedGetStatus(path, progress);
-            fullProgress += progress[0].AsDouble() * 100;
-            switch (status)
-            {
-                case ResourceLoader.ThreadLoadStatus.Loaded:
-                    loaded++;
-                    break;
-                default:
-                    break;
-            }
+            GoToNext();
+            return;
         }
 
-        if (loaded == pathsToLoad.Count)
+        var status = ResourceLoader.LoadThreadedGetStatus(toLoad[0]);
+        switch (status)
+        {
+            case ResourceLoader.ThreadLoadStatus.Loaded:
+                // Debug.Print($"Loaded, path = {toLoad[0]}");
+                toLoad.RemoveAt(0);
+                if (toLoad.Count != 0) { ResourceLoader.LoadThreadedRequest(toLoad[0]); };
+                break;
+            case ResourceLoader.ThreadLoadStatus.InProgress:
+                // Debug.Print($"InProgress, path = {path}");
+                break;
+            default:
+                Debug.Print($"LoadThreadedGetStatus not OK, status = {status}, path = {toLoad[0]}");
+                break;
+        }
+
+        if (toLoad.Count == 0)
         {
             var next = (PackedScene)ResourceLoader.LoadThreadedGet(NextScene);
             GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
@@ -53,7 +67,7 @@ public partial class SceneLoader : CanvasLayer
         else
         {
             var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");
-            progressBar.Value = Mathf.Min(100f, fullProgress / pathsToLoad.Count);
+            progressBar.Value = Mathf.Min(100f, 100f * (pathsToLoad.Count - toLoad.Count) / pathsToLoad.Count);
         }
     }
 }
