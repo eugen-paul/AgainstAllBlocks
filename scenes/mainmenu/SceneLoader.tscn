@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://co5onbjmke684"]
 
-[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_3w3vd"]
-[ext_resource type="Script" path="res://skripts/mainmenu/StartGame.cs" id="1_lu6vk"]
+[ext_resource type="Script" path="res://skripts/mainmenu/SceneLoader.cs" id="1_tap3u"]
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="2_u5c35"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_lu6vk")
+script = ExtResource("1_tap3u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -27,7 +27,7 @@ offset_right = 39.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_3w3vd")
+theme = ExtResource("2_u5c35")
 alignment = 1
 
 [node name="LoadingLabel" type="Label" parent="ColorRect/VBoxContainer"]

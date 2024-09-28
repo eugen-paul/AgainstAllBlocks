@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Godot;
 
 public class UserPreferencesData
@@ -7,6 +8,8 @@ public class UserPreferencesData
     public bool ShowFps { get; set; } = false;
     public bool ShowBackground { get; set; } = true;
     public bool ShowShadow { get; set; } = true;
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public EffectsPreferences Effects { get; set; } = EffectsPreferences.HIGH;
 }
 

@@ -43,7 +43,7 @@ public class ItemBehaviorFactory
         };
     }
 
-    public static string getIconPath(ItemType type)
+    public static string GetIconPath(ItemType type)
     {
         return "res://assets/textures/world/Items-" + type + ".png";
     }
@@ -96,7 +96,7 @@ public partial class Item : Node3D
 
     private void RefreshTexture()
     {
-        var texture = GD.Load<Texture2D>(ItemBehaviorFactory.getIconPath(ItemType));
+        var texture = GD.Load<Texture2D>(ItemBehaviorFactory.GetIconPath(ItemType));
         if (GetNodeOrNull<Sprite3D>("Sprite3D") != null)
         {
             GetNode<Sprite3D>("Sprite3D").Texture = texture;

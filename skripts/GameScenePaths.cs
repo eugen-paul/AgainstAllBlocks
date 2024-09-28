@@ -3,14 +3,16 @@ using System.Collections.Immutable;
 
 public sealed class GameScenePaths
 {
+    public const string SCENE_LOADER = "res://scenes/mainmenu/SceneLoader.tscn";
     public const string MAIN_SCENE = "res://scenes/mainmenu/Main.tscn";
     public const string LEVEL_SELECTION_SCENE = "res://scenes/levelsmenu/Levels.tscn";
     private const string LEVEL_SCENE_PREFIX = "res://scenes/levels/Level";
     private const string LEVEL_SCENE_SUFFIX = ".tscn";
-    public const string DEFAULT_BALL_SCENE = "res://scenes/world/Ball.tscn";
+
     public const string DEFAULT_ARROW_SCENE = "res://scenes/world/Arrow.tscn";
-    public const string DEFAULT_PADDLE_SCENE = "res://scenes/world/Paddle.tscn";
+    public const string DEFAULT_BALL_SCENE = "res://scenes/world/Ball.tscn";
     public const string DEFAULT_ITEM_SCENE = "res://scenes/world/Item.tscn";
+    public const string DEFAULT_PADDLE_SCENE = "res://scenes/world/Paddle.tscn";
     public const string DEFAULT_ROCKET_SCENE = "res://scenes/world/Rocket.tscn";
     public const string DEFAULT_ROCKET_EXPLOSION_SCENE = "res://scenes/world/RocketExplosion.tscn";
     public const string DEFAULT_BOMB_SCENE = "res://scenes/world/Bomb.tscn";

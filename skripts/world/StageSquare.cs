@@ -83,7 +83,7 @@ public partial class StageSquare : StaticBody3D, Hitable
         else
         {
             GetNode<Sprite3D>("Sprite3D").Show();
-            var texture = GD.Load<Texture2D>(ItemBehaviorFactory.getIconPath(workingItems[0]));
+            var texture = GD.Load<Texture2D>(ItemBehaviorFactory.GetIconPath(workingItems[0]));
             GetNode<Sprite3D>("Sprite3D").Texture = texture;
         }
     }

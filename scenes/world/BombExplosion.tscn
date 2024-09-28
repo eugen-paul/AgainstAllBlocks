@@ -96,7 +96,6 @@ amount = 20
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_3ogta")
 draw_pass_1 = SubResource("CylinderMesh_frs5i")
 
@@ -105,7 +104,6 @@ emitting = false
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
-fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_tesi7")
 draw_pass_1 = SubResource("SphereMesh_w11wk")
 
@@ -113,7 +111,6 @@ draw_pass_1 = SubResource("SphereMesh_w11wk")
 emitting = false
 one_shot = true
 explosiveness = 1.0
-fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_fk051")
 draw_pass_1 = SubResource("SphereMesh_w11wk")
 
