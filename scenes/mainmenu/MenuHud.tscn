@@ -1,31 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://c03r1blfxny5b"]
+[gd_scene load_steps=7 format=3 uid="uid://c03r1blfxny5b"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_5dcku"]
 [ext_resource type="Script" path="res://skripts/mainmenu/MenuHud.cs" id="1_mh2sp"]
 [ext_resource type="PackedScene" uid="uid://bef6f0qps8e14" path="res://scenes/mainmenu/GameSlotEmpty.tscn" id="3_3oa8s"]
 [ext_resource type="PackedScene" uid="uid://puxcdhmkm8fi" path="res://scenes/mainmenu/GameSlotSave.tscn" id="3_c284c"]
 [ext_resource type="PackedScene" uid="uid://dpvjyg48jchp2" path="res://scenes/fps/Fps.tscn" id="3_qpr6h"]
+[ext_resource type="Texture2D" uid="uid://br1skebg7kva8" path="res://assets/textures/Logo.png" id="4_fdy80"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_mh2sp")
 GameSlotEmpty = ExtResource("3_3oa8s")
 GameSlotSave = ExtResource("3_c284c")
 
-[node name="Label" type="Label" parent="."]
+[node name="Logo" type="TextureRect" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -166.5
-offset_top = 30.0
-offset_right = 166.5
-offset_bottom = 85.0
+offset_left = -182.0
+offset_top = 24.0
+offset_right = 182.0
+offset_bottom = 136.0
 grow_horizontal = 2
-auto_translate = false
-localize_numeral_system = false
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.0589121, 0.246419, 0.243904, 1)
-theme_override_font_sizes/font_size = 40
-text = "Against All Blocks"
+texture = ExtResource("4_fdy80")
 
 [node name="Main" type="CanvasLayer" parent="."]
 visible = false

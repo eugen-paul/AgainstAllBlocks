@@ -17,5 +17,6 @@ mono_crash.*.json
 #blender
 assets_blender/
 assets_sounds/
+assets_test/
 *.blend
 *.blend1
