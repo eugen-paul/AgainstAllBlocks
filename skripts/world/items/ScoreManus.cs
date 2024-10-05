@@ -12,6 +12,6 @@ public class ScoreManus : ItemBehavior
 
     public override void DoBehavior()
     {
-        level.Score = Mathf.Max(0, level.Score - 25);
+        level.Score = Mathf.Max(0, level.Score - 35);
     }
 }

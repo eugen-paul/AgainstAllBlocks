@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=15 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="Script" path="res://skripts/hud/elements/ScoreNumberLabel.cs" id="2_dbgga"]
+[ext_resource type="FontFile" uid="uid://8qx1ip3akefr" path="res://assets/themes/Square.ttf" id="3_l2p8l"]
 [ext_resource type="Texture2D" uid="uid://dmq3otg71rq3x" path="res://assets/textures/gui/menuTop.png" id="3_mh67h"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="4_snbc4"]
 [ext_resource type="Script" path="res://skripts/hud/elements/LifeContainer.cs" id="5_8b0e4"]
@@ -54,12 +55,15 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -21.0
-offset_right = 25.0
-offset_bottom = 21.0
+offset_left = 11.0
+offset_top = -14.0
+offset_right = 28.0
+offset_bottom = 19.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.501407, 0.501406, 0.501406, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_l2p8l")
 theme_override_font_sizes/font_size = 30
 text = "0"
 script = ExtResource("2_dbgga")
@@ -92,7 +96,7 @@ anchor_bottom = 0.5
 offset_left = -4.0
 offset_top = -16.0
 offset_right = -4.0
-offset_bottom = 16.0
+offset_bottom = 17.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("5_8b0e4")
@@ -278,7 +282,7 @@ theme_override_constants/separation = 20
 
 [node name="PauseLabel" type="Label" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
 text = "Pause"
 horizontal_alignment = 1
 

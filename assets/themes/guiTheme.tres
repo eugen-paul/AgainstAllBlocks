@@ -1,66 +1,7 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://2u3mfphi8ajw"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://2u3mfphi8ajw"]
 
-[ext_resource type="Texture2D" uid="uid://bofd5qyat8hdg" path="res://assets/textures/gui/button_focus.png" id="1_3170b"]
-[ext_resource type="Texture2D" uid="uid://b30y0utuj2g4s" path="res://assets/textures/gui/button_disabled.png" id="1_tjhgu"]
-[ext_resource type="Texture2D" uid="uid://j2hikv7sypqp" path="res://assets/textures/gui/button_hover.png" id="2_g6j8x"]
-[ext_resource type="Texture2D" uid="uid://bkf74b4p47fx4" path="res://assets/textures/gui/button_normal.png" id="3_odr2a"]
-[ext_resource type="Texture2D" uid="uid://dwk8ytdpivgpa" path="res://assets/textures/gui/button_pressed.png" id="4_frcyr"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dlh27"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-texture = ExtResource("1_tjhgu")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 47.0
-texture_margin_bottom = 47.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ckag"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-texture = ExtResource("1_3170b")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 47.0
-texture_margin_bottom = 47.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pffrl"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-texture = ExtResource("2_g6j8x")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 47.0
-texture_margin_bottom = 47.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1g8r"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-texture = ExtResource("3_odr2a")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 47.0
-texture_margin_bottom = 47.0
-region_rect = Rect2(0, 0, 64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8h2e"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-texture = ExtResource("4_frcyr")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 47.0
-texture_margin_bottom = 47.0
+[ext_resource type="FontFile" uid="uid://8qx1ip3akefr" path="res://assets/themes/Square.ttf" id="1_b2eqr"]
+[ext_resource type="StyleBox" uid="uid://cwed7w3bh1y4w" path="res://assets/themes/normal_button_texture_style.tres" id="1_kqsiq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5gjl"]
 
@@ -76,20 +17,22 @@ texture_margin_bottom = 47.0
 
 [resource]
 default_font_size = 34
+Button/colors/font_color = Color(0.87451, 0.890196, 0.894118, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 4
-Button/styles/disabled = SubResource("StyleBoxTexture_dlh27")
-Button/styles/focus = SubResource("StyleBoxTexture_5ckag")
-Button/styles/hover = SubResource("StyleBoxTexture_pffrl")
-Button/styles/normal = SubResource("StyleBoxTexture_w1g8r")
-Button/styles/pressed = SubResource("StyleBoxTexture_g8h2e")
+Button/fonts/font = ExtResource("1_b2eqr")
+Button/styles/disabled = ExtResource("1_kqsiq")
+Button/styles/focus = ExtResource("1_kqsiq")
+Button/styles/hover = ExtResource("1_kqsiq")
+Button/styles/normal = ExtResource("1_kqsiq")
+Button/styles/pressed = ExtResource("1_kqsiq")
+CheckBox/icons/checked = null
 CheckBox/styles/disabled = SubResource("StyleBoxEmpty_s5gjl")
 CheckBox/styles/focus = SubResource("StyleBoxEmpty_2y0se")
 CheckBox/styles/hover = SubResource("StyleBoxEmpty_eq1j6")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_mj7hc")
 CheckBox/styles/normal = SubResource("StyleBoxEmpty_t8k6j")
 CheckBox/styles/pressed = SubResource("StyleBoxEmpty_bf4db")
-Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0.180392, 0.180392, 0.180392, 1)
 Label/constants/outline_size = 3
@@ -97,3 +40,4 @@ Label/constants/shadow_offset_x = 2
 Label/constants/shadow_offset_y = 2
 Label/constants/shadow_outline_size = 2
 Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("1_b2eqr")

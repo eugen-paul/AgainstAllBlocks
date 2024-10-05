@@ -47,12 +47,10 @@ public partial class SceneLoader : CanvasLayer
         switch (status)
         {
             case ResourceLoader.ThreadLoadStatus.Loaded:
-                // Debug.Print($"Loaded, path = {toLoad[0]}");
                 toLoad.RemoveAt(0);
                 if (toLoad.Count != 0) { ResourceLoader.LoadThreadedRequest(toLoad[0]); };
                 break;
             case ResourceLoader.ThreadLoadStatus.InProgress:
-                // Debug.Print($"InProgress, path = {path}");
                 break;
             default:
                 Debug.Print($"LoadThreadedGetStatus not OK, status = {status}, path = {toLoad[0]}");

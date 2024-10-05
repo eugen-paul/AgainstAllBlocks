@@ -38,8 +38,6 @@ public abstract partial class AbstractLevel : Node
 
     private bool running;
 
-    public int BlockCount { get; private set; }
-
     public override void _Ready()
     {
         temporaryObjects = new();
@@ -60,7 +58,7 @@ public abstract partial class AbstractLevel : Node
         GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
         StartRound();
 
-        BlockCount = CountBlocks();
+        InitBlockDestoyedCallbacks();
 
         InitStages();
         SetBackground();
@@ -112,11 +110,26 @@ public abstract partial class AbstractLevel : Node
         {
             if (nodeBlock is ABlock block)
             {
-                block.BlockDestroyed += BlockDestroid;
                 count++;
             }
         }
         return count;
+    }
+
+    /// <summary>
+    /// Counts all undestroyed blocks on the field. The objects with the name <c>Block*</c> are counted.
+    /// </summary>
+    /// <returns>Number of blocks on the field</returns>
+    protected virtual void InitBlockDestoyedCallbacks()
+    {
+        var blocks = FindChildren("Block*");
+        foreach (var nodeBlock in blocks)
+        {
+            if (nodeBlock is ABlock block)
+            {
+                block.BlockDestroyed += BlockDestroid;
+            }
+        }
     }
 
     protected virtual void InitStages()
@@ -149,9 +162,8 @@ public abstract partial class AbstractLevel : Node
 
     protected void BlockDestroid(int scoreBonus, ContainItem itemToCreate)
     {
-        BlockCount--;
         Score = Mathf.Max(0, Score + scoreBonus + 1);
-        if (BlockCount <= 0)
+        if (CountBlocks() <= 1) // "<= 1", because the function is called first and only then is the block deleted.
         {
             LevelDone();
         }
