@@ -10,6 +10,7 @@ public class ScoreBonus : ItemBehavior
 
     public override void DoBehavior()
     {
+        level.GetPaddle().PlayCoinPickup();
         level.Score += 25;
     }
 }

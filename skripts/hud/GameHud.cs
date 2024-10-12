@@ -50,6 +50,7 @@ public partial class GameHud : CanvasLayer
 
     public void GameOver()
     {
+        GetNode<AudioStreamPlayer>("GameOverRect/LosePlayer").Playing = true;
         GetNode<Control>("GameOverRect").Show();
         GetNode<AnimationPlayer>("GameOverRect/AnimationPlayer").Play("show");
     }
@@ -63,9 +64,10 @@ public partial class GameHud : CanvasLayer
 
     private void LevelDoneAnimation()
     {
-        ShowAnimation("WinRect/CenterContainer/VBoxContainer/CPUParticles2D1");
-        GetTree().CreateTimer(1.0, false, true).Timeout += () => ShowAnimation("WinRect/CenterContainer/VBoxContainer/CPUParticles2D2");
-        GetTree().CreateTimer(2.0, false, true).Timeout += () => ShowAnimation("WinRect/CenterContainer/VBoxContainer/CPUParticles2D3");
+        GetNode<AudioStreamPlayer>("WinRect/CenterContainer/WinPlayer").Playing = true;
+        GetTree().CreateTimer(0.5, false, true).Timeout += () => ShowAnimation("WinRect/CenterContainer/Firework1");
+        GetTree().CreateTimer(1.5, false, true).Timeout += () => ShowAnimation("WinRect/CenterContainer/Firework2");
+        GetTree().CreateTimer(2.5, false, true).Timeout += () => ShowAnimation("WinRect/CenterContainer/Firework3");
 
         // GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D1").Show();
         // GetNode<CpuParticles2D>("WinRect/CenterContainer/VBoxContainer/CPUParticles2D1").Restart();
@@ -81,8 +83,9 @@ public partial class GameHud : CanvasLayer
 
     private void ShowAnimation(string animationName)
     {
-        GetNode<CpuParticles2D>(animationName).Show();
-        GetNode<CpuParticles2D>(animationName).Restart();
+        var firework = GetNode<Firework>(animationName);
+        firework.Show();
+        firework.Fire();
     }
 
     private void OnNextLevelButtonPressed()

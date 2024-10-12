@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmtuft6tbbo8m"]
+[gd_scene load_steps=12 format=3 uid="uid://bmtuft6tbbo8m"]
 
 [ext_resource type="Script" path="res://skripts/world/Paddle.cs" id="1_7glmy"]
 [ext_resource type="PackedScene" uid="uid://dnq8cj2nmc4ni" path="res://assets/blender/world/paddle.gltf" id="2_edqxq"]
 [ext_resource type="Texture2D" uid="uid://myttsji1hrh1" path="res://assets/textures/world/paddle.png" id="3_3f3vg"]
 [ext_resource type="AudioStream" uid="uid://32t1jax44qp8" path="res://assets/sounds/bonkBallPaddle.wav" id="4_uchee"]
 [ext_resource type="AudioStream" uid="uid://d3v62vxovmwj8" path="res://assets/sounds/catchItem.wav" id="5_cj4xu"]
+[ext_resource type="AudioStream" uid="uid://c0ptl4hynpe4t" path="res://assets/sounds/evilLaugh.wav" id="6_ya7k1"]
+[ext_resource type="AudioStream" uid="uid://bouco45c6lgtv" path="res://assets/sounds/loseBall.wav" id="7_36dlm"]
+[ext_resource type="AudioStream" uid="uid://cnkeshdgt74sd" path="res://assets/sounds/loseLife.wav" id="8_b1nuv"]
+[ext_resource type="AudioStream" uid="uid://c6jiv4rr0vbe3" path="res://assets/sounds/coinPickup.wav" id="9_4rqfs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0220d"]
 size = Vector3(3, 1, 1)
@@ -33,5 +37,17 @@ volume_db = -10.0
 
 [node name="CatchItem" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cj4xu")
+
+[node name="EvilLaugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ya7k1")
+
+[node name="LoseBall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_36dlm")
+
+[node name="LoseLife" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_b1nuv")
+
+[node name="CoinPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4rqfs")
 
 [editable path="CollisionShape3D/paddle"]

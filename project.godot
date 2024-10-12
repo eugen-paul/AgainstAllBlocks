@@ -58,5 +58,7 @@ shoot={
 
 [rendering]
 
+rendering_device/pipeline_cache/enable=false
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+shader_compiler/shader_cache/enabled=false

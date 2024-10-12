@@ -1,0 +1,8 @@
+[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://yye48jsfkkq5"]
+
+[ext_resource type="Material" uid="uid://diu7ah6om56j0" path="res://scenes/world/particles/passMaterial/VertexColorMaterial.tres" id="1_ou1y2"]
+
+[resource]
+material = ExtResource("1_ou1y2")
+radial_segments = 4
+rings = 2

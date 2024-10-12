@@ -10,6 +10,7 @@ public class DeathBehavior : ItemBehavior
 
     public override void DoBehavior()
     {
+        level.GetPaddle().PlayEvilLaugh();
         level.Death();
     }
 }

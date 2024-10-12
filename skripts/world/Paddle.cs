@@ -102,4 +102,24 @@ public partial class Paddle : CharacterBody3D
     {
         GetNode<AudioStreamPlayer>("CatchItem").Play();
     }
+
+    public void PlayEvilLaugh()
+    {
+        GetNode<AudioStreamPlayer>("EvilLaugh").Play();
+    }
+
+    public void PlayLoseBall()
+    {
+        GetNode<AudioStreamPlayer>("LoseBall").Play();
+    }
+
+    public void PlayLoseLife()
+    {
+        GetNode<AudioStreamPlayer>("LoseLife").Play();
+    }
+
+    public void PlayCoinPickup()
+    {
+        GetNode<AudioStreamPlayer>("CoinPickup").Play();
+    }
 }

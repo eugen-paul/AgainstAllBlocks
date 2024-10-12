@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
@@ -14,7 +15,7 @@ public enum BallSounds
 
 public partial class Ball : CharacterBody3D
 {
-    public System.Action<Ball> BallLeavesScreen;
+    public Action<Ball> BallLeavesScreen;
 
     public float StartSpeed { get; set; } = 23.0f;
 
@@ -24,7 +25,20 @@ public partial class Ball : CharacterBody3D
 
     public float Weight { get; set; } = 1.0f;
 
-    public int ScoreBonus { get; set; } = 0;
+    [Export]
+    public int MaxScoreBomus { get; set; } = 5;
+
+    private int _scoreBonus = 0;
+
+    [Export]
+    public int ScoreBonus
+    {
+        get => _scoreBonus;
+        set
+        {
+            _scoreBonus = Math.Min(value, MaxScoreBomus);
+        }
+    }
 
     private readonly static IDictionary<BallSounds, string> SOUND_TO_PATH = new Dictionary<BallSounds, string> {
             {  BallSounds.KICK, "Kick" },

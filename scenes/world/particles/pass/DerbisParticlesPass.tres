@@ -1,0 +1,8 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=3 uid="uid://cwgn284vbp28r"]
+
+[ext_resource type="Material" uid="uid://5683a70wmlma" path="res://scenes/world/particles/passMaterial/OrangeVertexColorMaterial.tres" id="1_u7xbq"]
+
+[resource]
+material = ExtResource("1_u7xbq")
+top_radius = 0.1
+bottom_radius = 0.0

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://8jwcfmfscua5"]
+
+[ext_resource type="Material" uid="uid://c08ck170boj1l" path="res://scenes/world/particles/processMaterial/PaddleExplosion.tres" id="1_45hje"]
+[ext_resource type="Material" uid="uid://diu7ah6om56j0" path="res://scenes/world/particles/passMaterial/VertexColorMaterial.tres" id="1_l3iu2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lhdxv"]
+material = ExtResource("1_l3iu2")
+size = Vector2(0.5, 0.5)
+
+[node name="Explosion" type="GPUParticles3D"]
+emitting = false
+amount = 32
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("1_45hje")
+draw_pass_1 = SubResource("PlaneMesh_lhdxv")

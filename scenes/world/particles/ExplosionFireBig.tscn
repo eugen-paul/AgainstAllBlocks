@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl468716htvnm"]
+
+[ext_resource type="Material" uid="uid://jl62qejtb82d" path="res://scenes/world/particles/processMaterial/FirePartoclesBig.tres" id="1_pwsoo"]
+[ext_resource type="SphereMesh" uid="uid://cnqxy5u4hx3ml" path="res://scenes/world/particles/pass/FireParticlesPassBig.tres" id="2_77tfg"]
+
+[node name="Fire" type="GPUParticles3D"]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("1_pwsoo")
+draw_pass_1 = ExtResource("2_77tfg")

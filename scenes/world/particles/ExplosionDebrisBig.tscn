@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8g7thn2xcktk"]
+
+[ext_resource type="Material" uid="uid://e2c8nejs75s" path="res://scenes/world/particles/processMaterial/DebrisParticleBig.tres" id="1_vc6if"]
+[ext_resource type="CylinderMesh" uid="uid://ccwcc0ncl5cud" path="res://scenes/world/particles/pass/DerbisParticlesPassBig.tres" id="2_1jul3"]
+
+[node name="Debris" type="GPUParticles3D"]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("1_vc6if")
+draw_pass_1 = ExtResource("2_1jul3")

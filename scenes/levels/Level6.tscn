@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c58wnlim838a"]
+[gd_scene load_steps=22 format=3 uid="uid://c58wnlim838a"]
 
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_5gde5"]
 [ext_resource type="Script" path="res://skripts/levels/Level6.cs" id="1_uqo8h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://mljipl60q0uq" path="res://scenes/world/StageSquare.tscn" id="5_tuc0i"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="5_wbf6f"]
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="6_troyb"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="8_5c5pk"]
 [ext_resource type="PackedScene" uid="uid://cjk75ow7xmsc1" path="res://scenes/world/TetrisL.tscn" id="11_e52xi"]
 [ext_resource type="PackedScene" uid="uid://crxlwe2ku2wvo" path="res://scenes/world/TetrisZ.tscn" id="12_ig64k"]
 [ext_resource type="PackedScene" uid="uid://d05n166wjq06y" path="res://scenes/world/TetrisT.tscn" id="13_krjg3"]
@@ -16,13 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://uubm218nn71y" path="res://scenes/world/TetrisS.tscn" id="15_p1erj"]
 [ext_resource type="PackedScene" uid="uid://hvy5b1sugpce" path="res://scenes/world/TetrisJ.tscn" id="16_7ssyq"]
 [ext_resource type="PackedScene" uid="uid://bsmqq8ea6i2q1" path="res://scenes/world/RocketBg.tscn" id="16_8kq2n"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqlv8"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_yrwow"]
-material = SubResource("StandardMaterial3D_fqlv8")
-size = Vector2(0.5, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xphfr"]
 size = Vector2(50, 100)
@@ -268,19 +262,7 @@ Items = [12]
 
 [node name="GameHud" parent="." instance=ExtResource("4_d6qua")]
 
-[node name="Explosion" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 23)
-emitting = false
-amount = 32
-lifetime = 3.0
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 30
-mesh = SubResource("PlaneMesh_yrwow")
-direction = Vector3(0, 1, 0)
-gravity = Vector3(0, -4, 0)
-initial_velocity_min = 4.0
-initial_velocity_max = 5.0
+[node name="Explosion" parent="." instance=ExtResource("8_5c5pk")]
 
 [node name="Ground" parent="." instance=ExtResource("5_wbf6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
@@ -341,20 +323,11 @@ transform = Transform3D(-3.09086e-08, 0.707107, -0.707107, -1, -4.37114e-08, 0, 
 [node name="RocketBG" parent="Background" instance=ExtResource("16_8kq2n")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -8, 2.04042, -14)
 
-[node name="CPUParticles3D" parent="Background/RocketBG" index="1"]
-emitting = false
-
 [node name="RocketBG2" parent="Background" instance=ExtResource("16_8kq2n")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -5, 2.04042, -14)
 
-[node name="CPUParticles3D" parent="Background/RocketBG2" index="1"]
-emitting = false
-
 [node name="RocketBG3" parent="Background" instance=ExtResource("16_8kq2n")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -2, 2.04042, -14)
-
-[node name="CPUParticles3D" parent="Background/RocketBG3" index="1"]
-emitting = false
 
 [editable path="CameraPivot"]
 [editable path="Background/RocketBG"]

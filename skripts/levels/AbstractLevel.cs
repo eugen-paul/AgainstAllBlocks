@@ -55,7 +55,7 @@ public abstract partial class AbstractLevel : Node
         gameHud.SetScore(Score);
         gameHud.SetLifes(Lifes);
 
-        GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
+        GetNode<GpuParticles3D>("Explosion").Finished += StartRound;
         StartRound();
 
         InitBlockDestoyedCallbacks();
@@ -263,8 +263,13 @@ public abstract partial class AbstractLevel : Node
             }
             else
             {
+                paddle.PlayLoseLife();
                 LifeLoose();
             }
+        }
+        else
+        {
+            paddle.PlayLoseBall();
         }
     }
 
@@ -295,10 +300,10 @@ public abstract partial class AbstractLevel : Node
     protected void LifeLoose()
     {
         DestroyAllTemporary();
-        GetNode<CpuParticles3D>("Explosion").Show();
-        GetNode<CpuParticles3D>("Explosion").Position = paddle.Position;
-        GetNode<CpuParticles3D>("Explosion").Restart();
-        GetNode<CpuParticles3D>("Explosion").Finished += StartRound;
+        GetNode<GpuParticles3D>("Explosion").Show();
+        GetNode<GpuParticles3D>("Explosion").Position = paddle.Position;
+        GetNode<GpuParticles3D>("Explosion").Restart();
+        GetNode<GpuParticles3D>("Explosion").Finished += StartRound;
         gameHud.SetLifes(Lifes);
         paddle.Hide();
     }
@@ -307,11 +312,11 @@ public abstract partial class AbstractLevel : Node
     {
         running = true;
 
-        GetNode<CpuParticles3D>("Explosion").Hide();
+        GetNode<GpuParticles3D>("Explosion").Hide();
         paddle.Show();
         paddle.Reset();
 
-        GetNode<CpuParticles3D>("Explosion").Finished -= StartRound;
+        GetNode<GpuParticles3D>("Explosion").Finished -= StartRound;
 
         AddStartBall();
     }
@@ -319,9 +324,9 @@ public abstract partial class AbstractLevel : Node
     protected void GameOver()
     {
         DestroyAllTemporary();
-        GetNode<CpuParticles3D>("Explosion").Show();
-        GetNode<CpuParticles3D>("Explosion").Position = paddle.Position;
-        GetNode<CpuParticles3D>("Explosion").Restart();
+        GetNode<GpuParticles3D>("Explosion").Show();
+        GetNode<GpuParticles3D>("Explosion").Position = paddle.Position;
+        GetNode<GpuParticles3D>("Explosion").Restart();
         paddle.Hide();
         running = false;
         gameHud.GameOver();

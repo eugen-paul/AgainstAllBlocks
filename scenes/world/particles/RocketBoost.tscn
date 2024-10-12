@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmgd78m1aqbqg"]
+
+[ext_resource type="Material" uid="uid://ca1qbkjmxlhd4" path="res://scenes/world/particles/processMaterial/RocketParticles.tres" id="1_ce7kt"]
+[ext_resource type="PlaneMesh" uid="uid://dttj2nr7q5kpb" path="res://scenes/world/particles/pass/RocketParticlesPass.tres" id="2_ciore"]
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0589008)
+amount = 20
+lifetime = 1.5
+process_material = ExtResource("1_ce7kt")
+draw_pass_1 = ExtResource("2_ciore")

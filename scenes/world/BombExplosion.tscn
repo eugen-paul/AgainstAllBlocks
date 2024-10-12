@@ -1,123 +1,21 @@
-[gd_scene load_steps=19 format=3 uid="uid://duso7lva6m3qf"]
+[gd_scene load_steps=6 format=3 uid="uid://duso7lva6m3qf"]
 
 [ext_resource type="Script" path="res://skripts/world/BombExplosion.cs" id="1_siiuy"]
 [ext_resource type="AudioStream" uid="uid://cofybaevngbnx" path="res://assets/sounds/explosion1.wav" id="1_w4cs1"]
-
-[sub_resource type="Curve" id="Curve_bqylc"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.652632, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_rbsfq"]
-curve = SubResource("Curve_bqylc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ogta"]
-particle_flag_align_y = true
-direction = Vector3(0, 1, 0)
-spread = 60.0
-initial_velocity_min = 12.0
-initial_velocity_max = 14.0
-scale_min = 0.5
-scale_max = 1.5
-scale_curve = SubResource("CurveTexture_rbsfq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okggk"]
-albedo_color = Color(0.782389, 0.339469, 3.85046e-07, 1)
-emission_enabled = true
-emission = Color(0.867687, 0.360799, 0.00916795, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_frs5i"]
-material = SubResource("StandardMaterial3D_okggk")
-top_radius = 0.1
-bottom_radius = 0.0
-
-[sub_resource type="CurveTexture" id="CurveTexture_f76qm"]
-
-[sub_resource type="Curve" id="Curve_6iggb"]
-_data = [Vector2(0, 0.0243407), 0.0, 0.0, 0, 0, Vector2(0.276316, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_tqyrw"]
-curve = SubResource("Curve_6iggb")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tesi7"]
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 1.0
-initial_velocity_max = 2.0
-gravity = Vector3(0, 5, 0)
-scale_min = 0.5
-scale_max = 1.5
-scale_curve = SubResource("CurveTexture_tqyrw")
-color = Color(0.385493, 0.385492, 0.385492, 1)
-alpha_curve = SubResource("CurveTexture_f76qm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp1xo"]
-vertex_color_use_as_albedo = true
-
-[sub_resource type="SphereMesh" id="SphereMesh_w11wk"]
-material = SubResource("StandardMaterial3D_rp1xo")
-radial_segments = 4
-rings = 2
-
-[sub_resource type="Gradient" id="Gradient_ah5ys"]
-colors = PackedColorArray(0.960784, 0.694118, 0, 1, 1, 0.176471, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_n20ys"]
-gradient = SubResource("Gradient_ah5ys")
-
-[sub_resource type="Curve" id="Curve_lawcc"]
-_data = [Vector2(0, 0.0243407), 0.0, 0.0, 0, 0, Vector2(0.276316, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_s2dys"]
-curve = SubResource("Curve_lawcc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fk051"]
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, -1, 0)
-spread = 90.0
-initial_velocity_min = 2.0
-initial_velocity_max = 4.0
-gravity = Vector3(0, 5, 0)
-scale_min = 0.5
-scale_max = 1.5
-scale_curve = SubResource("CurveTexture_s2dys")
-color = Color(1, 0.694118, 0, 1)
-color_ramp = SubResource("GradientTexture1D_n20ys")
+[ext_resource type="PackedScene" uid="uid://c8g7thn2xcktk" path="res://scenes/world/particles/ExplosionDebrisBig.tscn" id="2_g2g08"]
+[ext_resource type="PackedScene" uid="uid://c8vx551ps2hh5" path="res://scenes/world/particles/ExplosionSmokeBig.tscn" id="3_o0rcs"]
+[ext_resource type="PackedScene" uid="uid://dl468716htvnm" path="res://scenes/world/particles/ExplosionFireBig.tscn" id="4_hf6d2"]
 
 [node name="BombExplosion" type="Node3D"]
 script = ExtResource("1_siiuy")
 
-[node name="Debris" type="GPUParticles3D" parent="."]
-emitting = false
-amount = 20
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_3ogta")
-draw_pass_1 = SubResource("CylinderMesh_frs5i")
+[node name="Debris" parent="." instance=ExtResource("2_g2g08")]
 
-[node name="Smoke" type="GPUParticles3D" parent="."]
-emitting = false
-lifetime = 2.0
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_tesi7")
-draw_pass_1 = SubResource("SphereMesh_w11wk")
+[node name="Smoke" parent="." instance=ExtResource("3_o0rcs")]
 
-[node name="Fire" type="GPUParticles3D" parent="."]
-emitting = false
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_fk051")
-draw_pass_1 = SubResource("SphereMesh_w11wk")
+[node name="Fire" parent="." instance=ExtResource("4_hf6d2")]
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w4cs1")
 
-[connection signal="finished" from="Debris" to="." method="OnDone"]
-[connection signal="finished" from="Smoke" to="." method="OnDone"]
-[connection signal="finished" from="Fire" to="." method="OnDone"]
 [connection signal="finished" from="Sound" to="." method="OnDone"]

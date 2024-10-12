@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=14 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="Script" path="res://skripts/hud/elements/ScoreNumberLabel.cs" id="2_dbgga"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://skripts/hud/elements/LifeContainer.cs" id="5_8b0e4"]
 [ext_resource type="Texture2D" uid="uid://co7xmmwnif7i5" path="res://assets/textures/gui/menuButton.png" id="5_ggb5q"]
 [ext_resource type="PackedScene" uid="uid://dpvjyg48jchp2" path="res://scenes/fps/Fps.tscn" id="7_efxpt"]
+[ext_resource type="PackedScene" uid="uid://cxqdq8u6m8q0o" path="res://scenes/mainmenu/Firework.tscn" id="8_5uw8k"]
+[ext_resource type="AudioStream" uid="uid://dh27huh416en2" path="res://assets/sounds/gameOver.wav" id="8_f0fxf"]
+[ext_resource type="AudioStream" uid="uid://4rr5vaq3ra7w" path="res://assets/sounds/winfantasia.wav" id="9_tex8u"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
 resource_name = "show"
@@ -29,18 +32,6 @@ tracks/0/keys = {
 _data = {
 "show": SubResource("Animation_pfd3l")
 }
-
-[sub_resource type="Gradient" id="Gradient_w203x"]
-colors = PackedColorArray(1, 1, 1, 1, 0.54798, 0.54798, 0.54798, 1)
-
-[sub_resource type="Gradient" id="Gradient_3qnhx"]
-colors = PackedColorArray(0.960784, 0.882353, 0.105882, 1, 0.866667, 0.388235, 0.105882, 1)
-
-[sub_resource type="Gradient" id="Gradient_s47u2"]
-colors = PackedColorArray(0.0784314, 0.882353, 0.105882, 1, 0.866667, 0.654902, 0.105882, 1)
-
-[sub_resource type="Gradient" id="Gradient_txqda"]
-colors = PackedColorArray(0.0784314, 0.882353, 0.960784, 1, 0.866667, 0.941176, 0.105882, 1)
 
 [node name="GameHud" type="CanvasLayer"]
 script = ExtResource("1_lvqwn")
@@ -128,16 +119,22 @@ theme_override_constants/separation = 20
 
 [node name="GameOverLabel" type="Label" parent="GameOverRect/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.986752, 0.986752, 0.986752, 1)
+theme_override_font_sizes/font_size = 50
 text = "GAME OVER"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="GameOverRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 0
 text = "Restart"
 
-[node name="MenuButton" type="Button" parent="GameOverRect/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="GameOverRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
 
@@ -145,6 +142,9 @@ text = "Menu"
 libraries = {
 "": SubResource("AnimationLibrary_kycdt")
 }
+
+[node name="LosePlayer" type="AudioStreamPlayer" parent="GameOverRect"]
+stream = ExtResource("8_f0fxf")
 
 [node name="WinRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -163,66 +163,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Firework1" parent="WinRect/CenterContainer" instance=ExtResource("8_5uw8k")]
+position = Vector2(200, 404)
+VelocityY = -100.0
+
+[node name="Firework2" parent="WinRect/CenterContainer" instance=ExtResource("8_5uw8k")]
+position = Vector2(371, 529)
+VelocityX = -5.0
+VelocityY = -80.0
+
+[node name="Firework3" parent="WinRect/CenterContainer" instance=ExtResource("8_5uw8k")]
+position = Vector2(70, 486)
+VelocityY = -150.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="WinRect/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
-
-[node name="CPUParticles2D1" type="CPUParticles2D" parent="WinRect/CenterContainer/VBoxContainer"]
-position = Vector2(-30, 43)
-emitting = false
-amount = 24
-lifetime = 4.0
-one_shot = true
-explosiveness = 1.0
-randomness = 0.1
-lifetime_randomness = 0.4
-direction = Vector2(1, -1)
-spread = 100.0
-gravity = Vector2(0, 20)
-initial_velocity_min = 25.0
-initial_velocity_max = 50.0
-scale_amount_min = 3.0
-scale_amount_max = 10.0
-color_ramp = SubResource("Gradient_w203x")
-color_initial_ramp = SubResource("Gradient_3qnhx")
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="WinRect/CenterContainer/VBoxContainer"]
-position = Vector2(233, -28)
-emitting = false
-amount = 24
-lifetime = 4.0
-one_shot = true
-explosiveness = 1.0
-randomness = 0.1
-lifetime_randomness = 0.4
-direction = Vector2(-1, -1)
-spread = 100.0
-gravity = Vector2(0, 20)
-initial_velocity_min = 25.0
-initial_velocity_max = 50.0
-scale_amount_min = 3.0
-scale_amount_max = 8.0
-color_ramp = SubResource("Gradient_w203x")
-color_initial_ramp = SubResource("Gradient_s47u2")
-
-[node name="CPUParticles2D3" type="CPUParticles2D" parent="WinRect/CenterContainer/VBoxContainer"]
-position = Vector2(169, 241)
-emitting = false
-amount = 24
-lifetime = 4.0
-one_shot = true
-explosiveness = 1.0
-randomness = 0.1
-lifetime_randomness = 0.4
-direction = Vector2(0, -1)
-spread = 100.0
-gravity = Vector2(0, 20)
-initial_velocity_min = 25.0
-initial_velocity_max = 50.0
-scale_amount_min = 4.0
-scale_amount_max = 8.0
-color_ramp = SubResource("Gradient_w203x")
-color_initial_ramp = SubResource("Gradient_txqda")
 
 [node name="WinLabel" type="Label" parent="WinRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -248,6 +204,10 @@ text = "Restart"
 [node name="MenuButton" type="Button" parent="WinRect/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="WinPlayer" type="AudioStreamPlayer" parent="WinRect/CenterContainer"]
+stream = ExtResource("9_tex8u")
+volume_db = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WinRect"]
 libraries = {
@@ -302,8 +262,8 @@ text = "Menu"
 visible = false
 
 [connection signal="pressed" from="TopPanel/PauseButton" to="." method="OnPauseButtonPressed"]
-[connection signal="pressed" from="GameOverRect/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
-[connection signal="pressed" from="GameOverRect/VBoxContainer/MenuButton" to="." method="OnMenuButtonPressed"]
+[connection signal="pressed" from="GameOverRect/VBoxContainer/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="GameOverRect/VBoxContainer/VBoxContainer/MenuButton" to="." method="OnMenuButtonPressed"]
 [connection signal="pressed" from="WinRect/CenterContainer/VBoxContainer/VBoxContainer/NextGameButton" to="." method="OnNextLevelButtonPressed"]
 [connection signal="pressed" from="WinRect/CenterContainer/VBoxContainer/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]
 [connection signal="pressed" from="WinRect/CenterContainer/VBoxContainer/VBoxContainer/MenuButton" to="." method="OnMenuButtonPressed"]

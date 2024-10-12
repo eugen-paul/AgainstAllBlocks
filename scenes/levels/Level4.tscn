@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfmskk8ka3bbc"]
+[gd_scene load_steps=14 format=3 uid="uid://dfmskk8ka3bbc"]
 
 [ext_resource type="Script" path="res://skripts/levels/Level4.cs" id="1_i8v74"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="2_gp5nr"]
@@ -7,16 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="5_1pu25"]
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="5_c0ob1"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="6_buvti"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="7_41mjq"]
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="7_tp6ac"]
 [ext_resource type="PackedScene" uid="uid://dpsgoe1wweefc" path="res://scenes/world/RoundBomb.tscn" id="9_7br2w"]
 [ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="10_cvqda"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsheh"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_nom2d"]
-material = SubResource("StandardMaterial3D_wsheh")
-size = Vector2(0.5, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yw1o6"]
 size = Vector2(50, 100)
@@ -254,19 +248,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 6)
 
 [node name="GameHud" parent="." instance=ExtResource("5_1pu25")]
 
-[node name="Explosion" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 23)
-emitting = false
-amount = 32
-lifetime = 3.0
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 30
-mesh = SubResource("PlaneMesh_nom2d")
-direction = Vector3(0, 1, 0)
-gravity = Vector3(0, -4, 0)
-initial_velocity_min = 4.0
-initial_velocity_max = 5.0
+[node name="Explosion" parent="." instance=ExtResource("7_41mjq")]
 
 [node name="Ground" parent="." instance=ExtResource("6_buvti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)

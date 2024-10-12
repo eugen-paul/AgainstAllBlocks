@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://csmrbw0f2gl5i"]
+[gd_scene load_steps=30 format=3 uid="uid://csmrbw0f2gl5i"]
 
 [ext_resource type="Script" path="res://skripts/levels/Level3.cs" id="1_28cnc"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_lj2gg"]
@@ -7,18 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="4_443yv"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="4_sbr5t"]
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="4_vnv4g"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="7_3ohgw"]
 [ext_resource type="PackedScene" uid="uid://bd78x1t282gks" path="res://scenes/world/Target.tscn" id="7_jv4wo"]
 [ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="8_ak6ba"]
 [ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="9_5croh"]
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="10_8pb53"]
 [ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="11_jsk60"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7nmb"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_vkdcj"]
-material = SubResource("StandardMaterial3D_r7nmb")
-size = Vector2(0.5, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jl32k"]
 size = Vector2(50, 30)
@@ -316,19 +310,7 @@ Power = 2
 [node name="GameHud" parent="." instance=ExtResource("4_443yv")]
 process_mode = 3
 
-[node name="Explosion" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 23)
-emitting = false
-amount = 32
-lifetime = 3.0
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 30
-mesh = SubResource("PlaneMesh_vkdcj")
-direction = Vector3(0, 1, 0)
-gravity = Vector3(0, -4, 0)
-initial_velocity_min = 4.0
-initial_velocity_max = 5.0
+[node name="Explosion" parent="." instance=ExtResource("7_3ohgw")]
 
 [node name="Ground" parent="." instance=ExtResource("4_sbr5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)

@@ -1,0 +1,23 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=4 format=3 uid="uid://cg4mv8q5nlbbb"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_jst7g"]
+
+[sub_resource type="Curve" id="Curve_sv8om"]
+_data = [Vector2(0, 0.0243407), 0.0, 0.0, 0, 0, Vector2(0.276316, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nenxs"]
+curve = SubResource("Curve_sv8om")
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_nenxs")
+color = Color(0.385493, 0.385492, 0.385492, 1)
+alpha_curve = SubResource("CurveTexture_jst7g")

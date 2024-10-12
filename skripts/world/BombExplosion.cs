@@ -5,7 +5,7 @@ public partial class BombExplosion : Explosion
 
     private int done = 4;
 
-    public override void Explode()
+    public override void Explode(bool sound = true)
     {
         var userPreferences = GameComponets.Instance.Get<UserPreferences>();
 
@@ -28,7 +28,10 @@ public partial class BombExplosion : Explosion
                 break;
         }
 
-        GetNode<AudioStreamPlayer>("Sound").Play();
+        if (sound)
+        {
+            GetNode<AudioStreamPlayer>("Sound").Play();
+        }
     }
 
     public void OnDone()

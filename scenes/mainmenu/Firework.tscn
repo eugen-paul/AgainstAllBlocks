@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxqdq8u6m8q0o"]
+
+[ext_resource type="Script" path="res://skripts/mainmenu/Firework.cs" id="1_4krta"]
+[ext_resource type="PackedScene" uid="uid://3676id8wom8x" path="res://scenes/mainmenu/particles/FireworkExplosion.tscn" id="1_5f68g"]
+[ext_resource type="PackedScene" uid="uid://bofudyeh8x5lj" path="res://scenes/mainmenu/particles/FireworkRocket.tscn" id="2_jdxh0"]
+[ext_resource type="AudioStream" uid="uid://dwbacwyc0nigy" path="res://assets/sounds/fireworkrocket.wav" id="4_evrmq"]
+[ext_resource type="AudioStream" uid="uid://x42up7h6kh3" path="res://assets/sounds/fireworkexplosion.wav" id="5_mimd7"]
+
+[node name="Firework" type="Node2D"]
+script = ExtResource("1_4krta")
+
+[node name="Explosion" parent="." instance=ExtResource("1_5f68g")]
+
+[node name="Rocket" parent="." instance=ExtResource("2_jdxh0")]
+
+[node name="rocketSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_evrmq")
+volume_db = -20.0
+
+[node name="explosionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mimd7")
+
+[connection signal="finished" from="Rocket" to="." method="RocketEnd"]

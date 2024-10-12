@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3hdlmciuyq2b"]
+[gd_scene load_steps=24 format=3 uid="uid://b3hdlmciuyq2b"]
 
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_7t77g"]
 [ext_resource type="Script" path="res://skripts/levels/Level5.cs" id="1_hcvei"]
@@ -7,18 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="4_k00ax"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="4_vy87x"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="5_e03j5"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="7_vsfuh"]
 [ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="7_xlhox"]
 [ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="8_4v1kh"]
 [ext_resource type="PackedScene" uid="uid://bsmqq8ea6i2q1" path="res://scenes/world/RocketBg.tscn" id="11_putbr"]
 [ext_resource type="Script" path="res://skripts/world/RocketFun.cs" id="11_wx2f3"]
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="12_pnsv0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvocj"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_chjki"]
-material = SubResource("StandardMaterial3D_bvocj")
-size = Vector2(0.5, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n3ft6"]
 size = Vector2(50, 100)
@@ -274,19 +268,7 @@ Power = 3
 
 [node name="GameHud" parent="." instance=ExtResource("4_vy87x")]
 
-[node name="Explosion" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 23)
-emitting = false
-amount = 32
-lifetime = 3.0
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 30
-mesh = SubResource("PlaneMesh_chjki")
-direction = Vector3(0, 1, 0)
-gravity = Vector3(0, -4, 0)
-initial_velocity_min = 4.0
-initial_velocity_max = 5.0
+[node name="Explosion" parent="." instance=ExtResource("7_vsfuh")]
 
 [node name="Ground" parent="." instance=ExtResource("5_e03j5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
@@ -317,6 +299,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rxa5a")
 [node name="RocketBG" parent="Background/MeshInstance3D2" instance=ExtResource("11_putbr")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -5.41038, 0, 1.55356)
 
+[node name="GPUParticles3D" parent="Background/MeshInstance3D2/RocketBG" index="1"]
+amount = 30
+lifetime = 0.5
+
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327128, -24)
 mesh = SubResource("TorusMesh_t1pir")
@@ -324,40 +310,42 @@ mesh = SubResource("TorusMesh_t1pir")
 [node name="RocketBG" parent="Background" instance=ExtResource("11_putbr")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -17, 0, -25)
 
-[node name="CPUParticles3D" parent="Background/RocketBG" index="1"]
+[node name="GPUParticles3D" parent="Background/RocketBG" index="1"]
 emitting = false
 
 [node name="RocketBG6" parent="Background" instance=ExtResource("11_putbr")]
 transform = Transform3D(-2.89778, 3.394e-08, 0.776457, 0.776457, 1.26666e-07, 2.89778, 0, 3, -1.31134e-07, 11, 4, -20)
 
-[node name="CPUParticles3D" parent="Background/RocketBG6" index="1"]
+[node name="GPUParticles3D" parent="Background/RocketBG6" index="1"]
 emitting = false
 
 [node name="RocketBG5" parent="Background" instance=ExtResource("11_putbr")]
 transform = Transform3D(-2.59808, -6.55671e-08, -1.5, -1.29904, 1.5, 2.25, 0.75, 2.59808, -1.29904, 15, 3.30731, -25)
 
-[node name="CPUParticles3D" parent="Background/RocketBG5" index="1"]
+[node name="GPUParticles3D" parent="Background/RocketBG5" index="1"]
 emitting = false
 
 [node name="RocketBG2" parent="Background" instance=ExtResource("11_putbr")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -17, 0, -21)
 
-[node name="CPUParticles3D" parent="Background/RocketBG2" index="1"]
+[node name="GPUParticles3D" parent="Background/RocketBG2" index="1"]
 emitting = false
 
 [node name="RocketBG3" parent="Background" instance=ExtResource("11_putbr")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -13, 0, -21)
 
-[node name="CPUParticles3D" parent="Background/RocketBG3" index="1"]
+[node name="GPUParticles3D" parent="Background/RocketBG3" index="1"]
 emitting = false
 
 [node name="RocketBG4" parent="Background" instance=ExtResource("11_putbr")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -13, 0, -25)
 
-[node name="CPUParticles3D" parent="Background/RocketBG4" index="1"]
+[node name="GPUParticles3D" parent="Background/RocketBG4" index="1"]
 emitting = false
 
 [editable path="CameraPivot"]
+[editable path="Background/MeshInstance3D2/RocketBG"]
+[editable path="Background/MeshInstance3D2/RocketBG/rocket2"]
 [editable path="Background/RocketBG"]
 [editable path="Background/RocketBG/rocket2"]
 [editable path="Background/RocketBG6"]

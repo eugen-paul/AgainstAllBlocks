@@ -27,7 +27,7 @@ public partial class Rocket : CharacterBody3D
         var userPreferences = GameComponets.Instance.Get<UserPreferences>();
         if (userPreferences.GetParamEffects() == EffectsPreferences.OFF)
         {
-            GetNode<CpuParticles3D>("CPUParticles3D").Emitting = false;
+            GetNode<CpuParticles3D>("GPUParticles3D").Emitting = false;
         }
     }
 

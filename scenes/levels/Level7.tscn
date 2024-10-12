@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dq1y7ads1iroi"]
+[gd_scene load_steps=19 format=3 uid="uid://dq1y7ads1iroi"]
 
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_ccyil"]
 [ext_resource type="Script" path="res://skripts/levels/Level7.cs" id="1_fp2a6"]
@@ -15,13 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://oelc8xv1mmug" path="res://scenes/world/BlockTetrisT.tscn" id="9_wwqcu"]
 [ext_resource type="PackedScene" uid="uid://dphgciccoudk6" path="res://scenes/world/BlockTetrisZ.tscn" id="10_aco6p"]
 [ext_resource type="PackedScene" uid="uid://mljipl60q0uq" path="res://scenes/world/StageSquare.tscn" id="12_cfx3b"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwpvo"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_708x1"]
-material = SubResource("StandardMaterial3D_pwpvo")
-size = Vector2(0.5, 0.5)
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="14_r1fat"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ljuuu"]
 size = Vector2(50, 100)
@@ -312,19 +306,7 @@ Items = [12]
 
 [node name="GameHud" parent="." instance=ExtResource("5_tepc7")]
 
-[node name="Explosion" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 23)
-emitting = false
-amount = 32
-lifetime = 3.0
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 30
-mesh = SubResource("PlaneMesh_708x1")
-direction = Vector3(0, 1, 0)
-gravity = Vector3(0, -4, 0)
-initial_velocity_min = 4.0
-initial_velocity_max = 5.0
+[node name="Explosion" parent="." instance=ExtResource("14_r1fat")]
 
 [node name="Ground" parent="." instance=ExtResource("6_od4t4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)

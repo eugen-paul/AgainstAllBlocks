@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cn4grlo52b6kw"]
+[gd_scene load_steps=8 format=3 uid="uid://cn4grlo52b6kw"]
 
 [ext_resource type="PackedScene" uid="uid://c2ccwnt8jiwu4" path="res://assets/blender/world/rocket.gltf" id="1_r0io3"]
 [ext_resource type="Script" path="res://skripts/world/Rocket.cs" id="1_wmtfg"]
 [ext_resource type="Texture2D" uid="uid://b8coqlhe3qr3w" path="res://assets/textures/world/rocket.png" id="2_nwdtu"]
+[ext_resource type="PackedScene" uid="uid://cmgd78m1aqbqg" path="res://scenes/world/particles/RocketBoost.tscn" id="4_75dwv"]
 [ext_resource type="AudioStream" uid="uid://g6yntnnd0q0d" path="res://assets/sounds/rocket.wav" id="4_q5bfq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxsn0"]
@@ -11,21 +12,6 @@ height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgkji"]
 albedo_texture = ExtResource("2_nwdtu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uwhh"]
-vertex_color_use_as_albedo = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_vbn6f"]
-material = SubResource("StandardMaterial3D_6uwhh")
-size = Vector2(0.2, 0.2)
-
-[sub_resource type="Curve" id="Curve_t2gc5"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.409524, 0.935353), 0.0, 0.0, 0, 0, Vector2(0.804762, 0.124322), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_wgvr1"]
-offsets = PackedFloat32Array(0, 0.329082)
-colors = PackedColorArray(1, 0.513726, 0, 1, 1, 0, 0, 1)
 
 [node name="Rocket" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.622973)
@@ -43,18 +29,7 @@ transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, 0.3, 0, -0.3, -1.31134e-08, 
 [node name="rocket" parent="rocket2" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_lgkji")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0589008)
-amount = 20
-lifetime = 1.5
-mesh = SubResource("PlaneMesh_vbn6f")
-direction = Vector3(0, 0, 1)
-spread = 10.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 1.25
-initial_velocity_max = 2.0
-scale_amount_curve = SubResource("Curve_t2gc5")
-color_ramp = SubResource("Gradient_wgvr1")
+[node name="GPUParticles3D" parent="." instance=ExtResource("4_75dwv")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_q5bfq")
