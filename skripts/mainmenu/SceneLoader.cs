@@ -36,7 +36,9 @@ public partial class SceneLoader : Node
 
     private List<string> pathesToLoad;
 
-    private bool partoclesLoaded = false;
+    private bool pathsLoaded = false;
+    private bool allLoaded = false;
+    private int framesAfterLoad = 0;
 
     private string NextScene = GameScenePaths.MAIN_SCENE;
 
@@ -48,9 +50,6 @@ public partial class SceneLoader : Node
             ResourceLoader.LoadThreadedRequest(allPaths[0]);
         }
 
-        LoadAll3DParticles();
-        LoadAll2DParticles();
-        LoadSprite3D();
     }
 
     private void GoToNext()
@@ -59,21 +58,39 @@ public partial class SceneLoader : Node
         GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 
+    public override void _Process(double delta)
+    {
+        if (allLoaded)
+        {
+            framesAfterLoad++;
+            if (framesAfterLoad > 3)
+            {
+                GoToNext();
+            }
+        }
+    }
     public override void _PhysicsProcess(double delta)
     {
-        if (pathesToLoad.Count == 0)
+        if (pathsLoaded)
         {
-            GoToNext();
+            LoadAll3DParticles();
+            LoadAll2DParticles();
+            LoadSprite3D();
+            allLoaded = true;
             return;
         }
+        else
+        {
+            LoadAndCheckAllPathes();
+        }
 
-        LoadAndCheckAllPathes();
     }
 
     private void LoadAndCheckAllPathes()
     {
         if (pathesToLoad.Count == 0)
         {
+            pathsLoaded = true;
             return;
         }
 
