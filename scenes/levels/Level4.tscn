@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfmskk8ka3bbc"]
+[gd_scene load_steps=15 format=3 uid="uid://dfmskk8ka3bbc"]
 
 [ext_resource type="Script" path="res://skripts/levels/Level4.cs" id="1_i8v74"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="2_gp5nr"]
 [ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="3_nm3fv"]
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_v86t1"]
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="4_nl46p"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="5_1pu25"]
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="5_c0ob1"]
@@ -22,12 +23,7 @@ uv1_scale = Vector3(10, 20, 1)
 [node name="Level" type="Node"]
 script = ExtResource("1_i8v74")
 
-[node name="Lights" type="Node" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
-transform = Transform3D(0.866025, 8.95091e-09, -0.5, 0.353553, 0.707107, 0.612372, 0.353553, -0.707107, 0.612372, -4, 22, 0)
-shadow_enabled = true
-sky_mode = 1
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_v86t1")]
 
 [node name="CameraPivot" parent="." instance=ExtResource("2_gp5nr")]
 

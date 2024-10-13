@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bquvs2u4hmcqp"]
+[gd_scene load_steps=8 format=3 uid="uid://bquvs2u4hmcqp"]
 
 [ext_resource type="Script" path="res://skripts/mainmenu/MainBackground.cs" id="1_ur41e"]
 [ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://scenes/world/Ball.tscn" id="2_ei345"]
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_3qolu"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="3_pafw0"]
 [ext_resource type="PackedScene" uid="uid://3iwcu3g62wp0" path="res://scenes/world/WallsFull.tscn" id="3_yttfj"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="4_hafct"]
@@ -18,8 +19,7 @@ script = ExtResource("1_ur41e")
 BallScene = ExtResource("2_ei345")
 BallCount = 1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, -7.71341e-09, -0.965926, 0.258819, -8, 17, 5)
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_3qolu")]
 
 [node name="CameraPivot" parent="." instance=ExtResource("3_pafw0")]
 
@@ -32,3 +32,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 1,
 [node name="WallsFull" parent="." instance=ExtResource("3_yttfj")]
 
 [node name="Ground" parent="." instance=ExtResource("4_hafct")]
+
+[editable path="WallsFull"]
+[editable path="Ground"]
+[editable path="Ground/ground"]

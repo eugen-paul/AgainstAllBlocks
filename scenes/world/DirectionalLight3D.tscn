@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cuksdl57gtrus"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D"]
+light_bake_mode = 0
+directional_shadow_mode = 1
+sky_mode = 1

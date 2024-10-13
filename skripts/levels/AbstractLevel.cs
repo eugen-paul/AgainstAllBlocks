@@ -62,7 +62,7 @@ public abstract partial class AbstractLevel : Node
 
         InitStages();
         SetBackground();
-        SetLights();
+        // SetLights();
     }
 
     private void SetBackground()
@@ -78,22 +78,39 @@ public abstract partial class AbstractLevel : Node
     private void SetLights()
     {
         var prefs = GameComponets.Instance.Get<UserPreferences>();
-        if (prefs.GetParamShowShadow())
-        {
-            return;
-        }
-
         var lights = GetNodeOrNull<Node>("Lights");
         if (lights == null)
         {
             return;
         }
 
+        GD.Print("lights.GetChildren.count: " + lights.GetChildren().Count);
         foreach (var light in lights.GetChildren())
         {
+            GD.Print("edit object: " + light.GetType());
             if (light is Light3D light3D)
             {
-                light3D.ShadowEnabled = false;
+                GD.Print("edit Light");
+                light3D.Visible = prefs.GetParamShowShadow();
+                light3D.ShadowEnabled = prefs.GetParamShowShadow();
+            }
+            else if (light is WorldEnvironment we)
+            {
+                GD.Print("edit we");
+                if (prefs.GetParamShowShadow())
+                {
+                    GD.Print("set to black");
+                    we.Environment.AmbientLightEnergy = 0.4f;
+                }
+                else
+                {
+                    GD.Print("set to white");
+                    we.Environment.AmbientLightEnergy = 1.4f;
+                }
+            }
+            else
+            {
+                GD.Print("type = " + light.GetType());
             }
         }
     }

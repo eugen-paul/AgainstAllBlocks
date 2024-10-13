@@ -1,43 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmhs6l5anm08o"]
+[gd_scene load_steps=4 format=3 uid="uid://cmhs6l5anm08o"]
 
 [ext_resource type="Script" path="res://skripts/world/Block.cs" id="1_la43w"]
-[ext_resource type="PackedScene" uid="uid://bpaxq4jjdfpng" path="res://assets/blender/world/block.gltf" id="2_x4336"]
-[ext_resource type="Material" uid="uid://3nuqb8djfq85" path="res://assets/textures/block/yellowMaterial1Left.tres" id="3_ctsrw"]
+[ext_resource type="PackedScene" uid="uid://0msw47hc5kgy" path="res://assets/blender/world/block.gltf" id="2_gklf3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]
 size = Vector3(2, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vg1hn"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_6w6yj"]
-_surfaces = [{
-"aabb": AABB(-0.5, 0, -1, 1.00001, 1.00001, 2),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray(0, 0, 6, 0, 4, 0, 0, 0, 2, 0, 6, 0, 3, 0, 6, 0, 2, 0, 3, 0, 7, 0, 6, 0, 7, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 5, 0, 3, 0, 1, 0, 5, 0, 7, 0, 3, 0, 1, 0, 2, 0, 0, 0, 1, 0, 3, 0, 2, 0, 5, 0, 0, 0, 4, 0, 5, 0, 1, 0, 0, 0),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray(254, 255, 254, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 254, 255, 254, 255, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_7nsk8"]
-resource_name = "block_Cube"
-_surfaces = [{
-"aabb": AABB(-0.5, 0, -1, 1.00001, 1.00001, 2),
-"attribute_data": PackedByteArray(255, 127, 255, 255, 255, 127, 255, 127, 255, 127, 255, 191, 255, 191, 255, 255, 255, 127, 255, 191, 255, 127, 255, 127, 255, 191, 255, 255, 255, 255, 255, 127, 255, 255, 255, 191, 255, 127, 255, 255, 255, 255, 255, 191, 255, 255, 255, 127, 255, 127, 255, 191, 255, 127, 255, 191, 255, 255, 255, 191, 255, 191, 255, 191, 255, 127, 255, 127, 255, 255, 255, 127, 255, 191, 255, 191, 255, 255, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 255, 255, 127, 255, 127, 255, 127),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray(1, 0, 19, 0, 13, 0, 1, 0, 7, 0, 19, 0, 9, 0, 18, 0, 6, 0, 9, 0, 21, 0, 18, 0, 23, 0, 14, 0, 20, 0, 23, 0, 17, 0, 14, 0, 16, 0, 10, 0, 4, 0, 16, 0, 22, 0, 10, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 15, 0, 0, 0, 12, 0, 15, 0, 3, 0, 0, 0),
-"material": SubResource("StandardMaterial3D_vg1hn"),
-"primitive": 3,
-"uv_scale": Vector4(2, 2, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray(254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 254, 255, 0, 0, 84, 213, 254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 84, 213, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 254, 255, 255, 255, 255, 191, 254, 255, 254, 255, 255, 255, 84, 213, 254, 255, 254, 255, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 255, 191, 254, 255, 0, 0, 255, 255, 84, 213, 254, 255, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 84, 213, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 255, 255, 255, 191, 0, 0, 254, 255, 255, 255, 84, 213, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 255, 255, 255, 63, 255, 191, 169, 170, 170, 170, 255, 191, 255, 127, 255, 63, 255, 191, 170, 42, 84, 213, 255, 191, 255, 127, 255, 255, 255, 255, 170, 170, 170, 170, 255, 191, 255, 127, 255, 255, 255, 255, 170, 42, 84, 213, 255, 191, 255, 127, 255, 63, 255, 191, 169, 170, 170, 170, 255, 63, 255, 127, 255, 63, 255, 191, 170, 42, 84, 213, 255, 63, 255, 127, 255, 255, 255, 255, 170, 170, 170, 170, 255, 63, 255, 127, 255, 255, 255, 255, 170, 42, 84, 213, 255, 63, 255, 127)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_6w6yj")
 
 [node name="Block" type="CharacterBody3D" groups=["Block"]]
 collision_layer = 4
@@ -48,16 +15,10 @@ script = ExtResource("1_la43w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ulciv")
 
-[node name="block" parent="CollisionShape3D" instance=ExtResource("2_x4336")]
+[node name="block" parent="CollisionShape3D" instance=ExtResource("2_gklf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="Cube" parent="CollisionShape3D/block" index="0"]
-mesh = SubResource("ArrayMesh_7nsk8")
-surface_material_override/0 = ExtResource("3_ctsrw")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, 0)
 visible = false
 billboard = 1
-
-[editable path="CollisionShape3D/block"]
