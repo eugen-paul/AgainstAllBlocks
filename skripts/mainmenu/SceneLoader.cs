@@ -1,11 +1,18 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using Godot;
+
 
 public partial class SceneLoader : Node
 {
-    private readonly List<string> allPaths = new() {
-        GameScenePaths.MAIN_SCENE,
+    private enum LoadingStage
+    {
+        SceneItems,
+        gpuParticles3dList,
+        gpuParticles2dList,
+        done,
+    }
+
+    private readonly List<string> addToSceneItems = new() {
         GameScenePaths.DEFAULT_ARROW_SCENE,
         GameScenePaths.DEFAULT_BALL_SCENE,
         GameScenePaths.DEFAULT_PADDLE_SCENE,
@@ -13,11 +20,10 @@ public partial class SceneLoader : Node
         GameScenePaths.DEFAULT_ROCKET_EXPLOSION_SCENE,
         GameScenePaths.DEFAULT_BOMB_SCENE,
         GameScenePaths.DEFAULT_BOMB_EXPLOSION_SCENE,
-    };
-
-    private readonly List<string> addToSceneItems = new() {
         GameScenePaths.DEFAULT_ITEM_SCENE,
     };
+
+    private Node lastLoaded = null;
 
     private readonly List<string> gpuParticles3dList = new() {
         "res://scenes/world/particles/ExplosionDebrisBig.tscn",
@@ -37,81 +43,47 @@ public partial class SceneLoader : Node
     private List<string> pathesToLoad;
 
     private bool pathsLoaded = false;
-    private bool allLoaded = false;
     private int framesAfterLoad = 0;
 
     private string NextScene = GameScenePaths.MAIN_SCENE;
 
+    private LoadingStage stage = LoadingStage.SceneItems;
+
+    private int itemsCount;
+
     public override void _Ready()
     {
-        pathesToLoad = new(allPaths);
-        if (pathesToLoad.Count != 0)
-        {
-            ResourceLoader.LoadThreadedRequest(allPaths[0]);
-        }
-
+        pathesToLoad = new(addToSceneItems);
+        itemsCount = addToSceneItems.Count + gpuParticles3dList.Count + gpuParticles2dList.Count;
     }
 
     private void GoToNext()
     {
-        var next = (PackedScene)ResourceLoader.LoadThreadedGet(NextScene);
+        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.MAIN_SCENE);
         GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 
     public override void _Process(double delta)
     {
-        if (allLoaded)
+        switch (stage)
         {
-            framesAfterLoad++;
-            if (framesAfterLoad > 3)
-            {
-                GoToNext();
-            }
-        }
-    }
-    public override void _PhysicsProcess(double delta)
-    {
-        if (pathsLoaded)
-        {
-            LoadAll3DParticles();
-            LoadAll2DParticles();
-            LoadSprite3D();
-            allLoaded = true;
-            return;
-        }
-        else
-        {
-            LoadAndCheckAllPathes();
-        }
-
-    }
-
-    private void LoadAndCheckAllPathes()
-    {
-        if (pathesToLoad.Count == 0)
-        {
-            pathsLoaded = true;
-            return;
-        }
-
-        var status = ResourceLoader.LoadThreadedGetStatus(pathesToLoad[0]);
-        switch (status)
-        {
-            case ResourceLoader.ThreadLoadStatus.Loaded:
-                pathesToLoad.RemoveAt(0);
-                if (pathesToLoad.Count != 0) { ResourceLoader.LoadThreadedRequest(pathesToLoad[0]); };
+            case LoadingStage.SceneItems:
+                LoadSprite3D();
                 break;
-            case ResourceLoader.ThreadLoadStatus.InProgress:
+            case LoadingStage.gpuParticles3dList:
+                LoadAll3DParticles();
                 break;
+            case LoadingStage.gpuParticles2dList:
+                LoadAll2DParticles();
+                break;
+            case LoadingStage.done:
             default:
-                Debug.Print($"LoadThreadedGetStatus not OK, status = {status}, path = {pathesToLoad[0]}");
+                framesAfterLoad++;
+                if (framesAfterLoad > 3)
+                {
+                    GoToNext();
+                }
                 break;
-        }
-
-        if (pathesToLoad.Count != 0)
-        {
-            var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");
-            progressBar.Value = Mathf.Min(100f, 100f * (allPaths.Count - pathesToLoad.Count) / allPaths.Count);
         }
     }
 
@@ -124,7 +96,11 @@ public partial class SceneLoader : Node
             partocleObj.Emitting = true;
             // partocleObj.Finished += () => { Debug.Print("Finished"); };
             AddChild(partocleObj);
+
         }
+        var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");
+        progressBar.SetValueNoSignal(Mathf.Min(100f, 100f * (itemsCount - gpuParticles2dList.Count) / itemsCount));
+        stage = LoadingStage.gpuParticles2dList;
     }
 
     private void LoadAll2DParticles()
@@ -138,16 +114,35 @@ public partial class SceneLoader : Node
             // partocleObj.Finished += () => { Debug.Print("Finished"); };
             bgRect.AddChild(partocleObj);
         }
+        var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");
+        progressBar.SetValueNoSignal(100f);
+        stage = LoadingStage.done;
     }
 
     private void LoadSprite3D()
     {
-        foreach (var path in addToSceneItems)
+        lastLoaded?.QueueFree();
+        if (stage != LoadingStage.SceneItems)
         {
-            var itemRl = ResourceLoader.Load<PackedScene>(path);
-            var item = itemRl.Instantiate<Node>();
-            AddChild(item);
+            return;
         }
+
+        if (pathesToLoad.Count == 0)
+        {
+            stage = LoadingStage.gpuParticles3dList;
+            return;
+        }
+
+        lastLoaded = ResourceLoader.Load<PackedScene>(pathesToLoad[0]).Instantiate<Node>();
+        if (lastLoaded is Item i)
+        {
+            i.ItemType = ItemType.LIFE_ADD;
+        }
+        AddChild(lastLoaded);
+        pathesToLoad.RemoveAt(0);
+
+        var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");
+        progressBar.SetValueNoSignal(Mathf.Min(100f, 100f * (itemsCount - pathesToLoad.Count - gpuParticles3dList.Count - gpuParticles2dList.Count) / itemsCount));
     }
 
 }
