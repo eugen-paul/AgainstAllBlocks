@@ -13,6 +13,13 @@ public enum BallSounds
     HIT_WALL,
 }
 
+public enum BallType
+{
+    NORMAL = 0,
+    SCORE_BONUS = 1,
+}
+
+[Tool]
 public partial class Ball : CharacterBody3D
 {
     public Action<Ball> BallLeavesScreen;
@@ -25,20 +32,23 @@ public partial class Ball : CharacterBody3D
 
     public float Weight { get; set; } = 1.0f;
 
-    [Export]
-    public int MaxScoreBomus { get; set; } = 5;
-
-    private int _scoreBonus = 0;
+    private BallType _type = BallType.NORMAL;
 
     [Export]
-    public int ScoreBonus
+    public BallType Type
     {
-        get => _scoreBonus;
+        get => _type;
         set
         {
-            _scoreBonus = Math.Min(value, MaxScoreBomus);
+            _type = value;
+            EditBallType();
         }
     }
+
+    private int blockHitsInRow = 0;
+
+    private int bonusAfterNormal = 5;
+    private int bonusAfterScoreBonus = 0;
 
     private readonly static IDictionary<BallSounds, string> SOUND_TO_PATH = new Dictionary<BallSounds, string> {
             {  BallSounds.KICK, "Kick" },
@@ -98,7 +108,7 @@ public partial class Ball : CharacterBody3D
             {
                 if (node is Hitable block)
                 {
-                    block.Hit(ScoreBonus);
+                    block.Hit(ComputeBonus());
                 }
                 if (node is ABlock)
                 {
@@ -151,16 +161,40 @@ public partial class Ball : CharacterBody3D
 
     private void BallHitsBlock()
     {
-        ScoreBonus++;
+        blockHitsInRow++;
     }
 
     public void BallHitsPaddle()
     {
-        ScoreBonus = 0;
+        blockHitsInRow = 0;
+    }
+
+    public int ComputeBonus()
+    {
+        return _type switch
+        {
+            BallType.NORMAL => (blockHitsInRow < bonusAfterNormal) ? 0 : 4,
+            BallType.SCORE_BONUS => (blockHitsInRow < bonusAfterScoreBonus) ? 0 : 4,
+            _ => 1,
+        };
     }
 
     public void PlaySound(BallSounds sound)
     {
         GetNode<AudioStreamPlayer>(SOUND_TO_PATH[sound]).Play();
+    }
+
+    protected void EditBallType()
+    {
+        var mat = _type switch
+        {
+            BallType.NORMAL => GD.Load<StandardMaterial3D>("res://scenes/world/ballMaterial/BallMaterialNormal.tres"),
+            BallType.SCORE_BONUS => GD.Load<StandardMaterial3D>("res://scenes/world/ballMaterial/BallMaterialScoreBonus.tres"),
+            _ => throw new ArgumentException("Illegal Color Value: " + _type.ToString()),
+        };
+        if (GetNode<MeshInstance3D>("CollisionShape3D/MeshInstance3D").GetSurfaceOverrideMaterialCount() > 0)
+        {
+            GetNode<MeshInstance3D>("CollisionShape3D/MeshInstance3D").SetSurfaceOverrideMaterial(0, mat);
+        }
     }
 }

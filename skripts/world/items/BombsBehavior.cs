@@ -5,14 +5,12 @@ using Godot;
 public class BombsBehavior : ItemBehavior
 {
     private readonly AbstractLevel level;
-    private readonly Item item;
 
     public PackedScene BombScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_BOMB_SCENE);
 
-    public BombsBehavior(Item item, AbstractLevel level)
+    public BombsBehavior(AbstractLevel level)
     {
         this.level = level;
-        this.item = item;
     }
 
     public override void DoBehavior()
