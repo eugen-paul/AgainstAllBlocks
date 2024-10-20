@@ -96,7 +96,6 @@ public partial class SceneLoader : Node
             var scene = ResourceLoader.Load<PackedScene>(particleScene);
             var partocleObj = scene.Instantiate<GpuParticles3D>();
             partocleObj.Emitting = true;
-            // partocleObj.Finished += () => { Debug.Print("Finished"); };
             AddChild(partocleObj);
 
         }
@@ -113,7 +112,6 @@ public partial class SceneLoader : Node
             var scene = ResourceLoader.Load<PackedScene>(particleScene);
             var partocleObj = scene.Instantiate<GpuParticles2D>();
             partocleObj.Emitting = true;
-            // partocleObj.Finished += () => { Debug.Print("Finished"); };
             bgRect.AddChild(partocleObj);
         }
         var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");

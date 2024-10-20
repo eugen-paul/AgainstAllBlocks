@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://2u3mfphi8ajw"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://2u3mfphi8ajw"]
 
 [ext_resource type="FontFile" uid="uid://8qx1ip3akefr" path="res://assets/themes/Square.ttf" id="1_b2eqr"]
 [ext_resource type="StyleBox" uid="uid://cwed7w3bh1y4w" path="res://assets/themes/normal_button_texture_style.tres" id="1_kqsiq"]
+[ext_resource type="Texture2D" uid="uid://bvag048p51ms2" path="res://assets/textures/gui/popupPanelSelect.png" id="3_1k5c0"]
+[ext_resource type="Texture2D" uid="uid://ch8fs23auwfuc" path="res://assets/textures/gui/popupPanel.png" id="3_fkdmj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5gjl"]
 
@@ -14,6 +16,20 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8k6j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bf4db"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bgdn"]
+texture = ExtResource("3_1k5c0")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxhkf"]
+texture = ExtResource("3_fkdmj")
+texture_margin_left = 15.0
+texture_margin_top = 13.0
+texture_margin_right = 20.0
+texture_margin_bottom = 14.0
 
 [resource]
 default_font_size = 34
@@ -41,3 +57,5 @@ Label/constants/shadow_offset_y = 2
 Label/constants/shadow_outline_size = 2
 Label/font_sizes/font_size = 30
 Label/fonts/font = ExtResource("1_b2eqr")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_1bgdn")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_yxhkf")

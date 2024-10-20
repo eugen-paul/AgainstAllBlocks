@@ -169,7 +169,6 @@ public partial class Ball : CharacterBody3D
 
     public void BallHitsPaddle()
     {
-        GD.Print($"blockHitsInRow = {blockHitsInRow}, bonusRest = {bonusRest}");
         blockHitsInRow = 0;
         if (_type == BallType.SCORE_BONUS)
         {
@@ -198,14 +197,12 @@ public partial class Ball : CharacterBody3D
 
     protected void EditBallType()
     {
-        GD.Print("EditBallType " + _type.ToString());
         switch (_type)
         {
             case BallType.NORMAL: SetNormalBall(); break;
             case BallType.SCORE_BONUS: SetScoreBonusBall(); break;
             default: throw new ArgumentException("Illegal Color Value: " + _type.ToString());
         };
-        GD.Print("EditBallType Ende");
     }
 
     private void SetScoreBonusBall()
