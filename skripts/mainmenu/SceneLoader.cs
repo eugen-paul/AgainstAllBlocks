@@ -37,6 +37,7 @@ public partial class SceneLoader : Node
 
     private readonly List<string> gpuParticles2dList = new(){
         "res://scenes/mainmenu/particles/FireworkExplosion.tscn",
+        "res://scenes/mainmenu/particles/FireworkExplosion2.tscn",
         "res://scenes/mainmenu/particles/FireworkRocket.tscn",
     };
 

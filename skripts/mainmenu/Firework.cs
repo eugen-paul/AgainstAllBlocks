@@ -4,6 +4,7 @@ using Godot;
 public partial class Firework : Node2D
 {
     private readonly string ExplosionPath = "Explosion";
+    private readonly string Explosion2Path = "Explosion2";
     private readonly string RocketPath = "Rocket";
 
     [Export]
@@ -38,9 +39,12 @@ public partial class Firework : Node2D
     private void RocketEnd()
     {
         var explosion = GetNode<GpuParticles2D>(ExplosionPath);
+        var explosion2 = GetNode<GpuParticles2D>(Explosion2Path);
         var rocket = GetNode<GpuParticles2D>(RocketPath);
         explosion.GlobalPosition = rocket.GlobalPosition;
         explosion.Emitting = true;
+        explosion2.GlobalPosition = rocket.GlobalPosition;
+        explosion2.Emitting = true;
         fired = false;
 
         GetNode<AudioStreamPlayer>("explosionSound").Play();
