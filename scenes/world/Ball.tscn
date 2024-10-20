@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://23j0ueo6o3pk"]
+[gd_scene load_steps=11 format=3 uid="uid://23j0ueo6o3pk"]
 
 [ext_resource type="Script" path="res://skripts/world/Ball.cs" id="1_0hqcq"]
 [ext_resource type="Material" uid="uid://throj4ho1bic" path="res://scenes/world/ballMaterial/BallMaterialNormal.tres" id="2_44fle"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://sjo408welus3" path="res://assets/sounds/bonkBallBlock.wav" id="3_87pg0"]
 [ext_resource type="AudioStream" uid="uid://32t1jax44qp8" path="res://assets/sounds/bonkBallPaddle.wav" id="4_6bt2c"]
 [ext_resource type="AudioStream" uid="uid://c8ruff75w16f0" path="res://assets/sounds/bonkBallWall.wav" id="5_tdoaa"]
+[ext_resource type="PackedScene" uid="uid://j7ebtn61peuk" path="res://scenes/world/particles/BallFire.tscn" id="8_16xqc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e6iin"]
 
@@ -45,5 +46,8 @@ volume_db = -5.0
 
 [node name="Kick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_coss0")
+
+[node name="FireParticles3D" parent="." instance=ExtResource("8_16xqc")]
+emitting = false
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="OnVisibilityNotifierScreenExited"]

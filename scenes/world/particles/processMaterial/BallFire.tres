@@ -1,0 +1,23 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://717kd67asdtn"]
+
+[sub_resource type="Curve" id="Curve_xtkdm"]
+min_value = 0.99
+max_value = 2.0
+_data = [Vector2(0.193694, 2), 0.0, 0.0, 0, 0, Vector2(1, 1.10275), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a80wv"]
+curve = SubResource("Curve_xtkdm")
+
+[resource]
+lifetime_randomness = 0.9
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, -1, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_a80wv")
+color = Color(1, 0, 0, 1)

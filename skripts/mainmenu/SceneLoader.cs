@@ -26,6 +26,7 @@ public partial class SceneLoader : Node
     private Node lastLoaded = null;
 
     private readonly List<string> gpuParticles3dList = new() {
+        "res://scenes/world/particles/BallFire.tscn",
         "res://scenes/world/particles/ExplosionDebrisBig.tscn",
         "res://scenes/world/particles/ExplosionDebrisSmall.tscn",
         "res://scenes/world/particles/ExplosionFireBig.tscn",

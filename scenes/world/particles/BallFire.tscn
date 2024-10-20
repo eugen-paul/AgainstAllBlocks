@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://j7ebtn61peuk"]
+
+[ext_resource type="Material" uid="uid://717kd67asdtn" path="res://scenes/world/particles/processMaterial/BallFire.tres" id="1_cjjgv"]
+[ext_resource type="QuadMesh" uid="uid://cscbh42iwfcs6" path="res://scenes/world/particles/passMaterial/BallFireMaterial.tres" id="2_5100d"]
+
+[node name="FireParticles3D" type="GPUParticles3D"]
+lifetime = 0.4
+process_material = ExtResource("1_cjjgv")
+draw_pass_1 = ExtResource("2_5100d")

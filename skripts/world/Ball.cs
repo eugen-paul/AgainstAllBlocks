@@ -46,9 +46,12 @@ public partial class Ball : CharacterBody3D
     }
 
     private int blockHitsInRow = 0;
-
     private int bonusAfterNormal = 5;
     private int bonusAfterScoreBonus = 0;
+
+    private int bonusRestDefault = 3;
+
+    private int bonusRest = 0;
 
     private readonly static IDictionary<BallSounds, string> SOUND_TO_PATH = new Dictionary<BallSounds, string> {
             {  BallSounds.KICK, "Kick" },
@@ -166,7 +169,16 @@ public partial class Ball : CharacterBody3D
 
     public void BallHitsPaddle()
     {
+        GD.Print($"blockHitsInRow = {blockHitsInRow}, bonusRest = {bonusRest}");
         blockHitsInRow = 0;
+        if (_type == BallType.SCORE_BONUS)
+        {
+            bonusRest--;
+            if (bonusRest <= 0)
+            {
+                SetNormalBall();
+            }
+        }
     }
 
     public int ComputeBonus()
@@ -186,12 +198,36 @@ public partial class Ball : CharacterBody3D
 
     protected void EditBallType()
     {
-        var mat = _type switch
+        GD.Print("EditBallType " + _type.ToString());
+        switch (_type)
         {
-            BallType.NORMAL => GD.Load<StandardMaterial3D>("res://scenes/world/ballMaterial/BallMaterialNormal.tres"),
-            BallType.SCORE_BONUS => GD.Load<StandardMaterial3D>("res://scenes/world/ballMaterial/BallMaterialScoreBonus.tres"),
-            _ => throw new ArgumentException("Illegal Color Value: " + _type.ToString()),
+            case BallType.NORMAL: SetNormalBall(); break;
+            case BallType.SCORE_BONUS: SetScoreBonusBall(); break;
+            default: throw new ArgumentException("Illegal Color Value: " + _type.ToString());
         };
+        GD.Print("EditBallType Ende");
+    }
+
+    private void SetScoreBonusBall()
+    {
+        _type = BallType.SCORE_BONUS;
+        SetBallMaterial(GD.Load<StandardMaterial3D>("res://scenes/world/ballMaterial/BallMaterialScoreBonus.tres"));
+
+        var userPreferences = GameComponets.Instance.Get<UserPreferences>();
+        GetNode<GpuParticles3D>("FireParticles3D").Emitting = userPreferences.GetParamEffects() == EffectsPreferences.HIGH;
+
+        bonusRest = bonusRestDefault;
+    }
+
+    private void SetNormalBall()
+    {
+        _type = BallType.NORMAL;
+        SetBallMaterial(GD.Load<StandardMaterial3D>("res://scenes/world/ballMaterial/BallMaterialNormal.tres"));
+        GetNode<GpuParticles3D>("FireParticles3D").Emitting = false;
+    }
+
+    protected void SetBallMaterial(StandardMaterial3D mat)
+    {
         if (GetNode<MeshInstance3D>("CollisionShape3D/MeshInstance3D").GetSurfaceOverrideMaterialCount() > 0)
         {
             GetNode<MeshInstance3D>("CollisionShape3D/MeshInstance3D").SetSurfaceOverrideMaterial(0, mat);
