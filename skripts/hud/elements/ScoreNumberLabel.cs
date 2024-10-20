@@ -1,9 +1,10 @@
 using Godot;
 
-public partial class ScoreNumberLabel : Label
+public partial class ScoreNumberLabel : Control
 {
     public void SetScore(int score)
     {
-        Text = score.ToString();
+        GetNode<Label>("Outline").Text = score.ToString();
+        GetNode<Label>("ScoreNumberLabel").Text = score.ToString();
     }
 }
