@@ -1,26 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bofudyeh8x5lj"]
+[gd_scene load_steps=2 format=3 uid="uid://bofudyeh8x5lj"]
 
-[sub_resource type="Gradient" id="Gradient_wykhl"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gwedw"]
-gradient = SubResource("Gradient_wykhl")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4k7cr"]
-lifetime_randomness = 0.9
-particle_flag_disable_z = true
-direction = Vector3(0, 1, 0)
-spread = 90.0
-initial_velocity_min = 1.0
-initial_velocity_max = 3.0
-gravity = Vector3(0, 30, 0)
-scale_min = 2.0
-scale_max = 2.5
-color_ramp = SubResource("GradientTexture1D_gwedw")
+[ext_resource type="Material" uid="uid://bcd7pu4qecao3" path="res://scenes/mainmenu/particles/FireworkRocketMaterial.tres" id="1_du0ey"]
 
 [node name="rocket" type="GPUParticles2D"]
 emitting = false
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_4k7cr")
 one_shot = true
 local_coords = true
+process_material = ExtResource("1_du0ey")

@@ -44,7 +44,7 @@ public partial class LevelProgress : Control
 
     private void OnStartButtonPressed()
     {
-        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.GetLevelPath(levelProgressData.Level));
+        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.GetLevelPath(levelProgressData.Level), cacheMode : ResourceLoader.CacheMode.IgnoreDeep);
         GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 }
