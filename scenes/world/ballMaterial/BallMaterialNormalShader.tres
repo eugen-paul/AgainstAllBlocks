@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dhnxce6k02gnk"]
+
+[ext_resource type="Shader" path="res://scenes/world/ballMaterial/BallGreen.gdshader" id="1_kv5fo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kv5fo")
+shader_parameter/light_direction = Vector3(0.3, 1, 0)
+shader_parameter/light_color = Vector4(0, 1, 0, 1)
+shader_parameter/dark_color = Vector4(0.2, 0.5, 0.2, 1)

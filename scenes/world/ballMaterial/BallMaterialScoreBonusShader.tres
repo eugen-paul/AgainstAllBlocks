@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d1121vprcb3ou"]
+
+[ext_resource type="Shader" path="res://scenes/world/ballMaterial/BallScoreBonus.gdshader" id="1_h3fd1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h3fd1")
+shader_parameter/light_direction = Vector3(0.3, 1, 0)
+shader_parameter/light_color = Vector4(1, 0, 0, 1)
+shader_parameter/dark_color = Vector4(0.5, 0.2, 0.2, 1)
