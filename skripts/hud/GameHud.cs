@@ -55,10 +55,11 @@ public partial class GameHud : CanvasLayer
         GetNode<AnimationPlayer>("GameOverRect/AnimationPlayer").Play("show");
     }
 
-    public void LevelDone()
+    public void LevelDone(GoldenBallStatus.BallStatus[] ballStatus)
     {
         GetNode<Control>("WinRect").Show();
         GetNode<AnimationPlayer>("WinRect/AnimationPlayer").Play("show");
+        GetNode<GoldenBallStatus>("WinRect/CenterContainer/VBoxContainer/GoldenBallStatus").ShowBalls(ballStatus[0], ballStatus[1], ballStatus[2]);
         LevelDoneAnimation();
     }
 

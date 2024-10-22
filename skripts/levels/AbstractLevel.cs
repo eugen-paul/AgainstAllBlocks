@@ -361,8 +361,34 @@ public abstract partial class AbstractLevel : Node
     {
         DestroyAllTemporary();
         running = false;
+        var ballStatus = ComputeBallStatus();
         SaveProgress();
-        gameHud.LevelDone();
+        gameHud.LevelDone(ballStatus);
+    }
+
+    private GoldenBallStatus.BallStatus[] ComputeBallStatus()
+    {
+        GoldenBallStatus.BallStatus[] ballStatus = new GoldenBallStatus.BallStatus[3];
+
+        var ball1Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball1;
+        var ball2Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball2;
+        var ball3Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball3;
+
+        ballStatus[0] = GetBallStatus(ball1Old, GetBall1());
+        ballStatus[1] = GetBallStatus(ball2Old, GetBall2());
+        ballStatus[2] = GetBallStatus(ball3Old, GetBall3());
+
+        return ballStatus;
+    }
+
+    private GoldenBallStatus.BallStatus GetBallStatus(bool statusOld, bool statusNew)
+    {
+        if (!statusNew)
+        {
+            return GoldenBallStatus.BallStatus.GRAY;
+        }
+
+        return (statusNew != statusOld) ? GoldenBallStatus.BallStatus.TO_GOLD : GoldenBallStatus.BallStatus.GOLD;
     }
 
     private void SaveProgress()

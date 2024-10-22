@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=14 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="PackedScene" uid="uid://byls65odfvomi" path="res://scenes/hud/ScoreNumberLabel.tscn" id="3_2haen"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpvjyg48jchp2" path="res://scenes/fps/Fps.tscn" id="7_efxpt"]
 [ext_resource type="PackedScene" uid="uid://cxqdq8u6m8q0o" path="res://scenes/mainmenu/Firework.tscn" id="8_5uw8k"]
 [ext_resource type="AudioStream" uid="uid://dh27huh416en2" path="res://assets/sounds/gameOver.wav" id="8_f0fxf"]
+[ext_resource type="PackedScene" uid="uid://y24if70s5ihk" path="res://scenes/hud/GoldenBallStatus.tscn" id="9_nofyi"]
 [ext_resource type="AudioStream" uid="uid://4rr5vaq3ra7w" path="res://assets/sounds/winfantasia.wav" id="9_tex8u"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
@@ -164,13 +165,16 @@ VelocityY = -150.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WinRect/CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 30
 
 [node name="WinLabel" type="Label" parent="WinRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Victory"
 horizontal_alignment = 1
+
+[node name="GoldenBallStatus" parent="WinRect/CenterContainer/VBoxContainer" instance=ExtResource("9_nofyi")]
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WinRect/CenterContainer/VBoxContainer"]
 layout_mode = 2

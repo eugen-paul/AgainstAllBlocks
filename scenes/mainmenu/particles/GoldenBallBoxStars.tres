@@ -1,0 +1,19 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://doj6plr7t4qms"]
+
+[sub_resource type="Curve" id="Curve_bregd"]
+_data = [Vector2(0.0106952, 0.127066), 0.0, 0.0, 0, 0, Vector2(0.117647, 1), 0.0, 0.0, 0, 0, Vector2(0.794118, 1), 0.0, 0.0, 0, 0, Vector2(0.983957, 0.0464877), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_m7s28"]
+curve = SubResource("Curve_bregd")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector3(0, -1, 0)
+spread = 2.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+color = Color(1, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_m7s28")

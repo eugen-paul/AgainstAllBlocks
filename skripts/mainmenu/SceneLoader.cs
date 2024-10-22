@@ -40,6 +40,8 @@ public partial class SceneLoader : Node
         "res://scenes/mainmenu/particles/FireworkExplosion.tscn",
         "res://scenes/mainmenu/particles/FireworkExplosion2.tscn",
         "res://scenes/mainmenu/particles/FireworkRocket.tscn",
+        "res://scenes/mainmenu/particles/GoldenBallAnimation.tscn",
+        "res://scenes/mainmenu/particles/GoldenBallAchivedAnimation.tscn",
     };
 
     private List<string> pathesToLoad;

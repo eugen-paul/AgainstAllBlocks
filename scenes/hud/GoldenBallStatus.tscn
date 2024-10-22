@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://y24if70s5ihk"]
+
+[ext_resource type="Script" path="res://skripts/hud/elements/GoldenBallStatus.cs" id="1_i2i7k"]
+[ext_resource type="PackedScene" uid="uid://cxcbm1le6nbw6" path="res://scenes/hud/GoldenBallBox.tscn" id="1_x4nrr"]
+
+[node name="GoldenBallStatus" type="CenterContainer"]
+offset_right = 242.0
+offset_bottom = 64.0
+script = ExtResource("1_i2i7k")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Ball1" parent="VBoxContainer" instance=ExtResource("1_x4nrr")]
+layout_mode = 2
+
+[node name="Ball2" parent="VBoxContainer" instance=ExtResource("1_x4nrr")]
+layout_mode = 2
+
+[node name="Ball3" parent="VBoxContainer" instance=ExtResource("1_x4nrr")]
+layout_mode = 2

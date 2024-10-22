@@ -23,7 +23,7 @@ public partial class Level1 : AbstractLevel
 
     protected override bool GetBall3()
     {
-        return Score >= 7;
+        return Score >= 70;
     }
 
 }

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwbmp6rngnujj"]
+
+[ext_resource type="Texture2D" uid="uid://dj0cdhoh8ssxn" path="res://assets/textures/gui/star_04.png" id="1_ugyiw"]
+[ext_resource type="Material" uid="uid://doj6plr7t4qms" path="res://scenes/mainmenu/particles/GoldenBallBoxStars.tres" id="2_4bmav"]
+
+[node name="GPUParticles2DAnimation" type="GPUParticles2D"]
+emitting = false
+amount = 3
+lifetime = 2.0
+texture = ExtResource("1_ugyiw")
+process_material = ExtResource("2_4bmav")
