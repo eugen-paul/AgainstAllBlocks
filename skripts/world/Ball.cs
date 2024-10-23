@@ -195,7 +195,7 @@ public partial class Ball : CharacterBody3D
         GetNode<AudioStreamPlayer>(SOUND_TO_PATH[sound]).Play();
     }
 
-    protected void EditBallType()
+    private void EditBallType()
     {
         switch (_type)
         {
@@ -208,7 +208,7 @@ public partial class Ball : CharacterBody3D
     private void SetScoreBonusBall()
     {
         _type = BallType.SCORE_BONUS;
-        SetBallMaterial(GD.Load<ShaderMaterial>("res://scenes/world/ballMaterial/BallMaterialScoreBonusShader.tres"));
+        // SetBallMaterial(GD.Load<ShaderMaterial>("res://scenes/world/ballMaterial/BallMaterialScoreBonusShader.tres"));
 
         var userPreferences = GameComponets.Instance.Get<UserPreferences>();
         GetNode<GpuParticles3D>("FireParticles3D").Emitting = userPreferences.GetParamEffects() == EffectsPreferences.HIGH;
@@ -219,11 +219,11 @@ public partial class Ball : CharacterBody3D
     private void SetNormalBall()
     {
         _type = BallType.NORMAL;
-        SetBallMaterial(GD.Load<ShaderMaterial>("res://scenes/world/ballMaterial/BallMaterialNormalShader.tres"));
+        // SetBallMaterial(GD.Load<ShaderMaterial>("res://scenes/world/ballMaterial/BallMaterialNormalShader.tres"));
         GetNode<GpuParticles3D>("FireParticles3D").Emitting = false;
     }
 
-    protected void SetBallMaterial(ShaderMaterial mat)
+    private void SetBallMaterial(ShaderMaterial mat)
     {
         if (GetNode<MeshInstance3D>("CollisionShape3D/MeshInstance3D").GetSurfaceOverrideMaterialCount() > 0)
         {
