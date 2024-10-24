@@ -1,0 +1,164 @@
+# LANGUAGE translation for Against All Blocks for the following files:
+# res://scenes/hud/GameHud.tscn
+# res://scenes/mainmenu/GameSlotEmpty.tscn
+# res://scenes/mainmenu/GameSlotSave.tscn
+# res://scenes/mainmenu/Main.tscn
+# res://scenes/mainmenu/MenuHud.tscn
+# res://scenes/levelsmenu/LevelProgress.tscn
+# res://scenes/levelsmenu/Levels.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Against All Blocks\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: scenes/hud/GameHud.tscn
+msgid "GAME OVER"
+msgstr ""
+
+#: scenes/hud/GameHud.tscn
+msgid "Restart"
+msgstr ""
+
+#: scenes/hud/GameHud.tscn
+msgid "Menu"
+msgstr ""
+
+#: scenes/hud/GameHud.tscn
+msgid "Victory"
+msgstr ""
+
+#: scenes/hud/GameHud.tscn
+msgid "Next level"
+msgstr ""
+
+#: scenes/hud/GameHud.tscn
+msgid "Pause"
+msgstr ""
+
+#: scenes/hud/GameHud.tscn
+msgid "Continue"
+msgstr ""
+
+#: scenes/mainmenu/GameSlotEmpty.tscn
+msgid "New Game"
+msgstr ""
+
+#: scenes/mainmenu/GameSlotSave.tscn
+msgid "Level:"
+msgstr ""
+
+#: scenes/mainmenu/GameSlotSave.tscn
+msgid "Load"
+msgstr ""
+
+#: scenes/mainmenu/GameSlotSave.tscn
+msgid "Delete game slot?"
+msgstr ""
+
+#: scenes/mainmenu/GameSlotSave.tscn
+#: scenes/levelsmenu/Levels.tscn
+msgid "Yes"
+msgstr ""
+
+#: scenes/mainmenu/GameSlotSave.tscn
+msgid "NO\n"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "AGAINST"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "ALL BLOCKS"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Start"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Settings"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Highscore"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Quit"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Back"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Show FPS:"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Show Background"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Show Shadow"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Effects"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "OFF"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "LOW"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "HIGH"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+#: scenes/levelsmenu/LevelProgress.tscn
+msgid "1"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Name"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "Score"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "2"
+msgstr ""
+
+#: scenes/mainmenu/MenuHud.tscn
+msgid "3"
+msgstr ""
+
+#: scenes/levelsmenu/LevelProgress.tscn
+msgid "START"
+msgstr ""
+
+#: scenes/levelsmenu/Levels.tscn
+msgid "Main menu"
+msgstr ""
+
+#: scenes/levelsmenu/Levels.tscn
+msgid "Exit to main menu?"
+msgstr ""
+
+#: scenes/levelsmenu/Levels.tscn
+msgid "No"
+msgstr ""

@@ -48,6 +48,11 @@ shoot={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/localization/de_DE.po")
+locale/translations_pot_files=PackedStringArray("res://scenes/hud/GameHud.tscn", "res://scenes/mainmenu/GameSlotEmpty.tscn", "res://scenes/mainmenu/GameSlotSave.tscn", "res://scenes/mainmenu/Main.tscn", "res://scenes/mainmenu/MenuHud.tscn", "res://scenes/levelsmenu/LevelProgress.tscn", "res://scenes/levelsmenu/Levels.tscn")
+
 [layer_names]
 
 3d_physics/layer_1="Ball"

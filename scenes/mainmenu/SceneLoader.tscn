@@ -89,8 +89,7 @@ offset_bottom = 181.0
 theme = ExtResource("2_u5c35")
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 40
-text = "ALL
-"
+text = "ALL"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="ColorRect"]
@@ -102,8 +101,7 @@ offset_bottom = 217.0
 theme = ExtResource("2_u5c35")
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 40
-text = "BLOCKS
-"
+text = "BLOCKS"
 horizontal_alignment = 1
 
 [node name="CameraPivot" parent="." instance=ExtResource("4_xngho")]
