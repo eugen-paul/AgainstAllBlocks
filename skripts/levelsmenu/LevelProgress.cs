@@ -7,7 +7,8 @@ public partial class LevelProgress : Control
     private const string BALL_1_PATH = "TextureButton/HBoxContainer/Ball1";
     private const string BALL_2_PATH = "TextureButton/HBoxContainer/Ball2";
     private const string BALL_3_PATH = "TextureButton/HBoxContainer/Ball3";
-    private const string BSTART_BUTTON_PATH = "TextureButton/StartButton";
+    private const string START_BUTTON_PATH = "TextureButton/StartButton";
+    private const string INFO_BUTTON_PATH = "TextureButton/InfoButton";
 
     private LevelProgressData levelProgressData = null;
 
@@ -32,7 +33,8 @@ public partial class LevelProgress : Control
             GetNode<LevelBall>(BALL_3_PATH).SetGoldBall();
         }
 
-        GetNode<Button>(BSTART_BUTTON_PATH).Disabled = !levelProgressData.Reached;
+        GetNode<Button>(START_BUTTON_PATH).Disabled = !levelProgressData.Reached;
+        GetNode<Button>(INFO_BUTTON_PATH).Disabled = !levelProgressData.Reached;
 
         MouseFilter = MouseFilterEnum.Ignore;
     }

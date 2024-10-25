@@ -59,7 +59,10 @@ public partial class GameHud : CanvasLayer
     {
         GetNode<Control>("WinRect").Show();
         GetNode<AnimationPlayer>("WinRect/AnimationPlayer").Play("show");
+
+        var Achievements = GetNode<Achievements>("Achievements");
         GetNode<GoldenBallStatus>("WinRect/CenterContainer/VBoxContainer/GoldenBallStatus").ShowBalls(ballStatus[0], ballStatus[1], ballStatus[2]);
+        GetNode<GoldenBallStatus>("WinRect/CenterContainer/VBoxContainer/GoldenBallStatus").SetTooltips(Achievements.GetAchivments(1, 0), Achievements.GetAchivments(1, 1), Achievements.GetAchivments(1, 2));
         LevelDoneAnimation();
     }
 

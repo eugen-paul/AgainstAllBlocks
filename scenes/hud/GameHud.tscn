@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=15 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="PackedScene" uid="uid://byls65odfvomi" path="res://scenes/hud/ScoreNumberLabel.tscn" id="3_2haen"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dh27huh416en2" path="res://assets/sounds/gameOver.wav" id="8_f0fxf"]
 [ext_resource type="PackedScene" uid="uid://y24if70s5ihk" path="res://scenes/hud/GoldenBallStatus.tscn" id="9_nofyi"]
 [ext_resource type="AudioStream" uid="uid://4rr5vaq3ra7w" path="res://assets/sounds/winfantasia.wav" id="9_tex8u"]
+[ext_resource type="Script" path="res://skripts/levels/Achievements.cs" id="12_hujxl"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
 resource_name = "show"
@@ -250,6 +251,9 @@ text = "Menu"
 
 [node name="Fps" parent="." instance=ExtResource("7_efxpt")]
 visible = false
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("12_hujxl")
 
 [connection signal="pressed" from="TopPanel/PauseButton" to="." method="OnPauseButtonPressed"]
 [connection signal="pressed" from="GameOverRect/VBoxContainer/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]

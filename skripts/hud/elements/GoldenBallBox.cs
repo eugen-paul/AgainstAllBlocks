@@ -33,4 +33,11 @@ public partial class GoldenBallBox : CenterContainer
     {
         GetNode<GpuParticles2D>("GPUParticles2DAchievedAnimation").Emitting = true;
     }
+
+    public void SetTooltipForBall(string text)
+    {
+        GD.Print("Set text to: "+ text);
+        GetNode<TextureRect>("Gold").TooltipText = text;
+        GetNode<TextureRect>("Gray").TooltipText = text;
+    }
 }

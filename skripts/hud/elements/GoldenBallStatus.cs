@@ -27,6 +27,13 @@ public partial class GoldenBallStatus : CenterContainer
         SetBallStatus(Ball3, BallStatus3);
     }
 
+    public void SetTooltips(string ball1, string ball2, string ball3)
+    {
+        Ball1.SetTooltipForBall(ball1);
+        Ball2.SetTooltipForBall(ball2);
+        Ball3.SetTooltipForBall(ball3);
+    }
+
     private void SetBallStatus(GoldenBallBox Ball, BallStatus Status)
     {
         switch (Status)

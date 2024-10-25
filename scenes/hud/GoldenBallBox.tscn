@@ -71,4 +71,5 @@ libraries = {
 position = Vector2(32, 32)
 
 [node name="GPUParticles2DAchievedAnimation" parent="." instance=ExtResource("6_cqte2")]
+z_index = 20
 position = Vector2(32, 28)
