@@ -29,9 +29,9 @@ public partial class GoldenBallStatus : CenterContainer
 
     public void SetTooltips(string ball1, string ball2, string ball3)
     {
-        Ball1.SetTooltipForBall(ball1);
-        Ball2.SetTooltipForBall(ball2);
-        Ball3.SetTooltipForBall(ball3);
+        Ball1.TooltipText = ball1;
+        Ball2.TooltipText = ball2;
+        Ball3.TooltipText = ball3;
     }
 
     private void SetBallStatus(GoldenBallBox Ball, BallStatus Status)

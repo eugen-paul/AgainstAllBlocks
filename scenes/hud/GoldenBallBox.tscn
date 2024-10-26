@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxcbm1le6nbw6"]
+[gd_scene load_steps=11 format=3 uid="uid://cxcbm1le6nbw6"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_0hf1k"]
 [ext_resource type="Texture2D" uid="uid://d4ncmkdk2efva" path="res://assets/textures/gui/goldenBall-GOLD.png" id="2_ey3mc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cgymrmextfmb7" path="res://assets/textures/gui/goldenBall-GRAY.png" id="3_bu65t"]
 [ext_resource type="PackedScene" uid="uid://bwbmp6rngnujj" path="res://scenes/mainmenu/particles/GoldenBallAnimation.tscn" id="5_v1feh"]
 [ext_resource type="PackedScene" uid="uid://dgnlblek1xcw7" path="res://scenes/mainmenu/particles/GoldenBallAchivedAnimation.tscn" id="6_cqte2"]
+[ext_resource type="Script" path="res://skripts/hud/Tooltip.cs" id="7_6xocs"]
 
 [sub_resource type="Animation" id="Animation_icrfa"]
 length = 0.001
@@ -73,3 +74,7 @@ position = Vector2(32, 32)
 [node name="GPUParticles2DAchievedAnimation" parent="." instance=ExtResource("6_cqte2")]
 z_index = 20
 position = Vector2(32, 28)
+
+[node name="Tooltip" type="PanelContainer" parent="."]
+layout_mode = 2
+script = ExtResource("7_6xocs")

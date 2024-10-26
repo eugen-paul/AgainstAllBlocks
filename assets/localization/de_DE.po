@@ -145,7 +145,7 @@ msgstr "Nein"
 
 #: scenes/localization/Localization.gd
 msgid "Get at least {0} points."
-msgstr "Erreichen Sie mindestens {0} Punkte."
+msgstr "Erreiche mindestens {0} Punkte."
 
 #: scenes/localization/Localization.gd
 msgid "Catch at least {0} rockets."
