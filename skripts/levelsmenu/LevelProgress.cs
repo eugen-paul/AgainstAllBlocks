@@ -19,6 +19,11 @@ public partial class LevelProgress : Control
         }
         GetNode<LevelLabel>(LEVEL_LABEL_PATH).SetLevel(levelProgressData.Level);
 
+        var Achievements = GetNode<Achievements>("Achievements");
+
+        GetNode<LevelBall>(BALL_1_PATH).TooltipText = Achievements.GetAchivments(levelProgressData.Level, 0);
+        GetNode<LevelBall>(BALL_2_PATH).TooltipText = Achievements.GetAchivments(levelProgressData.Level, 1);
+        GetNode<LevelBall>(BALL_3_PATH).TooltipText = Achievements.GetAchivments(levelProgressData.Level, 2);
         if (levelProgressData.Ball1)
         {
             GetNode<LevelBall>(BALL_1_PATH).SetGoldBall();

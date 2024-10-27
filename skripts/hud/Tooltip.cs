@@ -7,9 +7,9 @@ public partial class Tooltip : PanelContainer
     private TooltipPanel tooltipPanel;
 
     [Export(PropertyHint.Range, "0,100,1")]
-    public float OffsetX;
+    public float OffsetX = 0;
     [Export(PropertyHint.Range, "0,100,1")]
-    public float OffsetY;
+    public float OffsetY = 20;
     [Export(PropertyHint.Range, "0,100,1")]
     public float PaddingX;
     [Export(PropertyHint.Range, "0,100,1")]
@@ -45,7 +45,7 @@ public partial class Tooltip : PanelContainer
         {
             var border = topParent.Size - padding;
             var extents = tooltipPanel.Size;
-            var base_pos = parent.GetScreenPosition();
+            var base_pos = GetViewport().GetMousePosition();
 
             // test if need to display to the left
             var final_x = base_pos.X + offset.X;
