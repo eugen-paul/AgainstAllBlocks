@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://skripts/levelsmenu/LevelLabel.cs" id="4_s82ai"]
 [ext_resource type="Script" path="res://skripts/levelsmenu/LevelBall.cs" id="6_uhmkk"]
 [ext_resource type="Script" path="res://skripts/hud/Tooltip.cs" id="7_iv5i8"]
-[ext_resource type="Script" path="res://skripts/levels/Achievements.cs" id="8_w842r"]
+[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="8_w842r"]
 
 [node name="LevelProgress" type="Control"]
 custom_minimum_size = Vector2(368, 60)

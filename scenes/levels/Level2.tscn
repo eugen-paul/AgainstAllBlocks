@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://dxuge1xfrwld3"]
+[gd_scene load_steps=35 format=3 uid="uid://dxuge1xfrwld3"]
 
+[ext_resource type="Script" path="res://skripts/levels/DefaultLevel.cs" id="1_jr7r4"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_lj2gg"]
-[ext_resource type="Script" path="res://skripts/levels/Level2.cs" id="1_lwdn8"]
 [ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="2_fpded"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_4ps2n"]
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="3_6vroy"]
+[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="3_vcy0v"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="4_443yv"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="4_sbr5t"]
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="4_vnv4g"]
@@ -67,9 +68,13 @@ albedo_color = Color(0.159595, 0.240105, 0.667444, 1)
 material = SubResource("StandardMaterial3D_sa5p8")
 
 [node name="Level" type="Node"]
-script = ExtResource("1_lwdn8")
+script = ExtResource("1_jr7r4")
+Level = 2
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_4ps2n")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("3_vcy0v")
 
 [node name="CameraPivot" parent="." instance=ExtResource("1_lj2gg")]
 

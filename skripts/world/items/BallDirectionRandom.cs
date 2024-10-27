@@ -3,9 +3,9 @@ using Godot;
 
 public class BallDirectionRandom : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public BallDirectionRandom(AbstractLevel level)
+    public BallDirectionRandom(DefaultLevel level)
     {
         this.level = level;
     }

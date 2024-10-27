@@ -39,7 +39,7 @@ public partial class StageSquare : StaticBody3D, Hitable
         }
     }
 
-    public AbstractLevel Level;
+    public DefaultLevel Level;
 
     private readonly Random random = new();
 

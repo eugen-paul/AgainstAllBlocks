@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dq1y7ads1iroi"]
+[gd_scene load_steps=21 format=3 uid="uid://dq1y7ads1iroi"]
 
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_ccyil"]
-[ext_resource type="Script" path="res://skripts/levels/Level7.cs" id="1_fp2a6"]
+[ext_resource type="Script" path="res://skripts/levels/DefaultLevel.cs" id="1_ut4tf"]
 [ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="2_niect"]
+[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="3_boccc"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_mklpf"]
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="3_wa3r6"]
 [ext_resource type="PackedScene" uid="uid://c6nck4s02ppm0" path="res://scenes/world/BlockTetrisL.tscn" id="4_tnmb7"]
@@ -26,9 +27,13 @@ albedo_texture = ExtResource("7_mu46r")
 uv1_scale = Vector3(10, 20, 1)
 
 [node name="Level7" type="Node"]
-script = ExtResource("1_fp2a6")
+script = ExtResource("1_ut4tf")
+Level = 7
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_mklpf")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("3_boccc")
 
 [node name="CameraPivot" parent="." instance=ExtResource("1_ccyil")]
 

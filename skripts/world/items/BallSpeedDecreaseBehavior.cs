@@ -1,9 +1,9 @@
 
 public class BallSpeedDecrease : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public BallSpeedDecrease(AbstractLevel level)
+    public BallSpeedDecrease(DefaultLevel level)
     {
         this.level = level;
     }

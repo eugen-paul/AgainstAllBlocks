@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using Godot;
 using Godot.Collections;
 
-public abstract partial class AbstractLevel : Node
+public partial class DefaultLevel : Node
 {
     [Export]
     public int LIFES_COUNT { get; set; } = 3;
+
+    [Export]
+    public int Level { get; set; }
 
     [Export]
     public PackedScene BallScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_BALL_SCENE);
@@ -27,6 +30,7 @@ public abstract partial class AbstractLevel : Node
         {
             score = value;
             gameHud.SetScore(Score);
+            SendSignal(new ScoreChangeSignal(value));
         }
     }
 
@@ -41,6 +45,10 @@ public abstract partial class AbstractLevel : Node
 
     private bool running;
 
+    private IAchievementMonitor achievementFactory1;
+    private IAchievementMonitor achievementFactory2;
+    private IAchievementMonitor achievementFactory3;
+
     public override void _Ready()
     {
         temporaryObjects = new();
@@ -53,7 +61,7 @@ public abstract partial class AbstractLevel : Node
         gameHud = GetNode<GameHud>("GameHud");
         gameHud.RestartLevel += Restart;
         gameHud.PauseEvent += PauseEvent;
-        gameHud.CurrentLevel = GetLevel();
+        gameHud.CurrentLevel = Level;
         gameHud.StartGame();
         gameHud.SetScore(Score);
         gameHud.SetLifes(Lifes);
@@ -65,6 +73,15 @@ public abstract partial class AbstractLevel : Node
 
         InitStages();
         SetBackground();
+
+        achievementFactory1 = GetNode<Achievements>("Achievements").GetMonitor(Level, 0);
+        GameAction += achievementFactory1.GameSignal;
+
+        achievementFactory2 = GetNode<Achievements>("Achievements").GetMonitor(Level, 1);
+        GameAction += achievementFactory2.GameSignal;
+
+        achievementFactory3 = GetNode<Achievements>("Achievements").GetMonitor(Level, 2);
+        GameAction += achievementFactory3.GameSignal;
         // SetLights();
     }
 
@@ -158,11 +175,6 @@ public abstract partial class AbstractLevel : Node
     {
         return FindChildren("Block*");
     }
-
-    protected abstract int GetLevel();
-    protected abstract bool GetBall1();
-    protected abstract bool GetBall2();
-    protected abstract bool GetBall3();
 
     private void Restart()
     {
@@ -373,13 +385,13 @@ public abstract partial class AbstractLevel : Node
     {
         GoldenBallStatus.BallStatus[] ballStatus = new GoldenBallStatus.BallStatus[3];
 
-        var ball1Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball1;
-        var ball2Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball2;
-        var ball3Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball3;
+        var ball1Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[Level].Ball1;
+        var ball2Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[Level].Ball2;
+        var ball3Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[Level].Ball3;
 
-        ballStatus[0] = GetBallStatus(ball1Old, ball1Old || GetBall1());
-        ballStatus[1] = GetBallStatus(ball2Old, ball2Old || GetBall2());
-        ballStatus[2] = GetBallStatus(ball3Old, ball3Old || GetBall3());
+        ballStatus[0] = GetBallStatus(ball1Old, ball1Old || achievementFactory1.IsReached());
+        ballStatus[1] = GetBallStatus(ball2Old, ball2Old || achievementFactory2.IsReached());
+        ballStatus[2] = GetBallStatus(ball3Old, ball3Old || achievementFactory3.IsReached());
 
         return ballStatus;
     }
@@ -398,17 +410,17 @@ public abstract partial class AbstractLevel : Node
     {
         var progress = new CurrentProgress
         {
-            Level = GetLevel(),
+            Level = Level,
             Score = Score,
-            Ball1 = GetBall1(),
-            Ball2 = GetBall2(),
-            Ball3 = GetBall3(),
+            Ball1 = achievementFactory1.IsReached(),
+            Ball2 = achievementFactory2.IsReached(),
+            Ball3 = achievementFactory3.IsReached(),
         };
         GameComponets.Instance.Get<CurrentGame>().SaveProgress(progress);
     }
 
     public void SendSignal(AbstractSignal signal)
     {
-        GameAction.Invoke(signal);
+        GameAction?.Invoke(signal);
     }
 }

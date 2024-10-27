@@ -55,7 +55,7 @@ public abstract partial class ABlock : CharacterBody3D, Hitable, ContainItem
         BlockDestroyed.Invoke(a, b);
     }
 
-    public Item CreateItem(AbstractLevel level)
+    public Item CreateItem(DefaultLevel level)
     {
         if (ItemType == ItemType.NONE)
         {

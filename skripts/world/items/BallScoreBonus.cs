@@ -3,9 +3,9 @@ using Godot;
 
 public class BallScoreBonus : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public BallScoreBonus(AbstractLevel level)
+    public BallScoreBonus(DefaultLevel level)
     {
         this.level = level;
     }

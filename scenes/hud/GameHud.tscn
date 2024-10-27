@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dh27huh416en2" path="res://assets/sounds/gameOver.wav" id="8_f0fxf"]
 [ext_resource type="PackedScene" uid="uid://y24if70s5ihk" path="res://scenes/hud/GoldenBallStatus.tscn" id="9_nofyi"]
 [ext_resource type="AudioStream" uid="uid://4rr5vaq3ra7w" path="res://assets/sounds/winfantasia.wav" id="9_tex8u"]
-[ext_resource type="Script" path="res://skripts/levels/Achievements.cs" id="12_hujxl"]
+[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="12_hujxl"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
 resource_name = "show"

@@ -4,12 +4,12 @@ using Godot;
 
 public class RocketBehavior : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
     private readonly Item item;
 
     public PackedScene RocketScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_ROCKET_SCENE);
 
-    public RocketBehavior(Item item, AbstractLevel level)
+    public RocketBehavior(Item item, DefaultLevel level)
     {
         this.level = level;
         this.item = item;

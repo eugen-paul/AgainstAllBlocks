@@ -1,0 +1,88 @@
+using System.Collections.Generic;
+using Godot;
+
+public abstract class AchievementFactory
+{
+    private readonly GodotObject scriptObject;
+    protected AchievementFactory(GodotObject scriptObject)
+    {
+        this.scriptObject = scriptObject;
+    }
+
+    protected string Var(string variableName)
+    {
+        return scriptObject.Get(variableName).AsString();
+    }
+
+    public abstract string GetAchievementText();
+    public abstract IAchievementMonitor CreateMonitor();
+}
+
+public interface IAchievementMonitor
+{
+    public void GameSignal(AbstractSignal signal);
+    public bool IsReached();
+}
+
+[GlobalClass]
+public partial class Achievements : Node
+{
+    private GodotObject ScriptObject;
+
+    private IDictionary<int, List<AchievementFactory>> ACHIEVEMENTS;
+
+    public override void _Ready()
+    {
+        GDScript script = GD.Load<GDScript>("res://scenes/localization/Localization.gd");
+        ScriptObject = (GodotObject)script.New();
+
+        ACHIEVEMENTS = new Dictionary<int, List<AchievementFactory>> {
+            { 1, new List<AchievementFactory>(){ GET_X_POINTS(10), CATCH_X_ROCKETS(1), CATCH_X_BOMBS(3) }},
+            { 2, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 3, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 4, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 5, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 6, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 7, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 8, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 9, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {10, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {11, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {12, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {13, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {14, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {15, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {16, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {17, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {18, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {19, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            {20, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+        };
+    }
+
+    private AchievementFactory GET_X_POINTS(int points)
+    {
+        return new GetXPointsAchievementFactory(ScriptObject, points);
+    }
+
+    private AchievementFactory CATCH_X_ROCKETS(int rockets)
+    {
+        return new CatchXRocketsAchievementFactory(ScriptObject, rockets);
+    }
+
+    private AchievementFactory CATCH_X_BOMBS(int bombs)
+    {
+        return new CatchXBombsAchievementFactory(ScriptObject, bombs);
+    }
+
+
+    public string GetAchivments(int level, int ball)
+    {
+        return ACHIEVEMENTS[level][ball].GetAchievementText();
+    }
+
+    public IAchievementMonitor GetMonitor(int level, int ball)
+    {
+        return ACHIEVEMENTS[level][ball].CreateMonitor();
+    }
+}

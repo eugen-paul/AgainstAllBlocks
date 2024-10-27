@@ -1,9 +1,9 @@
 
 public class ScoreBonus : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public ScoreBonus(AbstractLevel level)
+    public ScoreBonus(DefaultLevel level)
     {
         this.level = level;
     }

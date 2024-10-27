@@ -1,9 +1,9 @@
 
 public class PaddleSpeedDecrease : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public PaddleSpeedDecrease(AbstractLevel level)
+    public PaddleSpeedDecrease(DefaultLevel level)
     {
         this.level = level;
     }

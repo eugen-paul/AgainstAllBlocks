@@ -2,9 +2,9 @@
 public class BallAddBehavior : ItemBehavior
 {
     private readonly Item item;
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public BallAddBehavior(Item item, AbstractLevel level)
+    public BallAddBehavior(Item item, DefaultLevel level)
     {
         this.item = item;
         this.level = level;

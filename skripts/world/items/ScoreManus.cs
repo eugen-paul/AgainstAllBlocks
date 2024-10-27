@@ -3,9 +3,9 @@ using Godot;
 
 public class ScoreManus : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public ScoreManus(AbstractLevel level)
+    public ScoreManus(DefaultLevel level)
     {
         this.level = level;
     }

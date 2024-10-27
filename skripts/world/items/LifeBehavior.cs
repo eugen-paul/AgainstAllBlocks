@@ -3,9 +3,9 @@ public class LifeBehavior : ItemBehavior
 {
     private readonly int value;
 
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public LifeBehavior(int value, AbstractLevel level)
+    public LifeBehavior(int value, DefaultLevel level)
     {
         this.value = value;
         this.level = level;

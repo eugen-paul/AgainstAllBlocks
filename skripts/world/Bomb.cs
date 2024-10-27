@@ -18,7 +18,7 @@ public partial class Bomb : CharacterBody3D
     [Export]
     public PackedScene ExplosionScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_BOMB_EXPLOSION_SCENE);
 
-    public AbstractLevel Level { get; set; } = null;
+    public DefaultLevel Level { get; set; } = null;
 
     public void SetTarget(Vector3 targetPosition)
     {

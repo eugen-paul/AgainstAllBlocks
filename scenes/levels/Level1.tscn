@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bogy7f8mb7jpk"]
+[gd_scene load_steps=14 format=3 uid="uid://bogy7f8mb7jpk"]
 
-[ext_resource type="Script" path="res://skripts/levels/Level1.cs" id="1_25nbf"]
+[ext_resource type="Script" path="res://skripts/levels/DefaultLevel.cs" id="1_kid8n"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_lkwbq"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="4_74q4b"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="5_o0qm0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="7_l6jw0"]
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="8_uyx01"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="9_6l6x7"]
+[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="11_j6x83"]
 [ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="15_o8mmk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_y68s8"]
@@ -19,9 +20,13 @@ albedo_texture = ExtResource("15_o8mmk")
 uv1_scale = Vector3(30, 30, 1)
 
 [node name="Level" type="Node"]
-script = ExtResource("1_25nbf")
+script = ExtResource("1_kid8n")
+Level = 1
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_lkwbq")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("11_j6x83")
 
 [node name="CameraPivot" parent="." instance=ExtResource("5_o0qm0")]
 

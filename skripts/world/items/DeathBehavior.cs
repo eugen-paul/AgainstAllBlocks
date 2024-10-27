@@ -1,9 +1,9 @@
 
 public class DeathBehavior : ItemBehavior
 {
-    private readonly AbstractLevel level;
+    private readonly DefaultLevel level;
 
-    public DeathBehavior(AbstractLevel level)
+    public DeathBehavior(DefaultLevel level)
     {
         this.level = level;
     }

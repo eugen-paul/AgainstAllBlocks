@@ -23,7 +23,7 @@ public class ItemBehaviorFactory
 {
     private ItemBehaviorFactory() { }
 
-    public static ItemBehavior Create(ItemType type, Item item, AbstractLevel level)
+    public static ItemBehavior Create(ItemType type, Item item, DefaultLevel level)
     {
         return type switch
         {
@@ -79,7 +79,7 @@ public partial class Item : Node3D
         }
     }
 
-    public AbstractLevel Level { get; set; } = null;
+    public DefaultLevel Level { get; set; } = null;
 
     [Export]
     public float ItemSpeedZ { get; set; } = 10;
