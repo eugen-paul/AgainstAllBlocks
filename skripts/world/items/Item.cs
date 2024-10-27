@@ -125,12 +125,14 @@ public partial class Item : Node3D
     public void OnVisibilityNotifierScreenExited()
     {
         Level.TemporaryDestroyd(this);
+        Level.SendSignal(new ItemLeaveScreenSignal(_itemType));
         QueueFree();
     }
 
     public void OnPaddleDetectorBodyEntered(Node3D node)
     {
         Level.TemporaryDestroyd(this);
+        Level.SendSignal(new ItemCatchSignal(_itemType));
         ItemBehaviorFactory.Create(ItemType, this, Level)?.DoBehavior();
         if (node is Paddle paddle)
         {

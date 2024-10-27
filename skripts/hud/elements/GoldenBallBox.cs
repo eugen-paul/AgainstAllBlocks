@@ -33,4 +33,20 @@ public partial class GoldenBallBox : CenterContainer
     {
         GetNode<GpuParticles2D>("GPUParticles2DAchievedAnimation").Emitting = true;
     }
+
+    // public void SetTooltipForBall(string text)
+    // {
+    //     TooltipText = text;
+    // }
+
+    // public override Control _MakeCustomTooltip(string forText)
+    // {
+    //     if (TooltipScene == null)
+    //     {
+    //         return null;
+    //     }
+    //     var tooltip = TooltipScene.Instantiate<Tooltip>();
+    //     tooltip.GetNode<Label>("Label").Text = forText;
+    //     return tooltip;
+    // }
 }

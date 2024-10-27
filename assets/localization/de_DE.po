@@ -23,7 +23,7 @@ msgstr ""
 
 #: scenes/hud/GameHud.tscn
 msgid "GAME OVER"
-msgstr ""
+msgstr "SPIEL ZU ENDE"
 
 #: scenes/hud/GameHud.tscn
 msgid "Restart"
@@ -54,8 +54,8 @@ msgid "New Game"
 msgstr "Neues Spiel"
 
 #: scenes/mainmenu/GameSlotSave.tscn
-msgid "Level:"
-msgstr "Level:"
+msgid "Level: {0}"
+msgstr "Level: {0}"
 
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "Load"
@@ -72,14 +72,6 @@ msgstr "Ja"
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "NO\n"
 msgstr "Nein\n"
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "AGAINST"
-msgstr "AGAINST"
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "ALL BLOCKS"
-msgstr "ALL BLOCKS"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "Start"
@@ -129,29 +121,13 @@ msgstr "Wenig"
 msgid "HIGH"
 msgstr "Alles"
 
-#: scenes/mainmenu/MenuHud.tscn scenes/levelsmenu/LevelProgress.tscn
-msgid "1"
-msgstr "1"
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "Name"
-msgstr "Name"
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "Score"
-msgstr "Punktzahl"
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "2"
-msgstr "2"
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "3"
-msgstr "3"
-
 #: scenes/levelsmenu/LevelProgress.tscn
 msgid "START"
 msgstr "Start"
+
+#: scenes/levelsmenu/LevelProgress.tscn
+msgid "?"
+msgstr ""
 
 #: scenes/levelsmenu/Levels.tscn
 msgid "Main menu"
@@ -166,3 +142,36 @@ msgstr ""
 #: scenes/levelsmenu/Levels.tscn
 msgid "No"
 msgstr "Nein"
+
+#: scenes/localization/Localization.gd
+msgid "Get at least {0} points."
+msgstr "Erreiche mindestens {0} Punkte."
+
+#: scenes/localization/Localization.gd
+msgid "Catch at least {0} rockets."
+msgstr "Fange mindestens {0} Raketen."
+
+#: scenes/localization/Localization.gd
+msgid "Catch at least {0} bombs."
+msgstr "Fange mindestens {0} Bomben."
+
+#~ msgid "AGAINST"
+#~ msgstr "AGAINST"
+
+#~ msgid "ALL BLOCKS"
+#~ msgstr "ALL BLOCKS"
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgid "Score"
+#~ msgstr "Punktzahl"
+
+#~ msgid "2"
+#~ msgstr "2"
+
+#~ msgid "3"
+#~ msgstr "3"

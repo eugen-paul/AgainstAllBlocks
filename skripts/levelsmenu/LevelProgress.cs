@@ -7,7 +7,7 @@ public partial class LevelProgress : Control
     private const string BALL_1_PATH = "TextureButton/HBoxContainer/Ball1";
     private const string BALL_2_PATH = "TextureButton/HBoxContainer/Ball2";
     private const string BALL_3_PATH = "TextureButton/HBoxContainer/Ball3";
-    private const string BSTART_BUTTON_PATH = "TextureButton/StartButton";
+    private const string START_BUTTON_PATH = "TextureButton/StartButton";
 
     private LevelProgressData levelProgressData = null;
 
@@ -19,6 +19,11 @@ public partial class LevelProgress : Control
         }
         GetNode<LevelLabel>(LEVEL_LABEL_PATH).SetLevel(levelProgressData.Level);
 
+        var Achievements = GetNode<Achievements>("Achievements");
+
+        GetNode<LevelBall>(BALL_1_PATH).TooltipText = Achievements.GetAchivments(levelProgressData.Level, 0);
+        GetNode<LevelBall>(BALL_2_PATH).TooltipText = Achievements.GetAchivments(levelProgressData.Level, 1);
+        GetNode<LevelBall>(BALL_3_PATH).TooltipText = Achievements.GetAchivments(levelProgressData.Level, 2);
         if (levelProgressData.Ball1)
         {
             GetNode<LevelBall>(BALL_1_PATH).SetGoldBall();
@@ -32,7 +37,7 @@ public partial class LevelProgress : Control
             GetNode<LevelBall>(BALL_3_PATH).SetGoldBall();
         }
 
-        GetNode<Button>(BSTART_BUTTON_PATH).Disabled = !levelProgressData.Reached;
+        GetNode<Button>(START_BUTTON_PATH).Disabled = !levelProgressData.Reached;
 
         MouseFilter = MouseFilterEnum.Ignore;
     }

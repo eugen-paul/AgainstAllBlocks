@@ -22,7 +22,6 @@ public partial class MenuHud : CanvasLayer
         { MenuOptions.MAIN, "Main" },
         { MenuOptions.GAME, "Game" },
         { MenuOptions.SETTING, "Settings" },
-        { MenuOptions.HIGHSCORE, "Highscore" },
     };
 
     private const string PREFERENCE_SHOW_FPS = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox";

@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://2u3mfphi8ajw"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://2u3mfphi8ajw"]
 
 [ext_resource type="FontFile" uid="uid://8qx1ip3akefr" path="res://assets/themes/Square.ttf" id="1_b2eqr"]
 [ext_resource type="StyleBox" uid="uid://cwed7w3bh1y4w" path="res://assets/themes/normal_button_texture_style.tres" id="1_kqsiq"]
+[ext_resource type="StyleBox" uid="uid://cqnqste1y7f4m" path="res://assets/themes/disabled_button_texture_style.tres" id="2_dr0s5"]
 [ext_resource type="Texture2D" uid="uid://bvag048p51ms2" path="res://assets/textures/gui/popupPanelSelect.png" id="3_1k5c0"]
 [ext_resource type="Texture2D" uid="uid://ch8fs23auwfuc" path="res://assets/textures/gui/popupPanel.png" id="3_fkdmj"]
+[ext_resource type="StyleBox" uid="uid://ctcxyoqpfuw4t" path="res://assets/themes/focus_button_texture_style.tres" id="3_icumt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5gjl"]
 
@@ -37,8 +39,8 @@ Button/colors/font_color = Color(0.87451, 0.890196, 0.894118, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 4
 Button/fonts/font = ExtResource("1_b2eqr")
-Button/styles/disabled = ExtResource("1_kqsiq")
-Button/styles/focus = ExtResource("1_kqsiq")
+Button/styles/disabled = ExtResource("2_dr0s5")
+Button/styles/focus = ExtResource("3_icumt")
 Button/styles/hover = ExtResource("1_kqsiq")
 Button/styles/normal = ExtResource("1_kqsiq")
 Button/styles/pressed = ExtResource("1_kqsiq")

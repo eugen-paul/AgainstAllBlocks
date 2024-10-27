@@ -6,6 +6,7 @@
 # res://scenes/mainmenu/MenuHud.tscn
 # res://scenes/levelsmenu/LevelProgress.tscn
 # res://scenes/levelsmenu/Levels.tscn
+# res://scenes/localization/Localization.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -50,7 +51,7 @@ msgid "New Game"
 msgstr ""
 
 #: scenes/mainmenu/GameSlotSave.tscn
-msgid "Level:"
+msgid "Level: {0}"
 msgstr ""
 
 #: scenes/mainmenu/GameSlotSave.tscn
@@ -68,14 +69,6 @@ msgstr ""
 
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "NO\n"
-msgstr ""
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "AGAINST"
-msgstr ""
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "ALL BLOCKS"
 msgstr ""
 
 #: scenes/mainmenu/MenuHud.tscn
@@ -126,29 +119,12 @@ msgstr ""
 msgid "HIGH"
 msgstr ""
 
-#: scenes/mainmenu/MenuHud.tscn
-#: scenes/levelsmenu/LevelProgress.tscn
-msgid "1"
-msgstr ""
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "Name"
-msgstr ""
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "Score"
-msgstr ""
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "2"
-msgstr ""
-
-#: scenes/mainmenu/MenuHud.tscn
-msgid "3"
-msgstr ""
-
 #: scenes/levelsmenu/LevelProgress.tscn
 msgid "START"
+msgstr ""
+
+#: scenes/levelsmenu/LevelProgress.tscn
+msgid "?"
 msgstr ""
 
 #: scenes/levelsmenu/Levels.tscn
@@ -161,4 +137,16 @@ msgstr ""
 
 #: scenes/levelsmenu/Levels.tscn
 msgid "No"
+msgstr ""
+
+#: scenes/localization/Localization.gd
+msgid "Get at least {0} points."
+msgstr ""
+
+#: scenes/localization/Localization.gd
+msgid "Catch at least {0} rockets."
+msgstr ""
+
+#: scenes/localization/Localization.gd
+msgid "Catch at least {0} bombs."
 msgstr ""

@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Godot;
 using Godot.Collections;
 
@@ -16,7 +16,10 @@ public abstract partial class AbstractLevel : Node
 
     public int Lifes { get; private set; }
 
+    protected event Action<AbstractSignal> GameAction;
+
     private int score = 0;
+
     public int Score
     {
         get => score;
@@ -374,14 +377,14 @@ public abstract partial class AbstractLevel : Node
         var ball2Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball2;
         var ball3Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[GetLevel()].Ball3;
 
-        ballStatus[0] = GetBallStatus(ball1Old, GetBall1());
-        ballStatus[1] = GetBallStatus(ball2Old, GetBall2());
-        ballStatus[2] = GetBallStatus(ball3Old, GetBall3());
+        ballStatus[0] = GetBallStatus(ball1Old, ball1Old || GetBall1());
+        ballStatus[1] = GetBallStatus(ball2Old, ball2Old || GetBall2());
+        ballStatus[2] = GetBallStatus(ball3Old, ball3Old || GetBall3());
 
         return ballStatus;
     }
 
-    private GoldenBallStatus.BallStatus GetBallStatus(bool statusOld, bool statusNew)
+    private static GoldenBallStatus.BallStatus GetBallStatus(bool statusOld, bool statusNew)
     {
         if (!statusNew)
         {
@@ -402,5 +405,10 @@ public abstract partial class AbstractLevel : Node
             Ball3 = GetBall3(),
         };
         GameComponets.Instance.Get<CurrentGame>().SaveProgress(progress);
+    }
+
+    public void SendSignal(AbstractSignal signal)
+    {
+        GameAction.Invoke(signal);
     }
 }

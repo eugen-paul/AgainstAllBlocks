@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://02acrbjo7gjn"]
+[gd_scene load_steps=9 format=3 uid="uid://02acrbjo7gjn"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_sf5xj"]
 [ext_resource type="Script" path="res://skripts/levelsmenu/LevelProgress.cs" id="2_43pc2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c61tyxuvsewe7" path="res://assets/textures/gui/bgLevelProgress.png" id="3_ykniq"]
 [ext_resource type="Script" path="res://skripts/levelsmenu/LevelLabel.cs" id="4_s82ai"]
 [ext_resource type="Script" path="res://skripts/levelsmenu/LevelBall.cs" id="6_uhmkk"]
+[ext_resource type="Script" path="res://skripts/hud/Tooltip.cs" id="7_iv5i8"]
+[ext_resource type="Script" path="res://skripts/levels/Achievements.cs" id="8_w842r"]
 
 [node name="LevelProgress" type="Control"]
 custom_minimum_size = Vector2(368, 60)
@@ -25,6 +27,7 @@ mouse_filter = 1
 texture_normal = ExtResource("3_ykniq")
 
 [node name="LevelLabel" type="Label" parent="TextureButton"]
+auto_translate_mode = 2
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -35,6 +38,7 @@ offset_right = 54.0
 offset_bottom = 23.5
 grow_vertical = 2
 text = "1"
+vertical_alignment = 1
 script = ExtResource("4_s82ai")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureButton"]
@@ -44,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -16.0
-offset_right = 52.0
-offset_bottom = 16.0
+offset_left = -62.5
+offset_top = -17.0
+offset_right = 62.5
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -58,17 +62,29 @@ texture = ExtResource("2_82fpi")
 stretch_mode = 2
 script = ExtResource("6_uhmkk")
 
+[node name="Tooltip" type="PanelContainer" parent="TextureButton/HBoxContainer/Ball1"]
+layout_mode = 1
+script = ExtResource("7_iv5i8")
+
 [node name="Ball2" type="TextureRect" parent="TextureButton/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_82fpi")
 stretch_mode = 2
 script = ExtResource("6_uhmkk")
 
+[node name="Tooltip" type="PanelContainer" parent="TextureButton/HBoxContainer/Ball2"]
+layout_mode = 0
+script = ExtResource("7_iv5i8")
+
 [node name="Ball3" type="TextureRect" parent="TextureButton/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_82fpi")
 stretch_mode = 2
 script = ExtResource("6_uhmkk")
+
+[node name="Tooltip" type="PanelContainer" parent="TextureButton/HBoxContainer/Ball3"]
+layout_mode = 0
+script = ExtResource("7_iv5i8")
 
 [node name="StartButton" type="Button" parent="TextureButton"]
 layout_mode = 1
@@ -77,13 +93,16 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -88.0
+offset_left = -95.0
 offset_top = -25.0
-offset_right = -5.0
+offset_right = -7.0
 offset_bottom = 25.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 21
 text = "START"
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("8_w842r")
 
 [connection signal="pressed" from="TextureButton/StartButton" to="." method="OnStartButtonPressed"]

@@ -9,7 +9,6 @@ shader_parameter/angle_step = 20.0
 shader_parameter/initial_velocity = 30.0
 
 [node name="GPUParticles2DAchievedAnimation" type="GPUParticles2D"]
-z_index = 10
 emitting = false
 amount = 18
 lifetime = 0.5

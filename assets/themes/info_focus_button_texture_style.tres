@@ -1,0 +1,17 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b4bojsaik8q80"]
+
+[ext_resource type="Texture2D" uid="uid://b3cmhaqwn4xcv" path="res://assets/textures/gui/info_button_background-focus.png" id="1_y0lvu"]
+
+[resource]
+content_margin_left = 5.0
+content_margin_top = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_y0lvu")
+texture_margin_left = 5.0
+texture_margin_top = 6.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 48, 48)
