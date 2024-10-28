@@ -24,7 +24,7 @@ public class DontLoseAnyLifeAchievement : IAchievementMonitor
 
     public void GameSignal(AbstractSignal signal)
     {
-        if (signal is LoseLifeSignal)
+        if (signal is LoseLifeSignal || (signal is ItemCatchSignal s && s.Type == ItemType.LIFE_REMOVE))
         {
             done = false;
         }

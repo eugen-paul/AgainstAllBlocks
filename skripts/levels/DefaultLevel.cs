@@ -326,6 +326,7 @@ public partial class DefaultLevel : Node
         GetNode<GpuParticles3D>("Explosion").Position = paddle.Position;
         GetNode<GpuParticles3D>("Explosion").Restart();
         GetNode<GpuParticles3D>("Explosion").Finished += StartRound;
+        SendSignal(new LoseLifeSignal());
         gameHud.SetLifes(Lifes);
         paddle.Hide();
     }
