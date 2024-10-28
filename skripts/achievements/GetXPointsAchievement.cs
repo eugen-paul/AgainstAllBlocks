@@ -17,7 +17,7 @@ public class GetXPointsAchievementFactory : AchievementFactory
 
     public override string GetAchievementText()
     {
-        return string.Format(Var("GET_X_POINTS"), minPoints);
+        return string.Format(VarN("FUNC_GET_X_POINTS", minPoints), minPoints);
     }
 }
 

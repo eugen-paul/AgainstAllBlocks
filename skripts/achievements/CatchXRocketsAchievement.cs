@@ -17,7 +17,7 @@ public class CatchXRocketsAchievementFactory : AchievementFactory
 
     public override string GetAchievementText()
     {
-        return string.Format(Var("CATCH_X_ROCKETS"), minRockets);
+        return string.Format(VarN("FUNC_CATCH_X_ROCKETS", minRockets), minRockets);
     }
 }
 

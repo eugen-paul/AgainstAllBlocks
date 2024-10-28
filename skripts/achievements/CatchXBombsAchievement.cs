@@ -17,7 +17,7 @@ public class CatchXBombsAchievementFactory : AchievementFactory
 
     public override string GetAchievementText()
     {
-        return string.Format(Var("CATCH_X_BOMBS"), minBombs);
+        return string.Format(VarN("FUNC_CATCH_X_BOMBS", minBombs), minBombs);
     }
 }
 

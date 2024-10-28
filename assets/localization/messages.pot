@@ -123,10 +123,6 @@ msgstr ""
 msgid "START"
 msgstr ""
 
-#: scenes/levelsmenu/LevelProgress.tscn
-msgid "?"
-msgstr ""
-
 #: scenes/levelsmenu/Levels.tscn
 msgid "Main menu"
 msgstr ""
@@ -140,13 +136,31 @@ msgid "No"
 msgstr ""
 
 #: scenes/localization/Localization.gd
-msgid "Get at least {0} points."
+msgid "Get at least {0} point."
+msgid_plural "Get at least {0} points."
+msgstr[0] ""
+msgstr[1] ""
+
+#: scenes/localization/Localization.gd
+msgid "Catch at least {0} rocket."
+msgid_plural "Catch at least {0} rockets."
+msgstr[0] ""
+msgstr[1] ""
+
+#: scenes/localization/Localization.gd
+msgid "Catch at least {0} bomb."
+msgid_plural "Catch at least {0} bombs."
+msgstr[0] ""
+msgstr[1] ""
+
+#: scenes/localization/Localization.gd
+msgid "Do not use rockets."
 msgstr ""
 
 #: scenes/localization/Localization.gd
-msgid "Catch at least {0} rockets."
+msgid "Don't lose any life."
 msgstr ""
 
 #: scenes/localization/Localization.gd
-msgid "Catch at least {0} bombs."
+msgid "Don't catch any items."
 msgstr ""

@@ -14,6 +14,11 @@ public abstract class AchievementFactory
         return scriptObject.Get(variableName).AsString();
     }
 
+    protected string VarN(string variableName, int n)
+    {
+        return scriptObject.Call(variableName, n).AsString();
+    }
+
     public abstract string GetAchievementText();
     public abstract IAchievementMonitor CreateMonitor();
 }
@@ -37,26 +42,26 @@ public partial class Achievements : Node
         ScriptObject = (GodotObject)script.New();
 
         ACHIEVEMENTS = new Dictionary<int, List<AchievementFactory>> {
-            { 1, new List<AchievementFactory>(){ GET_X_POINTS(10), CATCH_X_ROCKETS(1), CATCH_X_BOMBS(3) }},
-            { 2, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            { 3, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            { 4, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            { 5, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            { 6, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            { 7, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            { 8, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            { 9, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {10, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {11, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {12, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {13, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {14, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {15, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {16, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {17, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {18, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {19, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
-            {20, new List<AchievementFactory>(){ GET_X_POINTS(10), GET_X_POINTS(20),   GET_X_POINTS(30) }},
+            { 1, new List<AchievementFactory>(){ GET_X_POINTS(10),  CATCH_X_ROCKETS(1),  CATCH_X_BOMBS(3)       }},
+            { 2, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(150),   DONT_CATCH_ROCKETS()   }},
+            { 3, new List<AchievementFactory>(){ GET_X_POINTS(110), GET_X_POINTS(150),   DONT_CATCH_ANY_ITEMS() }},
+            { 4, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(140),   DONT_LOSE_ANY_LIFE()   }},
+            { 5, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(140),   GET_X_POINTS(180)      }},
+            { 6, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(180),   DONT_CATCH_ROCKETS()   }},
+            { 7, new List<AchievementFactory>(){ GET_X_POINTS(200), GET_X_POINTS(400),   CATCH_X_BOMBS(4) }},
+            { 8, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            { 9, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {10, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {11, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {12, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {13, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {14, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {15, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {16, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {17, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {18, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {19, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {20, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
         };
     }
 
@@ -73,6 +78,21 @@ public partial class Achievements : Node
     private AchievementFactory CATCH_X_BOMBS(int bombs)
     {
         return new CatchXBombsAchievementFactory(ScriptObject, bombs);
+    }
+
+    private AchievementFactory DONT_CATCH_ROCKETS()
+    {
+        return new DontUseRocketsAchievementFactory(ScriptObject);
+    }
+
+    private AchievementFactory DONT_LOSE_ANY_LIFE()
+    {
+        return new DontLoseAnyLifeAchievementFactory(ScriptObject);
+    }
+
+    private AchievementFactory DONT_CATCH_ANY_ITEMS()
+    {
+        return new DontCatchAnyItemsAchievementFactory(ScriptObject);
     }
 
 

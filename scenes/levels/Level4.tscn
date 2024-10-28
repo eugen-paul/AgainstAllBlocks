@@ -216,6 +216,16 @@ transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107
 Color = 3
 ItemType = 3
 
+[node name="Block37" parent="AllBlocks/Row2" instance=ExtResource("5_c0ob1")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 4)
+Color = 3
+ItemType = 3
+
+[node name="Block38" parent="AllBlocks/Row2" instance=ExtResource("5_c0ob1")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, -6)
+Color = 3
+ItemType = 3
+
 [node name="Row3" type="Node3D" parent="AllBlocks"]
 
 [node name="Block" parent="AllBlocks/Row3" instance=ExtResource("5_c0ob1")]
