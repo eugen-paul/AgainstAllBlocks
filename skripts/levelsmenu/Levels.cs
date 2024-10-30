@@ -4,15 +4,18 @@ using Godot;
 public partial class Levels : CanvasLayer
 {
     private const string LEVELS_CONTAINER_PATH = "Main/Panel/ScrollContainer/VBoxContainer";
+    private const string UPGRADES_PATH = "UpgradesLayer/Upgrades";
 
     private enum MenuOptions
     {
+        UPGRADE_FRAME,
         EXIT_FRAME
     }
 
     private readonly Dictionary<MenuOptions, string> MenuOptionNames = new()
     {
-        { MenuOptions.EXIT_FRAME, "ExitFrame" },
+        { MenuOptions.UPGRADE_FRAME, "UpgradesLayer" },
+        { MenuOptions.EXIT_FRAME, "ExitFrameLayer" },
     };
 
     [Export]
@@ -35,6 +38,8 @@ public partial class Levels : CanvasLayer
             lvlContainer.AddChild(lvl);
         }
 
+        GetNode<Upgrades>(UPGRADES_PATH).CloseAction += HideAll;
+
         HideAll();
     }
 
@@ -44,11 +49,11 @@ public partial class Levels : CanvasLayer
         {
             if (entry.Key == name)
             {
-                GetNode<Control>(entry.Value).Show();
+                GetNode<CanvasLayer>(entry.Value).Show();
             }
             else
             {
-                GetNode<Control>(entry.Value).Hide();
+                GetNode<CanvasLayer>(entry.Value).Hide();
             }
         }
     }
@@ -57,13 +62,18 @@ public partial class Levels : CanvasLayer
     {
         foreach (var entry in MenuOptionNames)
         {
-            GetNode<Control>(entry.Value).Hide();
+            GetNode<CanvasLayer>(entry.Value).Hide();
         }
     }
 
     private void OnMenuButtonPressed()
     {
         ShowOnly(MenuOptions.EXIT_FRAME);
+    }
+
+    private void OnUpgradesButtonPressed()
+    {
+        ShowOnly(MenuOptions.UPGRADE_FRAME);
     }
 
     private void OnExitNoButtonPressed()

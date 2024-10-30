@@ -46,8 +46,7 @@ public partial class Ball : CharacterBody3D
     }
 
     private int blockHitsInRow = 0;
-    private int bonusAfterNormal = 5;
-    private int bonusAfterScoreBonus = 0;
+    private int bonusBallAfterHits = 5;
 
     private int bonusRestDefault = 3;
 
@@ -165,6 +164,11 @@ public partial class Ball : CharacterBody3D
     private void BallHitsBlock()
     {
         blockHitsInRow++;
+        if (blockHitsInRow >= bonusBallAfterHits && _type == BallType.NORMAL)
+        {
+            SetScoreBonusBall();
+            bonusRest = 1;
+        }
     }
 
     public void BallHitsPaddle()
@@ -184,9 +188,9 @@ public partial class Ball : CharacterBody3D
     {
         return _type switch
         {
-            BallType.NORMAL => (blockHitsInRow < bonusAfterNormal) ? 0 : 4,
-            BallType.SCORE_BONUS => (blockHitsInRow < bonusAfterScoreBonus) ? 0 : 4,
-            _ => 1,
+            BallType.NORMAL => 0,
+            BallType.SCORE_BONUS => 4,
+            _ => 0,
         };
     }
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://jo5icpu0pyb5"]
+
+[ext_resource type="Script" path="res://skripts/upgrades/UpgradeSlot.cs" id="1_5wu2f"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_cek0p"]
+width = 64
+
+[node name="UpgradeSlot" type="PanelContainer"]
+script = ExtResource("1_5wu2f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CurveTexture_cek0p")
