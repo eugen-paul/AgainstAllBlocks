@@ -9,6 +9,8 @@ public class CurrentGameData
     public Guid Id { get; set; } = Guid.NewGuid();
     public Dictionary<int, LevelProgressData> Levels { get; set; } = new();
 
+    public UpgradeData Upgrades { get; set; } = new();
+
     public CurrentGameData()
     {
         for (int i = 1; i < GameScenePaths.LEVELS.Count; i++)
@@ -23,6 +25,7 @@ public class CurrentGameData
         {
             Id = Id,
             Levels = Levels.ToDictionary(e => e.Key, e => e.Value.Copy()),
+            Upgrades = Upgrades.Copy(),
         };
     }
 }
@@ -80,6 +83,8 @@ public class CurrentGame : GameComponet
                 Game.Levels[i] = new LevelProgressData(i);
             }
         }
+
+        Game.Upgrades = data.Upgrades.Copy();
     }
 
     public void SaveProgress(CurrentProgress progress)

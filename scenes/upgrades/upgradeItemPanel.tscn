@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8qwycv8t1trv"]
+[gd_scene load_steps=4 format=3 uid="uid://c8qwycv8t1trv"]
 
-[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_8s3o8"]
-[ext_resource type="PackedScene" uid="uid://k2a405xa84tn" path="res://scenes/upgrades/upgradeItemIcon.tscn" id="1_smldc"]
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_74542"]
+[ext_resource type="Script" path="res://skripts/upgrades/UpgradeItemPanel.cs" id="2_j8knt"]
+[ext_resource type="PackedScene" uid="uid://k2a405xa84tn" path="res://scenes/upgrades/UpgradeItemIcon.tscn" id="3_vdvc4"]
 
 [node name="UpgradeItemPanel" type="HBoxContainer"]
 custom_minimum_size = Vector2(380, 70)
@@ -12,9 +13,10 @@ offset_left = -190.0
 offset_right = 190.0
 offset_bottom = 70.0
 grow_horizontal = 2
-theme = ExtResource("1_8s3o8")
+theme = ExtResource("1_74542")
+script = ExtResource("2_j8knt")
 
-[node name="TextureRect" parent="." instance=ExtResource("1_smldc")]
+[node name="TextureRect" parent="." instance=ExtResource("3_vdvc4")]
 layout_mode = 2
 size_flags_horizontal = 0
 

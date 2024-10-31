@@ -7,4 +7,8 @@ public partial class UpgradeItemIcon : TextureRect
         return new UpgradeItemDrag();
     }
 
+    public void SetTexture(string path)
+    {
+        Texture = GD.Load<Texture2D>(path);
+    }
 }

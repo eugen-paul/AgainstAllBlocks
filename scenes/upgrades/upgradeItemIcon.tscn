@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://k2a405xa84tn"]
 
-[ext_resource type="Script" path="res://skripts/upgrades/UpgradeItemIcon.cs" id="1_ok1yo"]
+[ext_resource type="Script" path="res://skripts/upgrades/UpgradeItemIcon.cs" id="1_njc3d"]
 
 [sub_resource type="Curve" id="Curve_21kl8"]
 _data = [Vector2(0.0503356, 0.899485), 0.0, 0.0, 0, 0, Vector2(0.922819, 0.393919), 0.0, 0.0, 0, 0]
@@ -16,4 +16,4 @@ custom_minimum_size = Vector2(64, 64)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("CurveTexture_ocakk")
-script = ExtResource("1_ok1yo")
+script = ExtResource("1_njc3d")

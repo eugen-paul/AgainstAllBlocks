@@ -9,6 +9,8 @@ public class GameProgressData
     public Guid Id { get; set; } = Guid.NewGuid();
     public Dictionary<int, LevelProgressData> Levels { get; set; } = new();
 
+    public UpgradeData Upgrades { get; set; } = new();
+
     public GameProgressData() { }
 }
 
@@ -125,7 +127,6 @@ public class GameProgress : GameComponet
     public void Save(GameProgressData dataToSave)
     {
         var game = data.Games.Find(x => x.Id == dataToSave.Id);
-
 
         if (game == null)
         {

@@ -80,7 +80,7 @@ public partial class MenuHud : CanvasLayer
     private void LoadGame(Guid id)
     {
         var games = GameComponets.Instance.Get<GameProgress>().GetGameProgresses();
-        GameProgressData gameData = games.Find(g => g.Id == id);
+        var gameData = games.Find(g => g.Id == id);
 
         if (gameData == null)
         {

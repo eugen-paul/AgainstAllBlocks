@@ -9,6 +9,12 @@ public partial class UpgradeSlot : PanelContainer
             return false;
         }
         var item = data.AsGodotObject() as UpgradeItemDrag;
-        return false;
+        return true;
+    }
+
+    public override void _DropData(Vector2 atPosition, Variant data)
+    {
+        var item = data.AsGodotObject() as UpgradeItemDrag;
+        GD.Print("Catch: " + item.GetType());
     }
 }
