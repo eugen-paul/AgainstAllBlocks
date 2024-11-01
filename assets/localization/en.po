@@ -4,6 +4,9 @@
 # res://scenes/mainmenu/GameSlotSave.tscn
 # res://scenes/mainmenu/Main.tscn
 # res://scenes/mainmenu/MenuHud.tscn
+# res://scenes/levelsmenu/LevelProgress.tscn
+# res://scenes/levelsmenu/Levels.tscn
+# res://scenes/localization/Localization.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -15,7 +18,7 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: de_DE\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,11 +27,11 @@ msgstr ""
 
 #: scenes/hud/GameHud.tscn
 msgid "GAME_OVER"
-msgstr "SPIEL ZU ENDE"
+msgstr "Game Over"
 
 #: scenes/hud/GameHud.tscn
 msgid "HUD_RESTART"
-msgstr "Neustarten"
+msgstr "Restart"
 
 #: scenes/hud/GameHud.tscn
 msgid "HUD_MENU"
@@ -36,11 +39,11 @@ msgstr "Menu"
 
 #: scenes/hud/GameHud.tscn
 msgid "HUD_VICTORY"
-msgstr "Sieg"
+msgstr "Victory"
 
 #: scenes/hud/GameHud.tscn
 msgid "HUD_NEXT_LEVEL"
-msgstr "Nächstes Level"
+msgstr "Next Level"
 
 #: scenes/hud/GameHud.tscn
 msgid "HUD_PAUSE"
@@ -48,31 +51,31 @@ msgstr "Pause"
 
 #: scenes/hud/GameHud.tscn
 msgid "HUD_CONTINUE"
-msgstr "Weiter"
+msgstr "Continue"
 
 #: scenes/mainmenu/GameSlotEmpty.tscn
 msgid "MENU_NEW_GAME"
-msgstr "Neues Spiel"
+msgstr "New Game"
 
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "MENU_LEVEL: {0}"
-msgstr "LEVEL: {0}"
+msgstr "Level: {0}"
 
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "MENU_LOAD"
-msgstr "Laden"
+msgstr "Load"
 
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "MENU_DELETE_GAME?"
-msgstr "Spielstand löschen?"
+msgstr "Delete game slot?"
 
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "MENU_YES"
-msgstr "Ja"
+msgstr "Yes"
 
 #: scenes/mainmenu/GameSlotSave.tscn
 msgid "MENU_NO"
-msgstr "Nein"
+msgstr "No"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_START"
@@ -80,7 +83,7 @@ msgstr "Start"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_SETTINGS"
-msgstr "Einstellungen"
+msgstr "Settings"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_HIGHSCORE"
@@ -88,39 +91,39 @@ msgstr "Highscore"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_QUIT"
-msgstr "Verlassen"
+msgstr "Quit"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_BACK"
-msgstr "Zurück"
+msgstr "Back"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_FPS:"
-msgstr "FPS:"
+msgstr "Show FPS:"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_BG:"
-msgstr "Hintergrund:"
+msgstr "Show background:"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_SHADOW:"
-msgstr "Schatten:"
+msgstr "Show shadow:"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "MENU_EFFECTS:"
-msgstr "Effekte:"
+msgstr "Effects:"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "E_OFF"
-msgstr "Aus"
+msgstr "OFF"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "E_LOW"
-msgstr "Wenig"
+msgstr "LOW"
 
 #: scenes/mainmenu/MenuHud.tscn
 msgid "E_HIGH"
-msgstr "Alles"
+msgstr "HIGH"
 
 #: scenes/levelsmenu/LevelProgress.tscn
 msgid "START"
@@ -128,7 +131,7 @@ msgstr "Start"
 
 #: scenes/levelsmenu/Levels.tscn
 msgid "LEVEL_MENU"
-msgstr "Menü"
+msgstr "Menu"
 
 #: scenes/levelsmenu/Levels.tscn
 msgid "LEVELD_UPGRADES"
@@ -136,164 +139,42 @@ msgstr "Upgrades"
 
 #: scenes/levelsmenu/Levels.tscn
 msgid "LEVELS_EXIT"
-msgstr "Beenden"
+msgstr "Exit"
 
 #: scenes/levelsmenu/Levels.tscn
 msgid "YES"
-msgstr "Ja"
+msgstr "Yes"
 
 #: scenes/levelsmenu/Levels.tscn
 msgid "NO"
-msgstr "Nein"
+msgstr "No"
 
 #: scenes/localization/Localization.gd
 msgid "GET_X_POINTS."
 msgid_plural "GET_X_POINTS_PLURAL."
-msgstr[0] "Erreiche mindestens {0} Punkt."
-msgstr[1] "Erreiche mindestens {0} Punkte."
+msgstr[0] "Get at least {0} point."
+msgstr[1] "Get at least {0} points."
 
 #: scenes/localization/Localization.gd
 msgid "CATCH_X_ROCKETS."
 msgid_plural "CATCH_X_ROCKETS_PLURAL."
-msgstr[0] "Fange mindestens {0} Rakete."
-msgstr[1] "Fange mindestens {0} Raketen."
+msgstr[0] "Catch at least {0} rocket."
+msgstr[1] "Catch at least {0} rockets."
 
 #: scenes/localization/Localization.gd
 msgid "CATCH_X_BOMBS."
 msgid_plural "CATCH_X_BOMBS_PLURAL."
-msgstr[0] "Fange mindestens {0} Bombe."
-msgstr[1] "Fange mindestens {0} Bomben."
+msgstr[0] "Catch at least {0} bomb."
+msgstr[1] "Catch at least {0} bombs."
 
 #: scenes/localization/Localization.gd
 msgid "DONT_USE_ROCKETS."
-msgstr "Benutze keine Raketen."
+msgstr "Don't use rockets."
 
 #: scenes/localization/Localization.gd
 msgid "DONT_LOSE_ANY_LIFE."
-msgstr "Verliere kein Leben."
+msgstr "Don't lose any life."
 
 #: scenes/localization/Localization.gd
 msgid "DONT_CATCH_ANY_ITEMS."
-msgstr "Fange keine Gegenstände."
-
-#~ msgid "Restart"
-#~ msgstr "Neustart"
-
-#~ msgid "Menu"
-#~ msgstr "Menü"
-
-#~ msgid "Victory"
-#~ msgstr "Sieg"
-
-#~ msgid "Next level"
-#~ msgstr "Nächstes Level"
-
-#~ msgid "Pause"
-#~ msgstr "Pause"
-
-#~ msgid "Continue"
-#~ msgstr "Fortfahren"
-
-#~ msgid "New Game"
-#~ msgstr "Neues Spiel"
-
-#~ msgid "Level: {0}"
-#~ msgstr "Level: {0}"
-
-#~ msgid "Load"
-#~ msgstr "Laden"
-
-#~ msgid "Delete game slot?"
-#~ msgstr "Spielstand löschen?"
-
-#~ msgid "Yes"
-#~ msgstr "Ja"
-
-#~ msgid "Start"
-#~ msgstr "Start"
-
-#~ msgid "Settings"
-#~ msgstr "Einstellungen"
-
-#~ msgid "Highscore"
-#~ msgstr "Highscore"
-
-#~ msgid "Quit"
-#~ msgstr "Beenden"
-
-#~ msgid "Back"
-#~ msgstr "Zurück"
-
-#~ msgid "Show FPS:"
-#~ msgstr "FPS:"
-
-#~ msgid "Show Background"
-#~ msgstr "Hintergrund"
-
-#~ msgid "Show Shadow"
-#~ msgstr "Schatten"
-
-#~ msgid "Effects"
-#~ msgstr "Effekte"
-
-#~ msgid "OFF"
-#~ msgstr "AUS"
-
-#~ msgid "LOW"
-#~ msgstr "Wenig"
-
-#~ msgid "Main menu"
-#~ msgstr "Hauptmenü"
-
-#~ msgid "Exit to main menu?"
-#~ msgstr ""
-#~ "Zurück\n"
-#~ "zur Hauptmenü?"
-
-#~ msgid "No"
-#~ msgstr "Nein"
-
-#~ msgid "Get at least {0} point."
-#~ msgid_plural "Get at least {0} points."
-#~ msgstr[0] "Erreiche mindestens {0} Punkt."
-#~ msgstr[1] "Erreiche mindestens {0} Punkte."
-
-#~ msgid "Catch at least {0} rocket."
-#~ msgid_plural "Catch at least {0} rockets."
-#~ msgstr[0] "Fange mindestens {0} Rakete."
-#~ msgstr[1] "Fange mindestens {0} Raketen."
-
-#~ msgid "Catch at least {0} bomb."
-#~ msgid_plural "Catch at least {0} bombs."
-#~ msgstr[0] "Fange mindestens {0} Bombe."
-#~ msgstr[1] "Fange mindestens {0} Bomben."
-
-#~ msgid "Do not use rockets."
-#~ msgstr "Benutze keine Raketen."
-
-#~ msgid "Don't lose any life."
-#~ msgstr "Verliere kein Leben."
-
-#~ msgid "Don't catch any items."
-#~ msgstr "Fange keine Gegenstände."
-
-#~ msgid "AGAINST"
-#~ msgstr "AGAINST"
-
-#~ msgid "ALL BLOCKS"
-#~ msgstr "ALL BLOCKS"
-
-#~ msgid "1"
-#~ msgstr "1"
-
-#~ msgid "Name"
-#~ msgstr "Name"
-
-#~ msgid "Score"
-#~ msgstr "Punktzahl"
-
-#~ msgid "2"
-#~ msgstr "2"
-
-#~ msgid "3"
-#~ msgstr "3"
+msgstr "Don't catch any items."

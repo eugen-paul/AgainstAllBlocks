@@ -109,7 +109,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_colors/font_color = Color(0.986752, 0.986752, 0.986752, 1)
 theme_override_font_sizes/font_size = 50
-text = "GAME OVER"
+text = "GAME_OVER"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverRect/VBoxContainer"]
@@ -120,11 +120,11 @@ alignment = 1
 [node name="RestartButton" type="Button" parent="GameOverRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 0
-text = "Restart"
+text = "HUD_RESTART"
 
 [node name="MenuButton" type="Button" parent="GameOverRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Menu"
+text = "HUD_MENU"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameOverRect"]
 libraries = {
@@ -171,7 +171,7 @@ theme_override_constants/separation = 30
 [node name="WinLabel" type="Label" parent="WinRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "Victory"
+text = "HUD_VICTORY"
 horizontal_alignment = 1
 
 [node name="GoldenBallStatus" parent="WinRect/CenterContainer/VBoxContainer" instance=ExtResource("9_nofyi")]
@@ -186,15 +186,15 @@ theme_override_constants/separation = 20
 
 [node name="NextGameButton" type="Button" parent="WinRect/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Next level"
+text = "HUD_NEXT_LEVEL"
 
 [node name="RestartButton" type="Button" parent="WinRect/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Restart"
+text = "HUD_RESTART"
 
 [node name="MenuButton" type="Button" parent="WinRect/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Menu"
+text = "HUD_MENU"
 
 [node name="WinPlayer" type="AudioStreamPlayer" parent="WinRect/CenterContainer"]
 stream = ExtResource("9_tex8u")
@@ -234,20 +234,20 @@ theme_override_constants/separation = 20
 [node name="PauseLabel" type="Label" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "Pause"
+text = "HUD_PAUSE"
 horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
-text = "Continue"
+text = "HUD_CONTINUE"
 
 [node name="RestartButton" type="Button" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
-text = "Restart"
+text = "HUD_RESTART"
 
 [node name="MenuButton" type="Button" parent="PauseRect/VBoxContainer"]
 layout_mode = 2
-text = "Menu"
+text = "HUD_MENU"
 
 [node name="Fps" parent="." instance=ExtResource("7_efxpt")]
 visible = false

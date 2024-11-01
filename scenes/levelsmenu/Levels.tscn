@@ -81,7 +81,7 @@ offset_right = 57.5
 offset_bottom = 67.0
 grow_horizontal = 2
 theme = ExtResource("1_p8xvk")
-text = "Main menu"
+text = "LEVEL_MENU"
 
 [node name="UpgradesButton" type="Button" parent="Main"]
 anchors_preset = 7
@@ -96,7 +96,7 @@ offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_p8xvk")
-text = "Upgrades"
+text = "LEVELD_UPGRADES"
 
 [node name="UpgradesLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -148,7 +148,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="ExitFrameLayer/ExitFrame/ColorRect/VBoxContainer"]
 layout_mode = 2
-text = "Exit to main menu?"
+text = "LEVELS_EXIT"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ExitFrameLayer/ExitFrame/ColorRect/VBoxContainer"]
@@ -160,11 +160,11 @@ alignment = 1
 
 [node name="ExitYesButton" type="Button" parent="ExitFrameLayer/ExitFrame/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Yes"
+text = "YES"
 
 [node name="ExitNoButton" type="Button" parent="ExitFrameLayer/ExitFrame/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "No"
+text = "NO"
 
 [connection signal="pressed" from="Main/MenuButton" to="." method="OnMenuButtonPressed"]
 [connection signal="pressed" from="Main/UpgradesButton" to="." method="OnUpgradesButtonPressed"]

@@ -28,7 +28,7 @@ offset_left = 13.0
 offset_top = 13.0
 offset_right = 107.0
 offset_bottom = 60.0
-text = "Level: {0}"
+text = "MENU_LEVEL: {0}"
 script = ExtResource("4_ur152")
 
 [node name="DeleteButton" type="TextureButton" parent="BgTextureRect"]
@@ -56,7 +56,7 @@ offset_top = -75.0
 offset_right = 230.0
 offset_bottom = -8.0
 grow_vertical = 0
-text = "Load"
+text = "MENU_LOAD"
 
 [node name="DeleteTextureRect" type="ColorRect" parent="."]
 visible = false
@@ -78,7 +78,7 @@ offset_top = 13.0
 offset_right = 128.0
 offset_bottom = 55.0
 grow_horizontal = 2
-text = "Delete game slot?"
+text = "MENU_DELETE_GAME?"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DeleteTextureRect"]
 layout_mode = 1
@@ -98,13 +98,12 @@ theme_override_constants/separation = 20
 [node name="DeleteYesButton" type="Button" parent="DeleteTextureRect/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Yes"
+text = "MENU_YES"
 
 [node name="DeleteNoButton" type="Button" parent="DeleteTextureRect/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "NO
-"
+text = "MENU_NO"
 
 [connection signal="pressed" from="BgTextureRect/DeleteButton" to="." method="OnDeleteButtonPressed"]
 [connection signal="pressed" from="BgTextureRect/LoadButton" to="." method="OnLoadButtonPressed"]
