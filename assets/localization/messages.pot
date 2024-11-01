@@ -127,7 +127,7 @@ msgid "LEVEL_MENU"
 msgstr ""
 
 #: scenes/levelsmenu/Levels.tscn
-msgid "LEVELD_UPGRADES"
+msgid "LEVEL_UPGRADES"
 msgstr ""
 
 #: scenes/levelsmenu/Levels.tscn
