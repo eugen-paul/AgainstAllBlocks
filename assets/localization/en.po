@@ -149,32 +149,68 @@ msgstr "Yes"
 msgid "NO"
 msgstr "No"
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "GET_X_POINTS."
 msgid_plural "GET_X_POINTS_PLURAL."
 msgstr[0] "Get at least {0} point."
 msgstr[1] "Get at least {0} points."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "CATCH_X_ROCKETS."
 msgid_plural "CATCH_X_ROCKETS_PLURAL."
 msgstr[0] "Catch at least {0} rocket."
 msgstr[1] "Catch at least {0} rockets."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "CATCH_X_BOMBS."
 msgid_plural "CATCH_X_BOMBS_PLURAL."
 msgstr[0] "Catch at least {0} bomb."
 msgstr[1] "Catch at least {0} bombs."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
 msgstr "Don't use rockets."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_LOSE_ANY_LIFE."
 msgstr "Don't lose any life."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_CATCH_ANY_ITEMS."
 msgstr "Don't catch any items."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EMPTY_0."
+msgstr "Empty."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_0."
+msgstr "No extra life."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_1."
+msgstr "1 extra life."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_2."
+msgstr "2 extra life."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_3."
+msgstr "3 extra life."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_0."
+msgstr "Standard speed of the paddle."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_1."
+msgstr "Increases paddle speed by 10%."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_2."
+msgstr "Increases paddle speed by 20%."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_3."
+msgstr "Increases paddle speed by 30%."

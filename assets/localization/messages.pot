@@ -6,7 +6,8 @@
 # res://scenes/mainmenu/MenuHud.tscn
 # res://scenes/levelsmenu/LevelProgress.tscn
 # res://scenes/levelsmenu/Levels.tscn
-# res://scenes/localization/Localization.gd
+# res://scenes/localization/Localization_Achievements.gd
+# res://scenes/localization/Localization_Upgrades.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -142,32 +143,68 @@ msgstr ""
 msgid "NO"
 msgstr ""
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "GET_X_POINTS."
 msgid_plural "GET_X_POINTS_PLURAL."
 msgstr[0] ""
 msgstr[1] ""
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "CATCH_X_ROCKETS."
 msgid_plural "CATCH_X_ROCKETS_PLURAL."
 msgstr[0] ""
 msgstr[1] ""
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "CATCH_X_BOMBS."
 msgid_plural "CATCH_X_BOMBS_PLURAL."
 msgstr[0] ""
 msgstr[1] ""
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
 msgstr ""
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_LOSE_ANY_LIFE."
 msgstr ""
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_CATCH_ANY_ITEMS."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EMPTY_0."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_0."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_1."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_2."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_3."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_0."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_1."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_2."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr ""

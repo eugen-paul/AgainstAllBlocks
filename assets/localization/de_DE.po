@@ -146,35 +146,71 @@ msgstr "Ja"
 msgid "NO"
 msgstr "Nein"
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "GET_X_POINTS."
 msgid_plural "GET_X_POINTS_PLURAL."
 msgstr[0] "Erreiche mindestens {0} Punkt."
 msgstr[1] "Erreiche mindestens {0} Punkte."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "CATCH_X_ROCKETS."
 msgid_plural "CATCH_X_ROCKETS_PLURAL."
 msgstr[0] "Fange mindestens {0} Rakete."
 msgstr[1] "Fange mindestens {0} Raketen."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "CATCH_X_BOMBS."
 msgid_plural "CATCH_X_BOMBS_PLURAL."
 msgstr[0] "Fange mindestens {0} Bombe."
 msgstr[1] "Fange mindestens {0} Bomben."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
 msgstr "Benutze keine Raketen."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_LOSE_ANY_LIFE."
 msgstr "Verliere kein Leben."
 
-#: scenes/localization/Localization.gd
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_CATCH_ANY_ITEMS."
 msgstr "Fange keine Gegenstände."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EMPTY_0."
+msgstr "Leer."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_0."
+msgstr "Kein Extraleben."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_1."
+msgstr "1 Extraleben."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_2."
+msgstr "2 Extraleben."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE_3."
+msgstr "3 Extraleben."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_0."
+msgstr "Geschwindigkeit des Schlägers unverändert."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_1."
+msgstr "Geschwindigkeit des Schlägers um 10% erhöht."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_2."
+msgstr "Geschwindigkeit des Schlägers um 20% erhöht."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED_3."
+msgstr "Geschwindigkeit des Schlägers um 30% erhöht."
 
 #~ msgid "Restart"
 #~ msgstr "Neustart"

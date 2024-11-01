@@ -3,28 +3,28 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 
-public class ExtraLifeUpgrade : AUpgrade
+public class PaddleSpeedUpgrade : AUpgrade
 {
     private static readonly int MAX_LEVEL = 3;
 
     private static readonly IList<string> DESCRIPTION = new List<string>()
     {
-        "UPGRADE_EXTRA_LIFE_0",
-        "UPGRADE_EXTRA_LIFE_1",
-        "UPGRADE_EXTRA_LIFE_2",
-        "UPGRADE_EXTRA_LIFE_3",
+        "UPGRADE_PADDLE_SPEED_0",
+        "UPGRADE_PADDLE_SPEED_1",
+        "UPGRADE_PADDLE_SPEED_2",
+        "UPGRADE_PADDLE_SPEED_3",
     }.ToImmutableList();
 
     private static readonly IList<string> TEXTURES = new List<string>()
     {
-        "res://assets/textures/gui/upgrades/EXTRA_LIFE-0.png",
-        "res://assets/textures/gui/upgrades/EXTRA_LIFE-1.png",
-        "res://assets/textures/gui/upgrades/EXTRA_LIFE-2.png",
-        "res://assets/textures/gui/upgrades/EXTRA_LIFE-3.png",
+        "res://assets/textures/gui/upgrades/PADDLE_SPEED-0.png",
+        "res://assets/textures/gui/upgrades/PADDLE_SPEED-1.png",
+        "res://assets/textures/gui/upgrades/PADDLE_SPEED-2.png",
+        "res://assets/textures/gui/upgrades/PADDLE_SPEED-3.png",
     }.ToImmutableList();
 
-    public ExtraLifeUpgrade() : base(
-        UpgradeType.EXTRA_LIFE,
+    public PaddleSpeedUpgrade() : base(
+        UpgradeType.PADDLE_SPEED,
         0,
         MAX_LEVEL,
         DESCRIPTION,
@@ -35,7 +35,7 @@ public class ExtraLifeUpgrade : AUpgrade
 
     public override AUpgrade FromPurchasedUpgradesData(PurchasedUpgradesData data)
     {
-        return new ExtraLifeUpgrade
+        return new PaddleSpeedUpgrade
         {
             CurrentLevel = data.CurrentLevel
         };
@@ -43,6 +43,6 @@ public class ExtraLifeUpgrade : AUpgrade
 
     public override AUpgrade Empty()
     {
-        return new ExtraLifeUpgrade();
+        return new PaddleSpeedUpgrade();
     }
 }

@@ -4,6 +4,7 @@ using Godot;
 public abstract class AchievementFactory
 {
     private readonly GodotObject scriptObject;
+
     protected AchievementFactory(GodotObject scriptObject)
     {
         this.scriptObject = scriptObject;
@@ -38,7 +39,7 @@ public partial class Achievements : Node
 
     public override void _Ready()
     {
-        GDScript script = GD.Load<GDScript>("res://scenes/localization/Localization.gd");
+        GDScript script = GD.Load<GDScript>("res://scenes/localization/Localization_Achievements.gd");
         ScriptObject = (GodotObject)script.New();
 
         ACHIEVEMENTS = new Dictionary<int, List<AchievementFactory>> {

@@ -12,15 +12,10 @@ public enum UpgradeType
 
 public class UpgradeFactory
 {
-    private readonly IDictionary<UpgradeType, AUpgrade> AllUpgrades = new Dictionary<UpgradeType, AUpgrade>
-    {
-        {UpgradeType.EXTRA_LIFE, new ExtraLifeUpgrade()},
-    }
-    .ToImmutableDictionary();
-
     private readonly IList<AUpgrade> AllUpgradesList = new List<AUpgrade>
     {
         new ExtraLifeUpgrade(),
+        new PaddleSpeedUpgrade(),
     }
     .ToImmutableList();
 
