@@ -21,15 +21,18 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="."]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "Geschwindigkeit des Schlägers unverändert."
+text = "Some text to check how it will look."
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="UpgradeButton" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 20
-text = "Upgrade"
+text = "UIP_UPGRADE"
+
+[connection signal="pressed" from="UpgradeButton" to="." method="OnUpgradeButtonPressed"]

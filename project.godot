@@ -51,7 +51,7 @@ shoot={
 [internationalization]
 
 locale/translations=PackedStringArray("res://assets/localization/de_DE.po", "res://assets/localization/en.po")
-locale/translations_pot_files=PackedStringArray("res://scenes/hud/GameHud.tscn", "res://scenes/mainmenu/GameSlotEmpty.tscn", "res://scenes/mainmenu/GameSlotSave.tscn", "res://scenes/mainmenu/Main.tscn", "res://scenes/mainmenu/MenuHud.tscn", "res://scenes/levelsmenu/LevelProgress.tscn", "res://scenes/levelsmenu/Levels.tscn", "res://scenes/localization/Localization_Achievements.gd", "res://scenes/localization/Localization_Upgrades.gd")
+locale/translations_pot_files=PackedStringArray("res://scenes/hud/GameHud.tscn", "res://scenes/mainmenu/GameSlotEmpty.tscn", "res://scenes/mainmenu/GameSlotSave.tscn", "res://scenes/mainmenu/Main.tscn", "res://scenes/mainmenu/MenuHud.tscn", "res://scenes/levelsmenu/LevelProgress.tscn", "res://scenes/levelsmenu/Levels.tscn", "res://scenes/localization/Localization_Achievements.gd", "res://scenes/localization/Localization_Upgrades.gd", "res://scenes/upgrades/Upgrades.tscn", "res://scenes/upgrades/UpgradeItemLevelPanel.tscn", "res://scenes/upgrades/UpgradeItemPanel.tscn")
 
 [layer_names]
 

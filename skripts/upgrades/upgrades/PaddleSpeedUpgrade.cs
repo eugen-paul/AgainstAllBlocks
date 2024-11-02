@@ -7,7 +7,8 @@ public class PaddleSpeedUpgrade : AUpgrade
 {
     private static readonly int MAX_LEVEL = 3;
 
-    private static readonly IList<string> DESCRIPTION = new List<string>()
+    private static readonly string DESCRIPTION = "UPGRADE_PADDLE_SPEED";
+    private static readonly IList<string> LEVEL_DESCRIPTION = new List<string>()
     {
         "UPGRADE_PADDLE_SPEED_0",
         "UPGRADE_PADDLE_SPEED_1",
@@ -28,6 +29,7 @@ public class PaddleSpeedUpgrade : AUpgrade
         0,
         MAX_LEVEL,
         DESCRIPTION,
+        LEVEL_DESCRIPTION,
         TEXTURES
         )
     {

@@ -8,6 +8,9 @@
 # res://scenes/levelsmenu/Levels.tscn
 # res://scenes/localization/Localization_Achievements.gd
 # res://scenes/localization/Localization_Upgrades.gd
+# res://scenes/upgrades/Upgrades.tscn
+# res://scenes/upgrades/UpgradeItemLevelPanel.tscn
+# res://scenes/upgrades/UpgradeItemPanel.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -178,6 +181,10 @@ msgid "UPGRADE_EMPTY_0."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_EXTRA_LIFE_0."
 msgstr ""
 
@@ -194,6 +201,10 @@ msgid "UPGRADE_EXTRA_LIFE_3."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_0."
 msgstr ""
 
@@ -207,4 +218,28 @@ msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_3."
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_GOLD:"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_CLOSE"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_HOWTO"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_UPGRADE"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_OK"
+msgstr ""
+
+#: scenes/upgrades/UpgradeItemPanel.tscn
+msgid "UIP_UPGRADE"
 msgstr ""

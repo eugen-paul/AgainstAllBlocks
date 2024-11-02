@@ -7,7 +7,9 @@ public class ExtraLifeUpgrade : AUpgrade
 {
     private static readonly int MAX_LEVEL = 3;
 
-    private static readonly IList<string> DESCRIPTION = new List<string>()
+    private static readonly string DESCRIPTION = "UPGRADE_EXTRA_LIFE";
+
+    private static readonly IList<string> LEVEL_DESCRIPTION = new List<string>()
     {
         "UPGRADE_EXTRA_LIFE_0",
         "UPGRADE_EXTRA_LIFE_1",
@@ -28,6 +30,7 @@ public class ExtraLifeUpgrade : AUpgrade
         0,
         MAX_LEVEL,
         DESCRIPTION,
+        LEVEL_DESCRIPTION,
         TEXTURES
         )
     {

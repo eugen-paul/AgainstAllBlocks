@@ -9,6 +9,9 @@ public partial class UpgradeItemIcon : TextureRect
 
     public void SetTexture(string path)
     {
-        Texture = GD.Load<Texture2D>(path);
+        if (path != string.Empty)
+        {
+            Texture = GD.Load<Texture2D>(path);
+        }
     }
 }

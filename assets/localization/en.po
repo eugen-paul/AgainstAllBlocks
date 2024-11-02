@@ -184,6 +184,10 @@ msgid "UPGRADE_EMPTY_0."
 msgstr "Empty."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE."
+msgstr "Grants an extra life with each upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_EXTRA_LIFE_0."
 msgstr "No extra life."
 
@@ -200,6 +204,10 @@ msgid "UPGRADE_EXTRA_LIFE_3."
 msgstr "3 extra life."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED."
+msgstr "Increases the speed of the paddle with each upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_0."
 msgstr "Standard speed of the paddle."
 
@@ -214,3 +222,27 @@ msgstr "Increases paddle speed by 20%."
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr "Increases paddle speed by 30%."
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_GOLD:"
+msgstr "Gold:"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_CLOSE"
+msgstr "Close"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_HOWTO"
+msgstr "How To"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_UPGRADE"
+msgstr "Upgrade"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_OK"
+msgstr "OK"
+
+#: scenes/upgrades/UpgradeItemPanel.tscn
+msgid "UIP_UPGRADE"
+msgstr "Upgrade"

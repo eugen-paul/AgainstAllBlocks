@@ -24,7 +24,7 @@ msgstr ""
 
 #: scenes/hud/GameHud.tscn
 msgid "GAME_OVER"
-msgstr "SPIEL ZU ENDE"
+msgstr "Spiel vorbei"
 
 #: scenes/hud/GameHud.tscn
 msgid "HUD_RESTART"
@@ -181,6 +181,10 @@ msgid "UPGRADE_EMPTY_0."
 msgstr "Leer."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_EXTRA_LIFE."
+msgstr "Gewährt mit jedem Upgrade ein Extraleben."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_EXTRA_LIFE_0."
 msgstr "Kein Extraleben."
 
@@ -197,6 +201,10 @@ msgid "UPGRADE_EXTRA_LIFE_3."
 msgstr "3 Extraleben."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_PADDLE_SPEED."
+msgstr "Erhöht die Geschwindigkeit des Schlägers mit jedem Upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_0."
 msgstr "Geschwindigkeit des Schlägers unverändert."
 
@@ -211,6 +219,30 @@ msgstr "Geschwindigkeit des Schlägers um 20% erhöht."
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr "Geschwindigkeit des Schlägers um 30% erhöht."
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_GOLD:"
+msgstr "Gold:"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_CLOSE"
+msgstr "OK"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_HOWTO"
+msgstr "Hilfe"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_UPGRADE"
+msgstr "Upgrade"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UIM_OK"
+msgstr "OK"
+
+#: scenes/upgrades/UpgradeItemPanel.tscn
+msgid "UIP_UPGRADE"
+msgstr "Upgrade"
 
 #~ msgid "Restart"
 #~ msgstr "Neustart"
