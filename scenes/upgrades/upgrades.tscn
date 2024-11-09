@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
-[ext_resource type="PackedScene" uid="uid://jo5icpu0pyb5" path="res://scenes/upgrades/UpgradeSlot.tscn" id="1_mu6eu"]
 [ext_resource type="Script" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
 [ext_resource type="PackedScene" uid="uid://c8qwycv8t1trv" path="res://scenes/upgrades/UpgradeItemPanel.tscn" id="2_ql08w"]
+[ext_resource type="PackedScene" uid="uid://c0ob1kvpfp0dh" path="res://scenes/upgrades/UpgradeSlotsPanel.tscn" id="3_616ga"]
 [ext_resource type="PackedScene" uid="uid://babgy8el3b8xf" path="res://scenes/upgrades/UpgradeItemLevelPanel.tscn" id="5_docth"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcomm"]
@@ -63,35 +63,10 @@ offset_right = 126.0
 offset_bottom = 86.0
 text = "UIM_GOLD:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UpgradeMenu"]
+[node name="UpgradeSlotsContainer" parent="UpgradeMenu" instance=ExtResource("3_616ga")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -168.0
-offset_top = 120.0
-offset_right = 168.0
-offset_bottom = 188.0
-grow_horizontal = 2
-
-[node name="Slot1" parent="UpgradeMenu/HBoxContainer" instance=ExtResource("1_mu6eu")]
-layout_mode = 2
-
-[node name="Slot2" parent="UpgradeMenu/HBoxContainer" instance=ExtResource("1_mu6eu")]
-layout_mode = 2
-
-[node name="Slot3" parent="UpgradeMenu/HBoxContainer" instance=ExtResource("1_mu6eu")]
-layout_mode = 2
-
-[node name="Slot4" parent="UpgradeMenu/HBoxContainer" instance=ExtResource("1_mu6eu")]
-layout_mode = 2
-
-[node name="PlusSlotButton" type="Button" parent="UpgradeMenu/HBoxContainer"]
-auto_translate_mode = 2
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "+"
+offset_top = 116.0
+offset_bottom = 184.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UpgradeMenu"]
 layout_mode = 1
@@ -164,6 +139,7 @@ grow_horizontal = 0
 text = "UIM_HOWTO"
 
 [node name="UpgradeItemMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

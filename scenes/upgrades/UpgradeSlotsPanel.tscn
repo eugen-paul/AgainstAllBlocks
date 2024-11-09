@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ob1kvpfp0dh"]
+
+[ext_resource type="PackedScene" uid="uid://jo5icpu0pyb5" path="res://scenes/upgrades/UpgradeSlot.tscn" id="1_55w05"]
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_lpg4k"]
+[ext_resource type="Script" path="res://skripts/upgrades/UpgradeSlotsPanel.cs" id="1_uucjg"]
+
+[node name="CenterContainer" type="CenterContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.0
+offset_right = 169.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme = ExtResource("1_lpg4k")
+script = ExtResource("1_uucjg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SlotsContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Slot1" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
+layout_mode = 2
+
+[node name="Slot2" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
+layout_mode = 2
+
+[node name="Slot3" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
+layout_mode = 2
+
+[node name="Slot4" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
+layout_mode = 2
+
+[node name="PlusSlotButton" type="Button" parent="HBoxContainer"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "+"
