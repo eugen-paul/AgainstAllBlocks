@@ -31,7 +31,6 @@ public partial class Upgrades : Control
         var upgrades = factory.GetListOfUpgrades();
         foreach (var item in upgrades)
         {
-            GD.Print("level " + item.CurrentLevel);
             var panel = UpgradeScene.Instantiate<UpgradeItemPanel>();
             panel.Item = item;
             panel.UpgradeAction += ShowUpgradeItemMenu;
