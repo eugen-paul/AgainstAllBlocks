@@ -28,9 +28,9 @@ public partial class UpgradeSlot : PanelContainer
         GD.Print("Catch: " + item.GetType());
     }
 
-    public void SetItem(AUpgrade item)
+    public void SetItem(UpgradeType itemType)
     {
-        if (item is EmptyUpgrade)
+        if (itemType == UpgradeType.EMPTY)
         {
             SetForegroundEmpty();
         }
@@ -38,7 +38,14 @@ public partial class UpgradeSlot : PanelContainer
         {
             SetForegroundNotEmpty();
         }
-        SetItemTexture(item.Textures[item.CurrentLevel]);
+        var purchasedUpgrades = GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().PurchasedUpgradesAsMap();
+        var currentLevel = 0;
+        if (purchasedUpgrades.ContainsKey(itemType))
+        {
+            currentLevel = purchasedUpgrades[itemType].CurrentLevel;
+        }
+
+        SetItemTexture(UpgradeItemInfo.UpgradeItemInfos[itemType].Textures[currentLevel]);
     }
 
     private void SetForegroundEmpty()

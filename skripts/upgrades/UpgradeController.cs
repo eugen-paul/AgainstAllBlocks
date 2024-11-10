@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
+using Godot;
 
 public enum UpgradeType
 {
@@ -13,12 +13,12 @@ public enum UpgradeType
 
 public interface IUpgradeListener
 {
-    void UpgrageDataChange();
+    void UpgrageDataChange(AUpgradeSignal upgradeSignal);
 }
 
 public class UpgradeController
 {
-    private Action dataChangeAction;
+    private Action<AUpgradeSignal> dataChangeAction;
 
     public void AddListener(IUpgradeListener l)
     {
@@ -30,14 +30,14 @@ public class UpgradeController
         dataChangeAction -= l.UpgrageDataChange;
     }
 
-    private readonly IList<AUpgrade> AllUpgradesList = new List<AUpgrade>
+    private readonly IList<UpgradeType> UpgradesOrder = new List<UpgradeType>
     {
-        new ExtraLifeUpgrade(),
-        new PaddleSpeedUpgrade(),
+        UpgradeType.EXTRA_LIFE,
+        UpgradeType.PADDLE_SPEED,
     }
     .ToImmutableList();
 
-    public IList<AUpgrade> GetCurrentListOfUpgrades()
+    public IList<Upgrade> GetCurrentListOfUpgrades()
     {
         var PurchasedUpgrades = GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().PurchasedUpgradesAsMap();
 
@@ -46,16 +46,16 @@ public class UpgradeController
         //     GD.Print("loaded: item " + item.Key.ToString() + " level " + item.Value.CurrentLevel);
         // }
 
-        var response = new List<AUpgrade>();
-        foreach (var item in AllUpgradesList)
+        var response = new List<Upgrade>();
+        foreach (var upgradeTyte in UpgradesOrder)
         {
-            if (PurchasedUpgrades.ContainsKey(item.Type))
+            if (PurchasedUpgrades.ContainsKey(upgradeTyte))
             {
-                response.Add(item.FromPurchasedUpgradesData(PurchasedUpgrades[item.Type]));
+                response.Add(new Upgrade(PurchasedUpgrades[upgradeTyte]));
             }
             else
             {
-                response.Add(item.Empty());
+                response.Add(new Upgrade(upgradeTyte));
             }
         }
 
@@ -64,6 +64,6 @@ public class UpgradeController
 
     public IList<UpgradeType> GetCurrentSlots()
     {
-        return GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().Slots.ToList();
+        return GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().Slots.ToImmutableList();
     }
 }

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
+using Godot;
 
 public class CurrentGameDataBuilder
 {
@@ -87,6 +87,35 @@ public class CurrentGameData
             _ => false,
         };
     }
+
+    public int GetGoldRest()
+    {
+        var allBallsCount = Levels.Sum(v =>
+        {
+            var count = 0;
+            if (v.Value.Ball1) count++;
+            if (v.Value.Ball2) count++;
+            if (v.Value.Ball3) count++;
+            return count;
+        });
+
+        var slotsCost = 0;
+        for (int i = 0; i < Upgrades.Slots.Count; i++)
+        {
+            slotsCost += UpgradeItemInfo.SlotsCost[i];
+        }
+
+        var upgradesCost = 0;
+        foreach (var upgrade in Upgrades.PurchasedUpgrades)
+        {
+            for (int i = 0; i < upgrade.CurrentLevel; i++)
+            {
+                upgradesCost += UpgradeItemInfo.UpgradeItemInfos[upgrade.Type].Cost[upgrade.CurrentLevel];
+            }
+        }
+
+        return allBallsCount - slotsCost - upgradesCost;
+    }
 }
 
 public class CurrentProgress
@@ -161,6 +190,8 @@ public class CurrentGame : GameComponet
     public UpgradeData GetUpgradeData() => Game.Upgrades;
 
     public UpgradeController GetUpgradeController() => Game.UpgradeController;
+
+    public int GetGoldRest() => Game.GetGoldRest();
 
     public IDictionary<int, LevelProgressData> GetLevels()
     {

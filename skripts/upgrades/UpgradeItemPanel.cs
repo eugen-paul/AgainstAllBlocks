@@ -5,10 +5,10 @@ public partial class UpgradeItemPanel : HBoxContainer
 {
     public GodotObject LocalizationScriptObject { get; set; }
 
-    public Action<AUpgrade> UpgradeAction { set; get; }
+    public Action<Upgrade> UpgradeAction { set; get; }
 
-    public AUpgrade _item;
-    public AUpgrade Item
+    public Upgrade _item;
+    public Upgrade Item
     {
         get => _item;
         set

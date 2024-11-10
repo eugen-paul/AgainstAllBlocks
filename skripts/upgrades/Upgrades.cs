@@ -9,7 +9,6 @@ public partial class Upgrades : Control
     private static readonly string DEFAULT_UPGRADE_ITEM_PANEL = "res://scenes/upgrades/UpgradeItemPanel.tscn";
     private static readonly string DEFAULT_UPGRADE_ITEM_INFO_PANEL = "res://scenes/upgrades/UpgradeItemLevelPanel.tscn";
     private static readonly string UPGRADE_PANEL_PATH = "UpgradeMenu/ScrollContainer/VBoxContainer";
-    private static readonly string UPGRADE_SLOTS_CONTAINER_PATH = "UpgradeMenu/UpgradeSlotsContainer";
     private static readonly string UPGRADE_ITEM_MENU_DESCRIPTION_PATH = "UpgradeItemMenu/Panel/Panel/VBoxContainer/PanelContainer/Label";
     private static readonly string UPGRADE_ITEM_MENU_CONTAINER_PATH = "UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer/VBoxContainer";
     private static readonly string UPGRADE_ITEM_MENU_PATH = "UpgradeItemMenu";
@@ -39,13 +38,6 @@ public partial class Upgrades : Control
             GetNode<Node>(UPGRADE_PANEL_PATH).AddChild(panel);
         }
 
-        var currentSlots = upgradeController.GetCurrentSlots();
-        foreach (var slot in currentSlots)
-        {
-            GetNode<UpgradeSlotsPanel>(UPGRADE_SLOTS_CONTAINER_PATH).AddSlot(new EmptyUpgrade());
-        }
-
-
         ShowUpgradeItemMenu(false);
     }
 
@@ -59,7 +51,7 @@ public partial class Upgrades : Control
         CloseAction.Invoke();
     }
 
-    private void ShowUpgradeItemMenu(AUpgrade item)
+    private void ShowUpgradeItemMenu(Upgrade item)
     {
         GetNode<Label>(UPGRADE_ITEM_MENU_DESCRIPTION_PATH).Text = LocalizationScriptObject.Get(item.Description).AsString();
 

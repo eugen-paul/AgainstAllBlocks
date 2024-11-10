@@ -4,8 +4,8 @@ using System.Text.Json.Serialization;
 
 public class UpgradeData
 {
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public List<UpgradeType> Slots = new();
+    [JsonConverter(typeof(ListOfEnumConverter))]
+    public List<UpgradeType> Slots { get; set; } = new();
 
     public List<PurchasedUpgradesData> PurchasedUpgrades { get; set; } = new();
 
@@ -13,7 +13,10 @@ public class UpgradeData
 
     public UpgradeData Copy()
     {
-        var response = new UpgradeData();
+        var response = new UpgradeData
+        {
+            Slots = new List<UpgradeType>(Slots)
+        };
         PurchasedUpgrades.ForEach(e => response.PurchasedUpgrades.Add(e.Copy()));
         return response;
     }

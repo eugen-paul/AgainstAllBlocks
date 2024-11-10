@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d33drh6duqexa"]
+
+[ext_resource type="Script" path="res://skripts/upgrades/UpgradeGoldLabel.cs" id="1_ohhht"]
+
+[node name="GoldLabel" type="HBoxContainer"]
+offset_right = 88.0
+offset_bottom = 33.0
+script = ExtResource("1_ohhht")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "UIM_GOLD:"
+
+[node name="GoldValueLabel" type="Label" parent="."]
+auto_translate_mode = 2
+layout_mode = 2
