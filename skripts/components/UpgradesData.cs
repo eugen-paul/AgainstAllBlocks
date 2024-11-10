@@ -4,7 +4,9 @@ using System.Text.Json.Serialization;
 
 public class UpgradeData
 {
-    public UpgradeSlotData Slots { get; set; } = new();
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public List<UpgradeType> Slots = new();
+
     public List<PurchasedUpgradesData> PurchasedUpgrades { get; set; } = new();
 
     public UpgradeData() { }
@@ -19,33 +21,6 @@ public class UpgradeData
     public IDictionary<UpgradeType, PurchasedUpgradesData> PurchasedUpgradesAsMap()
     {
         return PurchasedUpgrades.ToImmutableDictionary(e => e.Type, e => e);
-    }
-}
-
-public class UpgradeSlotData
-{
-    public int SlotsCount { get; set; } = 0;
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public UpgradeType Slot1 { get; set; } = UpgradeType.EMPTY;
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public UpgradeType Slot2 { get; set; } = UpgradeType.EMPTY;
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public UpgradeType Slot3 { get; set; } = UpgradeType.EMPTY;
-
-    public UpgradeSlotData() { }
-
-    public UpgradeSlotData Copy()
-    {
-        return new UpgradeSlotData
-        {
-            SlotsCount = SlotsCount,
-            Slot1 = Slot1,
-            Slot2 = Slot2,
-            Slot3 = Slot3
-        };
     }
 }
 

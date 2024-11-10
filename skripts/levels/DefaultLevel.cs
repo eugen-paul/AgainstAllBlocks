@@ -386,9 +386,9 @@ public partial class DefaultLevel : Node
     {
         GoldenBallStatus.BallStatus[] ballStatus = new GoldenBallStatus.BallStatus[3];
 
-        var ball1Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[Level].Ball1;
-        var ball2Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[Level].Ball2;
-        var ball3Old = GameComponets.Instance.Get<CurrentGame>().Game.Levels[Level].Ball3;
+        var ball1Old = GameComponets.Instance.Get<CurrentGame>().GetBallStatus(Level, 1);
+        var ball2Old = GameComponets.Instance.Get<CurrentGame>().GetBallStatus(Level, 2);
+        var ball3Old = GameComponets.Instance.Get<CurrentGame>().GetBallStatus(Level, 3);
 
         ballStatus[0] = GetBallStatus(ball1Old, ball1Old || achievementFactory1.IsReached());
         ballStatus[1] = GetBallStatus(ball2Old, ball2Old || achievementFactory2.IsReached());

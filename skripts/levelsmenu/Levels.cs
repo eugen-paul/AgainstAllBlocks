@@ -23,7 +23,7 @@ public partial class Levels : CanvasLayer
 
     public override void _Ready()
     {
-        var gameData = GameComponets.Instance.Get<CurrentGame>().Game;
+        var levelsData = GameComponets.Instance.Get<CurrentGame>().GetLevels();
 
         var lvlContainer = GetNode<VBoxContainer>(LEVELS_CONTAINER_PATH);
         foreach (var child in lvlContainer.GetChildren())
@@ -31,10 +31,10 @@ public partial class Levels : CanvasLayer
             child.QueueFree();
         }
 
-        for (int i = 1; i < gameData.Levels.Count; i++)
+        for (int i = 1; i < levelsData.Count; i++)
         {
             var lvl = LevelSelectionScene.Instantiate<LevelProgress>();
-            lvl.Init(gameData.Levels[i]);
+            lvl.Init(levelsData[i]);
             lvlContainer.AddChild(lvl);
         }
 

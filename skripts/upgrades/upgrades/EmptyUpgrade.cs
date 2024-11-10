@@ -20,7 +20,7 @@ public class EmptyUpgrade : AUpgrade
     }.ToImmutableList();
 
     public EmptyUpgrade() : base(
-        UpgradeType.EXTRA_LIFE,
+        UpgradeType.EMPTY,
         0,
         MAX_LEVEL,
         DESCRIPTION,

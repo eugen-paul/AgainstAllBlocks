@@ -28,8 +28,8 @@ public partial class Upgrades : Control
 
         GetNode<Node>(UPGRADE_PANEL_PATH).GetChildren().ToList().ForEach(c => c.QueueFree());
 
-        var factory = new UpgradeFactory();
-        var upgrades = factory.GetListOfUpgrades();
+        var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
+        var upgrades = upgradeController.GetCurrentListOfUpgrades();
         foreach (var item in upgrades)
         {
             var panel = UpgradeScene.Instantiate<UpgradeItemPanel>();
@@ -39,7 +39,12 @@ public partial class Upgrades : Control
             GetNode<Node>(UPGRADE_PANEL_PATH).AddChild(panel);
         }
 
-        GetNode<UpgradeSlotsPanel>(UPGRADE_SLOTS_CONTAINER_PATH).AddSlot(new EmptyUpgrade());
+        var currentSlots = upgradeController.GetCurrentSlots();
+        foreach (var slot in currentSlots)
+        {
+            GetNode<UpgradeSlotsPanel>(UPGRADE_SLOTS_CONTAINER_PATH).AddSlot(new EmptyUpgrade());
+        }
+
 
         ShowUpgradeItemMenu(false);
     }
