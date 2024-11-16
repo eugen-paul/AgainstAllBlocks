@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class UpgradeSlot : PanelContainer
+public partial class UpgradeSlot : PanelContainer, IUpgradeListener
 {
     private static readonly string TEXTURE_RECT_ITEM_PATH = "TextureRectItem";
     private static readonly string TEXTURE_RECT_FOREGROUND_PATH = "TextureRectForeground";
@@ -15,6 +15,16 @@ public partial class UpgradeSlot : PanelContainer
     {
         SetForeground(TEXTURE_ITEM_EMPTY);
         UpdateItem();
+    }
+
+    public override void _EnterTree()
+    {
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().AddListener(this);
+    }
+
+    public override void _ExitTree()
+    {
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().RemoveListener(this);
     }
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
@@ -62,4 +72,17 @@ public partial class UpgradeSlot : PanelContainer
     {
         GetNode<TextureRect>(TEXTURE_RECT_ITEM_PATH).Texture = GD.Load<Texture2D>(path);
     }
+
+    public void UpgrageDataChange(AUpgradeSignal upgradeSignal)
+    {
+        if (upgradeSignal is UpgradeSignalUpdateSlot signal)
+        {
+            if (signal.SlotNr == SlotNr)
+            {
+                ItemType = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentSlots()[SlotNr];
+                UpdateItem();
+            }
+        }
+    }
+
 }

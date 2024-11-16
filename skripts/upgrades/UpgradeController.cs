@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using Godot;
 
 public enum UpgradeType
 {
@@ -38,7 +39,7 @@ public class UpgradeController
 
     public IList<Upgrade> GetCurrentUpgradesAsList()
     {
-        var PurchasedUpgrades = GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().PurchasedUpgradesAsMap();
+        var PurchasedUpgrades = Upgrades().PurchasedUpgradesAsMap();
         var response = new List<Upgrade>();
         foreach (var upgradeTyte in UpgradesOrder)
         {
@@ -57,7 +58,7 @@ public class UpgradeController
 
     public int GetCurrentUpgradeLevel(UpgradeType type)
     {
-        var PurchasedUpgrades = GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().PurchasedUpgradesAsMap();
+        var PurchasedUpgrades = Upgrades().PurchasedUpgradesAsMap();
         if (PurchasedUpgrades.ContainsKey(type))
         {
             return PurchasedUpgrades[type].CurrentLevel;
@@ -68,11 +69,31 @@ public class UpgradeController
 
     public IList<UpgradeType> GetCurrentSlots()
     {
-        return GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().Slots.ToImmutableList();
+        return Upgrades().Slots.ToImmutableList();
     }
 
-    public void SetUpgradeInSlot(int slot, UpgradeType type)
+    public void SetUpgradeInSlot(int slotNr, UpgradeType type)
     {
-        
+        var slots = Upgrades().Slots;
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i] == type)
+            {
+                slots[i] = UpgradeType.EMPTY;
+                SendSlotChange(i);
+            }
+        }
+
+        Upgrades().Slots[slotNr] = type;
+        SendSlotChange(slotNr);
+
+        GameComponets.Instance.Get<CurrentGame>().Save();
     }
+
+    private void SendSlotChange(int slotNr)
+    {
+        dataChangeAction(new UpgradeSignalUpdateSlot(slotNr));
+    }
+
+    private static UpgradeData Upgrades() => GameComponets.Instance.Get<CurrentGame>().GetUpgradeData();
 }

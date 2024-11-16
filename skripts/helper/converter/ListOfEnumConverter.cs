@@ -1,108 +1,72 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-#nullable enable
-
-public class ListOfEnumConverter : JsonConverterFactory
+/// <summary>
+/// Json collection converter.
+/// </summary>
+/// <typeparam name="TDatatype">Type of item to convert.</typeparam>
+/// <typeparam name="TConverterType">Converter to use for individual items.</typeparam>
+public class JsonIListItemConverter<TDatatype, TConverterType> : JsonConverter<IList<TDatatype>>
+        where TConverterType : JsonConverter
 {
-    public override bool CanConvert(Type typeToConvert)
+    /// <summary>
+    /// Reads a json string and deserializes it into an object.
+    /// </summary>
+    /// <param name="reader">Json reader.</param>
+    /// <param name="typeToConvert">Type to convert.</param>
+    /// <param name="options">Serializer options.</param>
+    /// <returns>Created object.</returns>
+    public override IList<TDatatype> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-
-        if (!typeToConvert.IsGenericType)
+        if (reader.TokenType == JsonTokenType.Null)
         {
-            return false;
+            return default;
         }
 
-        if (typeToConvert.GetGenericTypeDefinition() != typeof(List<>))
+        JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions(options);
+        jsonSerializerOptions.Converters.Clear();
+        jsonSerializerOptions.Converters.Add(Activator.CreateInstance<TConverterType>());
+
+        List<TDatatype> returnValue = new();
+
+        while (reader.TokenType != JsonTokenType.EndArray)
         {
-            return false;
-        }
-
-        return typeToConvert.GetGenericArguments()[0].IsEnum;
-    }
-
-    public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
-    {
-        Type enumType = typeToConvert.GetGenericArguments()[0];
-
-        JsonConverter converter = (JsonConverter)Activator.CreateInstance(
-            typeof(ListOfEnumConverterInner<>).MakeGenericType(
-                new Type[] { enumType }),
-            BindingFlags.Instance | BindingFlags.Public,
-            binder: null,
-            args: new object[] { options },
-            culture: null)!;
-
-        return converter;
-    }
-}
-public class ListOfEnumConverterInner<TEnum> :
-    JsonConverter<List<TEnum>> where TEnum : struct, Enum
-{
-    private readonly JsonConverter<TEnum> _itemConverter;
-    private readonly Type _itemType;
-    public ListOfEnumConverterInner(JsonSerializerOptions options)
-    {
-        // For performance, use the existing converter.
-        _itemConverter = (JsonConverter<TEnum>)options
-                .GetConverter(typeof(TEnum));
-
-        // Cache the enum types.
-        _itemType = typeof(TEnum);
-    }
-
-    public override List<TEnum>? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-    {
-        if (reader.TokenType != JsonTokenType.StartArray)
-        {
-            throw new JsonException();
-        }
-
-        var enumList = new List<TEnum>();
-
-        while (reader.Read())
-        {
-            if (reader.TokenType == JsonTokenType.EndArray)
+            if (reader.TokenType != JsonTokenType.StartArray)
             {
-                return enumList;
-            }
-            // Get the item.
-            if (reader.TokenType != JsonTokenType.String)
-            {
-                throw new JsonException();
+                returnValue.Add((TDatatype)JsonSerializer.Deserialize(ref reader, typeof(TDatatype), jsonSerializerOptions));
             }
 
-            string? nextItem = reader.GetString();
-
-            // For performance, parse with ignoreCase:false first.
-            if (!Enum.TryParse(nextItem, ignoreCase: false, out TEnum item) &&
-                !Enum.TryParse(nextItem, ignoreCase: true, out item))
-            {
-                throw new JsonException(
-                    $"Unable to convert \"{nextItem}\" to Enum \"{_itemType}\".");
-            }
-
-            //add to list now
-            enumList.Add(item);
+            reader.Read();
         }
 
-        throw new JsonException();
+        return returnValue;
     }
 
-    public override void Write(Utf8JsonWriter writer, List<TEnum> enumList, JsonSerializerOptions options)
+    /// <summary>
+    /// Writes a json string.
+    /// </summary>
+    /// <param name="writer">Json writer.</param>
+    /// <param name="value">Value to write.</param>
+    /// <param name="options">Serializer options.</param>
+    public override void Write(Utf8JsonWriter writer, IList<TDatatype> value, JsonSerializerOptions options)
     {
+        if (value == null)
+        {
+            writer.WriteNullValue();
+            return;
+        }
+
+        JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions(options);
+        jsonSerializerOptions.Converters.Clear();
+        jsonSerializerOptions.Converters.Add(Activator.CreateInstance<TConverterType>());
+
         writer.WriteStartArray();
 
-        foreach (TEnum item in enumList)
+        foreach (TDatatype data in value)
         {
-            var nextItem = item.ToString();
-            writer.WriteStringValue
-                (options.PropertyNamingPolicy?.ConvertName(nextItem) ?? nextItem);
-
-            _itemConverter.Write(writer, item, options);
+            JsonSerializer.Serialize(writer, data, jsonSerializerOptions);
         }
 
         writer.WriteEndArray();

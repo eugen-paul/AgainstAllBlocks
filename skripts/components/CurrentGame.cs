@@ -181,8 +181,13 @@ public class CurrentGame : GameComponet
     {
         if (Game.UpdateGameData(progress))
         {
-            GameComponets.Instance.Get<GameProgress>().Save(Game.ToGameProgressData());
+            Save();
         }
+    }
+
+    public void Save()
+    {
+        GameComponets.Instance.Get<GameProgress>().Save(Game.ToGameProgressData());
     }
 
     public bool GetBallStatus(int level, int ballNr) => Game.GetBallStatus(level, ballNr);

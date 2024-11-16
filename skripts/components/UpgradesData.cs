@@ -1,11 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Text.Json.Serialization;
 
 public class UpgradeData
 {
-    [JsonConverter(typeof(ListOfEnumConverter))]
-    public List<UpgradeType> Slots { get; set; } = new();
+    [JsonConverter(typeof(JsonIListItemConverter<UpgradeType, JsonStringEnumConverter>))]
+    public IList<UpgradeType> Slots { get; set; }
 
     public List<PurchasedUpgradesData> PurchasedUpgrades { get; set; } = new();
 
