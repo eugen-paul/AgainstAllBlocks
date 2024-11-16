@@ -7,9 +7,14 @@ public partial class UpgradeSlot : PanelContainer
     private static readonly string TEXTURE_ITEM_EMPTY = "res://assets/textures/gui/UpgradeSlotBG-EMPTY.png";
     private static readonly string TEXTURE_ITEM_SET = "res://assets/textures/gui/UpgradeSlotBG-SET.png";
 
+    private int SlotNr { get; set; } = -1;
+
+    private UpgradeType ItemType { get; set; }
+
     public override void _Ready()
     {
-        SetForegroundEmpty();
+        SetForeground(TEXTURE_ITEM_EMPTY);
+        UpdateItem();
     }
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
@@ -25,37 +30,32 @@ public partial class UpgradeSlot : PanelContainer
     public override void _DropData(Vector2 atPosition, Variant data)
     {
         var item = data.AsGodotObject() as UpgradeItemDrag;
-        GD.Print("Catch: " + item.GetType());
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().SetUpgradeInSlot(SlotNr, item.Type);
     }
 
-    public void SetItem(UpgradeType itemType)
+    public void Init(int slotNr, UpgradeType itemType)
     {
-        if (itemType == UpgradeType.EMPTY)
+        SlotNr = slotNr;
+        ItemType = itemType;
+    }
+
+    private void UpdateItem()
+    {
+        if (ItemType == UpgradeType.EMPTY)
         {
-            SetForegroundEmpty();
+            SetForeground(TEXTURE_ITEM_EMPTY);
         }
         else
         {
-            SetForegroundNotEmpty();
+            SetForeground(TEXTURE_ITEM_SET);
         }
-        var purchasedUpgrades = GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().PurchasedUpgradesAsMap();
-        var currentLevel = 0;
-        if (purchasedUpgrades.ContainsKey(itemType))
-        {
-            currentLevel = purchasedUpgrades[itemType].CurrentLevel;
-        }
-
-        SetItemTexture(UpgradeItemInfo.UpgradeItemInfos[itemType].Textures[currentLevel]);
+        var currentLevel = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(ItemType);
+        SetItemTexture(UpgradeItemInfo.UpgradeItemInfos[ItemType].Textures[currentLevel]);
     }
 
-    private void SetForegroundEmpty()
+    private void SetForeground(string path)
     {
-        GetNode<TextureRect>(TEXTURE_RECT_FOREGROUND_PATH).Texture = GD.Load<Texture2D>(TEXTURE_ITEM_EMPTY);
-    }
-
-    private void SetForegroundNotEmpty()
-    {
-        GetNode<TextureRect>(TEXTURE_RECT_FOREGROUND_PATH).Texture = GD.Load<Texture2D>(TEXTURE_ITEM_SET);
+        GetNode<TextureRect>(TEXTURE_RECT_FOREGROUND_PATH).Texture = GD.Load<Texture2D>(path);
     }
 
     private void SetItemTexture(string path)

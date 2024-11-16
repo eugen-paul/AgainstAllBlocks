@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct8v4tkpgj72h"]
+
+[ext_resource type="Script" path="res://skripts/upgrades/UpgradeItemPreview.cs" id="1_j0mea"]
+[ext_resource type="Texture2D" uid="uid://bclkb35dj4rma" path="res://assets/textures/gui/UpgradeDragAndDropPreview-Border.png" id="2_5iigl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0mea"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="UpgradeItemPreview" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_j0mea")
+script = ExtResource("1_j0mea")
+
+[node name="BgColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.141176, 0.141176, 0.141176, 0.784314)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BorderTextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_5iigl")

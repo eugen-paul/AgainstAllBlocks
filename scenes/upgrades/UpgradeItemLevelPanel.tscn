@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://babgy8el3b8xf"]
+[gd_scene load_steps=7 format=3 uid="uid://babgy8el3b8xf"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_f2pn4"]
 [ext_resource type="Script" path="res://skripts/upgrades/UpgradeItemLevelPanel.cs" id="2_spk0f"]
-[ext_resource type="PackedScene" uid="uid://k2a405xa84tn" path="res://scenes/upgrades/UpgradeItemIcon.tscn" id="3_r3t6m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cg43"]
 bg_color = Color(0.0973209, 0.216302, 0.257709, 1)
@@ -17,6 +16,15 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_beip2"]
+
+[sub_resource type="Curve" id="Curve_nqx8a"]
+_data = [Vector2(0.049676, 0.7), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_oev6r"]
+width = 64
+texture_mode = 1
+curve = SubResource("Curve_nqx8a")
 
 [node name="UpgradeItemLevelPanel" type="PanelContainer"]
 offset_right = 411.0
@@ -51,8 +59,12 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "1"
 
-[node name="UpgradeItemIcon" parent="HBoxContainer" instance=ExtResource("3_r3t6m")]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CurveTexture_oev6r")
 
 [node name="TextLabel" type="Label" parent="HBoxContainer"]
 auto_translate_mode = 2

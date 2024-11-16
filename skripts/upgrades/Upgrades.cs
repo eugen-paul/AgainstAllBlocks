@@ -28,11 +28,11 @@ public partial class Upgrades : Control
         GetNode<Node>(UPGRADE_PANEL_PATH).GetChildren().ToList().ForEach(c => c.QueueFree());
 
         var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
-        var upgrades = upgradeController.GetCurrentListOfUpgrades();
+        var upgrades = upgradeController.GetCurrentUpgradesAsList();
         foreach (var item in upgrades)
         {
             var panel = UpgradeScene.Instantiate<UpgradeItemPanel>();
-            panel.Item = item;
+            panel.Init(item.Type);
             panel.UpgradeAction += ShowUpgradeItemMenu;
             panel.LocalizationScriptObject = LocalizationScriptObject;
             GetNode<Node>(UPGRADE_PANEL_PATH).AddChild(panel);
@@ -51,22 +51,22 @@ public partial class Upgrades : Control
         CloseAction.Invoke();
     }
 
-    private void ShowUpgradeItemMenu(Upgrade item)
+    private void ShowUpgradeItemMenu(UpgradeType upgradeType)
     {
-        GetNode<Label>(UPGRADE_ITEM_MENU_DESCRIPTION_PATH).Text = LocalizationScriptObject.Get(item.Description).AsString();
+        var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
+        var description = UpgradeItemInfo.UpgradeItemInfos[upgradeType].Description;
+        var maxLevel = UpgradeItemInfo.UpgradeItemInfos[upgradeType].MaxLevel;
+
+        GetNode<Label>(UPGRADE_ITEM_MENU_DESCRIPTION_PATH).Text = LocalizationScriptObject.Get(description).AsString();
 
         GetNode<Node>(UPGRADE_ITEM_MENU_CONTAINER_PATH).GetChildren().ToList().ForEach(c => c.QueueFree());
 
-        for (int level = 0; level <= item.MaxLevel; level++)
+        for (int level = 0; level <= maxLevel; level++)
         {
             var upgradePanel = ItemInfoScene.Instantiate<UpgradeItemLevelPanel>();
             upgradePanel.Name = "Level" + level;
-            upgradePanel.Level = level;
-            upgradePanel.TexturePath = item.Textures[level];
-            upgradePanel.LevelDescription = item.LevelDescription[level];
-            upgradePanel.Purchased = item.CurrentLevel >= level;
+            upgradePanel.Init(upgradeType, level);
             upgradePanel.LocalizationScriptObject = LocalizationScriptObject;
-
             GetNode<Node>(UPGRADE_ITEM_MENU_CONTAINER_PATH).AddChild(upgradePanel);
         }
         ShowUpgradeItemMenu(true);

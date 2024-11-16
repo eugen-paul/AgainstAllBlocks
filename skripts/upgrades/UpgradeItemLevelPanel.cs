@@ -3,37 +3,40 @@ using Godot;
 public partial class UpgradeItemLevelPanel : PanelContainer
 {
     private static readonly string LEVEL_LABEL_PATH = "HBoxContainer/Panel/LevelLabel";
-    private static readonly string TEXTURE_RECT_PATH = "HBoxContainer/UpgradeItemIcon";
+    private static readonly string TEXTURE_RECT_PATH = "HBoxContainer/TextureRect";
     private static readonly string TEXT_LABEL_PATH = "HBoxContainer/TextLabel";
 
     public GodotObject LocalizationScriptObject { get; set; }
 
-    public int Level { get; set; } = 0;
-    public string TexturePath { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public string LevelDescription { get; set; } = string.Empty;
-    public bool Purchased { get; set; } = false;
+    public UpgradeType Type { get; private set; } = UpgradeType.EMPTY;
+    public int Level { get; private set; } = 0;
 
-    private bool ready = false;
+    private bool init = false;
 
     public override void _Ready()
     {
-        ready = true;
-        UpdateData();
+        UpdateUi();
     }
 
-    private void UpdateData()
+    public void Init(UpgradeType type, int level)
     {
-        if (!ready)
+        init = true;
+        Type = type;
+        Level = level;
+
+        var texturePath = UpgradeItemInfo.UpgradeItemInfos[Type].Textures[level];
+        GetNode<TextureRect>(TEXTURE_RECT_PATH).Texture = GD.Load<Texture2D>(texturePath);
+        GetNode<Label>(LEVEL_LABEL_PATH).Text = Level.ToString();
+    }
+
+    private void UpdateUi()
+    {
+        if (!init)
         {
             return;
         }
 
-        GetNode<Label>(LEVEL_LABEL_PATH).Text = Level.ToString();
-        GetNode<UpgradeItemIcon>(TEXTURE_RECT_PATH).SetTexture(TexturePath);
-        if (LevelDescription != string.Empty)
-        {
-            GetNode<Label>(TEXT_LABEL_PATH).Text = LocalizationScriptObject.Get(LevelDescription).AsString();
-        }
+        var levelDescription = UpgradeItemInfo.UpgradeItemInfos[Type].LevelDescription[Level];
+        GetNode<Label>(TEXT_LABEL_PATH).Text = LocalizationScriptObject.Get(levelDescription).AsString();
     }
 }

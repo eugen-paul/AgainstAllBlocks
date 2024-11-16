@@ -5,35 +5,35 @@ public partial class UpgradeItemPanel : HBoxContainer
 {
     public GodotObject LocalizationScriptObject { get; set; }
 
-    public Action<Upgrade> UpgradeAction { set; get; }
+    public Action<UpgradeType> UpgradeAction { set; get; }
 
-    public Upgrade _item;
-    public Upgrade Item
-    {
-        get => _item;
-        set
-        {
-            _item = value;
-            UpdateData();
-        }
-    }
+    public UpgradeType Type { get; private set; }
 
-    private bool ready = false;
+    private bool init = false;
 
     public override void _Ready()
     {
-        ready = true;
         UpdateData();
+    }
+
+    public void Init(UpgradeType type)
+    {
+        Type = type;
+        init = true;
     }
 
     private void UpdateData()
     {
-        if (!ready || _item == null)
+        if (!init)
         {
             return;
         }
-        GetNode<UpgradeItemIcon>("TextureRect").SetTexture(_item.Textures[Item.CurrentLevel]);
-        GetNode<Label>("Label").Text = Var(_item.LevelDescription[Item.CurrentLevel]);
+
+        var level = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(Type);
+        var levelDescription = UpgradeItemInfo.UpgradeItemInfos[Type].LevelDescription[level];
+
+        GetNode<UpgradeItemIcon>("TextureRect").Init(Type);
+        GetNode<Label>("Label").Text = Var(levelDescription);
     }
 
     private string Var(string variableName)
@@ -43,6 +43,6 @@ public partial class UpgradeItemPanel : HBoxContainer
 
     private void OnUpgradeButtonPressed()
     {
-        UpgradeAction?.Invoke(_item);
+        UpgradeAction?.Invoke(Type);
     }
 }

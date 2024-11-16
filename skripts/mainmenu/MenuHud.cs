@@ -62,11 +62,11 @@ public partial class MenuHud : CanvasLayer
 
         var gp = GameComponets.Instance.Get<GameProgress>();
         var games = gp.GetGameProgresses();
-        foreach (var slot in games)
+        foreach (var gameProgressData in games)
         {
-            var gameSlot = GameSlotSave.Instantiate<GameSlotSave>();
-            gameSlot.Init(slot, () => LoadGame(slot.Id), () => DeleteGame(slot.Id));
-            gameProgressGrid.AddChild(gameSlot);
+            var gameSlotUi = GameSlotSave.Instantiate<GameSlotSave>();
+            gameSlotUi.Init(gameProgressData, () => LoadGame(gameProgressData), () => DeleteGame(gameProgressData.Id));
+            gameProgressGrid.AddChild(gameSlotUi);
         }
 
         if (games.Count == 0 || games.Count < GameProgress.MAX_GAMES)
@@ -77,19 +77,10 @@ public partial class MenuHud : CanvasLayer
         }
     }
 
-    private void LoadGame(Guid id)
+    private void LoadGame(GameProgressData gameProgressData)
     {
-        var games = GameComponets.Instance.Get<GameProgress>().GetGameProgresses();
-        var gameData = games.Find(g => g.Id == id);
-
-        if (gameData == null)
-        {
-            Debug.Print("Cann't find Savegame with id " + id);
-            return;
-        }
-
         var next = ResourceLoader.Load<PackedScene>(GameScenePaths.LEVEL_SELECTION_SCENE);
-        GameComponets.Instance.Get<CurrentGame>().LoadNewGame(gameData);
+        GameComponets.Instance.Get<CurrentGame>().LoadNewGame(gameProgressData);
         GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
     }
 

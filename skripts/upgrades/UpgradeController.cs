@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using Godot;
 
 public enum UpgradeType
 {
@@ -37,15 +36,9 @@ public class UpgradeController
     }
     .ToImmutableList();
 
-    public IList<Upgrade> GetCurrentListOfUpgrades()
+    public IList<Upgrade> GetCurrentUpgradesAsList()
     {
         var PurchasedUpgrades = GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().PurchasedUpgradesAsMap();
-
-        // foreach (var item in PurchasedUpgrades)
-        // {
-        //     GD.Print("loaded: item " + item.Key.ToString() + " level " + item.Value.CurrentLevel);
-        // }
-
         var response = new List<Upgrade>();
         foreach (var upgradeTyte in UpgradesOrder)
         {
@@ -62,8 +55,24 @@ public class UpgradeController
         return response.ToImmutableList();
     }
 
+    public int GetCurrentUpgradeLevel(UpgradeType type)
+    {
+        var PurchasedUpgrades = GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().PurchasedUpgradesAsMap();
+        if (PurchasedUpgrades.ContainsKey(type))
+        {
+            return PurchasedUpgrades[type].CurrentLevel;
+        }
+
+        return 0;
+    }
+
     public IList<UpgradeType> GetCurrentSlots()
     {
         return GameComponets.Instance.Get<CurrentGame>().GetUpgradeData().Slots.ToImmutableList();
+    }
+
+    public void SetUpgradeInSlot(int slot, UpgradeType type)
+    {
+        
     }
 }

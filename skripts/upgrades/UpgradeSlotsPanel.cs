@@ -15,16 +15,16 @@ public partial class UpgradeSlotsPanel : CenterContainer
         GetNode<Node>(SLOTS_CONTAINER_PATH).GetChildren().ToList().ForEach(c => c.QueueFree());
 
         var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
-        foreach (var itemType in upgradeController.GetCurrentSlots())
+        for (int slotNr = 0; slotNr < upgradeController.GetCurrentSlots().Count; slotNr++)
         {
-            AddSlot(itemType);
+            AddSlot(slotNr, upgradeController.GetCurrentSlots()[slotNr]);
         }
     }
 
-    public void AddSlot(UpgradeType itemType)
+    public void AddSlot(int slotNr, UpgradeType itemType)
     {
         var slot = UpgradeSlotScene.Instantiate<UpgradeSlot>();
-        slot.SetItem(itemType);
+        slot.Init(slotNr, itemType);
         GetNode<Node>(SLOTS_CONTAINER_PATH).AddChild(slot);
     }
 
