@@ -34,36 +34,36 @@ public class UpgradeItemInfo
     public static readonly IDictionary<UpgradeType, UpgradeInfo> UpgradeItemInfos = new Dictionary<UpgradeType, UpgradeInfo>
     {
         {UpgradeType.EMPTY, new(UpgradeType.EMPTY,
-                                1,
+                                0,
                                 "UPGRADE_EMPTY",
                                 new List<string>(){"UPGRADE_EMPTY_0",}.ToImmutableList(),
                                 new List<int>(){0,}.ToImmutableList(),
                                 new List<string>(){"res://assets/textures/gui/upgrades/EMPTY-0.png",}.ToImmutableList())},
         {UpgradeType.EXTRA_LIFE, new(UpgradeType.EXTRA_LIFE,
-                                4,
+                                3,
                                 "UPGRADE_EXTRA_LIFE",
                                 new List<string>(){"UPGRADE_EXTRA_LIFE_0",
                                                    "UPGRADE_EXTRA_LIFE_1",
                                                    "UPGRADE_EXTRA_LIFE_2",
                                                    "UPGRADE_EXTRA_LIFE_3",}.ToImmutableList(),
-                                new List<int>(){0, 10, 25, 50,}.ToImmutableList(),
+                                new List<int>(){0, 1, 2, 3,}.ToImmutableList(),
                                 new List<string>(){ "res://assets/textures/gui/upgrades/EXTRA_LIFE-0.png",
                                                     "res://assets/textures/gui/upgrades/EXTRA_LIFE-1.png",
                                                     "res://assets/textures/gui/upgrades/EXTRA_LIFE-2.png",
                                                     "res://assets/textures/gui/upgrades/EXTRA_LIFE-3.png",}.ToImmutableList())},
         {UpgradeType.PADDLE_SPEED, new(UpgradeType.PADDLE_SPEED,
-                                4,
+                                3,
                                 "UPGRADE_PADDLE_SPEED",
                                 new List<string>(){"UPGRADE_PADDLE_SPEED_0",
                                                    "UPGRADE_PADDLE_SPEED_1",
                                                    "UPGRADE_PADDLE_SPEED_2",
                                                    "UPGRADE_PADDLE_SPEED_3",}.ToImmutableList(),
-                                new List<int>(){0,}.ToImmutableList(),
+                                new List<int>(){0, 1, 2, 3,}.ToImmutableList(),
                                 new List<string>(){"res://assets/textures/gui/upgrades/PADDLE_SPEED-0.png",
                                                    "res://assets/textures/gui/upgrades/PADDLE_SPEED-1.png",
                                                    "res://assets/textures/gui/upgrades/PADDLE_SPEED-2.png",
                                                    "res://assets/textures/gui/upgrades/PADDLE_SPEED-3.png",}.ToImmutableList())},
     }.ToImmutableDictionary();
 
-    public static readonly IList<int> SlotsCost = new List<int>() { 0, 10, 25, 50, }.ToImmutableList();
+    public static readonly IList<int> SlotsCost = new List<int>() { 5, 20, 40, 70, }.ToImmutableList();
 }

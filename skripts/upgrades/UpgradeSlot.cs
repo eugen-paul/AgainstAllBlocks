@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class UpgradeSlot : PanelContainer, IUpgradeListener
@@ -76,13 +77,21 @@ public partial class UpgradeSlot : PanelContainer, IUpgradeListener
 
     public void UpgrageDataChange(AUpgradeSignal upgradeSignal)
     {
-        if (upgradeSignal is UpgradeSignalUpdateSlot signal)
+        switch (upgradeSignal)
         {
-            if (signal.SlotNr == SlotNr)
-            {
-                ItemType = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentSlots()[SlotNr];
-                UpdateItem();
-            }
+            case UpgradeSignalUpdateSlot signal:
+                if (signal.SlotNr == SlotNr)
+                {
+                    ItemType = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentSlots()[SlotNr];
+                    UpdateItem();
+                }
+                break;
+            case UpgradeSignalUpdateUpgradeData signal2:
+                if (signal2.ItemType == ItemType)
+                {
+                    UpdateItem();
+                }
+                break;
         }
     }
 

@@ -225,8 +225,8 @@ msgid "UI_SLOTBUY."
 msgstr "Kaufe einen neuen Upgrade-Slot für {0} Gold."
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UIM_CLOSE"
-msgstr "OK"
+msgid "UIM_BACK"
+msgstr "Zurück"
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_HOWTO"
@@ -235,10 +235,6 @@ msgstr "Hilfe"
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_UPGRADE"
 msgstr "Upgrade"
-
-#: scenes/upgrades/Upgrades.tscn
-msgid "UIM_BACK"
-msgstr "Zurück"
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UI_SLOTBUY_TOP"
@@ -251,6 +247,13 @@ msgstr "Die maximale Anzahl an Upgrade-Slots wurde erreicht."
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_UPGRADE"
 msgstr "Upgrade"
+
+#: scenes/upgrades/UpgradeItemPanel.tscn
+msgid "UIP_INFO"
+msgstr "Info"
+
+#~ msgid "UIM_CLOSE"
+#~ msgstr "OK"
 
 #~ msgid "UIM_GOLD:"
 #~ msgstr "Gold:"

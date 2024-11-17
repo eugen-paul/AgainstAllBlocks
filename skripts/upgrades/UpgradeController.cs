@@ -92,6 +92,36 @@ public class UpgradeController
         }
     }
 
+    public void BuyNewUpgrade(UpgradeType type)
+    {
+        var nextLevel = GetCurrentUpgradeLevel(type) + 1;
+        if (nextLevel > UpgradeItemInfo.UpgradeItemInfos[type].MaxLevel)
+        {
+            return;
+        }
+
+        var goldRest = GameComponets.Instance.Get<CurrentGame>().GetGoldRest();
+        var nextLevelCost = UpgradeItemInfo.UpgradeItemInfos[type].Cost[nextLevel];
+        if (nextLevelCost <= goldRest)
+        {
+            PurchasedUpgradesData data = Upgrades().PurchasedUpgrades.Find(e => e.Type == type);
+            if (data == null)
+            {
+                data = new PurchasedUpgradesData
+                {
+                    Type = type
+                };
+                Upgrades().PurchasedUpgrades.Add(data);
+            }
+            data.CurrentLevel = nextLevel;
+
+            SendUpgradeChange(type);
+            SendGoldChange();
+
+            GameComponets.Instance.Get<CurrentGame>().Save();
+        }
+    }
+
     private void SendSlotChange(int slotNr)
     {
         dataChangeAction(new UpgradeSignalUpdateSlot(slotNr));
@@ -100,6 +130,11 @@ public class UpgradeController
     private void SendSlotCountChange()
     {
         dataChangeAction(new UpgradeSignalUpdateSlotsCount());
+    }
+
+    private void SendUpgradeChange(UpgradeType type)
+    {
+        dataChangeAction(new UpgradeSignalUpdateUpgradeData(type));
     }
 
     private void SendGoldChange()

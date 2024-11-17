@@ -38,7 +38,7 @@ public partial class Levels : CanvasLayer
             lvlContainer.AddChild(lvl);
         }
 
-        GetNode<Upgrades>(UPGRADES_PATH).CloseAction += HideAll;
+        GetNode<Upgrades>(UPGRADES_PATH).CloseUpgradeMenuAction += HideAll;
 
         HideAll();
     }

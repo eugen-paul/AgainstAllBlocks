@@ -108,9 +108,9 @@ public class CurrentGameData
         var upgradesCost = 0;
         foreach (var upgrade in Upgrades.PurchasedUpgrades)
         {
-            for (int i = 0; i < upgrade.CurrentLevel; i++)
+            for (int i = 0; i <= upgrade.CurrentLevel; i++)
             {
-                upgradesCost += UpgradeItemInfo.UpgradeItemInfos[upgrade.Type].Cost[upgrade.CurrentLevel];
+                upgradesCost += UpgradeItemInfo.UpgradeItemInfos[upgrade.Type].Cost[i];
             }
         }
 

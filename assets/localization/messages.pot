@@ -225,7 +225,7 @@ msgid "UI_SLOTBUY."
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UIM_CLOSE"
+msgid "UIM_BACK"
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
@@ -234,10 +234,6 @@ msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_UPGRADE"
-msgstr ""
-
-#: scenes/upgrades/Upgrades.tscn
-msgid "UIM_BACK"
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
@@ -250,4 +246,8 @@ msgstr ""
 
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_UPGRADE"
+msgstr ""
+
+#: scenes/upgrades/UpgradeItemPanel.tscn
+msgid "UIP_INFO"
 msgstr ""
