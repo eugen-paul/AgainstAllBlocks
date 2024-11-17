@@ -2,15 +2,21 @@ using System;
 using System.Linq;
 using Godot;
 
-public partial class Upgrades : Control
+public partial class Upgrades : Control, IUpgradeListener
 {
     private GodotObject LocalizationScriptObject;
 
     private static readonly string DEFAULT_UPGRADE_ITEM_PANEL = "res://scenes/upgrades/UpgradeItemPanel.tscn";
     private static readonly string DEFAULT_UPGRADE_ITEM_INFO_PANEL = "res://scenes/upgrades/UpgradeItemLevelPanel.tscn";
+    private static readonly string PLUS_SLOT_BUTTON_PATH = "UpgradeMenu/CenterContainer/HBoxContainer/PlusSlotButton";
     private static readonly string UPGRADE_PANEL_PATH = "UpgradeMenu/ScrollContainer/VBoxContainer";
     private static readonly string UPGRADE_ITEM_MENU_DESCRIPTION_PATH = "UpgradeItemMenu/Panel/Panel/VBoxContainer/PanelContainer/Label";
     private static readonly string UPGRADE_ITEM_MENU_CONTAINER_PATH = "UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer/VBoxContainer";
+    private static readonly string BUY_SLOT_MENU_PATH = "BuySlotMenu";
+    private static readonly string BUY_SLOT_TEXT_PATH = "BuySlotMenu/Panel/SlotBuyLabel";
+    private static readonly string BUY_SLOT_BUTTON_PATH = "BuySlotMenu/Panel/BuySlotButton";
+    private static readonly string BUY_SLOTMAX_TEXT_PATH = "BuySlotMenu/Panel/SlotMaxLabel";
+    private static readonly string BUY_SLOT_TEXT = "UI_SLOTBUY";
     private static readonly string UPGRADE_ITEM_MENU_PATH = "UpgradeItemMenu";
     public Action CloseAction;
 
@@ -28,27 +34,58 @@ public partial class Upgrades : Control
         GetNode<Node>(UPGRADE_PANEL_PATH).GetChildren().ToList().ForEach(c => c.QueueFree());
 
         var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
-        var upgrades = upgradeController.GetCurrentUpgradesAsList();
-        foreach (var item in upgrades)
+        var upgrades = upgradeController.GetUpgradesOrder();
+        foreach (var upgradeType in upgrades)
         {
             var panel = UpgradeScene.Instantiate<UpgradeItemPanel>();
-            panel.Init(item.Type);
+            panel.Init(upgradeType);
             panel.UpgradeAction += ShowUpgradeItemMenu;
             panel.LocalizationScriptObject = LocalizationScriptObject;
             GetNode<Node>(UPGRADE_PANEL_PATH).AddChild(panel);
         }
 
-        ShowUpgradeItemMenu(false);
+        SetUpgradeItemMenuVisibile(false);
+        SetBuySlotMenuVisibile(false);
+        CheckAndSetUpgradeButtonVisible();
     }
 
-    private void ShowUpgradeItemMenu(bool visible)
+    public override void _EnterTree()
+    {
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().AddListener(this);
+    }
+
+    public override void _ExitTree()
+    {
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().RemoveListener(this);
+    }
+
+    private void SetUpgradeItemMenuVisibile(bool visible)
     {
         GetNode<Control>(UPGRADE_ITEM_MENU_PATH).Visible = visible;
+    }
+
+    private void SetBuySlotMenuVisibile(bool visible)
+    {
+        GetNode<Control>(BUY_SLOT_MENU_PATH).Visible = visible;
+
+        GetNode<Control>(BUY_SLOT_TEXT_PATH).Visible = !MaxSlotsReached();
+        GetNode<Control>(BUY_SLOTMAX_TEXT_PATH).Visible = MaxSlotsReached();
+    }
+
+    private static bool MaxSlotsReached()
+    {
+        var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
+        return upgradeController.GetCurrentSlots().Count >= UpgradeItemInfo.SlotsCost.Count;
     }
 
     private void OnOkButtonPressed()
     {
         CloseAction.Invoke();
+    }
+
+    private void CheckAndSetUpgradeButtonVisible()
+    {
+        GetNode<Control>(PLUS_SLOT_BUTTON_PATH).Visible = !MaxSlotsReached();
     }
 
     private void ShowUpgradeItemMenu(UpgradeType upgradeType)
@@ -61,7 +98,7 @@ public partial class Upgrades : Control
 
         GetNode<Node>(UPGRADE_ITEM_MENU_CONTAINER_PATH).GetChildren().ToList().ForEach(c => c.QueueFree());
 
-        for (int level = 0; level <= maxLevel; level++)
+        for (int level = 0; level < maxLevel; level++)
         {
             var upgradePanel = ItemInfoScene.Instantiate<UpgradeItemLevelPanel>();
             upgradePanel.Name = "Level" + level;
@@ -69,11 +106,57 @@ public partial class Upgrades : Control
             upgradePanel.LocalizationScriptObject = LocalizationScriptObject;
             GetNode<Node>(UPGRADE_ITEM_MENU_CONTAINER_PATH).AddChild(upgradePanel);
         }
-        ShowUpgradeItemMenu(true);
+        SetUpgradeItemMenuVisibile(true);
     }
 
     private void OnCloseUpgradeItemMenuButtonPressed()
     {
-        ShowUpgradeItemMenu(false);
+        SetUpgradeItemMenuVisibile(false);
+    }
+
+    public void UpgrageDataChange(AUpgradeSignal upgradeSignal)
+    {
+        if (upgradeSignal is UpgradeSignalUpdateSlotsCount)
+        {
+            CheckAndSetUpgradeButtonVisible();
+            UpdateSlotBuyMenu();
+        }
+    }
+
+    private void OnPlusSlotButtonPressed()
+    {
+        SetBuySlotMenuVisibile(true);
+        UpdateSlotBuyMenu();
+    }
+
+    private void OnCloseBuySlotMenuButtonPressed()
+    {
+        SetBuySlotMenuVisibile(false);
+    }
+
+    private void OnBuySlotButtonPressed()
+    {
+        var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
+        upgradeController.BuyNewUpgradeSlot();
+    }
+
+    private void UpdateSlotBuyMenu()
+    {
+        if (!MaxSlotsReached())
+        {
+            var buySlotText = LocalizationScriptObject.Get(BUY_SLOT_TEXT).AsString();
+            var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
+            var nextSlotNr = upgradeController.GetCurrentSlots().Count;
+            var nextSlotCost = UpgradeItemInfo.SlotsCost[nextSlotNr];
+            GetNode<Label>(BUY_SLOT_TEXT_PATH).Text = string.Format(buySlotText, nextSlotCost);
+            GetNode<Button>(BUY_SLOT_BUTTON_PATH).Visible = true;
+
+            var goldRest = GameComponets.Instance.Get<CurrentGame>().GetGoldRest();
+            GetNode<Button>(BUY_SLOT_BUTTON_PATH).Disabled = goldRest < nextSlotCost;
+        }
+        else
+        {
+            GetNode<Button>(BUY_SLOT_BUTTON_PATH).Visible = false;
+        }
     }
 }

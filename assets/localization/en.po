@@ -223,9 +223,9 @@ msgstr "Increases paddle speed by 20%."
 msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr "Increases paddle speed by 30%."
 
-#: scenes/upgrades/Upgrades.tscn
-msgid "UIM_GOLD:"
-msgstr "Gold:"
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UI_SLOTBUY."
+msgstr "Buy a new upgrade slot for {0} gold."
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_CLOSE"
@@ -240,9 +240,20 @@ msgid "UIM_UPGRADE"
 msgstr "Upgrade"
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UIM_OK"
-msgstr "OK"
+msgid "UIM_BACK"
+msgstr "Back"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_SLOTBUY_TOP"
+msgstr "New upgrade slot"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_MAXSLOT_LABEL."
+msgstr "Maximum number of upgrade slots has been reached."
 
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_UPGRADE"
 msgstr "Upgrade"
+
+#~ msgid "UIM_GOLD:"
+#~ msgstr "Gold:"

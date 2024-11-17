@@ -13,6 +13,10 @@ public enum UpgradeType
 
 public interface IUpgradeListener
 {
+    /// <summary>
+    /// The function is called by the upgrade controller every time a change has occurred in the upgrades.
+    /// </summary>
+    /// <param name="upgradeSignal"></param>
     void UpgrageDataChange(AUpgradeSignal upgradeSignal);
 }
 
@@ -32,29 +36,13 @@ public class UpgradeController
 
     private readonly IList<UpgradeType> UpgradesOrder = new List<UpgradeType>
     {
+        UpgradeType.EMPTY,
         UpgradeType.EXTRA_LIFE,
         UpgradeType.PADDLE_SPEED,
     }
     .ToImmutableList();
 
-    public IList<Upgrade> GetCurrentUpgradesAsList()
-    {
-        var PurchasedUpgrades = Upgrades().PurchasedUpgradesAsMap();
-        var response = new List<Upgrade>();
-        foreach (var upgradeTyte in UpgradesOrder)
-        {
-            if (PurchasedUpgrades.ContainsKey(upgradeTyte))
-            {
-                response.Add(new Upgrade(PurchasedUpgrades[upgradeTyte]));
-            }
-            else
-            {
-                response.Add(new Upgrade(upgradeTyte));
-            }
-        }
-
-        return response.ToImmutableList();
-    }
+    public IList<UpgradeType> GetUpgradesOrder() => UpgradesOrder;
 
     public int GetCurrentUpgradeLevel(UpgradeType type)
     {
@@ -90,9 +78,33 @@ public class UpgradeController
         GameComponets.Instance.Get<CurrentGame>().Save();
     }
 
+    public void BuyNewUpgradeSlot()
+    {
+        var goldRest = GameComponets.Instance.Get<CurrentGame>().GetGoldRest();
+        var nextSlotNr = GetCurrentSlots().Count;
+        var nextSlotCost = UpgradeItemInfo.SlotsCost[nextSlotNr];
+        if (nextSlotCost <= goldRest)
+        {
+            Upgrades().Slots.Add(UpgradeType.EMPTY);
+            SendSlotCountChange();
+            SendGoldChange();
+            GameComponets.Instance.Get<CurrentGame>().Save();
+        }
+    }
+
     private void SendSlotChange(int slotNr)
     {
         dataChangeAction(new UpgradeSignalUpdateSlot(slotNr));
+    }
+
+    private void SendSlotCountChange()
+    {
+        dataChangeAction(new UpgradeSignalUpdateSlotsCount());
+    }
+
+    private void SendGoldChange()
+    {
+        dataChangeAction(new UpgradeSignalUpdateGold(GameComponets.Instance.Get<CurrentGame>().GetGoldRest()));
     }
 
     private static UpgradeData Upgrades() => GameComponets.Instance.Get<CurrentGame>().GetUpgradeData();

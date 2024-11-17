@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2nprom2n6xll"]
+[gd_scene load_steps=11 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
 [ext_resource type="Script" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
@@ -6,20 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://d33drh6duqexa" path="res://scenes/upgrades/UpgradeGoldLabel.tscn" id="3_44s3h"]
 [ext_resource type="PackedScene" uid="uid://c0ob1kvpfp0dh" path="res://scenes/upgrades/UpgradeSlotsPanel.tscn" id="3_616ga"]
 [ext_resource type="PackedScene" uid="uid://babgy8el3b8xf" path="res://scenes/upgrades/UpgradeItemLevelPanel.tscn" id="5_docth"]
+[ext_resource type="StyleBox" uid="uid://b6tq28gms212h" path="res://scenes/upgrades/UpgradePopupMenu.tres" id="6_ra80v"]
+[ext_resource type="Texture2D" uid="uid://cakdauap8vekj" path="res://assets/textures/gui/UpgradeSlotBG-EMPTY.png" id="8_mk56c"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcomm"]
-bg_color = Color(0.509286, 0.509286, 0.509286, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.0475577, 0.0475577, 0.0475576, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulvnn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra80v"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
@@ -63,10 +53,29 @@ offset_top = 45.0
 offset_right = 155.0
 offset_bottom = 78.0
 
-[node name="UpgradeSlotsContainer" parent="UpgradeMenu" instance=ExtResource("3_616ga")]
+[node name="CenterContainer" type="CenterContainer" parent="UpgradeMenu"]
 layout_mode = 1
-offset_top = 116.0
-offset_bottom = 184.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.0
+offset_top = 105.0
+offset_right = 208.0
+offset_bottom = 189.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpgradeMenu/CenterContainer"]
+layout_mode = 2
+
+[node name="UpgradeSlotsContainer" parent="UpgradeMenu/CenterContainer/HBoxContainer" instance=ExtResource("3_616ga")]
+layout_mode = 2
+
+[node name="PlusSlotButton" type="Button" parent="UpgradeMenu/CenterContainer/HBoxContainer"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "+"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UpgradeMenu"]
 layout_mode = 1
@@ -123,7 +132,7 @@ offset_right = 33.0
 offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "UIM_CLOSE"
+text = "UIM_BACK"
 
 [node name="HowToButton" type="Button" parent="UpgradeMenu"]
 visible = false
@@ -162,7 +171,7 @@ offset_left = 1.0
 offset_top = 149.0
 offset_right = 431.0
 offset_bottom = 678.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qcomm")
+theme_override_styles/panel = ExtResource("6_ra80v")
 
 [node name="Panel" type="Panel" parent="UpgradeItemMenu/Panel"]
 layout_mode = 1
@@ -170,7 +179,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 443.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ulvnn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ra80v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UpgradeItemMenu/Panel/Panel"]
 layout_mode = 1
@@ -242,7 +251,120 @@ offset_right = -15.0
 offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "UIM_OK"
+text = "UIM_BACK"
 
+[node name="BuySlotMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="BuySlotMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.658824, 0.658824, 0.658824, 0.588235)
+
+[node name="Panel" type="Panel" parent="BuySlotMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -225.0
+offset_right = 213.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_ra80v")
+
+[node name="SlotLabel" type="Label" parent="BuySlotMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -200.0
+offset_right = 20.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "UI_SLOTBUY_TOP"
+
+[node name="SlotTextureRect" type="TextureRect" parent="BuySlotMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -152.0
+offset_right = 42.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_mk56c")
+
+[node name="SlotBuyLabel" type="Label" parent="BuySlotMenu/Panel"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 184.0
+offset_right = 413.0
+offset_bottom = 217.0
+text = "UI_SLOTBUY."
+autowrap_mode = 2
+
+[node name="SlotMaxLabel" type="Label" parent="BuySlotMenu/Panel"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 184.0
+offset_right = 281.0
+offset_bottom = 217.0
+text = "UI_MAXSLOT_LABEL."
+
+[node name="BuySlotButton" type="Button" parent="BuySlotMenu/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -78.0
+offset_right = 241.0
+offset_bottom = -22.0
+grow_vertical = 0
+text = "UIM_UPGRADE"
+
+[node name="CloseBuySlotMenuButton" type="Button" parent="BuySlotMenu/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -78.0
+offset_right = -3.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "UIM_BACK"
+
+[connection signal="pressed" from="UpgradeMenu/CenterContainer/HBoxContainer/PlusSlotButton" to="." method="OnPlusSlotButtonPressed"]
 [connection signal="pressed" from="UpgradeMenu/OkButton" to="." method="OnOkButtonPressed"]
 [connection signal="pressed" from="UpgradeItemMenu/Panel/CloseUpgradeItemMenuButton" to="." method="OnCloseUpgradeItemMenuButtonPressed"]
+[connection signal="pressed" from="BuySlotMenu/Panel/BuySlotButton" to="." method="OnBuySlotButtonPressed"]
+[connection signal="pressed" from="BuySlotMenu/Panel/CloseBuySlotMenuButton" to="." method="OnCloseBuySlotMenuButtonPressed"]

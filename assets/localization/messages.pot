@@ -220,8 +220,8 @@ msgstr ""
 msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr ""
 
-#: scenes/upgrades/Upgrades.tscn
-msgid "UIM_GOLD:"
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UI_SLOTBUY."
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
@@ -237,7 +237,15 @@ msgid "UIM_UPGRADE"
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UIM_OK"
+msgid "UIM_BACK"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_SLOTBUY_TOP"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_MAXSLOT_LABEL."
 msgstr ""
 
 #: scenes/upgrades/UpgradeItemPanel.tscn

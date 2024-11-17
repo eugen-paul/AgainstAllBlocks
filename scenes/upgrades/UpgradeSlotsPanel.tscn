@@ -5,37 +5,22 @@
 [ext_resource type="Script" path="res://skripts/upgrades/UpgradeSlotsPanel.cs" id="1_uucjg"]
 
 [node name="CenterContainer" type="CenterContainer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -167.0
-offset_right = 169.0
-offset_bottom = 71.0
-grow_horizontal = 2
+offset_right = 348.0
+offset_bottom = 84.0
 theme = ExtResource("1_lpg4k")
 script = ExtResource("1_uucjg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="SlotsContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="SlotsContainer" type="HBoxContainer" parent="HBoxContainer"]
+[node name="Slot1" parent="SlotsContainer" instance=ExtResource("1_55w05")]
 layout_mode = 2
 
-[node name="Slot1" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
+[node name="Slot2" parent="SlotsContainer" instance=ExtResource("1_55w05")]
 layout_mode = 2
 
-[node name="Slot2" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
+[node name="Slot3" parent="SlotsContainer" instance=ExtResource("1_55w05")]
 layout_mode = 2
 
-[node name="Slot3" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
+[node name="Slot4" parent="SlotsContainer" instance=ExtResource("1_55w05")]
 layout_mode = 2
-
-[node name="Slot4" parent="HBoxContainer/SlotsContainer" instance=ExtResource("1_55w05")]
-layout_mode = 2
-
-[node name="PlusSlotButton" type="Button" parent="HBoxContainer"]
-auto_translate_mode = 2
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "+"
