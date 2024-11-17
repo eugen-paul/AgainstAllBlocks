@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://jo5icpu0pyb5"]
+
+[ext_resource type="Script" path="res://skripts/upgrades/UpgradeSlot.cs" id="1_2umv6"]
+[ext_resource type="Texture2D" uid="uid://cakdauap8vekj" path="res://assets/textures/gui/UpgradeSlotBG-EMPTY.png" id="2_v5m23"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5m23"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_cek0p"]
+width = 64
+
+[node name="UpgradeSlot" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v5m23")
+script = ExtResource("1_2umv6")
+
+[node name="TextureRectItem" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CurveTexture_cek0p")
+
+[node name="TextureRectForeground" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(84, 84)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_v5m23")

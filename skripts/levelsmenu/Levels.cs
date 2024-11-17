@@ -4,15 +4,18 @@ using Godot;
 public partial class Levels : CanvasLayer
 {
     private const string LEVELS_CONTAINER_PATH = "Main/Panel/ScrollContainer/VBoxContainer";
+    private const string UPGRADES_PATH = "UpgradesLayer/Upgrades";
 
     private enum MenuOptions
     {
+        UPGRADE_FRAME,
         EXIT_FRAME
     }
 
     private readonly Dictionary<MenuOptions, string> MenuOptionNames = new()
     {
-        { MenuOptions.EXIT_FRAME, "ExitFrame" },
+        { MenuOptions.UPGRADE_FRAME, "UpgradesLayer" },
+        { MenuOptions.EXIT_FRAME, "ExitFrameLayer" },
     };
 
     [Export]
@@ -20,7 +23,7 @@ public partial class Levels : CanvasLayer
 
     public override void _Ready()
     {
-        var gameData = GameComponets.Instance.Get<CurrentGame>().Game;
+        var levelsData = GameComponets.Instance.Get<CurrentGame>().GetLevels();
 
         var lvlContainer = GetNode<VBoxContainer>(LEVELS_CONTAINER_PATH);
         foreach (var child in lvlContainer.GetChildren())
@@ -28,12 +31,14 @@ public partial class Levels : CanvasLayer
             child.QueueFree();
         }
 
-        for (int i = 1; i < gameData.Levels.Count; i++)
+        for (int i = 1; i < levelsData.Count; i++)
         {
             var lvl = LevelSelectionScene.Instantiate<LevelProgress>();
-            lvl.Init(gameData.Levels[i]);
+            lvl.Init(levelsData[i]);
             lvlContainer.AddChild(lvl);
         }
+
+        GetNode<Upgrades>(UPGRADES_PATH).CloseUpgradeMenuAction += HideAll;
 
         HideAll();
     }
@@ -44,11 +49,11 @@ public partial class Levels : CanvasLayer
         {
             if (entry.Key == name)
             {
-                GetNode<Control>(entry.Value).Show();
+                GetNode<CanvasLayer>(entry.Value).Show();
             }
             else
             {
-                GetNode<Control>(entry.Value).Hide();
+                GetNode<CanvasLayer>(entry.Value).Hide();
             }
         }
     }
@@ -57,13 +62,18 @@ public partial class Levels : CanvasLayer
     {
         foreach (var entry in MenuOptionNames)
         {
-            GetNode<Control>(entry.Value).Hide();
+            GetNode<CanvasLayer>(entry.Value).Hide();
         }
     }
 
     private void OnMenuButtonPressed()
     {
         ShowOnly(MenuOptions.EXIT_FRAME);
+    }
+
+    private void OnUpgradesButtonPressed()
+    {
+        ShowOnly(MenuOptions.UPGRADE_FRAME);
     }
 
     private void OnExitNoButtonPressed()

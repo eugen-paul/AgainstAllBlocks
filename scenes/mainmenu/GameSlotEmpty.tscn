@@ -31,6 +31,6 @@ offset_right = 101.0
 offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "New Game"
+text = "MENU_NEW_GAME"
 
 [connection signal="pressed" from="BgTextureRect/Button" to="." method="OnNewGamePressed"]

@@ -43,15 +43,15 @@ import/blender/enabled=false
 
 shoot={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-3,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://assets/localization/de_DE.po")
-locale/translations_pot_files=PackedStringArray("res://scenes/hud/GameHud.tscn", "res://scenes/mainmenu/GameSlotEmpty.tscn", "res://scenes/mainmenu/GameSlotSave.tscn", "res://scenes/mainmenu/Main.tscn", "res://scenes/mainmenu/MenuHud.tscn", "res://scenes/levelsmenu/LevelProgress.tscn", "res://scenes/levelsmenu/Levels.tscn", "res://scenes/localization/Localization.gd")
+locale/translations=PackedStringArray("res://assets/localization/de_DE.po", "res://assets/localization/en.po")
+locale/translations_pot_files=PackedStringArray("res://scenes/hud/GameHud.tscn", "res://scenes/mainmenu/GameSlotEmpty.tscn", "res://scenes/mainmenu/GameSlotSave.tscn", "res://scenes/mainmenu/Main.tscn", "res://scenes/mainmenu/MenuHud.tscn", "res://scenes/levelsmenu/LevelProgress.tscn", "res://scenes/levelsmenu/Levels.tscn", "res://scenes/localization/Localization_Achievements.gd", "res://scenes/localization/Localization_Upgrades.gd", "res://scenes/upgrades/Upgrades.tscn", "res://scenes/upgrades/UpgradeItemLevelPanel.tscn", "res://scenes/upgrades/UpgradeItemPanel.tscn")
 
 [layer_names]
 
