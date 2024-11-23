@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 
-public partial class Bomb : CharacterBody3D
+public partial class Bomb : CharacterBody3D, AutoSound
 {
     [Export]
     public float StartSpeed { get; set; } = 22.0f;
@@ -68,5 +68,11 @@ public partial class Bomb : CharacterBody3D
         Level.AddChild(explosion);
         Level.TemporaryAdd(explosion);
         explosion.Explode();
+    }
+
+    public void stopSound()
+    {
+        GetNode<AudioStreamPlayer>("AudioStreamPlayer").Autoplay = false;
+        GetNode<AudioStreamPlayer>("AudioStreamPlayer").Stop();
     }
 }

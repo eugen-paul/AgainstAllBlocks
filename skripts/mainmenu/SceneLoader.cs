@@ -99,7 +99,6 @@ public partial class SceneLoader : Node
             var partocleObj = scene.Instantiate<GpuParticles3D>();
             partocleObj.Emitting = true;
             AddChild(partocleObj);
-
         }
         var progressBar = GetNode<ProgressBar>("ColorRect/VBoxContainer/ProgressBar");
         progressBar.SetValueNoSignal(Mathf.Min(100f, 100f * (itemsCount - gpuParticles2dList.Count) / itemsCount));
@@ -124,11 +123,6 @@ public partial class SceneLoader : Node
     private void LoadSprite3D()
     {
         lastLoaded?.QueueFree();
-        if (stage != LoadingStage.SceneItems)
-        {
-            return;
-        }
-
         if (pathesToLoad.Count == 0)
         {
             stage = LoadingStage.gpuParticles3dList;
@@ -139,6 +133,10 @@ public partial class SceneLoader : Node
         if (lastLoaded is Item i)
         {
             i.ItemType = ItemType.LIFE_ADD;
+        }
+        if (lastLoaded is AutoSound s)
+        {
+            s.stopSound();
         }
         AddChild(lastLoaded);
         pathesToLoad.RemoveAt(0);

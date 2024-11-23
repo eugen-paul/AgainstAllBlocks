@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Rocket : CharacterBody3D
+public partial class Rocket : CharacterBody3D, AutoSound
 {
     [Export]
     public float StartSpeed { get; set; } = 22.0f;
@@ -75,4 +75,11 @@ public partial class Rocket : CharacterBody3D
         Level.TemporaryDestroyd(this);
         QueueFree();
     }
+
+    public void stopSound()
+    {
+        GetNode<AudioStreamPlayer>("AudioStreamPlayer").Autoplay = false;
+        GetNode<AudioStreamPlayer>("AudioStreamPlayer").Stop();
+    }
+
 }
