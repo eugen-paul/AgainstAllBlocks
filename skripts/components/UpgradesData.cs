@@ -6,9 +6,9 @@ using System.Text.Json.Serialization;
 public class UpgradeData
 {
     [JsonConverter(typeof(JsonIListItemConverter<UpgradeType, JsonStringEnumConverter>))]
-    public IList<UpgradeType> Slots { get; set; }
+    public IList<UpgradeType> Slots { get; set; } = [];
 
-    public List<PurchasedUpgradesData> PurchasedUpgrades { get; set; } = new();
+    public List<PurchasedUpgradesData> PurchasedUpgrades { get; set; } = [];
 
     public UpgradeData() { }
 
@@ -16,7 +16,7 @@ public class UpgradeData
     {
         var response = new UpgradeData
         {
-            Slots = new List<UpgradeType>(Slots)
+            Slots = [.. Slots]
         };
         PurchasedUpgrades.ForEach(e => response.PurchasedUpgrades.Add(e.Copy()));
         return response;
