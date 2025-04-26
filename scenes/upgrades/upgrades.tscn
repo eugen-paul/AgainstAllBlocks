@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
-[ext_resource type="Script" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
-[ext_resource type="PackedScene" uid="uid://c8qwycv8t1trv" path="res://scenes/upgrades/UpgradeItemPanel.tscn" id="2_ql08w"]
+[ext_resource type="Script" uid="uid://bsfbjc3d1yok5" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
+[ext_resource type="PackedScene" uid="uid://c8qwycv8t1trv" path="res://scenes/upgrades/upgradeItemPanel.tscn" id="2_ql08w"]
 [ext_resource type="PackedScene" uid="uid://d33drh6duqexa" path="res://scenes/upgrades/UpgradeGoldLabel.tscn" id="3_44s3h"]
 [ext_resource type="PackedScene" uid="uid://c0ob1kvpfp0dh" path="res://scenes/upgrades/UpgradeSlotsPanel.tscn" id="3_616ga"]
 [ext_resource type="PackedScene" uid="uid://babgy8el3b8xf" path="res://scenes/upgrades/UpgradeItemLevelPanel.tscn" id="5_docth"]
