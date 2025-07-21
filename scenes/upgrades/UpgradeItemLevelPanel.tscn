@@ -1,19 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://babgy8el3b8xf"]
+[gd_scene load_steps=9 format=3 uid="uid://babgy8el3b8xf"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_f2pn4"]
 [ext_resource type="Script" uid="uid://cd44hmlqe27jq" path="res://skripts/upgrades/UpgradeItemLevelPanel.cs" id="2_spk0f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cg43"]
-bg_color = Color(0.0973209, 0.216302, 0.257709, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8h2u"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.30692276, 0.3069227, 0.30692264, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_beip2"]
 
@@ -26,24 +31,55 @@ width = 64
 texture_mode = 1
 curve = SubResource("Curve_nqx8a")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqx8a"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5680801, 0.6783398, 0.86930615, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oev6r"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.6627451, 0, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [node name="UpgradeItemLevelPanel" type="PanelContainer"]
-offset_right = 411.0
-offset_bottom = 111.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_f2pn4")
-theme_override_styles/panel = SubResource("StyleBoxFlat_4cg43")
 script = ExtResource("2_spk0f")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j8h2u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="Panel" type="Panel" parent="HBoxContainer"]
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_beip2")
 
-[node name="LevelLabel" type="Label" parent="HBoxContainer/Panel"]
+[node name="LevelLabel" type="Label" parent="Panel/HBoxContainer/Panel"]
 auto_translate_mode = 2
 layout_mode = 1
 anchors_preset = 8
@@ -59,17 +95,40 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "1"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("CurveTexture_oev6r")
 
-[node name="TextLabel" type="Label" parent="HBoxContainer"]
+[node name="TextLabel" type="Label" parent="Panel/HBoxContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Some text to check how it will look."
 autowrap_mode = 3
+
+[node name="OffPanel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="CurrentBorder" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nqx8a")
+
+[node name="CurrentBorder" type="Panel" parent="CurrentBorder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oev6r")

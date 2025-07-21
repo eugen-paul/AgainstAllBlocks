@@ -1,10 +1,13 @@
+using System.Diagnostics;
 using Godot;
 
-public partial class UpgradeItemLevelPanel : PanelContainer
+public partial class UpgradeItemLevelPanel : PanelContainer, IUpgradeListener
 {
-    private static readonly string LEVEL_LABEL_PATH = "HBoxContainer/Panel/LevelLabel";
-    private static readonly string TEXTURE_RECT_PATH = "HBoxContainer/TextureRect";
-    private static readonly string TEXT_LABEL_PATH = "HBoxContainer/TextLabel";
+    private static readonly string LEVEL_LABEL_PATH = "Panel/HBoxContainer/Panel/LevelLabel";
+    private static readonly string TEXTURE_RECT_PATH = "Panel/HBoxContainer/TextureRect";
+    private static readonly string TEXT_LABEL_PATH = "Panel/HBoxContainer/TextLabel";
+    private static readonly string CURRENT_BORDER_PATH = "CurrentBorder";
+    private static readonly string OFF_PANEL_PATH = "OffPanel";
 
     public GodotObject LocalizationScriptObject { get; set; }
 
@@ -16,7 +19,19 @@ public partial class UpgradeItemLevelPanel : PanelContainer
     public override void _Ready()
     {
         UpdateUi();
+        UpdateData();
     }
+
+    public override void _EnterTree()
+    {
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().AddListener(this);
+    }
+
+    public override void _ExitTree()
+    {
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().RemoveListener(this);
+    }
+
 
     public void Init(UpgradeType type, int level)
     {
@@ -39,4 +54,29 @@ public partial class UpgradeItemLevelPanel : PanelContainer
         var levelDescription = UpgradeItemInfo.UpgradeItemInfos[Type].LevelDescription[Level];
         GetNode<Label>(TEXT_LABEL_PATH).Text = LocalizationScriptObject.Get(levelDescription).AsString();
     }
+
+    public void UpgrageDataChange(AUpgradeSignal upgradeSignal)
+    {
+        if (upgradeSignal is UpgradeSignalUpdateUpgradeData signal && signal.ItemType == Type)
+        {
+            UpdateData();
+        }
+    }
+
+    private void UpdateData()
+    {
+        var level = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(Type);
+
+        if (Level == level)
+        {
+            GetNode<Panel>(CURRENT_BORDER_PATH).Visible = true;
+            GetNode<ColorRect>(OFF_PANEL_PATH).Visible = false;
+        }
+        else
+        {
+            GetNode<Panel>(CURRENT_BORDER_PATH).Visible = false;
+            GetNode<ColorRect>(OFF_PANEL_PATH).Visible = true;
+        }
+    }
+
 }
