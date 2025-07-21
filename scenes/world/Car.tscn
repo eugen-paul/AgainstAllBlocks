@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ci87xyrsnk0lq"]
 
 [ext_resource type="PackedScene" uid="uid://ceecriucebfhc" path="res://assets/blender/world/car.gltf" id="1_0u06c"]
-[ext_resource type="Script" path="res://skripts/world/Car.cs" id="1_ogd1v"]
+[ext_resource type="Script" uid="uid://c51ecwj7ikkx3" path="res://skripts/world/Car.cs" id="1_ogd1v"]
 [ext_resource type="Material" uid="uid://dhdax3646sbpv" path="res://assets/textures/car/yellowCarMaterial.tres" id="3_quijj"]
 
 [node name="Car" type="Node3D"]

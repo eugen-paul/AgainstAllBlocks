@@ -1,10 +1,10 @@
 [gd_scene load_steps=26 format=3 uid="uid://b3hdlmciuyq2b"]
 
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_7t77g"]
-[ext_resource type="Script" path="res://skripts/levels/DefaultLevel.cs" id="1_oglhh"]
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_oglhh"]
 [ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="2_v7oqm"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_bqf70"]
-[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="3_odqe4"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_odqe4"]
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="3_ukj55"]
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="4_k00ax"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="4_vy87x"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="7_xlhox"]
 [ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="8_4v1kh"]
 [ext_resource type="PackedScene" uid="uid://bsmqq8ea6i2q1" path="res://scenes/world/RocketBg.tscn" id="11_putbr"]
-[ext_resource type="Script" path="res://skripts/world/RocketFun.cs" id="11_wx2f3"]
+[ext_resource type="Script" uid="uid://db6xc7frd38lj" path="res://skripts/world/RocketFun.cs" id="11_wx2f3"]
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="12_pnsv0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n3ft6"]

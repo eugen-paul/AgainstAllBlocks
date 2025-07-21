@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmhs6l5anm08o"]
 
-[ext_resource type="Script" path="res://skripts/world/Block.cs" id="1_la43w"]
+[ext_resource type="Script" uid="uid://xi621bilyj0a" path="res://skripts/world/Block.cs" id="1_la43w"]
 [ext_resource type="PackedScene" uid="uid://0msw47hc5kgy" path="res://assets/blender/world/block.gltf" id="2_gklf3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]

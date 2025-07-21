@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0ob1kvpfp0dh"]
 
-[ext_resource type="PackedScene" uid="uid://jo5icpu0pyb5" path="res://scenes/upgrades/UpgradeSlot.tscn" id="1_55w05"]
+[ext_resource type="PackedScene" uid="uid://jo5icpu0pyb5" path="res://scenes/upgrades/upgradeSlot.tscn" id="1_55w05"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_lpg4k"]
-[ext_resource type="Script" path="res://skripts/upgrades/UpgradeSlotsPanel.cs" id="1_uucjg"]
+[ext_resource type="Script" uid="uid://bpjq8iu1rkgnm" path="res://skripts/upgrades/UpgradeSlotsPanel.cs" id="1_uucjg"]
 
 [node name="CenterContainer" type="CenterContainer"]
 offset_right = 348.0

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://chrl878ej5bb1"]
 
-[ext_resource type="Script" path="res://skripts/levelsmenu/Levels.cs" id="1_04quj"]
+[ext_resource type="Script" uid="uid://dhe1b6pt7piml" path="res://skripts/levelsmenu/Levels.cs" id="1_04quj"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_p8xvk"]
 [ext_resource type="PackedScene" uid="uid://02acrbjo7gjn" path="res://scenes/levelsmenu/LevelProgress.tscn" id="2_5rkhu"]
-[ext_resource type="PackedScene" uid="uid://d2nprom2n6xll" path="res://scenes/upgrades/Upgrades.tscn" id="4_ml64u"]
+[ext_resource type="PackedScene" uid="uid://d2nprom2n6xll" path="res://scenes/upgrades/upgrades.tscn" id="4_ml64u"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_04quj")

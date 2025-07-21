@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cxqdq8u6m8q0o"]
 
-[ext_resource type="Script" path="res://skripts/mainmenu/Firework.cs" id="1_4krta"]
+[ext_resource type="Script" uid="uid://bg5gq1kbjdshx" path="res://skripts/mainmenu/Firework.cs" id="1_4krta"]
 [ext_resource type="PackedScene" uid="uid://3676id8wom8x" path="res://scenes/mainmenu/particles/FireworkExplosion.tscn" id="1_5f68g"]
 [ext_resource type="PackedScene" uid="uid://bofudyeh8x5lj" path="res://scenes/mainmenu/particles/FireworkRocket.tscn" id="2_jdxh0"]
 [ext_resource type="PackedScene" uid="uid://baa0t6fw2djoy" path="res://scenes/mainmenu/particles/FireworkExplosion2.tscn" id="3_0b6yd"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://23j0ueo6o3pk"]
 
-[ext_resource type="Script" path="res://skripts/world/Ball.cs" id="1_0hqcq"]
+[ext_resource type="Script" uid="uid://d4guscph3pt23" path="res://skripts/world/Ball.cs" id="1_0hqcq"]
 [ext_resource type="AudioStream" uid="uid://bhn5gh1ysv82i" path="res://assets/sounds/ballKick.wav" id="2_coss0"]
 [ext_resource type="Material" uid="uid://dhnxce6k02gnk" path="res://scenes/world/ballMaterial/BallMaterialNormalShader.tres" id="2_gpvie"]
 [ext_resource type="AudioStream" uid="uid://b8gy328fmhcpw" path="res://assets/sounds/bonkBallBall.wav" id="2_pp0e2"]

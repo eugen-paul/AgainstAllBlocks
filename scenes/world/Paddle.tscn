@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bmtuft6tbbo8m"]
 
-[ext_resource type="Script" path="res://skripts/world/Paddle.cs" id="1_7glmy"]
+[ext_resource type="Script" uid="uid://c3nxyxggx1g66" path="res://skripts/world/Paddle.cs" id="1_7glmy"]
 [ext_resource type="PackedScene" uid="uid://dnq8cj2nmc4ni" path="res://assets/blender/world/paddle.gltf" id="2_edqxq"]
 [ext_resource type="Texture2D" uid="uid://myttsji1hrh1" path="res://assets/textures/world/paddle.png" id="3_3f3vg"]
 [ext_resource type="AudioStream" uid="uid://32t1jax44qp8" path="res://assets/sounds/bonkBallPaddle.wav" id="4_uchee"]

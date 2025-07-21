@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://jo5icpu0pyb5"]
 
-[ext_resource type="Script" path="res://skripts/upgrades/UpgradeSlot.cs" id="1_2umv6"]
+[ext_resource type="Script" uid="uid://dbpjnydruoton" path="res://skripts/upgrades/UpgradeSlot.cs" id="1_2umv6"]
 [ext_resource type="Texture2D" uid="uid://cakdauap8vekj" path="res://assets/textures/gui/UpgradeSlotBG-EMPTY.png" id="2_v5m23"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5m23"]

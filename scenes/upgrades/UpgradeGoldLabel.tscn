@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d33drh6duqexa"]
 
-[ext_resource type="Script" path="res://skripts/upgrades/UpgradeGoldLabel.cs" id="1_ohhht"]
+[ext_resource type="Script" uid="uid://dh0yvvq8me54w" path="res://skripts/upgrades/UpgradeGoldLabel.cs" id="1_ohhht"]
 
 [node name="GoldLabel" type="HBoxContainer"]
 offset_right = 88.0

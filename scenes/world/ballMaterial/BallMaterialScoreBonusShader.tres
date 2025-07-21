@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d1121vprcb3ou"]
 
-[ext_resource type="Shader" path="res://scenes/world/ballMaterial/BallScoreBonus.gdshader" id="1_h3fd1"]
+[ext_resource type="Shader" uid="uid://bul63up4ua1xy" path="res://scenes/world/ballMaterial/BallScoreBonus.gdshader" id="1_h3fd1"]
 
 [resource]
 render_priority = 0

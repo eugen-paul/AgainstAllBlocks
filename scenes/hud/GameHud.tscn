@@ -1,17 +1,17 @@
 [gd_scene load_steps=15 format=3 uid="uid://dtjimqviqdhjd"]
 
-[ext_resource type="Script" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
+[ext_resource type="Script" uid="uid://bqsytodjcbp1t" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="PackedScene" uid="uid://byls65odfvomi" path="res://scenes/hud/ScoreNumberLabel.tscn" id="3_2haen"]
 [ext_resource type="Texture2D" uid="uid://dmq3otg71rq3x" path="res://assets/textures/gui/menuTop.png" id="3_mh67h"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="4_snbc4"]
-[ext_resource type="Script" path="res://skripts/hud/elements/LifeContainer.cs" id="5_8b0e4"]
+[ext_resource type="Script" uid="uid://celix8xnerbaq" path="res://skripts/hud/elements/LifeContainer.cs" id="5_8b0e4"]
 [ext_resource type="Texture2D" uid="uid://co7xmmwnif7i5" path="res://assets/textures/gui/menuButton.png" id="5_ggb5q"]
 [ext_resource type="PackedScene" uid="uid://dpvjyg48jchp2" path="res://scenes/fps/Fps.tscn" id="7_efxpt"]
 [ext_resource type="PackedScene" uid="uid://cxqdq8u6m8q0o" path="res://scenes/mainmenu/Firework.tscn" id="8_5uw8k"]
 [ext_resource type="AudioStream" uid="uid://dh27huh416en2" path="res://assets/sounds/gameOver.wav" id="8_f0fxf"]
 [ext_resource type="PackedScene" uid="uid://y24if70s5ihk" path="res://scenes/hud/GoldenBallStatus.tscn" id="9_nofyi"]
 [ext_resource type="AudioStream" uid="uid://4rr5vaq3ra7w" path="res://assets/sounds/winfantasia.wav" id="9_tex8u"]
-[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="12_hujxl"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="12_hujxl"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
 resource_name = "show"

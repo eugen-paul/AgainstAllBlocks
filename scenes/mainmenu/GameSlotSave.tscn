@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://puxcdhmkm8fi"]
 
-[ext_resource type="Script" path="res://skripts/mainmenu/elements/GameSlotSave.cs" id="1_qwtr5"]
+[ext_resource type="Script" uid="uid://kumddal7aido" path="res://skripts/mainmenu/elements/GameSlotSave.cs" id="1_qwtr5"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ygrr2"]
 [ext_resource type="Texture2D" uid="uid://dmnhayqhr542v" path="res://assets/textures/gui/bgGameSlot.png" id="3_fe2jn"]
 [ext_resource type="Texture2D" uid="uid://dcaxgrvago0ff" path="res://assets/textures/gui/deleteButton.png" id="3_tohx2"]
-[ext_resource type="Script" path="res://skripts/mainmenu/elements/GameSlotLevelLabel.cs" id="4_ur152"]
+[ext_resource type="Script" uid="uid://d0yg8sbbtfrdv" path="res://skripts/mainmenu/elements/GameSlotLevelLabel.cs" id="4_ur152"]
 
 [node name="GameSlotSave" type="Control"]
 custom_minimum_size = Vector2(350, 150)

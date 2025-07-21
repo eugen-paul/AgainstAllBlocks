@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bquvs2u4hmcqp"]
 
-[ext_resource type="Script" path="res://skripts/mainmenu/MainBackground.cs" id="1_ur41e"]
+[ext_resource type="Script" uid="uid://dbcmc2em47q70" path="res://skripts/mainmenu/MainBackground.cs" id="1_ur41e"]
 [ext_resource type="PackedScene" uid="uid://23j0ueo6o3pk" path="res://scenes/world/Ball.tscn" id="2_ei345"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_3qolu"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="3_pafw0"]
@@ -27,7 +27,7 @@ BallCount = 1
 curve = SubResource("Curve3D_6c75i")
 
 [node name="BallSpawnLocation" type="PathFollow3D" parent="BallSpawnPath"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 1, -22)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 1, -22)
 
 [node name="WallsFull" parent="." instance=ExtResource("3_yttfj")]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://co5onbjmke684"]
 
-[ext_resource type="Script" path="res://skripts/mainmenu/SceneLoader.cs" id="1_tap3u"]
+[ext_resource type="Script" uid="uid://d3rc8cw6h235y" path="res://skripts/mainmenu/SceneLoader.cs" id="1_tap3u"]
 [ext_resource type="Texture2D" uid="uid://buiuxdqio2nu1" path="res://assets/textures/BootImage.png" id="2_oj08y"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="2_u5c35"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="4_xngho"]
@@ -68,7 +68,7 @@ grow_horizontal = 2
 theme = ExtResource("2_u5c35")
 
 [node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 132.0
 offset_top = 102.0
 offset_right = 280.0
@@ -81,7 +81,7 @@ text = "AGAINST"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="ColorRect"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 167.0
 offset_top = 138.0
 offset_right = 237.0
@@ -93,7 +93,7 @@ text = "ALL"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="ColorRect"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 201.0
 offset_top = 174.0
 offset_right = 340.0

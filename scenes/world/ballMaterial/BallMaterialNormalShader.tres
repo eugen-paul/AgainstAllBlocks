@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dhnxce6k02gnk"]
 
-[ext_resource type="Shader" path="res://scenes/world/ballMaterial/BallGreen.gdshader" id="1_kv5fo"]
+[ext_resource type="Shader" uid="uid://bo6fadsat28ya" path="res://scenes/world/ballMaterial/BallGreen.gdshader" id="1_kv5fo"]
 
 [resource]
 render_priority = 0

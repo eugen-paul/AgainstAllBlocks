@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8qwycv8t1trv"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_74542"]
-[ext_resource type="Script" path="res://skripts/upgrades/UpgradeItemPanel.cs" id="2_j8knt"]
-[ext_resource type="PackedScene" uid="uid://k2a405xa84tn" path="res://scenes/upgrades/UpgradeItemIcon.tscn" id="3_vdvc4"]
+[ext_resource type="Script" uid="uid://87t1klpanlh0" path="res://skripts/upgrades/UpgradeItemPanel.cs" id="2_j8knt"]
+[ext_resource type="PackedScene" uid="uid://k2a405xa84tn" path="res://scenes/upgrades/upgradeItemIcon.tscn" id="3_vdvc4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35ay7"]
 
@@ -15,7 +15,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_35ay7")
 script = ExtResource("2_j8knt")
 
 [node name="TextureRect" parent="." instance=ExtResource("3_vdvc4")]
-layout_mode = 2
+layout_mode = 0
 offset_top = 3.0
 offset_right = 64.0
 offset_bottom = 67.0
@@ -24,7 +24,7 @@ size_flags_horizontal = 0
 [node name="Label" type="Label" parent="."]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
+layout_mode = 0
 offset_left = 68.0
 offset_top = 16.0
 offset_right = 248.0

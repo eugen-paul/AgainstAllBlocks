@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgainstAllBlocks", "AgainstAllBlocks.csproj", "{133898C1-5078-4B0F-AD90-B620C5147052}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgainstAllBlocks", "AgainstAllBlocks.csproj", "{A65495B9-0345-43A9-BF79-D353911F7143}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{133898C1-5078-4B0F-AD90-B620C5147052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{133898C1-5078-4B0F-AD90-B620C5147052}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{133898C1-5078-4B0F-AD90-B620C5147052}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{133898C1-5078-4B0F-AD90-B620C5147052}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{133898C1-5078-4B0F-AD90-B620C5147052}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{133898C1-5078-4B0F-AD90-B620C5147052}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{A65495B9-0345-43A9-BF79-D353911F7143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65495B9-0345-43A9-BF79-D353911F7143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65495B9-0345-43A9-BF79-D353911F7143}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{A65495B9-0345-43A9-BF79-D353911F7143}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{A65495B9-0345-43A9-BF79-D353911F7143}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{A65495B9-0345-43A9-BF79-D353911F7143}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal

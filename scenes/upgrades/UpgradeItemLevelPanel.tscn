@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://babgy8el3b8xf"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_f2pn4"]
-[ext_resource type="Script" path="res://skripts/upgrades/UpgradeItemLevelPanel.cs" id="2_spk0f"]
+[ext_resource type="Script" uid="uid://cd44hmlqe27jq" path="res://skripts/upgrades/UpgradeItemLevelPanel.cs" id="2_spk0f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cg43"]
 bg_color = Color(0.0973209, 0.216302, 0.257709, 1)

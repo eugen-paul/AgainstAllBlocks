@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://q8ppf5s0nf4k"]
 
-[ext_resource type="Script" path="res://skripts/world/Bomb.cs" id="1_mvvf3"]
+[ext_resource type="Script" uid="uid://yuo8bs1su3pq" path="res://skripts/world/Bomb.cs" id="1_mvvf3"]
 [ext_resource type="PackedScene" uid="uid://8c7u05jnphg" path="res://assets/blender/world/bomb.gltf" id="2_2216y"]
 [ext_resource type="Texture2D" uid="uid://1jp3nju4f5vb" path="res://assets/textures/world/bomb.png" id="3_nlnor"]
 [ext_resource type="AudioStream" uid="uid://ci8pf2ao6e1cn" path="res://assets/sounds/fallingBomb.wav" id="4_okwwf"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://k1x2ko4u75y0"]
 
-[ext_resource type="Script" path="res://skripts/world/items/Item.cs" id="1_h6hlp"]
+[ext_resource type="Script" uid="uid://bt7q2awokabp1" path="res://skripts/world/items/Item.cs" id="1_h6hlp"]
 [ext_resource type="Texture2D" uid="uid://c2dn6pvyee3m7" path="res://assets/textures/world/Items-NONE.png" id="2_gw3le"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jgwkg"]

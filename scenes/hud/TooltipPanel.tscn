@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://68cmdv7hevnc"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_kqume"]
-[ext_resource type="Script" path="res://skripts/hud/TooltipPanel.cs" id="2_kmqd8"]
+[ext_resource type="Script" uid="uid://c2r0yeqyoy1b3" path="res://skripts/hud/TooltipPanel.cs" id="2_kmqd8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nvdo"]
 bg_color = Color(0.6, 0.6, 0.6, 0.784314)

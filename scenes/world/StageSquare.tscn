@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://mljipl60q0uq"]
 
-[ext_resource type="Script" path="res://skripts/world/StageSquare.cs" id="1_o5cqu"]
+[ext_resource type="Script" uid="uid://j1le2tu1x5st" path="res://skripts/world/StageSquare.cs" id="1_o5cqu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4x8l"]
 size = Vector3(2, 2, 2)
@@ -53,5 +53,4 @@ billboard = 1
 
 [node name="Status" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 mesh = SubResource("BoxMesh_d7r2m")

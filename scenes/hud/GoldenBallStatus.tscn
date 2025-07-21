@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://y24if70s5ihk"]
 
-[ext_resource type="Script" path="res://skripts/hud/elements/GoldenBallStatus.cs" id="1_i2i7k"]
+[ext_resource type="Script" uid="uid://cenb3tduyxfey" path="res://skripts/hud/elements/GoldenBallStatus.cs" id="1_i2i7k"]
 [ext_resource type="PackedScene" uid="uid://cxcbm1le6nbw6" path="res://scenes/hud/GoldenBallBox.tscn" id="1_x4nrr"]
 
 [node name="GoldenBallStatus" type="CenterContainer"]

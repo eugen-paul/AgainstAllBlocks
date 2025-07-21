@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://duso7lva6m3qf"]
 
-[ext_resource type="Script" path="res://skripts/world/BombExplosion.cs" id="1_siiuy"]
+[ext_resource type="Script" uid="uid://1jqxoqgx2g1a" path="res://skripts/world/BombExplosion.cs" id="1_siiuy"]
 [ext_resource type="AudioStream" uid="uid://cofybaevngbnx" path="res://assets/sounds/explosion1.wav" id="1_w4cs1"]
 [ext_resource type="PackedScene" uid="uid://c8g7thn2xcktk" path="res://scenes/world/particles/ExplosionDebrisBig.tscn" id="2_g2g08"]
 [ext_resource type="PackedScene" uid="uid://c8vx551ps2hh5" path="res://scenes/world/particles/ExplosionSmokeBig.tscn" id="3_o0rcs"]

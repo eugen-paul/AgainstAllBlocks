@@ -12,7 +12,7 @@ public partial class SceneLoader : Node
         done,
     }
 
-    private readonly List<string> addToSceneItems = new() {
+    private readonly List<string> addToSceneItems = [
         GameScenePaths.DEFAULT_ARROW_SCENE,
         GameScenePaths.DEFAULT_BALL_SCENE,
         GameScenePaths.DEFAULT_PADDLE_SCENE,
@@ -21,11 +21,11 @@ public partial class SceneLoader : Node
         GameScenePaths.DEFAULT_BOMB_SCENE,
         GameScenePaths.DEFAULT_BOMB_EXPLOSION_SCENE,
         GameScenePaths.DEFAULT_ITEM_SCENE,
-    };
+    ];
 
     private Node lastLoaded = null;
 
-    private readonly List<string> gpuParticles3dList = new() {
+    private readonly List<string> gpuParticles3dList = [
         "res://scenes/world/particles/BallFire.tscn",
         "res://scenes/world/particles/ExplosionDebrisBig.tscn",
         "res://scenes/world/particles/ExplosionDebrisSmall.tscn",
@@ -34,15 +34,15 @@ public partial class SceneLoader : Node
         "res://scenes/world/particles/ExplosionSmokeBig.tscn",
         "res://scenes/world/particles/ExplosionSmokeSmall.tscn",
         "res://scenes/world/particles/RocketBoost.tscn",
-    };
+    ];
 
-    private readonly List<string> gpuParticles2dList = new(){
+    private readonly List<string> gpuParticles2dList = [
         "res://scenes/mainmenu/particles/FireworkExplosion.tscn",
         "res://scenes/mainmenu/particles/FireworkExplosion2.tscn",
         "res://scenes/mainmenu/particles/FireworkRocket.tscn",
         "res://scenes/mainmenu/particles/GoldenBallAnimation.tscn",
         "res://scenes/mainmenu/particles/GoldenBallAchivedAnimation.tscn",
-    };
+    ];
 
     private List<string> pathesToLoad;
 
@@ -57,7 +57,7 @@ public partial class SceneLoader : Node
 
     public override void _Ready()
     {
-        pathesToLoad = new(addToSceneItems);
+        pathesToLoad = [.. addToSceneItems];
         itemsCount = addToSceneItems.Count + gpuParticles3dList.Count + gpuParticles2dList.Count;
     }
 

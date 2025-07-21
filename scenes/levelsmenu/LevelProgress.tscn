@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://02acrbjo7gjn"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_sf5xj"]
-[ext_resource type="Script" path="res://skripts/levelsmenu/LevelProgress.cs" id="2_43pc2"]
+[ext_resource type="Script" uid="uid://gqiany084slj" path="res://skripts/levelsmenu/LevelProgress.cs" id="2_43pc2"]
 [ext_resource type="Texture2D" uid="uid://djmattfvm1k0t" path="res://assets/textures/gui/ball_Gray.png" id="2_82fpi"]
 [ext_resource type="Texture2D" uid="uid://c61tyxuvsewe7" path="res://assets/textures/gui/bgLevelProgress.png" id="3_ykniq"]
-[ext_resource type="Script" path="res://skripts/levelsmenu/LevelLabel.cs" id="4_s82ai"]
-[ext_resource type="Script" path="res://skripts/levelsmenu/LevelBall.cs" id="6_uhmkk"]
-[ext_resource type="Script" path="res://skripts/hud/Tooltip.cs" id="7_iv5i8"]
-[ext_resource type="Script" path="res://skripts/achievements/Achievements.cs" id="8_w842r"]
+[ext_resource type="Script" uid="uid://bersvcnsyr6md" path="res://skripts/levelsmenu/LevelLabel.cs" id="4_s82ai"]
+[ext_resource type="Script" uid="uid://b2g2g78rrisyu" path="res://skripts/levelsmenu/LevelBall.cs" id="6_uhmkk"]
+[ext_resource type="Script" uid="uid://b62l86qq7bgg" path="res://skripts/hud/Tooltip.cs" id="7_iv5i8"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="8_w842r"]
 
 [node name="LevelProgress" type="Control"]
 custom_minimum_size = Vector2(368, 60)

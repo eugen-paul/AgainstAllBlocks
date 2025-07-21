@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpvjyg48jchp2"]
 
-[ext_resource type="Script" path="res://skripts/fps/FpsScene.cs" id="1_j6ror"]
-[ext_resource type="Script" path="res://skripts/fps/FpsLabel.cs" id="2_fwuvx"]
+[ext_resource type="Script" uid="uid://gq0glepm2f53" path="res://skripts/fps/FpsScene.cs" id="1_j6ror"]
+[ext_resource type="Script" uid="uid://8r35u3gs5j8s" path="res://skripts/fps/FpsLabel.cs" id="2_fwuvx"]
 
 [node name="Fps" type="CanvasLayer"]
 script = ExtResource("1_j6ror")
