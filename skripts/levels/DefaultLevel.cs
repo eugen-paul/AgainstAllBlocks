@@ -51,8 +51,8 @@ public partial class DefaultLevel : Node
 
     public override void _Ready()
     {
-        temporaryObjects = new();
-        balls = new();
+        temporaryObjects = [];
+        balls = [];
 
         paddle = GetNode<Paddle>("Paddle");
 

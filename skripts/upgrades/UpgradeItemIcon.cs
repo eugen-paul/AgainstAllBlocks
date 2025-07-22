@@ -6,11 +6,12 @@ public partial class UpgradeItemIcon : TextureRect
 
     public UpgradeType Type { get; private set; }
 
+    private int level = 0;
+
     public override Variant _GetDragData(Vector2 atPosition)
     {
-        if (texturePath == string.Empty)
+        if (texturePath == string.Empty || level == 0)
         {
-            GD.Print("UpgradeItemIcon: texturePath is empty :/");
             return default;
         }
 
@@ -27,5 +28,6 @@ public partial class UpgradeItemIcon : TextureRect
         Texture = GD.Load<Texture2D>(texturePath);
 
         Type = type;
+        this.level = level;
     }
 }
