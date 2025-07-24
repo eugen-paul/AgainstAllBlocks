@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
 using Godot.Collections;
 
@@ -56,7 +57,13 @@ public partial class DefaultLevel : Node
 
         paddle = GetNode<Paddle>("Paddle");
 
-        Lifes = LIFES_COUNT;
+        if(GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.EXTRA_LIFE))
+        {
+            Lifes = LIFES_COUNT + GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.EXTRA_LIFE);
+        } else
+        {
+            Lifes = LIFES_COUNT;
+        }
 
         gameHud = GetNode<GameHud>("GameHud");
         gameHud.RestartLevel += Restart;
@@ -281,6 +288,7 @@ public partial class DefaultLevel : Node
             Lifes--;
             if (Lifes <= 0)
             {
+                gameHud.SetLifes(0);
                 GameOver();
             }
             else

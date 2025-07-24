@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://b86xrdgbfjhjs"]
+
+[ext_resource type="Script" uid="uid://celix8xnerbaq" path="res://skripts/hud/elements/LifeContainer.cs" id="1_xkgrk"]
+[ext_resource type="PackedScene" uid="uid://dfmnbce7iorhy" path="res://scenes/hud/Heart.tscn" id="2_xkgrk"]
+
+[node name="LifesHBoxContainer" type="Panel"]
+script = ExtResource("1_xkgrk")
+
+[node name="Container5" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Heart1" parent="Container5" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart2" parent="Container5" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Container9" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 2
+
+[node name="Heart1" parent="Container9" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart2" parent="Container9" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart3" parent="Container9" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart4" parent="Container9" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart5" parent="Container9" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart6" parent="Container9" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart7" parent="Container9" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Container18" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -17.0
+offset_right = 175.0
+offset_bottom = 51.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 2
+
+[node name="Heart2" parent="Container18" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart3" parent="Container18" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart4" parent="Container18" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart5" parent="Container18" instance=ExtResource("2_xkgrk")]
+layout_mode = 2
+
+[node name="Heart6" parent="Container18" instance=ExtResource("2_xkgrk")]
+layout_mode = 2

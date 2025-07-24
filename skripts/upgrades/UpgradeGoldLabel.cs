@@ -10,7 +10,7 @@ public partial class UpgradeGoldLabel : HBoxContainer, IUpgradeListener
 
     public override void _ExitTree()
     {
-        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().AddListener(this);
+        GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().RemoveListener(this);
     }
 
     private void SetGoldValue(int Gold)

@@ -10,7 +10,8 @@ public partial class UpgradeItemIcon : TextureRect
 
     public override Variant _GetDragData(Vector2 atPosition)
     {
-        if (texturePath == string.Empty || level == 0)
+        if (texturePath == string.Empty
+        || (level == 0 && Type != UpgradeType.EMPTY))
         {
             return default;
         }

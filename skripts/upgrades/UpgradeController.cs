@@ -43,12 +43,24 @@ public class UpgradeController
 
     public IList<UpgradeType> GetUpgradesOrder() => UpgradesOrder;
 
+    public bool IsUpgradeTypeActive(UpgradeType type)
+    {
+        foreach (var slot in Upgrades().Slots)
+        {
+            if (slot == type)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int GetCurrentUpgradeLevel(UpgradeType type)
     {
         var PurchasedUpgrades = Upgrades().PurchasedUpgradesAsMap();
-        if (PurchasedUpgrades.ContainsKey(type))
+        if (PurchasedUpgrades.TryGetValue(type, out PurchasedUpgradesData value))
         {
-            return PurchasedUpgrades[type].CurrentLevel;
+            return value.CurrentLevel;
         }
 
         return 0;
