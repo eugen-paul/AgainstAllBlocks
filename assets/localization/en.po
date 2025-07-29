@@ -255,8 +255,9 @@ msgstr "Upgrade"
 msgid "UIP_INFO"
 msgstr "Info"
 
+#: scenes/upgrades/UpgradeGoldLabel.tscn
+msgid "UIM_GOLD:"
+msgstr "Gold:"
+
 #~ msgid "UIM_CLOSE"
 #~ msgstr "Close"
-
-#~ msgid "UIM_GOLD:"
-#~ msgstr "Gold:"

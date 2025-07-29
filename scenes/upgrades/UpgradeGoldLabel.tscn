@@ -14,3 +14,4 @@ text = "UIM_GOLD:"
 [node name="GoldValueLabel" type="Label" parent="."]
 auto_translate_mode = 2
 layout_mode = 2
+localize_numeral_system = false

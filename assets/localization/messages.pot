@@ -11,6 +11,7 @@
 # res://scenes/upgrades/Upgrades.tscn
 # res://scenes/upgrades/UpgradeItemLevelPanel.tscn
 # res://scenes/upgrades/UpgradeItemPanel.tscn
+# res://scenes/upgrades/UpgradeGoldLabel.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -250,4 +251,8 @@ msgstr ""
 
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_INFO"
+msgstr ""
+
+#: scenes/upgrades/UpgradeGoldLabel.tscn
+msgid "UIM_GOLD:"
 msgstr ""

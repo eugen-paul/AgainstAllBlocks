@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://babgy8el3b8xf"]
+[gd_scene load_steps=12 format=3 uid="uid://babgy8el3b8xf"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_f2pn4"]
 [ext_resource type="Script" uid="uid://cd44hmlqe27jq" path="res://skripts/upgrades/UpgradeItemLevelPanel.cs" id="2_spk0f"]
+[ext_resource type="Texture2D" uid="uid://d4ncmkdk2efva" path="res://assets/textures/gui/goldenBall-GOLD.png" id="3_oev6r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8h2u"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 4.0
+content_margin_bottom = 3.0
 bg_color = Color(0.30692276, 0.3069227, 0.30692264, 1)
 border_width_left = 3
 border_width_top = 3
@@ -30,6 +31,10 @@ point_count = 1
 width = 64
 texture_mode = 1
 curve = SubResource("Curve_nqx8a")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oev6r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqx8a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqx8a"]
 draw_center = false
@@ -66,13 +71,13 @@ theme = ExtResource("1_f2pn4")
 script = ExtResource("2_spk0f")
 
 [node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(432, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_j8h2u")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="Panel" type="Panel" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
@@ -93,6 +98,7 @@ offset_right = 3.5
 offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
+localize_numeral_system = false
 text = "1"
 
 [node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer"]
@@ -102,13 +108,55 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("CurveTexture_oev6r")
 
-[node name="TextLabel" type="Label" parent="Panel/HBoxContainer"]
-auto_translate_mode = 2
-custom_minimum_size = Vector2(300, 0)
+[node name="Panel3" type="Panel" parent="Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oev6r")
+
+[node name="TextLabel" type="Label" parent="Panel/HBoxContainer/Panel3"]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -21.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "Some text to check how it will look."
 autowrap_mode = 3
+
+[node name="Panel2" type="Panel" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nqx8a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+alignment = 2
+
+[node name="CostLabel" type="Label" parent="Panel/HBoxContainer/Panel2/HBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+localize_numeral_system = false
+text = "1"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Panel2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_oev6r")
+expand_mode = 2
 
 [node name="OffPanel" type="ColorRect" parent="."]
 visible = false

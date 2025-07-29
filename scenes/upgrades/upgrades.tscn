@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2nprom2n6xll"]
+[gd_scene load_steps=18 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
 [ext_resource type="Script" uid="uid://bsfbjc3d1yok5" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
@@ -7,17 +7,42 @@
 [ext_resource type="PackedScene" uid="uid://c0ob1kvpfp0dh" path="res://scenes/upgrades/UpgradeSlotsPanel.tscn" id="3_616ga"]
 [ext_resource type="PackedScene" uid="uid://babgy8el3b8xf" path="res://scenes/upgrades/UpgradeItemLevelPanel.tscn" id="5_docth"]
 [ext_resource type="StyleBox" uid="uid://b6tq28gms212h" path="res://scenes/upgrades/UpgradePopupMenu.tres" id="6_ra80v"]
+[ext_resource type="Texture2D" uid="uid://jeafqp4ihvyf" path="res://assets/textures/gui/button_close_window-normal.png" id="7_vyss3"]
 [ext_resource type="Texture2D" uid="uid://cakdauap8vekj" path="res://assets/textures/gui/UpgradeSlotBG-EMPTY.png" id="8_mk56c"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a08vn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xc5u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jih2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfomj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwcl5"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra80v"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.5137255, 0.5137255, 0.5137255, 0.69803923)
+border_width_left = 2
+border_width_top = 3
+border_width_right = 2
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
-expand_margin_bottom = 3.0
+expand_margin_top = 5.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x54yl"]
 content_margin_left = 5.0
 content_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4fyn"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.2784314, 0.2784314, 0.2784314, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -148,7 +173,6 @@ grow_horizontal = 0
 text = "UIM_HOWTO"
 
 [node name="UpgradeItemMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,22 +190,15 @@ grow_vertical = 2
 color = Color(0.658824, 0.658824, 0.658824, 0.588235)
 
 [node name="Panel" type="Panel" parent="UpgradeItemMenu"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 149.0
-offset_right = 431.0
-offset_bottom = 678.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = ExtResource("6_ra80v")
 
-[node name="Panel" type="Panel" parent="UpgradeItemMenu/Panel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 443.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ra80v")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeItemMenu/Panel/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeItemMenu/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,11 +206,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UpgradeItemMenu/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="CloseUpgradeItemMenuButton" type="Button" parent="UpgradeItemMenu/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a08vn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2xc5u")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jih2h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pfomj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcl5")
+icon = ExtResource("7_vyss3")
+
+[node name="Panel" type="Panel" parent="UpgradeItemMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ra80v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_x54yl")
 
-[node name="Label" type="Label" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer/PanelContainer"]
+[node name="ItemDescriptionLabel" type="Label" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
@@ -201,57 +245,45 @@ theme_override_font_sizes/font_size = 18
 text = "ITEM_DESCRIPTION"
 autowrap_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 3
 
-[node name="UpgradeItemLevelPanel1" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
+[node name="UpgradeItemLevelPanel1" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
 layout_mode = 2
 
-[node name="UpgradeItemLevelPanel2" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
+[node name="UpgradeItemLevelPanel2" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
 layout_mode = 2
 
-[node name="UpgradeItemLevelPanel3" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
+[node name="UpgradeItemLevelPanel3" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
 layout_mode = 2
 
-[node name="UpgradeItemLevelPanel4" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
+[node name="UpgradeItemLevelPanel4" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
 layout_mode = 2
 
-[node name="UpgradeItemLevelPanel5" parent="UpgradeItemMenu/Panel/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
+[node name="UpgradeItemLevelPanel5" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
 layout_mode = 2
 
-[node name="BuyUpgradeItemButton" type="Button" parent="UpgradeItemMenu/Panel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = -68.0
-offset_right = 247.0
-offset_bottom = -12.0
-grow_vertical = 0
+[node name="GoldLabel" parent="UpgradeItemMenu/Panel/VBoxContainer" instance=ExtResource("3_44s3h")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="UpgradeItemMenu/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p4fyn")
+
+[node name="BuyUpgradeItemButton" type="Button" parent="UpgradeItemMenu/Panel/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "UIM_UPGRADE"
-
-[node name="CloseUpgradeItemMenuButton" type="Button" parent="UpgradeItemMenu/Panel"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = -68.0
-offset_right = -15.0
-offset_bottom = -12.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "UIM_BACK"
+icon_alignment = 2
 
 [node name="BuySlotMenu" type="Control" parent="."]
 visible = false
@@ -366,7 +398,7 @@ text = "UIM_BACK"
 
 [connection signal="pressed" from="UpgradeMenu/CenterContainer/HBoxContainer/PlusSlotButton" to="." method="OnPlusSlotButtonPressed"]
 [connection signal="pressed" from="UpgradeMenu/OkButton" to="." method="OnOkButtonPressed"]
-[connection signal="pressed" from="UpgradeItemMenu/Panel/BuyUpgradeItemButton" to="." method="OnBuyUpgradeItemButtonPressed"]
-[connection signal="pressed" from="UpgradeItemMenu/Panel/CloseUpgradeItemMenuButton" to="." method="OnCloseUpgradeItemMenuButtonPressed"]
+[connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/HBoxContainer/CloseUpgradeItemMenuButton" to="." method="OnCloseUpgradeItemMenuButtonPressed"]
+[connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/PanelContainer/BuyUpgradeItemButton" to="." method="OnBuyUpgradeItemButtonPressed"]
 [connection signal="pressed" from="BuySlotMenu/Panel/BuySlotButton" to="." method="OnBuySlotButtonPressed"]
 [connection signal="pressed" from="BuySlotMenu/Panel/CloseBuySlotMenuButton" to="." method="OnCloseBuySlotMenuButtonPressed"]

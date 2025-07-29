@@ -5,7 +5,8 @@ public partial class UpgradeItemLevelPanel : PanelContainer, IUpgradeListener
 {
     private static readonly string LEVEL_LABEL_PATH = "Panel/HBoxContainer/Panel/LevelLabel";
     private static readonly string TEXTURE_RECT_PATH = "Panel/HBoxContainer/TextureRect";
-    private static readonly string TEXT_LABEL_PATH = "Panel/HBoxContainer/TextLabel";
+    private static readonly string TEXT_LABEL_PATH = "Panel/HBoxContainer/Panel3/TextLabel";
+    private static readonly string COST_LABEL_PATH = "Panel/HBoxContainer/Panel2/HBoxContainer/CostLabel";
     private static readonly string CURRENT_BORDER_PATH = "CurrentBorder";
     private static readonly string OFF_PANEL_PATH = "OffPanel";
 
@@ -53,6 +54,9 @@ public partial class UpgradeItemLevelPanel : PanelContainer, IUpgradeListener
 
         var levelDescription = UpgradeItemInfo.UpgradeItemInfos[Type].LevelDescription[Level];
         GetNode<Label>(TEXT_LABEL_PATH).Text = LocalizationScriptObject.Get(levelDescription).AsString();
+
+        var levelCost = UpgradeItemInfo.UpgradeItemInfos[Type].Cost[Level];
+        GetNode<Label>(COST_LABEL_PATH).Text = levelCost.ToString();
     }
 
     public void UpgrageDataChange(AUpgradeSignal upgradeSignal)
