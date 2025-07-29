@@ -50,4 +50,19 @@ stream = ExtResource("8_b1nuv")
 [node name="CoinPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_4rqfs")
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08995855, -1.5467808)
+billboard = 1
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+size = Vector2i(256, 50)
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport"]
+custom_minimum_size = Vector2(256, 50)
+offset_right = 4.0
+offset_bottom = 27.0
+value = 100.0
+show_percentage = false
+
 [editable path="CollisionShape3D/paddle"]

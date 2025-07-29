@@ -1,6 +1,4 @@
 
-using Godot;
-
 public class BallScoreBonus : ItemBehavior
 {
     private readonly DefaultLevel level;

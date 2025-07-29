@@ -17,6 +17,7 @@ public enum ItemType
     ROCKET,
     BOMBS,
     SCORE_BONUS_BALL,
+    PADDLE_SPEED_STOP,
 }
 
 public class ItemBehaviorFactory
@@ -41,6 +42,7 @@ public class ItemBehaviorFactory
             ItemType.ROCKET => new RocketBehavior(item, level),
             ItemType.BOMBS => new BombsBehavior(level),
             ItemType.SCORE_BONUS_BALL => new BallScoreBonus(level),
+            ItemType.PADDLE_SPEED_STOP => new PaddleSpeedStop(level),
             _ => new EmptyItemBehavior(),
         };
     }

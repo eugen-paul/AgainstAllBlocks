@@ -10,6 +10,6 @@ public class PaddleSpeedStop : ItemBehavior
 
     public override void DoBehavior()
     {
-        level.GetPaddle().AddSpeed(-10);
+        level.GetPaddle().RemoveSpeed();
     }
 }

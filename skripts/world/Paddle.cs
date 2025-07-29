@@ -1,9 +1,11 @@
 using System;
-using System.Diagnostics;
 using Godot;
 
 public partial class Paddle : CharacterBody3D
 {
+    private static readonly string SPRITE_PATH = "Sprite3D";
+    private static readonly string PROGRESSBAR_PATH = "Sprite3D/SubViewport/ProgressBar";
+
     [Export]
     public float MaxPaddleSpeed { get; set; } = 30.0f;
 
@@ -14,6 +16,16 @@ public partial class Paddle : CharacterBody3D
     private float movePositionX = 0f;
 
     private readonly ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
+
+    private bool isStopped = false;
+    private DateTime stopTime = DateTime.MinValue;
+    private int stopDuration = 5000; // 5 seconds
+
+    public override void _Ready()
+    {
+        GetNode<Sprite3D>(SPRITE_PATH).Texture = GetNode<SubViewport>("Sprite3D/SubViewport").GetTexture();
+        GetNode<ProgressBar>(PROGRESSBAR_PATH).Visible = false;
+    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -29,6 +41,23 @@ public partial class Paddle : CharacterBody3D
                 ball.Velocity = ballDirection * ball.Velocity.Length();
                 ball.BallHitsPaddle();
                 PlayHitBAll();
+            }
+        }
+        
+        if (isStopped)
+        {
+            ProgressBar progressBar = GetNode<ProgressBar>(PROGRESSBAR_PATH);
+            if ((DateTime.Now - stopTime).TotalMilliseconds > stopDuration)
+            {
+                isStopped = false;
+                bonusSpeed = 0f;
+                progressBar.Visible = false;
+            }
+            else
+            {
+                bonusSpeed = -MaxPaddleSpeed;
+                progressBar.Value = 100f - ((float)((DateTime.Now - stopTime).TotalMilliseconds / stopDuration))*100f;
+                progressBar.Visible = true;
             }
         }
     }
@@ -68,9 +97,18 @@ public partial class Paddle : CharacterBody3D
         bonusSpeed += value;
     }
 
+    public void RemoveSpeed()
+    {
+        isStopped = true;
+        stopTime = DateTime.Now;
+    }
+
     public void Reset()
     {
-        bonusSpeed += 0;
+        bonusSpeed = 0;
+        isStopped = false;
+        stopTime = DateTime.MinValue;
+        GetNode<ProgressBar>(PROGRESSBAR_PATH).Visible = false;
     }
 
     private static Vector3 RemoveY(Vector3 data)
