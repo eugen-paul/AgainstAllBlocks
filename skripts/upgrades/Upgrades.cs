@@ -15,6 +15,7 @@ public partial class Upgrades : Control, IUpgradeListener
     private static readonly string UPGRADE_ITEM_MENU_DESCRIPTION_PATH = "UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer/ItemDescriptionLabel";
     private static readonly string UPGRADE_ITEM_MENU_CONTAINER_PATH = "UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer/VBoxContainer";
     private static readonly string UPGRADE_ITEM_MENU_BUY_BUTTON = "UpgradeItemMenu/Panel/VBoxContainer/PanelContainer/BuyUpgradeItemButton";
+
     private static readonly string BUY_SLOT_MENU_PATH = "BuySlotMenu";
     private static readonly string BUY_SLOT_TEXT_PATH = "BuySlotMenu/Panel/SlotBuyLabel";
     private static readonly string BUY_SLOT_BUTTON_PATH = "BuySlotMenu/Panel/BuySlotButton";
@@ -111,6 +112,7 @@ public partial class Upgrades : Control, IUpgradeListener
         }
         SetUpgradeItemMenuVisibile(true);
         currentUpgradeType = upgradeType;
+        UpdateUpgradeItemMenu();
     }
 
     private void UpdateUpgradeItemMenu()
@@ -118,10 +120,9 @@ public partial class Upgrades : Control, IUpgradeListener
         var nextLevel = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(currentUpgradeType) + 1;
         if (nextLevel > UpgradeItemInfo.UpgradeItemInfos[currentUpgradeType].MaxLevel)
         {
-            GetNode<Button>(UPGRADE_ITEM_MENU_BUY_BUTTON).Visible = false;
+            GetNode<Button>(UPGRADE_ITEM_MENU_BUY_BUTTON).Disabled = true;
             return;
         }
-        GetNode<Button>(UPGRADE_ITEM_MENU_BUY_BUTTON).Visible = true;
 
         var goldRest = GameComponets.Instance.Get<CurrentGame>().GetGoldRest();
         var nextLevelCost = UpgradeItemInfo.UpgradeItemInfos[currentUpgradeType].Cost[nextLevel];

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2nprom2n6xll"]
+[gd_scene load_steps=24 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
 [ext_resource type="Script" uid="uid://bsfbjc3d1yok5" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://b6tq28gms212h" path="res://scenes/upgrades/UpgradePopupMenu.tres" id="6_ra80v"]
 [ext_resource type="Texture2D" uid="uid://jeafqp4ihvyf" path="res://assets/textures/gui/button_close_window-normal.png" id="7_vyss3"]
 [ext_resource type="Texture2D" uid="uid://cakdauap8vekj" path="res://assets/textures/gui/UpgradeSlotBG-EMPTY.png" id="8_mk56c"]
+[ext_resource type="Texture2D" uid="uid://djuaje2ex3wn5" path="res://assets/textures/gui/button_close_window-pressed.png" id="9_a08vn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a08vn"]
 
@@ -43,6 +44,16 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4fyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcbdg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emjd4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny5y6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by5l7"]
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -318,6 +329,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("6_ra80v")
 
+[node name="CloseBuySlotMenuButton" type="Button" parent="BuySlotMenu/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -514.0
+offset_bottom = -450.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p4fyn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rcbdg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_emjd4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ny5y6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_by5l7")
+icon = ExtResource("9_a08vn")
+
 [node name="SlotLabel" type="Label" parent="BuySlotMenu/Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -371,34 +401,22 @@ autowrap_mode = 2
 
 [node name="BuySlotButton" type="Button" parent="BuySlotMenu/Panel"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -78.0
-offset_right = 241.0
-offset_bottom = -22.0
+offset_left = -116.5
+offset_top = -61.0
+offset_right = 116.5
+offset_bottom = -5.0
+grow_horizontal = 2
 grow_vertical = 0
 text = "UIM_UPGRADE"
-
-[node name="CloseBuySlotMenuButton" type="Button" parent="BuySlotMenu/Panel"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -137.0
-offset_top = -78.0
-offset_right = -3.0
-offset_bottom = -22.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "UIM_BACK"
 
 [connection signal="pressed" from="UpgradeMenu/CenterContainer/HBoxContainer/PlusSlotButton" to="." method="OnPlusSlotButtonPressed"]
 [connection signal="pressed" from="UpgradeMenu/OkButton" to="." method="OnOkButtonPressed"]
 [connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/HBoxContainer/CloseUpgradeItemMenuButton" to="." method="OnCloseUpgradeItemMenuButtonPressed"]
 [connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/PanelContainer/BuyUpgradeItemButton" to="." method="OnBuyUpgradeItemButtonPressed"]
-[connection signal="pressed" from="BuySlotMenu/Panel/BuySlotButton" to="." method="OnBuySlotButtonPressed"]
 [connection signal="pressed" from="BuySlotMenu/Panel/CloseBuySlotMenuButton" to="." method="OnCloseBuySlotMenuButtonPressed"]
+[connection signal="pressed" from="BuySlotMenu/Panel/BuySlotButton" to="." method="OnBuySlotButtonPressed"]
