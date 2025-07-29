@@ -210,15 +210,15 @@ msgstr "Geschwindigkeit des Schlägers unverändert."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_1."
-msgstr "Geschwindigkeit des Schlägers um 10% erhöht."
+msgstr "Geschwindigkeit des Schlägers um 33% erhöht."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_2."
-msgstr "Geschwindigkeit des Schlägers um 20% erhöht."
+msgstr "Geschwindigkeit des Schlägers um 66% erhöht."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_3."
-msgstr "Geschwindigkeit des Schlägers um 30% erhöht."
+msgstr "Geschwindigkeit des Schlägers um 100% erhöht."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."

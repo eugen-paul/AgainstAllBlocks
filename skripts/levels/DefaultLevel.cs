@@ -57,10 +57,16 @@ public partial class DefaultLevel : Node
 
         paddle = GetNode<Paddle>("Paddle");
 
-        if(GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.EXTRA_LIFE))
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.PADDLE_SPEED))
+        {
+            paddle.MaxPaddleSpeed += GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.PADDLE_SPEED) * 10f;
+        }
+        
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.EXTRA_LIFE))
         {
             Lifes = LIFES_COUNT + GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.EXTRA_LIFE);
-        } else
+        }
+        else
         {
             Lifes = LIFES_COUNT;
         }

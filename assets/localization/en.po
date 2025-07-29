@@ -213,15 +213,15 @@ msgstr "Standard speed of the paddle."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_1."
-msgstr "Increases paddle speed by 10%."
+msgstr "Increases paddle speed by 33%."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_2."
-msgstr "Increases paddle speed by 20%."
+msgstr "Increases paddle speed by 66%."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_PADDLE_SPEED_3."
-msgstr "Increases paddle speed by 30%."
+msgstr "Increases paddle speed by 100%."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
