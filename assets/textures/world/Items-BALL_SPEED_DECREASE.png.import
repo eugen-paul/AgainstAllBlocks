@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dypi2sypv54wp"
 path.s3tc="res://.godot/imported/Items-BALL_SPEED_DECREASE.png-8bd387b33d0639a6d8f27224ea9cc5bc.s3tc.ctex"
-path.etc2="res://.godot/imported/Items-BALL_SPEED_DECREASE.png-8bd387b33d0639a6d8f27224ea9cc5bc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/world/Items-BALL_SPEED_DECREASE.png"
-dest_files=["res://.godot/imported/Items-BALL_SPEED_DECREASE.png-8bd387b33d0639a6d8f27224ea9cc5bc.s3tc.ctex", "res://.godot/imported/Items-BALL_SPEED_DECREASE.png-8bd387b33d0639a6d8f27224ea9cc5bc.etc2.ctex"]
+dest_files=["res://.godot/imported/Items-BALL_SPEED_DECREASE.png-8bd387b33d0639a6d8f27224ea9cc5bc.s3tc.ctex"]
 
 [params]
 

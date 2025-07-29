@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://criwmxejh6xeg"
 path.s3tc="res://.godot/imported/Items-LIFE_REMOVE.png-5dc9b5e0787775586027e8cfa195dd9e.s3tc.ctex"
-path.etc2="res://.godot/imported/Items-LIFE_REMOVE.png-5dc9b5e0787775586027e8cfa195dd9e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/world/Items-LIFE_REMOVE.png"
-dest_files=["res://.godot/imported/Items-LIFE_REMOVE.png-5dc9b5e0787775586027e8cfa195dd9e.s3tc.ctex", "res://.godot/imported/Items-LIFE_REMOVE.png-5dc9b5e0787775586027e8cfa195dd9e.etc2.ctex"]
+dest_files=["res://.godot/imported/Items-LIFE_REMOVE.png-5dc9b5e0787775586027e8cfa195dd9e.s3tc.ctex"]
 
 [params]
 
