@@ -98,6 +98,14 @@ public partial class DefaultLevel : Node
         // SetLights();
     }
 
+    public override void _PhysicsProcess(double delta)
+    {
+        if (running && CountBlocks() <= 0)
+        {
+            LevelDone();
+        }
+    }   
+
     private void SetBackground()
     {
         var prefs = GameComponets.Instance.Get<UserPreferences>();
@@ -198,18 +206,11 @@ public partial class DefaultLevel : Node
     protected void BlockDestroid(int scoreBonus, ContainItem itemToCreate)
     {
         Score = Mathf.Max(0, Score + scoreBonus + 1);
-        if (CountBlocks() <= 1) // "<= 1", because the function is called first and only then is the block deleted.
+        var item = itemToCreate.CreateItem(this);
+        if (item != null)
         {
-            LevelDone();
-        }
-        else
-        {
-            var item = itemToCreate.CreateItem(this);
-            if (item != null)
-            {
-                temporaryObjects.Add(item);
-                AddChild(item);
-            }
+            temporaryObjects.Add(item);
+            AddChild(item);
         }
     }
 
