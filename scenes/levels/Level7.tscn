@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dq1y7ads1iroi"]
+[gd_scene load_steps=33 format=3 uid="uid://dq1y7ads1iroi"]
 
+[ext_resource type="Script" uid="uid://cfw43eh0iskhp" path="res://skripts/levels/Level7.cs" id="1_0h58p"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_ccyil"]
-[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_ut4tf"]
 [ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="2_niect"]
 [ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_boccc"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="3_mklpf"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://dphgciccoudk6" path="res://scenes/world/BlockTetrisZ.tscn" id="10_aco6p"]
 [ext_resource type="PackedScene" uid="uid://mljipl60q0uq" path="res://scenes/world/StageSquare.tscn" id="12_cfx3b"]
 [ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="14_r1fat"]
+[ext_resource type="Texture2D" uid="uid://xq4xd5s8yr0l" path="res://assets/textures/world/road.png" id="19_q3ki7"]
+[ext_resource type="PackedScene" uid="uid://ci87xyrsnk0lq" path="res://scenes/world/Car.tscn" id="20_0h58p"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ljuuu"]
 size = Vector2(50, 100)
@@ -26,8 +28,55 @@ size = Vector2(50, 100)
 albedo_texture = ExtResource("7_mu46r")
 uv1_scale = Vector3(10, 20, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_0h58p"]
+size = Vector2(50, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2poo"]
+albedo_texture = ExtResource("19_q3ki7")
+uv1_scale = Vector3(10, 1, 10)
+
+[sub_resource type="Curve3D" id="Curve3D_5rrn1"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -66, 2, 0, 0, 0, 0, 0, 0, 0, -36.378925, 2, 0, 0, 0, 0, 0, 0, 0, 35, 2, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_0h58p"]
+offsets = PackedFloat32Array(0, 0.7339246)
+colors = PackedColorArray(0, 0, 0, 1, 0.17283268, 0.17283267, 0.17283267, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w2poo"]
+gradient = SubResource("Gradient_0h58p")
+
+[sub_resource type="Curve" id="Curve_5rrn1"]
+_data = [Vector2(0.21593292, 0.9948819), 0.0, 0.0, 0, 0, Vector2(1, 0.21181107), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w3v1g"]
+curve = SubResource("Curve_5rrn1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0h58p"]
+lifetime_randomness = 0.2
+angle_min = -24.99999
+angle_max = 25.000011
+gravity = Vector3(0, 5, 0)
+scale_min = 0.9
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_w3v1g")
+color_ramp = SubResource("GradientTexture1D_w2poo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rrn1"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_w3v1g"]
+material = SubResource("StandardMaterial3D_5rrn1")
+radial_segments = 4
+rings = 1
+
 [node name="Level7" type="Node"]
-script = ExtResource("1_ut4tf")
+script = ExtResource("1_0h58p")
 Level = 7
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_mklpf")]
@@ -319,5 +368,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 mesh = SubResource("PlaneMesh_ljuuu")
 surface_material_override/0 = SubResource("StandardMaterial3D_7nfcn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13814259, 0, -28.405277)
+mesh = SubResource("PlaneMesh_0h58p")
+surface_material_override/0 = SubResource("StandardMaterial3D_w2poo")
+
+[node name="Path3D1" type="Path3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2, -24)
+curve = SubResource("Curve3D_5rrn1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Background/Path3D1"]
+transform = Transform3D(-4.3711232e-08, 0, -0.999994, 0, 0.9999985, 0, 0.9999964, 0, -4.3711125e-08, -66, 2, 0)
+loop = false
+
+[node name="Car" parent="Background/Path3D1/PathFollow3D" instance=ExtResource("20_0h58p")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Background/Path3D1/PathFollow3D/Car"]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 0.9999996, 0, -2.4868996e-14, 0, 0.9999996, 1.5214901, 1.2214402, 5.685837)
+amount = 6
+visibility_aabb = AABB(-20, -20, -20, 20, 20, 20)
+process_material = SubResource("ParticleProcessMaterial_0h58p")
+draw_pass_1 = SubResource("SphereMesh_w3v1g")
+
+[node name="Path3D2" type="Path3D" parent="Background"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, -2, -33.00499)
+curve = SubResource("Curve3D_5rrn1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Background/Path3D2"]
+transform = Transform3D(-4.3711232e-08, 0, -0.999994, 0, 0.9999985, 0, 0.9999964, 0, -4.3711125e-08, -66, 2, 0)
+loop = false
+
+[node name="Car" parent="Background/Path3D2/PathFollow3D" instance=ExtResource("20_0h58p")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Background/Path3D2/PathFollow3D/Car"]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 0.9999996, 0, -2.4868996e-14, 0, 0.9999996, 1.5214901, 1.2214402, 5.685837)
+amount = 6
+visibility_aabb = AABB(-20, -20, -20, 20, 20, 20)
+process_material = SubResource("ParticleProcessMaterial_0h58p")
+draw_pass_1 = SubResource("SphereMesh_w3v1g")
 
 [editable path="CameraPivot"]

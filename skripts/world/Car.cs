@@ -13,6 +13,7 @@ public enum CarColor
 [Tool]
 public partial class Car : Node3D
 {
+    private readonly Random random = new();
 
     private CarColor _color = CarColor.YELLOW;
     [Export]
@@ -68,5 +69,10 @@ public partial class Car : Node3D
         {
             GetNode<MeshInstance3D>("car/wheel_003").SetSurfaceOverrideMaterial(0, mat);
         }
+    }
+
+    public void SerRandomColor()
+    {
+        Color = (CarColor)random.Next(Enum.GetNames(typeof(CarColor)).Length);
     }
 }

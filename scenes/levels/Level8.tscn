@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bwsp7sasc6l6b"]
+[gd_scene load_steps=19 format=3 uid="uid://bwsp7sasc6l6b"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_0xit0"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_jnlgl"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="8_qyvhn"]
 [ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="9_keegh"]
 [ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="11_qyvhn"]
+[ext_resource type="PackedScene" uid="uid://bsmqq8ea6i2q1" path="res://scenes/world/RocketBg.tscn" id="14_tfacm"]
+[ext_resource type="PackedScene" uid="uid://q8ppf5s0nf4k" path="res://scenes/world/Bomb.tscn" id="15_jyp1i"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xit0"]
 size = Vector2(50, 100)
@@ -201,4 +203,98 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0xit0")
 
+[node name="SmallWall6" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -3)
+
+[node name="SmallWall8" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -3)
+
+[node name="SmallWall10" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.572168, 0, -17.47573)
+
+[node name="SmallWall11" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.572168, 0, -13.475731)
+
+[node name="SmallWall12" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.572168, 0, -9.475731)
+
+[node name="SmallWall13" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.572168, 0, -5.475731)
+
+[node name="SmallWall14" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.427832, 0, -17.47573)
+
+[node name="SmallWall15" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.427832, 0, -13.475731)
+
+[node name="SmallWall16" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.427832, 0, -9.475731)
+
+[node name="SmallWall17" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.427832, 0, -5.475731)
+
+[node name="SmallWall18" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 13.919138, 0, -19.01921)
+
+[node name="SmallWall19" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.919138, 0, -19.01921)
+
+[node name="SmallWall20" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.919138, 0, -19.01921)
+
+[node name="SmallWall21" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.919138, 0, -19.01921)
+
+[node name="SmallWall22" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.080862, 0, -19.01921)
+
+[node name="SmallWall23" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.080862, 0, -19.01921)
+
+[node name="SmallWall24" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.080862, 0, -19.01921)
+
+[node name="SmallWall25" parent="Wall" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.080862, 0, -19.01921)
+
+[node name="RocketBG" parent="Wall" instance=ExtResource("14_tfacm")]
+transform = Transform3D(-1.3113416e-07, -3, 1.3113416e-07, 0, -1.3113416e-07, -3, 3, -1.3113416e-07, 5.732056e-15, 17.729946, 0, -20.393923)
+
+[node name="GPUParticles3D" parent="Wall/RocketBG" index="1"]
+emitting = false
+
+[node name="RocketBG2" parent="Wall" instance=ExtResource("14_tfacm")]
+transform = Transform3D(-1.3113416e-07, -3, 1.3113416e-07, 0, -1.3113416e-07, -3, 3, -1.3113416e-07, 5.732056e-15, 17.729946, 0, -22.393923)
+
+[node name="GPUParticles3D" parent="Wall/RocketBG2" index="1"]
+emitting = false
+
+[node name="Bomb" parent="Wall" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -17.133974, 1, -19.5)
+
+[node name="AudioStreamPlayer" parent="Wall/Bomb" index="2"]
+autoplay = false
+
+[node name="Bomb2" parent="Wall" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -18.866026, 1, -20.5)
+
+[node name="AudioStreamPlayer" parent="Wall/Bomb2" index="2"]
+autoplay = false
+
+[node name="Bomb3" parent="Wall" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -18, 2, -20)
+
+[node name="AudioStreamPlayer" parent="Wall/Bomb3" index="2"]
+autoplay = false
+
 [editable path="CameraPivot"]
+[editable path="Wall/RocketBG"]
+[editable path="Wall/RocketBG/rocket2"]
+[editable path="Wall/RocketBG2"]
+[editable path="Wall/RocketBG2/rocket2"]
+[editable path="Wall/Bomb"]
+[editable path="Wall/Bomb/bomb"]
+[editable path="Wall/Bomb2"]
+[editable path="Wall/Bomb2/bomb"]
+[editable path="Wall/Bomb3"]
+[editable path="Wall/Bomb3/bomb"]
