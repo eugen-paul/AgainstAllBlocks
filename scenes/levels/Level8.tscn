@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwsp7sasc6l6b"]
+[gd_scene load_steps=20 format=3 uid="uid://bwsp7sasc6l6b"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_0xit0"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_jnlgl"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="11_qyvhn"]
 [ext_resource type="PackedScene" uid="uid://bsmqq8ea6i2q1" path="res://scenes/world/RocketBg.tscn" id="14_tfacm"]
 [ext_resource type="PackedScene" uid="uid://q8ppf5s0nf4k" path="res://scenes/world/Bomb.tscn" id="15_jyp1i"]
+[ext_resource type="PackedScene" uid="uid://inp2fbj64rq5" path="res://scenes/world/Tank.tscn" id="16_gowir"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xit0"]
 size = Vector2(50, 100)
@@ -289,6 +290,9 @@ transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5
 
 [node name="AudioStreamPlayer" parent="Wall/Bomb6" index="2"]
 autoplay = false
+
+[node name="Tank" parent="." instance=ExtResource("16_gowir")]
+transform = Transform3D(2.8728652, 0, 0.86408746, 0, 3.0000005, 0, -0.86408746, 0, 2.8728652, 2.6760058, 0.005894929, -23.01965)
 
 [editable path="CameraPivot"]
 [editable path="Wall/RocketBG"]
