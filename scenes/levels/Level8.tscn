@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwsp7sasc6l6b"]
+[gd_scene load_steps=19 format=3 uid="uid://bwsp7sasc6l6b"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_0xit0"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_jnlgl"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="8_qyvhn"]
 [ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="9_keegh"]
 [ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="11_qyvhn"]
-[ext_resource type="PackedScene" uid="uid://bsmqq8ea6i2q1" path="res://scenes/world/RocketBg.tscn" id="14_tfacm"]
 [ext_resource type="PackedScene" uid="uid://q8ppf5s0nf4k" path="res://scenes/world/Bomb.tscn" id="15_jyp1i"]
 [ext_resource type="PackedScene" uid="uid://inp2fbj64rq5" path="res://scenes/world/Tank.tscn" id="16_gowir"]
 
@@ -237,18 +236,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5
 [node name="SmallWall11" parent="Wall" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -12.5)
 
-[node name="RocketBG" parent="Wall" instance=ExtResource("14_tfacm")]
-transform = Transform3D(-1.3113416e-07, -3, 1.3113416e-07, 0, -1.3113416e-07, -3, 3, -1.3113416e-07, 5.732056e-15, 17.729946, 0, -20.393923)
-
-[node name="GPUParticles3D" parent="Wall/RocketBG" index="1"]
-emitting = false
-
-[node name="RocketBG2" parent="Wall" instance=ExtResource("14_tfacm")]
-transform = Transform3D(-1.3113416e-07, -3, 1.3113416e-07, 0, -1.3113416e-07, -3, 3, -1.3113416e-07, 5.732056e-15, 17.729946, 0, -22.393923)
-
-[node name="GPUParticles3D" parent="Wall/RocketBG2" index="1"]
-emitting = false
-
 [node name="Bomb" parent="Wall" instance=ExtResource("15_jyp1i")]
 transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -11.133745, 1, -18.571426)
 
@@ -291,14 +278,10 @@ transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5
 [node name="AudioStreamPlayer" parent="Wall/Bomb6" index="2"]
 autoplay = false
 
-[node name="Tank" parent="." instance=ExtResource("16_gowir")]
-transform = Transform3D(2.8728652, 0, 0.86408746, 0, 3.0000005, 0, -0.86408746, 0, 2.8728652, 2.6760058, 0.005894929, -23.01965)
+[node name="Tank" parent="Wall" instance=ExtResource("16_gowir")]
+transform = Transform3D(-1.8142643, 0, 0.84169173, 0, 2, 0, -0.84169173, 0, -1.8142643, 8.165764, 0.005894929, -21.458729)
 
 [editable path="CameraPivot"]
-[editable path="Wall/RocketBG"]
-[editable path="Wall/RocketBG/rocket2"]
-[editable path="Wall/RocketBG2"]
-[editable path="Wall/RocketBG2/rocket2"]
 [editable path="Wall/Bomb"]
 [editable path="Wall/Bomb/bomb"]
 [editable path="Wall/Bomb2"]
