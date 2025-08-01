@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dq1y7ads1iroi"]
+[gd_scene load_steps=36 format=3 uid="uid://dq1y7ads1iroi"]
 
 [ext_resource type="Script" uid="uid://cfw43eh0iskhp" path="res://skripts/levels/Level7.cs" id="1_0h58p"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="1_ccyil"]
@@ -19,17 +19,25 @@
 [ext_resource type="PackedScene" uid="uid://mljipl60q0uq" path="res://scenes/world/StageSquare.tscn" id="12_cfx3b"]
 [ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="14_r1fat"]
 [ext_resource type="Texture2D" uid="uid://xq4xd5s8yr0l" path="res://assets/textures/world/road.png" id="19_q3ki7"]
+[ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="19_w2poo"]
 [ext_resource type="PackedScene" uid="uid://ci87xyrsnk0lq" path="res://scenes/world/Car.tscn" id="20_0h58p"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ljuuu"]
-size = Vector2(50, 100)
+size = Vector2(50, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nfcn"]
 albedo_texture = ExtResource("7_mu46r")
 uv1_scale = Vector3(10, 20, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_5rrn1"]
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3v1g"]
+albedo_texture = ExtResource("19_w2poo")
+uv1_scale = Vector3(10, 10, 10)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_0h58p"]
-size = Vector2(50, 16)
+size = Vector2(50, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2poo"]
 albedo_texture = ExtResource("19_q3ki7")
@@ -365,17 +373,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 [node name="Background" type="Node" parent="."]
 
 [node name="Grass" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, -33)
 mesh = SubResource("PlaneMesh_ljuuu")
 surface_material_override/0 = SubResource("StandardMaterial3D_7nfcn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13814259, 0, -28.405277)
+[node name="Dirt" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 7)
+mesh = SubResource("PlaneMesh_5rrn1")
+surface_material_override/0 = SubResource("StandardMaterial3D_w3v1g")
+
+[node name="Road" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13814259, 0, -25.405277)
 mesh = SubResource("PlaneMesh_0h58p")
 surface_material_override/0 = SubResource("StandardMaterial3D_w2poo")
 
 [node name="Path3D1" type="Path3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2, -24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2, -23.31617)
 curve = SubResource("Curve3D_5rrn1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Background/Path3D1"]
@@ -383,6 +396,7 @@ transform = Transform3D(-4.3711232e-08, 0, -0.999994, 0, 0.9999985, 0, 0.9999964
 loop = false
 
 [node name="Car" parent="Background/Path3D1/PathFollow3D" instance=ExtResource("20_0h58p")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Background/Path3D1/PathFollow3D/Car"]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 0.9999996, 0, -2.4868996e-14, 0, 0.9999996, 1.5214901, 1.2214402, 5.685837)
@@ -392,7 +406,7 @@ process_material = SubResource("ParticleProcessMaterial_0h58p")
 draw_pass_1 = SubResource("SphereMesh_w3v1g")
 
 [node name="Path3D2" type="Path3D" parent="Background"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, -2, -33.00499)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, -2, -27.69354)
 curve = SubResource("Curve3D_5rrn1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Background/Path3D2"]
@@ -400,6 +414,7 @@ transform = Transform3D(-4.3711232e-08, 0, -0.999994, 0, 0.9999985, 0, 0.9999964
 loop = false
 
 [node name="Car" parent="Background/Path3D2/PathFollow3D" instance=ExtResource("20_0h58p")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Background/Path3D2/PathFollow3D/Car"]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 0.9999996, 0, -2.4868996e-14, 0, 0.9999996, 1.5214901, 1.2214402, 5.685837)
