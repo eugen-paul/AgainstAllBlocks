@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
 
 public partial class Levels : CanvasLayer
 {
     private const string LEVELS_CONTAINER_PATH = "Main/Panel/ScrollContainer/VBoxContainer";
     private const string UPGRADES_PATH = "UpgradesLayer/Upgrades";
+    private const string SCROLL_CONTAINER_PATH = "Main/Panel/ScrollContainer";
 
     private enum MenuOptions
     {
@@ -21,6 +23,9 @@ public partial class Levels : CanvasLayer
     [Export]
     public PackedScene LevelSelectionScene { get; set; }
 
+    private bool firstTime = true;
+    private LevelProgress lastReachedLevel;
+
     public override void _Ready()
     {
         var levelsData = GameComponets.Instance.Get<CurrentGame>().GetLevels();
@@ -36,12 +41,27 @@ public partial class Levels : CanvasLayer
             var lvl = LevelSelectionScene.Instantiate<LevelProgress>();
             lvl.Init(levelsData[i]);
             lvlContainer.AddChild(lvl);
+            if(levelsData[i].Reached)
+            {
+                lastReachedLevel = lvl;
+            }
         }
 
         GetNode<Upgrades>(UPGRADES_PATH).CloseUpgradeMenuAction += HideAll;
 
         HideAll();
     }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
+        if (firstTime)
+        {
+            firstTime = false;
+            GetNode<ScrollContainer>(SCROLL_CONTAINER_PATH).ScrollVertical = (int)lastReachedLevel.Position.Y;
+        }
+    }
+
 
     private void ShowOnly(MenuOptions name)
     {
