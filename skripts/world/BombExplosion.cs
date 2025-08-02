@@ -16,14 +16,14 @@ public partial class BombExplosion : Explosion
                 GetNode<GpuParticles3D>("Fire").Emitting = true;
                 GetNode<GpuParticles3D>("Smoke").Emitting = true;
                 GetNode<GpuParticles3D>("Wave").Emitting = true;
-                ((PlaneMesh)GetNode<GpuParticles3D>("Wave").DrawPass1).Size = new Vector2(ExplostionPower * 3.0f, ExplostionPower * 3.0f);
+                ((PlaneMesh)GetNode<GpuParticles3D>("Wave").DrawPass1).Size = new Vector2(Explosionradius * 3.0f, Explosionradius * 3.0f);
                 done = 4;
                 break;
             case EffectsPreferences.LOW:
                 GetNode<GpuParticles3D>("Debris").Emitting = true;
                 GetNode<GpuParticles3D>("Fire").Emitting = true;
                 GetNode<GpuParticles3D>("Wave").Emitting = true;
-                ((PlaneMesh)GetNode<GpuParticles3D>("Wave").DrawPass1).Size = new Vector2(ExplostionPower * 3.0f, ExplostionPower * 3.0f);
+                ((PlaneMesh)GetNode<GpuParticles3D>("Wave").DrawPass1).Size = new Vector2(Explosionradius * 3.0f, Explosionradius * 3.0f);
                 done = 3;
                 break;
             case EffectsPreferences.OFF:

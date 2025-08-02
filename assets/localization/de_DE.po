@@ -221,6 +221,26 @@ msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr "Geschwindigkeit des Schlägers um 100% erhöht."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER."
+msgstr "Vergrößert den Explosionsradius mit jedem Upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_0."
+msgstr "Explosionsradius unverändert."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_1."
+msgstr "Explosionsradius um 1 Meter vergrößert."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_2."
+msgstr "Explosionsradius um 2 Meter vergrößert."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_3."
+msgstr "Explosionsradius um 3 Meter vergrößert."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
 msgstr "Kaufe einen neuen Upgrade-Slot für {0} Gold."
 

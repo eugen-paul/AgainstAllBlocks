@@ -224,6 +224,26 @@ msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr "Increases paddle speed by 100%."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER."
+msgstr "Increases the explosion radius with each upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_0."
+msgstr "Standard Explosion radius."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_1."
+msgstr "Increases the explosion radius by 1 meter."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_2."
+msgstr "Increases the explosion radius by 2 meter."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_3."
+msgstr "Increases the explosion radius by 3 meter."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
 msgstr "Buy a new upgrade slot for {0} gold."
 

@@ -26,6 +26,14 @@ public partial class Bomb : CharacterBody3D, AutoSound
         Velocity = Vector3.Down * StartSpeed;
     }
 
+    public override void _Ready()
+    {
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_POWER))
+        {
+            Explosionradius = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_POWER) + 2f;
+        }
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         var collision = MoveAndCollide(Velocity * (float)delta);
@@ -65,7 +73,7 @@ public partial class Bomb : CharacterBody3D, AutoSound
         var explosion = ExplosionScene.Instantiate<Explosion>();
         explosion.Level = Level;
         explosion.Position = GlobalPosition;
-        explosion.
+        explosion.Explosionradius = Explosionradius;
         Level.AddChild(explosion);
         Level.TemporaryAdd(explosion);
         explosion.Explode();

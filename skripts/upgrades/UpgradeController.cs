@@ -8,6 +8,7 @@ public enum UpgradeType
     EMPTY = 0,
     EXTRA_LIFE = 10,
     PADDLE_SPEED = 20,
+    BOMB_POWER = 30,
 }
 
 public interface IUpgradeListener
@@ -38,6 +39,7 @@ public class UpgradeController
         UpgradeType.EMPTY,
         UpgradeType.EXTRA_LIFE,
         UpgradeType.PADDLE_SPEED,
+        UpgradeType.BOMB_POWER,
     }
     .ToImmutableList();
 
