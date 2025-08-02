@@ -26,3 +26,4 @@ shape = SubResource("CylinderShape3D_jgwkg")
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 
 [connection signal="body_entered" from="PaddleDetector" to="." method="OnPaddleDetectorBodyEntered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="OnVisibilityNotifierScreenExited"]

@@ -17,3 +17,8 @@ script = ExtResource("1_qii1t")
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_xsnnr")
+
+[connection signal="finished" from="Debris" to="." method="OnDone"]
+[connection signal="finished" from="Smoke" to="." method="OnDone"]
+[connection signal="finished" from="Fire" to="." method="OnDone"]
+[connection signal="finished" from="Sound" to="." method="OnDone"]

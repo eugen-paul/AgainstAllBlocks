@@ -1,10 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://duso7lva6m3qf"]
+[gd_scene load_steps=12 format=3 uid="uid://duso7lva6m3qf"]
 
 [ext_resource type="Script" uid="uid://1jqxoqgx2g1a" path="res://skripts/world/BombExplosion.cs" id="1_siiuy"]
 [ext_resource type="AudioStream" uid="uid://cofybaevngbnx" path="res://assets/sounds/explosion1.wav" id="1_w4cs1"]
 [ext_resource type="PackedScene" uid="uid://c8g7thn2xcktk" path="res://scenes/world/particles/ExplosionDebrisBig.tscn" id="2_g2g08"]
 [ext_resource type="PackedScene" uid="uid://c8vx551ps2hh5" path="res://scenes/world/particles/ExplosionSmokeBig.tscn" id="3_o0rcs"]
 [ext_resource type="PackedScene" uid="uid://dl468716htvnm" path="res://scenes/world/particles/ExplosionFireBig.tscn" id="4_hf6d2"]
+[ext_resource type="Texture2D" uid="uid://qwnv2iefm414" path="res://assets/textures/world/ExplosionWave.png" id="5_2jw2m"]
+
+[sub_resource type="Curve" id="Curve_olqdy"]
+_data = [Vector2(0.0028328598, 0.11692655), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ldih"]
+curve = SubResource("Curve_olqdy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sao7i"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_2ldih")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl08y"]
+transparency = 1
+albedo_texture = ExtResource("5_2jw2m")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3piop"]
+material = SubResource("StandardMaterial3D_fl08y")
+size = Vector2(10, 10)
 
 [node name="BombExplosion" type="Node3D"]
 script = ExtResource("1_siiuy")
@@ -15,7 +35,20 @@ script = ExtResource("1_siiuy")
 
 [node name="Fire" parent="." instance=ExtResource("4_hf6d2")]
 
+[node name="Wave" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_sao7i")
+draw_pass_1 = SubResource("PlaneMesh_3piop")
+
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w4cs1")
 
+[connection signal="finished" from="Debris" to="." method="OnDone"]
+[connection signal="finished" from="Smoke" to="." method="OnDone"]
+[connection signal="finished" from="Fire" to="." method="OnDone"]
+[connection signal="finished" from="Wave" to="." method="OnDone"]
 [connection signal="finished" from="Sound" to="." method="OnDone"]

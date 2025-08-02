@@ -10,7 +10,7 @@ public partial class Bomb : CharacterBody3D, AutoSound
     public float StartHeight { get; set; } = 22.0f;
 
     [Export]
-    public float Explosionradius { get; set; } = 3.0f;
+    public float Explosionradius { get; set; } = 2.0f;
 
     [Export]
     public int ScoreBonus { get; set; } = 20;
@@ -65,6 +65,7 @@ public partial class Bomb : CharacterBody3D, AutoSound
         var explosion = ExplosionScene.Instantiate<Explosion>();
         explosion.Level = Level;
         explosion.Position = GlobalPosition;
+        explosion.
         Level.AddChild(explosion);
         Level.TemporaryAdd(explosion);
         explosion.Explode();

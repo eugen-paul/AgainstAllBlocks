@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class RocketExplosion : Explosion
 {
@@ -15,22 +14,23 @@ public partial class RocketExplosion : Explosion
                 GetNode<GpuParticles3D>("Debris").Emitting = true;
                 GetNode<GpuParticles3D>("Fire").Emitting = true;
                 GetNode<GpuParticles3D>("Smoke").Emitting = true;
-                done = 4;
+                done = 3;
                 break;
             case EffectsPreferences.LOW:
                 GetNode<GpuParticles3D>("Debris").Emitting = true;
                 GetNode<GpuParticles3D>("Fire").Emitting = true;
-                done = 3;
+                done = 2;
                 break;
             case EffectsPreferences.OFF:
             default:
-                done = 1;
+                done = 0;
                 break;
         }
 
         if (sound)
         {
             GetNode<AudioStreamPlayer>("Sound").Play();
+            done++;
         }
     }
 
