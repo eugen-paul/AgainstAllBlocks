@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwsp7sasc6l6b"]
+[gd_scene load_steps=22 format=3 uid="uid://bwsp7sasc6l6b"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_0xit0"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_jnlgl"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="11_qyvhn"]
 [ext_resource type="PackedScene" uid="uid://q8ppf5s0nf4k" path="res://scenes/world/Bomb.tscn" id="15_jyp1i"]
 [ext_resource type="PackedScene" uid="uid://inp2fbj64rq5" path="res://scenes/world/Tank.tscn" id="16_gowir"]
+[ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="16_j0ttt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xit0"]
 size = Vector2(50, 100)
@@ -22,6 +23,13 @@ size = Vector2(50, 100)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfacm"]
 albedo_texture = ExtResource("9_keegh")
 uv1_scale = Vector3(10, 20, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sse1k"]
+size = Vector2(45, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3dys"]
+albedo_texture = ExtResource("16_j0ttt")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xit0"]
 size = Vector3(24, 3, 1)
@@ -46,6 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
 [node name="AllBlocks" type="Node3D" parent="."]
 
 [node name="Row1" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="Block1" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11)
@@ -66,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -11)
 
 [node name="Row2" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="Block1" parent="AllBlocks/Row2" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9)
@@ -92,6 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -9)
 Color = 3
 
 [node name="Row3" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="Block1" parent="AllBlocks/Row3" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
@@ -122,6 +133,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -7)
 Color = 2
 
 [node name="Row4" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="Block1" parent="AllBlocks/Row4" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
@@ -177,6 +189,94 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 mesh = SubResource("PlaneMesh_0xit0")
 surface_material_override/0 = SubResource("StandardMaterial3D_tfacm")
 
+[node name="SmallWall6" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -4.5)
+
+[node name="SmallWall7" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -8.5)
+
+[node name="SmallWall8" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -12.5)
+
+[node name="SmallWall9" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -4.5)
+
+[node name="SmallWall10" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -8.5)
+
+[node name="SmallWall11" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -12.5)
+
+[node name="Bomb" parent="Background" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -11.133745, 1, -18.571426)
+
+[node name="AudioStreamPlayer" parent="Background/Bomb" index="2"]
+autoplay = false
+
+[node name="Bomb2" parent="Background" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -12.865797, 1, -19.571426)
+
+[node name="AudioStreamPlayer" parent="Background/Bomb2" index="2"]
+autoplay = false
+
+[node name="Bomb3" parent="Background" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -11.999771, 2, -19.071426)
+
+[node name="AudioStreamPlayer" parent="Background/Bomb3" index="2"]
+autoplay = false
+
+[node name="Bomb4" parent="Background" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -16.133745, 1, -15.571426)
+
+[node name="AudioStreamPlayer" parent="Background/Bomb4" index="2"]
+autoplay = false
+
+[node name="Bomb5" parent="Background" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -17.865797, 1, -16.571426)
+
+[node name="AudioStreamPlayer" parent="Background/Bomb5" index="2"]
+autoplay = false
+
+[node name="Bomb7" parent="Background" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.44824278, -0.8939119, -3.9074127e-08, 0, -4.371139e-08, 1, -0.8939119, -0.44824278, -1.9593315e-08, -16.258818, 1.0000038, -11.08868)
+
+[node name="AudioStreamPlayer" parent="Background/Bomb7" index="2"]
+autoplay = false
+
+[node name="Bomb6" parent="Background" instance=ExtResource("15_jyp1i")]
+transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -16.999771, 2, -16.071426)
+
+[node name="AudioStreamPlayer" parent="Background/Bomb6" index="2"]
+autoplay = false
+
+[node name="Tank" parent="Background" instance=ExtResource("16_gowir")]
+transform = Transform3D(-1.7320508, 0, 1.0000001, 0, 2, 0, -1.0000001, 0, -1.7320508, 8.165764, 0.005894929, -21.458729)
+
+[node name="SmallWall12" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13.996349)
+
+[node name="SmallWall13" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13.996349)
+
+[node name="SmallWall14" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.996349)
+
+[node name="SmallWall15" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -13.996349)
+
+[node name="SmallWall16" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13.996349)
+
+[node name="Dirt" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -8.464855, 0, -28.285725)
+mesh = SubResource("PlaneMesh_sse1k")
+surface_material_override/0 = SubResource("StandardMaterial3D_x3dys")
+
+[node name="Dirt2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -5.8945546, 0, -32.329662)
+mesh = SubResource("PlaneMesh_sse1k")
+surface_material_override/0 = SubResource("StandardMaterial3D_x3dys")
+
 [node name="Wall" type="Node3D" parent="."]
 
 [node name="SmallWall1" parent="Wall" instance=ExtResource("11_qyvhn")]
@@ -194,21 +294,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
 [node name="SmallWall5" parent="Wall" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
 
-[node name="SmallWall12" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13.996349)
-
-[node name="SmallWall13" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13.996349)
-
-[node name="SmallWall14" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.996349)
-
-[node name="SmallWall15" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -13.996349)
-
-[node name="SmallWall16" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13.996349)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall" groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 collision_layer = 2
@@ -218,81 +303,18 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8486328, 1, 0)
 shape = SubResource("BoxShape3D_0xit0")
 
-[node name="SmallWall6" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -4.5)
-
-[node name="SmallWall7" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -8.5)
-
-[node name="SmallWall8" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -12.5)
-
-[node name="SmallWall9" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -4.5)
-
-[node name="SmallWall10" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -8.5)
-
-[node name="SmallWall11" parent="Wall" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -12.5)
-
-[node name="Bomb" parent="Wall" instance=ExtResource("15_jyp1i")]
-transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -11.133745, 1, -18.571426)
-
-[node name="AudioStreamPlayer" parent="Wall/Bomb" index="2"]
-autoplay = false
-
-[node name="Bomb2" parent="Wall" instance=ExtResource("15_jyp1i")]
-transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -12.865797, 1, -19.571426)
-
-[node name="AudioStreamPlayer" parent="Wall/Bomb2" index="2"]
-autoplay = false
-
-[node name="Bomb3" parent="Wall" instance=ExtResource("15_jyp1i")]
-transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -11.999771, 2, -19.071426)
-
-[node name="AudioStreamPlayer" parent="Wall/Bomb3" index="2"]
-autoplay = false
-
-[node name="Bomb4" parent="Wall" instance=ExtResource("15_jyp1i")]
-transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -16.133745, 1, -15.571426)
-
-[node name="AudioStreamPlayer" parent="Wall/Bomb4" index="2"]
-autoplay = false
-
-[node name="Bomb5" parent="Wall" instance=ExtResource("15_jyp1i")]
-transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -17.865797, 1, -16.571426)
-
-[node name="AudioStreamPlayer" parent="Wall/Bomb5" index="2"]
-autoplay = false
-
-[node name="Bomb7" parent="Wall" instance=ExtResource("15_jyp1i")]
-transform = Transform3D(0.44824278, -0.8939119, -3.9074127e-08, 0, -4.371139e-08, 1, -0.8939119, -0.44824278, -1.9593315e-08, -16.258818, 1.0000038, -11.08868)
-
-[node name="AudioStreamPlayer" parent="Wall/Bomb7" index="2"]
-autoplay = false
-
-[node name="Bomb6" parent="Wall" instance=ExtResource("15_jyp1i")]
-transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -16.999771, 2, -16.071426)
-
-[node name="AudioStreamPlayer" parent="Wall/Bomb6" index="2"]
-autoplay = false
-
-[node name="Tank" parent="Wall" instance=ExtResource("16_gowir")]
-transform = Transform3D(-1.8142643, 0, 0.84169173, 0, 2, 0, -0.84169173, 0, -1.8142643, 8.165764, 0.005894929, -21.458729)
-
 [editable path="CameraPivot"]
-[editable path="Wall/Bomb"]
-[editable path="Wall/Bomb/bomb"]
-[editable path="Wall/Bomb2"]
-[editable path="Wall/Bomb2/bomb"]
-[editable path="Wall/Bomb3"]
-[editable path="Wall/Bomb3/bomb"]
-[editable path="Wall/Bomb4"]
-[editable path="Wall/Bomb4/bomb"]
-[editable path="Wall/Bomb5"]
-[editable path="Wall/Bomb5/bomb"]
-[editable path="Wall/Bomb7"]
-[editable path="Wall/Bomb7/bomb"]
-[editable path="Wall/Bomb6"]
-[editable path="Wall/Bomb6/bomb"]
+[editable path="Background/Bomb"]
+[editable path="Background/Bomb/bomb"]
+[editable path="Background/Bomb2"]
+[editable path="Background/Bomb2/bomb"]
+[editable path="Background/Bomb3"]
+[editable path="Background/Bomb3/bomb"]
+[editable path="Background/Bomb4"]
+[editable path="Background/Bomb4/bomb"]
+[editable path="Background/Bomb5"]
+[editable path="Background/Bomb5/bomb"]
+[editable path="Background/Bomb7"]
+[editable path="Background/Bomb7/bomb"]
+[editable path="Background/Bomb6"]
+[editable path="Background/Bomb6/bomb"]

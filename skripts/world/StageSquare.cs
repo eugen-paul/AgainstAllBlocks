@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using Godot;
 using Godot.Collections;
 
@@ -23,6 +22,10 @@ public partial class StageSquare : StaticBody3D, Hitable
 
     private bool itemReady = true;
 
+    private static readonly string ITEM_SPRITE_PATH = "Sprite3D";
+    private static readonly string TIMER_SPRITE_PATH = "TimerSprite3D";
+    private static readonly string PROGRESSBAR_PATH = "TimerSprite3D/SubViewport/TextureProgressBar";
+
     public Array<ItemType> workingItems = new();
 
     public Array<ItemType> _items = new();
@@ -45,6 +48,7 @@ public partial class StageSquare : StaticBody3D, Hitable
 
     public override void _Ready()
     {
+        GetNode<Sprite3D>(TIMER_SPRITE_PATH).Texture = GetNode<SubViewport>("TimerSprite3D/SubViewport").GetTexture();
         SetReady(itemReady);
     }
 
@@ -53,6 +57,7 @@ public partial class StageSquare : StaticBody3D, Hitable
         if (restTime > 0)
         {
             restTime = Mathf.Max(0, restTime - delta);
+            GetNode<TextureProgressBar>(PROGRESSBAR_PATH).Value = 100f - (float)(restTime / LoadingTime) * 100f;
         }
         else if (!itemReady)
         {
@@ -66,10 +71,14 @@ public partial class StageSquare : StaticBody3D, Hitable
         if (itemReady)
         {
             GetNode<Node3D>("Status").Show();
+            GetNode<Sprite3D>(ITEM_SPRITE_PATH).Visible = true;
+            GetNode<Sprite3D>(TIMER_SPRITE_PATH).Visible = false;
         }
         else
         {
             GetNode<Node3D>("Status").Hide();
+            GetNode<Sprite3D>(ITEM_SPRITE_PATH).Visible = false;
+            GetNode<Sprite3D>(TIMER_SPRITE_PATH).Visible = true;
         }
     }
 
@@ -77,14 +86,14 @@ public partial class StageSquare : StaticBody3D, Hitable
     {
         if (workingItems.Count == 0 || workingItems[0] == ItemType.NONE)
         {
-            GetNode<Sprite3D>("Sprite3D").Hide();
-            GetNode<Sprite3D>("Sprite3D").Texture = null;
+            GetNode<Sprite3D>(ITEM_SPRITE_PATH).Texture = null;
+            GetNode<TextureProgressBar>(PROGRESSBAR_PATH).TextureProgress = null;
         }
         else
         {
-            GetNode<Sprite3D>("Sprite3D").Show();
             var texture = GD.Load<Texture2D>(ItemBehaviorFactory.GetIconPath(workingItems[0]));
-            GetNode<Sprite3D>("Sprite3D").Texture = texture;
+            GetNode<Sprite3D>(ITEM_SPRITE_PATH).Texture = texture;
+            GetNode<TextureProgressBar>(PROGRESSBAR_PATH).TextureProgress = texture;
         }
     }
 

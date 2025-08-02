@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://inp2fbj64rq5"]
 
-[ext_resource type="PackedScene" uid="uid://bgqfujhs52fyp" path="res://assets/blender/world/tank.gltf" id="1_iqwj6"]
+[ext_resource type="PackedScene" uid="uid://bbey3lfym6f7k" path="res://assets/blender/world/tank.gltf" id="1_iqwj6"]
 [ext_resource type="Texture2D" uid="uid://dx74dboqoo1s3" path="res://assets/textures/world/tank.png" id="2_5t4bw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t4bw"]
@@ -11,6 +11,6 @@ albedo_texture = ExtResource("2_5t4bw")
 [node name="tank" parent="." instance=ExtResource("1_iqwj6")]
 
 [node name="Cube" parent="tank" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_5t4bw")
+material_override = SubResource("StandardMaterial3D_5t4bw")
 
 [editable path="tank"]
