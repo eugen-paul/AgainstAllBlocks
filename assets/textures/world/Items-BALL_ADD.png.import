@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwmp3yg6y3oi4"
 path.s3tc="res://.godot/imported/Items-BALL_ADD.png-428a8bce403c233055d4e396d1f8c5a4.s3tc.ctex"
+path.etc2="res://.godot/imported/Items-BALL_ADD.png-428a8bce403c233055d4e396d1f8c5a4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/world/Items-BALL_ADD.png"
-dest_files=["res://.godot/imported/Items-BALL_ADD.png-428a8bce403c233055d4e396d1f8c5a4.s3tc.ctex"]
+dest_files=["res://.godot/imported/Items-BALL_ADD.png-428a8bce403c233055d4e396d1f8c5a4.s3tc.ctex", "res://.godot/imported/Items-BALL_ADD.png-428a8bce403c233055d4e396d1f8c5a4.etc2.ctex"]
 
 [params]
 

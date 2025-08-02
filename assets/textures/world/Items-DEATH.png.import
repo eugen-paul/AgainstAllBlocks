@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvig15qhgwp8y"
 path.s3tc="res://.godot/imported/Items-DEATH.png-7f31943b62b17d446d72599a3726f01e.s3tc.ctex"
+path.etc2="res://.godot/imported/Items-DEATH.png-7f31943b62b17d446d72599a3726f01e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/world/Items-DEATH.png"
-dest_files=["res://.godot/imported/Items-DEATH.png-7f31943b62b17d446d72599a3726f01e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Items-DEATH.png-7f31943b62b17d446d72599a3726f01e.s3tc.ctex", "res://.godot/imported/Items-DEATH.png-7f31943b62b17d446d72599a3726f01e.etc2.ctex"]
 
 [params]
 

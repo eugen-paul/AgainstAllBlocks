@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpkx0u3tb3qyt"
 path.s3tc="res://.godot/imported/Items-PADDLE_SPEED_STOP.png-f81e9b3c4c9259cab08e0f080a9a8dda.s3tc.ctex"
+path.etc2="res://.godot/imported/Items-PADDLE_SPEED_STOP.png-f81e9b3c4c9259cab08e0f080a9a8dda.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/world/Items-PADDLE_SPEED_STOP.png"
-dest_files=["res://.godot/imported/Items-PADDLE_SPEED_STOP.png-f81e9b3c4c9259cab08e0f080a9a8dda.s3tc.ctex"]
+dest_files=["res://.godot/imported/Items-PADDLE_SPEED_STOP.png-f81e9b3c4c9259cab08e0f080a9a8dda.s3tc.ctex", "res://.godot/imported/Items-PADDLE_SPEED_STOP.png-f81e9b3c4c9259cab08e0f080a9a8dda.etc2.ctex"]
 
 [params]
 

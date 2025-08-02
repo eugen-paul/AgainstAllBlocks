@@ -3,7 +3,7 @@ using Godot;
 
 public partial class UpgradeSlotsPanel : CenterContainer, IUpgradeListener
 {
-    private static readonly string DEFAULT_UPGRADE_SLOT_PANEL = "res://scenes/upgrades/UpgradeSlot.tscn";
+    private static readonly string DEFAULT_UPGRADE_SLOT_PANEL = "res://scenes/upgrades/upgradeSlot.tscn";
     private static readonly string SLOTS_CONTAINER_PATH = "SlotsContainer";
 
     [Export]

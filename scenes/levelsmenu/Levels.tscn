@@ -99,7 +99,6 @@ theme = ExtResource("1_p8xvk")
 text = "LEVEL_UPGRADES"
 
 [node name="UpgradesLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Upgrades" parent="UpgradesLayer" instance=ExtResource("4_ml64u")]
 

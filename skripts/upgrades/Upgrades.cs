@@ -6,7 +6,7 @@ public partial class Upgrades : Control, IUpgradeListener
 {
     private GodotObject LocalizationScriptObject;
 
-    private static readonly string DEFAULT_UPGRADE_ITEM_PANEL = "res://scenes/upgrades/UpgradeItemPanel.tscn";
+    private static readonly string DEFAULT_UPGRADE_ITEM_PANEL = "res://scenes/upgrades/upgradeItemPanel.tscn";
     private static readonly string DEFAULT_UPGRADE_ITEM_INFO_PANEL = "res://scenes/upgrades/UpgradeItemLevelPanel.tscn";
     private static readonly string PLUS_SLOT_BUTTON_PATH = "UpgradeMenu/CenterContainer/HBoxContainer/PlusSlotButton";
     private static readonly string UPGRADE_PANEL_PATH = "UpgradeMenu/ScrollContainer/VBoxContainer";

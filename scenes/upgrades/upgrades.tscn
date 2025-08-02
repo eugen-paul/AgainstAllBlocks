@@ -184,6 +184,7 @@ grow_horizontal = 0
 text = "UIM_HOWTO"
 
 [node name="UpgradeItemMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
