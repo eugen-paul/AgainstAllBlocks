@@ -191,21 +191,47 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tfacm")
 
 [node name="SmallWall6" parent="Background" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -4.5)
+WallType = 1
 
 [node name="SmallWall7" parent="Background" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -8.5)
+WallType = 1
 
 [node name="SmallWall8" parent="Background" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 0, -12.5)
+WallType = 1
 
 [node name="SmallWall9" parent="Background" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -4.5)
+WallType = 1
 
 [node name="SmallWall10" parent="Background" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -8.5)
+WallType = 1
 
 [node name="SmallWall11" parent="Background" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5, 0, -12.5)
+WallType = 1
+
+[node name="SmallWall12" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13.996349)
+WallType = 1
+
+[node name="SmallWall13" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13.996349)
+WallType = 1
+
+[node name="SmallWall14" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.996349)
+WallType = 1
+
+[node name="SmallWall15" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -13.996349)
+WallType = 1
+
+[node name="SmallWall16" parent="Background" instance=ExtResource("11_qyvhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13.996349)
+WallType = 1
 
 [node name="Bomb" parent="Background" instance=ExtResource("15_jyp1i")]
 transform = Transform3D(0.86602545, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.86602545, -3.7855173e-08, -11.133745, 1, -18.571426)
@@ -252,21 +278,6 @@ autoplay = false
 [node name="Tank" parent="Background" instance=ExtResource("16_gowir")]
 transform = Transform3D(-1.7320508, 0, 1.0000001, 0, 2, 0, -1.0000001, 0, -1.7320508, 8.165764, 0.005894929, -21.458729)
 
-[node name="SmallWall12" parent="Background" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13.996349)
-
-[node name="SmallWall13" parent="Background" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13.996349)
-
-[node name="SmallWall14" parent="Background" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.996349)
-
-[node name="SmallWall15" parent="Background" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -13.996349)
-
-[node name="SmallWall16" parent="Background" instance=ExtResource("11_qyvhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13.996349)
-
 [node name="Dirt" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -8.464855, 0, -28.285725)
 mesh = SubResource("PlaneMesh_sse1k")
@@ -281,18 +292,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x3dys")
 
 [node name="SmallWall1" parent="Wall" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+WallType = 1
 
 [node name="SmallWall2" parent="Wall" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+WallType = 1
 
 [node name="SmallWall3" parent="Wall" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+WallType = 1
 
 [node name="SmallWall4" parent="Wall" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+WallType = 1
 
 [node name="SmallWall5" parent="Wall" instance=ExtResource("11_qyvhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
+WallType = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall" groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)

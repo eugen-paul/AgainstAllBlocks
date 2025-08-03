@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://nycsggdqmgwh"]
+
+[ext_resource type="Script" uid="uid://ebxwr2fl1sj" path="res://skripts/world/DynamiteExplosion.cs" id="1_h3vw6"]
+[ext_resource type="PackedScene" uid="uid://c8g7thn2xcktk" path="res://scenes/world/particles/ExplosionDebrisBig.tscn" id="2_tsnb5"]
+[ext_resource type="PackedScene" uid="uid://c8vx551ps2hh5" path="res://scenes/world/particles/ExplosionSmokeBig.tscn" id="3_rgpqf"]
+[ext_resource type="PackedScene" uid="uid://dl468716htvnm" path="res://scenes/world/particles/ExplosionFireBig.tscn" id="4_vw45m"]
+[ext_resource type="AudioStream" uid="uid://cofybaevngbnx" path="res://assets/sounds/explosion1.wav" id="6_amkbc"]
+
+[node name="BombExplosion" type="Node3D"]
+script = ExtResource("1_h3vw6")
+
+[node name="Debris" parent="." instance=ExtResource("2_tsnb5")]
+
+[node name="Smoke" parent="." instance=ExtResource("3_rgpqf")]
+
+[node name="Fire" parent="." instance=ExtResource("4_vw45m")]
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_amkbc")
+
+[connection signal="finished" from="Debris" to="." method="OnDone"]
+[connection signal="finished" from="Smoke" to="." method="OnDone"]
+[connection signal="finished" from="Fire" to="." method="OnDone"]
+[connection signal="finished" from="Sound" to="." method="OnDone"]

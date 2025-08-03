@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c7b7cniwvwcml"]
+
+[ext_resource type="Texture2D" uid="uid://u7ccn4q240gi" path="res://assets/textures/world/SmalWallPLANK.png" id="1_i0wcj"]
+
+[resource]
+albedo_texture = ExtResource("1_i0wcj")

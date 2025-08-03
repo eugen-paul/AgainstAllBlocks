@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn5ue5dueou6m"]
+
+[ext_resource type="Script" uid="uid://dl4ygp4ydd3sf" path="res://skripts/world/GameButton.cs" id="1_vdvov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auowu"]
+albedo_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vdvov"]
+material = SubResource("StandardMaterial3D_auowu")
+size = Vector3(2.1, 0.2, 2.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfjq0"]
+albedo_color = Color(0.89411765, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bvs5w"]
+material = SubResource("StandardMaterial3D_hfjq0")
+radius = 1.0
+height = 2.0
+radial_segments = 8
+rings = 8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s6smn"]
+radius = 1.0
+
+[node name="GameButton" type="Node3D"]
+script = ExtResource("1_vdvov")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_vdvov")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_bvs5w")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_s6smn")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnArea3dBodyEntered"]

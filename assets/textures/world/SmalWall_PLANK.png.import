@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d20bvh0niaa6m"
-path.s3tc="res://.godot/imported/SmalWallDummy.png-4adbf0d4d7c855f1e8ae874a42572c80.s3tc.ctex"
-path.etc2="res://.godot/imported/SmalWallDummy.png-4adbf0d4d7c855f1e8ae874a42572c80.etc2.ctex"
+uid="uid://ctwjwgtia4ucv"
+path.s3tc="res://.godot/imported/SmalWall_PLANK.png-54a8ef5555f2d34831a243085ccff53d.s3tc.ctex"
+path.etc2="res://.godot/imported/SmalWall_PLANK.png-54a8ef5555f2d34831a243085ccff53d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/world/SmalWallDummy.png"
-dest_files=["res://.godot/imported/SmalWallDummy.png-4adbf0d4d7c855f1e8ae874a42572c80.s3tc.ctex", "res://.godot/imported/SmalWallDummy.png-4adbf0d4d7c855f1e8ae874a42572c80.etc2.ctex"]
+source_file="res://assets/textures/world/SmalWall_PLANK.png"
+dest_files=["res://.godot/imported/SmalWall_PLANK.png-54a8ef5555f2d34831a243085ccff53d.s3tc.ctex", "res://.godot/imported/SmalWall_PLANK.png-54a8ef5555f2d34831a243085ccff53d.etc2.ctex"]
 
 [params]
 

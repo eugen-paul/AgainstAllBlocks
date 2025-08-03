@@ -1,0 +1,5 @@
+
+interface ITriggerable
+{
+    void Trigger();
+}

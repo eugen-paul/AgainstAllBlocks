@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://idyccpsdyte6"]
+
+[ext_resource type="Texture2D" uid="uid://d20bvh0niaa6m" path="res://assets/textures/world/SmalWall_BRICK.png" id="1_eu3vf"]
+
+[resource]
+albedo_texture = ExtResource("1_eu3vf")

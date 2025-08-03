@@ -1,16 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2b6sgawi7omv"]
 
 [ext_resource type="PackedScene" uid="uid://dv53ewsbujtio" path="res://assets/blender/world/smallWall.gltf" id="1_5yxuc"]
-[ext_resource type="Texture2D" uid="uid://d20bvh0niaa6m" path="res://assets/textures/world/SmalWallDummy.png" id="2_6nrs2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5imr"]
-albedo_texture = ExtResource("2_6nrs2")
+[ext_resource type="Script" uid="uid://o4ea4jmo350n" path="res://skripts/world/SmallWall.cs" id="1_6qptn"]
+[ext_resource type="Material" uid="uid://idyccpsdyte6" path="res://assets/textures/world/SmallWall_BRICK.tres" id="3_6qptn"]
 
 [node name="SmallWall" type="Node3D"]
+script = ExtResource("1_6qptn")
 
 [node name="smallWall" parent="." instance=ExtResource("1_5yxuc")]
 
 [node name="SmalWall" parent="smallWall" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_t5imr")
+surface_material_override/0 = ExtResource("3_6qptn")
 
 [editable path="smallWall"]

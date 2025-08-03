@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpp5mnix5m6i"]
+
+[ext_resource type="Script" uid="uid://cyemlup8ij60k" path="res://skripts/world/Dynamite.cs" id="1_wbpdy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6odb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wbpdy"]
+material = SubResource("StandardMaterial3D_j6odb")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cw5m"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_ibmgk"]
+material = SubResource("StandardMaterial3D_7cw5m")
+inner_radius = 0.295
+outer_radius = 0.35
+rings = 8
+ring_segments = 4
+
+[node name="Dynamite" type="Node3D"]
+script = ExtResource("1_wbpdy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.0037769154, 0)
+mesh = SubResource("CylinderMesh_wbpdy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.0037769154, -0.2)
+mesh = SubResource("CylinderMesh_wbpdy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.0037769154, 0.2)
+mesh = SubResource("CylinderMesh_wbpdy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.17673251, 0.09976415)
+mesh = SubResource("CylinderMesh_wbpdy")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.17673251, -0.10104923)
+mesh = SubResource("CylinderMesh_wbpdy")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.17050728, 0.09976415)
+mesh = SubResource("CylinderMesh_wbpdy")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.17050728, -0.10104923)
+mesh = SubResource("CylinderMesh_wbpdy")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.1920194, 0, 0)
+mesh = SubResource("TorusMesh_ibmgk")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.24695697, 0, 0)
+mesh = SubResource("TorusMesh_ibmgk")
