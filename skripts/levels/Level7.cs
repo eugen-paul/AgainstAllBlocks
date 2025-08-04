@@ -17,8 +17,8 @@ public partial class Level7 : DefaultLevel
     public override void _Ready()
     {
         base._Ready();
-        GetNodeOrNull<Car>(CAR_PATH_1)?.SerRandomColor();
-        GetNodeOrNull<Car>(CAR_PATH_2)?.SerRandomColor();
+        GetNodeOrNull<Car>(CAR_PATH_1)?.SetRandomColor();
+        GetNodeOrNull<Car>(CAR_PATH_2)?.SetRandomColor();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -39,7 +39,7 @@ public partial class Level7 : DefaultLevel
             if (pathFollow.Progress >= path.GetCurve().GetBakedLength())
             {
                 pathFollow.Progress = (float)(random.NextDouble() * 30);
-                car.SerRandomColor();
+                car.SetRandomColor();
             }
         }
     }

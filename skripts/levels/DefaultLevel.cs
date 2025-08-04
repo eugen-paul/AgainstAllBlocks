@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Godot;
 using Godot.Collections;
 
@@ -100,6 +99,7 @@ public partial class DefaultLevel : Node
 
     public override void _PhysicsProcess(double delta)
     {
+        base._PhysicsProcess(delta);
         if (running && CountBlocks() <= 0)
         {
             LevelDone();

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dufphs5u7tscx"]
+
+[ext_resource type="Script" uid="uid://u3bpmqsuya04" path="res://skripts/world/CarOnPath3d.cs" id="1_lnfud"]
+[ext_resource type="PackedScene" uid="uid://ci87xyrsnk0lq" path="res://scenes/world/Car.tscn" id="1_qatya"]
+[ext_resource type="Script" uid="uid://btjiji51ngan0" path="res://skripts/world/CarOnPath3dBody.cs" id="3_hlwht"]
+
+[sub_resource type="Curve3D" id="Curve3D_hlwht"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -13, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnfud"]
+size = Vector3(1.574, 1.537122, 3.2751465)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_lnfud")
+
+[node name="CarOnPath3d" type="Path3D" parent="."]
+curve = SubResource("Curve3D_hlwht")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CarOnPath3d"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 0, 0)
+loop = false
+
+[node name="Car" parent="CarOnPath3d/PathFollow3D" instance=ExtResource("1_qatya")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CarOnPath3d/PathFollow3D" groups=["Block"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_hlwht")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CarOnPath3d/PathFollow3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74900556, -0.0032958984)
+shape = SubResource("BoxShape3D_lnfud")

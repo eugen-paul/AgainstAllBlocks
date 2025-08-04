@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6d1ioykt6nq6"]
+
+[ext_resource type="Texture2D" uid="uid://3yv4oq37831b" path="res://assets/textures/world/stonestreet.png" id="1_twbd3"]
+[ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="2_h5wxb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4g1q"]
+albedo_texture = ExtResource("1_twbd3")
+uv1_scale = Vector3(5, 5, 5)
+uv1_offset = Vector3(0.2, 0, 0)
+uv1_triplanar_sharpness = 0.05440938
+uv1_world_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xn4p2"]
+material = SubResource("StandardMaterial3D_t4g1q")
+top_radius = 4.0
+bottom_radius = 4.0
+height = 10.0
+radial_segments = 12
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bx1m"]
+albedo_texture = ExtResource("2_h5wxb")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_po7ww"]
+material = SubResource("StandardMaterial3D_2bx1m")
+top_radius = 5.0
+bottom_radius = 5.0
+height = 10.0
+radial_segments = 8
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxesk"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pq5j4"]
+material = SubResource("StandardMaterial3D_kxesk")
+top_radius = 1.5
+bottom_radius = 2.0
+radial_segments = 8
+rings = 0
+cap_bottom = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_twbd3"]
+size = Vector3(10, 10, 10.04541)
+
+[node name="Tunnel" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.08199024, 0, 0)
+mesh = SubResource("CylinderMesh_xn4p2")
+skeleton = NodePath("../../../Background")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.3440752, 0, 0)
+mesh = SubResource("CylinderMesh_po7ww")
+skeleton = NodePath("../../../Background")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.556708e-08, 1, 0, -1.5, -4.371139e-08, 0, 0, 0, 1, 4.1010704, 0, 1.4224424)
+mesh = SubResource("CylinderMesh_pq5j4")
+skeleton = NodePath("../../../Background")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.556708e-08, 1, 0, -1.5, -4.371139e-08, 0, 0, 0, 1, 4.1010704, 0, -1.5775576)
+mesh = SubResource("CylinderMesh_pq5j4")
+skeleton = NodePath("../../../Background")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3526001, -0.036010742, -0.012451172)
+shape = SubResource("BoxShape3D_twbd3")
