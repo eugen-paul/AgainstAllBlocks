@@ -44,9 +44,9 @@ public partial class Rocket : CharacterBody3D, AutoSound
             }
             else if (node.IsInGroup("Block"))
             {
-                if (node is ABlock block)
+                if (node is Hitable hitable)
                 {
-                    block.Hit(ScoreBonus, Power);
+                    hitable.Hit(ScoreBonus, Power);
                 }
                 SpawnExplosion(collision.GetPosition());
                 Level.TemporaryDestroyd(this);

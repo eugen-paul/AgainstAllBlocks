@@ -4,16 +4,16 @@ using System;
 public partial class CarOnPath3dBody : StaticBody3D, Hitable
 {
 
-    private Action _changeDirectionCallback;
+    private Action _hitCarCallback;
 
-    public void SetChangeDirectionCallback(Action changeDirectionCallback)
+    public void SetHitCarCallback(Action hitCarCallback)
     {
-        _changeDirectionCallback = changeDirectionCallback;
+        _hitCarCallback = hitCarCallback;
     }
 
     public void Hit(int scoreBonus, int hitPower = 1)
     {
-        _changeDirectionCallback?.Invoke();
+        _hitCarCallback?.Invoke();
     }
 
 }

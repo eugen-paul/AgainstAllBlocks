@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cm8yqahbc346"]
+[gd_scene load_steps=21 format=3 uid="uid://cm8yqahbc346"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_uyuyy"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_dmmtj"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="9_po7ww"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="10_kxesk"]
 [ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="11_pq5j4"]
+[ext_resource type="PackedScene" uid="uid://drl0sa2g241ub" path="res://scenes/world/Fir.tscn" id="12_t4g1q"]
+[ext_resource type="PackedScene" uid="uid://hrhxph4lyun" path="res://scenes/world/FirPart2.tscn" id="13_xn4p2"]
 [ext_resource type="Texture2D" uid="uid://xq4xd5s8yr0l" path="res://assets/textures/world/road.png" id="14_6byep"]
 [ext_resource type="PackedScene" uid="uid://b6d1ioykt6nq6" path="res://scenes/world/Tunnel.tscn" id="14_t4g1q"]
 [ext_resource type="PackedScene" uid="uid://dufphs5u7tscx" path="res://scenes/world/CarOnPath3d.tscn" id="15_t4g1q"]
@@ -187,13 +189,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 mesh = SubResource("PlaneMesh_7ljgx")
 surface_material_override/0 = SubResource("StandardMaterial3D_nev20")
 
+[node name="Fir" parent="Background" instance=ExtResource("12_t4g1q")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4, 0, -24)
+ParkScene = ExtResource("13_xn4p2")
+Seed = 3
+
+[node name="Fir2" parent="Background" instance=ExtResource("12_t4g1q")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 14, 0, -19)
+Seed = 9
+
+[node name="Fir3" parent="Background" instance=ExtResource("12_t4g1q")]
+transform = Transform3D(4.8, 0, 0, 0, 4.8, 0, 0, 0, 4.8, 13, 0, -33)
+PartsCount = 4
+Seed = 12
+
+[node name="Fir4" parent="Background" instance=ExtResource("12_t4g1q")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -18, 0, -8)
+PartsCount = 4
+Seed = 14
+
+[node name="Fir5" parent="Background" instance=ExtResource("12_t4g1q")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14, 0, -21)
+ParkScene = ExtResource("13_xn4p2")
+PartsCount = 6
+Seed = 16
+
+[node name="Fir6" parent="Background" instance=ExtResource("12_t4g1q")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 18, 0, -5)
+Seed = 18
+
+[node name="Fir7" parent="Background" instance=ExtResource("12_t4g1q")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -7, 0, -29)
+Seed = 20
+
 [node name="Road" type="Node3D" parent="."]
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, -0.0014529228, 0, 6.2054796)
 
-[node name="Node3D" parent="Road" instance=ExtResource("15_t4g1q")]
+[node name="CarOnPath1" parent="Road" instance=ExtResource("15_t4g1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.3985662)
 
-[node name="Node3D2" parent="Road" instance=ExtResource("15_t4g1q")]
+[node name="CarOnPath2" parent="Road" instance=ExtResource("15_t4g1q")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 2.517283)
 
 [node name="Road" type="MeshInstance3D" parent="Road"]

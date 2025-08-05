@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drl0sa2g241ub"]
+
+[ext_resource type="Script" uid="uid://3icpq0b1kugu" path="res://skripts/world/Fir.cs" id="1_shroh"]
+
+[node name="Fir" type="Node3D"]
+script = ExtResource("1_shroh")

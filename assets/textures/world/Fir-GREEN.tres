@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bex28lkv0q1tt"]
+
+[ext_resource type="Texture2D" uid="uid://bxk7tm1xs02ti" path="res://assets/textures/world/Fir-GREEN.png" id="1_lidls"]
+
+[resource]
+albedo_texture = ExtResource("1_lidls")

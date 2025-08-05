@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using Godot;
 
@@ -8,13 +9,17 @@ public partial class CarOnPath3d : Node3D
     private const string CAR_PATH = "CarOnPath3d/PathFollow3D/Car";
     private const string COLLISION_BODY_PATH = "CarOnPath3d/PathFollow3D/StaticBody3D";
 
-    [Export] private float speed = 10.0f;
+    [Export] private float maxSpeed = 10.0f;
+    [Export] private float acceleration = 4.0f;
+    [Export] private float waitAfterHitTime = 2.0f;
+
+    private float currentSpeed = 10.0f;
+    private float waitingTime = 0.0f;
 
     public override void _Ready()
     {
         base._Ready();
-        GetNodeOrNull<Car>(CAR_PATH)?.SetRandomColor();
-        GetNodeOrNull<CarOnPath3dBody>(COLLISION_BODY_PATH)?.SetChangeDirectionCallback(ResetMoving);
+        InitCarOnPathBody();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -23,13 +28,10 @@ public partial class CarOnPath3d : Node3D
         MoveCarOnPath(delta);
     }
 
-    private void ResetMoving()
+    private void HitCar()
     {
-        var pathFollow = GetNodeOrNull<PathFollow3D>(PATHFOLLOW3D_PATH);
-        pathFollow?.SetProgress(0);
-        
-        var car = GetNodeOrNull<Car>(CAR_PATH);
-        car?.SetRandomColor();
+        currentSpeed = 0;
+        waitingTime = 0;
     }
 
     private void MoveCarOnPath(double delta)
@@ -37,13 +39,42 @@ public partial class CarOnPath3d : Node3D
         var path = GetNodeOrNull<Path3D>(PATH3D_PATH);
         var pathFollow = GetNodeOrNull<PathFollow3D>(PATHFOLLOW3D_PATH);
         var car = GetNodeOrNull<Car>(CAR_PATH);
-        if (path!= null && pathFollow != null && car != null)
+        if (path != null && pathFollow != null && car != null)
         {
-            pathFollow.Progress += (float)(delta * speed);
-            if (pathFollow.Progress >= path.GetCurve().GetBakedLength())
+            if (waitingTime < waitAfterHitTime)
             {
-                ResetMoving();
+                waitingTime += (float)delta;
+            }
+            else
+            {
+                if (currentSpeed < maxSpeed)
+                {
+                    currentSpeed = Math.Min(currentSpeed + (float)(acceleration * delta), maxSpeed);
+                }
+
+                pathFollow.Progress += (float)(delta * currentSpeed);
+                if (pathFollow.Progress >= path.GetCurve().GetBakedLength())
+                {
+                    InitCarOnPathBody();
+                }
             }
         }
+    }
+
+    private void InitCarOnPathBody()
+    {
+        var carOnPathBody = GetNodeOrNull<CarOnPath3dBody>(COLLISION_BODY_PATH);
+        carOnPathBody?.SetHitCarCallback(HitCar);
+
+        GetNodeOrNull<Car>(CAR_PATH)?.SetRandomColor();
+
+        var pathFollow = GetNodeOrNull<PathFollow3D>(PATHFOLLOW3D_PATH);
+        if (pathFollow != null)
+        {
+            pathFollow.Progress = 0;
+        }
+
+        currentSpeed = maxSpeed;
+        waitingTime = waitAfterHitTime;
     }
 }
