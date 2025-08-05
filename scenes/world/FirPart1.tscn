@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://o7q1qyomsvge"]
+
+[ext_resource type="PackedScene" uid="uid://b4amowifs1jah" path="res://assets/blender/world/fir_1.gltf" id="1_w1hy7"]
+[ext_resource type="Script" uid="uid://bnbukwc5gej57" path="res://skripts/world/FirPart.cs" id="1_ynokp"]
+
+[node name="FirPart" type="Node3D"]
+script = ExtResource("1_ynokp")
+
+[node name="fir_1" parent="." instance=ExtResource("1_w1hy7")]

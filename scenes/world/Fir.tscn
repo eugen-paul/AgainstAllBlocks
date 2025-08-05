@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://drl0sa2g241ub"]
+
+[ext_resource type="Script" uid="uid://3icpq0b1kugu" path="res://skripts/world/Fir.cs" id="1_shroh"]
+[ext_resource type="PackedScene" uid="uid://o7q1qyomsvge" path="res://scenes/world/FirPart1.tscn" id="2_arglc"]
+
+[node name="Fir" type="Node3D"]
+script = ExtResource("1_shroh")
+ParkScene = ExtResource("2_arglc")

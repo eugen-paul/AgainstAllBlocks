@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bjnalgrg0888b"]
+
+[ext_resource type="Texture2D" uid="uid://dgf8gfmnd581c" path="res://assets/textures/world/Fir-SNOW.png" id="1_cwngx"]
+
+[resource]
+albedo_texture = ExtResource("1_cwngx")

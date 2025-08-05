@@ -14,7 +14,7 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnfud"]
 size = Vector3(1.574, 1.537122, 3.2751465)
 
-[node name="Node3D" type="Node3D"]
+[node name="CarOnPath" type="Node3D"]
 script = ExtResource("1_lnfud")
 
 [node name="CarOnPath3d" type="Path3D" parent="."]
