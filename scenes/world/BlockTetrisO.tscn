@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjvo5nc236kqy"]
 
-[ext_resource type="Script" uid="uid://dwh8bk4lumkkh" path="res://skripts/world/BlockTetrisI.cs" id="1_gjc8c"]
+[ext_resource type="Script" uid="uid://dwh8bk4lumkkh" path="res://skripts/world/BlockTetris.cs" id="1_gjc8c"]
 [ext_resource type="PackedScene" uid="uid://c44r1l7six3en" path="res://scenes/world/TetrisO.tscn" id="2_sl5ic"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]

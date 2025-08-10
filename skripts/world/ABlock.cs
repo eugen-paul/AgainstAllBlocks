@@ -50,6 +50,25 @@ public abstract partial class ABlock : CharacterBody3D, Hitable, ContainItem
 
     protected abstract void EditDamageEffect();
 
+    public virtual Aabb GetGlobalAABB()
+    {
+        var collisionShape = GetNode<CollisionShape3D>("CollisionShape3D");
+        if (collisionShape == null)
+        {
+            return new Aabb();
+        }
+        
+        if (collisionShape.Shape is not BoxShape3D boxShape)
+        {
+            GD.PushError("CollisionShape3D does not have a BoxShape3D shape.");
+            return new Aabb();
+        }
+
+        var size = boxShape.Size;
+        var center = collisionShape.GlobalPosition;
+        return new Aabb(center - size / 2, size);
+    }
+
     protected void InvokeBlockDestroyed(int a, ContainItem b)
     {
         BlockDestroyed.Invoke(a, b);
@@ -68,7 +87,6 @@ public abstract partial class ABlock : CharacterBody3D, Hitable, ContainItem
         item.Position = GlobalPosition + new Vector3(0, 0.5f, 0);
         return item;
     }
-
 
     protected void ShowItem()
     {

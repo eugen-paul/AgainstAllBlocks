@@ -1,18 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://crx2108kah47v"]
 
-[ext_resource type="Script" uid="uid://dwh8bk4lumkkh" path="res://skripts/world/BlockTetrisI.cs" id="1_lnrmy"]
+[ext_resource type="Script" uid="uid://b617ei5mg07ae" path="res://skripts/world/BlockTetrisAABB.cs" id="1_jjdxx"]
 [ext_resource type="PackedScene" uid="uid://hvy5b1sugpce" path="res://scenes/world/TetrisJ.tscn" id="2_qhu3x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulciv"]
 size = Vector3(2, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7yngs"]
-size = Vector3(1, 1, 2)
+size = Vector3(2, 1, 3)
 
 [node name="Block" type="CharacterBody3D" groups=["Block"]]
 collision_layer = 4
 collision_mask = 6
-script = ExtResource("1_lnrmy")
+script = ExtResource("1_jjdxx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -29,3 +29,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, 0)
 visible = false
 billboard = 1
+
+[node name="CollisionShape3DAABB" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+shape = SubResource("BoxShape3D_7yngs")
+disabled = true

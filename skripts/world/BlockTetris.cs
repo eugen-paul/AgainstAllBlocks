@@ -1,7 +1,7 @@
 using Godot;
 
 [Tool]
-public partial class BlockTetrisI : ABlock, ContainItem
+public partial class BlockTetris : ABlock, ContainItem
 {
     public override void _Ready()
     {
@@ -10,4 +10,5 @@ public partial class BlockTetrisI : ABlock, ContainItem
     }
 
     protected override void EditDamageEffect() { }
+
 }

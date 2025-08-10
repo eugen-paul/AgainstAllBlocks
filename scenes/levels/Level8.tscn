@@ -64,9 +64,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -11)
 
 [node name="Block3" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11)
+ItemType = 13
 
 [node name="Block4" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -11)
+ItemType = 13
 
 [node name="Block5" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11)
@@ -107,6 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 [node name="Block1" parent="AllBlocks/Row3" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
 Color = 2
+ItemType = 13
 
 [node name="Block2" parent="AllBlocks/Row3" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7)
@@ -131,6 +134,7 @@ ItemType = 10
 [node name="Block6" parent="AllBlocks/Row3" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -7)
 Color = 2
+ItemType = 13
 
 [node name="Row4" type="Node3D" parent="AllBlocks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://ki1dkv6yftia"]
+
+[ext_resource type="PackedScene" uid="uid://dcq4jcmibpvp3" path="res://assets/blender/world/ufo.gltf" id="1_a24m8"]
+[ext_resource type="Texture2D" uid="uid://bkpvwd2m7vcwh" path="res://assets/textures/world/UFO.png" id="2_k2p4t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y8me"]
+albedo_texture = ExtResource("2_k2p4t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a24m8"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_k2p4t"]
+inner_radius = 0.8
+outer_radius = 0.85
+rings = 12
+ring_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7iv3"]
+albedo_color = Color(1, 1, 0.37254903, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hssaq"]
+albedo_color = Color(0, 1, 0.18431373, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_jrbgr"]
+material = SubResource("StandardMaterial3D_hssaq")
+inner_radius = 0.3
+outer_radius = 0.5
+rings = 12
+ring_segments = 6
+
+[node name="UFO" type="Node3D"]
+
+[node name="ufo" parent="." instance=ExtResource("1_a24m8")]
+
+[node name="Cube" parent="ufo" index="0"]
+material_override = SubResource("StandardMaterial3D_2y8me")
+surface_material_override/0 = SubResource("StandardMaterial3D_a24m8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4794895, 0)
+mesh = SubResource("TorusMesh_k2p4t")
+surface_material_override/0 = SubResource("StandardMaterial3D_v7iv3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42433304, 0)
+mesh = SubResource("TorusMesh_jrbgr")
+
+[editable path="ufo"]

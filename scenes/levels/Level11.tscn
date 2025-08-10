@@ -1,0 +1,212 @@
+[gd_scene load_steps=22 format=3 uid="uid://b45yemd4x7cq5"]
+
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_5stxv"]
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_xny6x"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_6u23j"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="4_uytqt"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="5_8syl2"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="6_pel7f"]
+[ext_resource type="PackedScene" uid="uid://5ay6frb11dur" path="res://scenes/world/MovingBlock.tscn" id="7_bslhr"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="7_grq4t"]
+[ext_resource type="PackedScene" uid="uid://cjvo5nc236kqy" path="res://scenes/world/BlockTetrisO.tscn" id="8_ge53f"]
+[ext_resource type="PackedScene" uid="uid://cohv2lojgck8e" path="res://scenes/world/BlockTetrisI.tscn" id="9_ge53f"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="9_j66xf"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="10_nfdmx"]
+[ext_resource type="PackedScene" uid="uid://oelc8xv1mmug" path="res://scenes/world/BlockTetrisT.tscn" id="11_bggyc"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="11_kcmtm"]
+[ext_resource type="PackedScene" uid="uid://crx2108kah47v" path="res://scenes/world/BlockTetrisJ.tscn" id="12_5stxv"]
+[ext_resource type="Texture2D" uid="uid://38tgm31qyca6" path="res://assets/textures/world/grass.png" id="12_vlplf"]
+[ext_resource type="PackedScene" uid="uid://drl0sa2g241ub" path="res://scenes/world/Fir.tscn" id="17_xny6x"]
+[ext_resource type="PackedScene" uid="uid://hrhxph4lyun" path="res://scenes/world/FirPart2.tscn" id="18_6u23j"]
+[ext_resource type="PackedScene" uid="uid://ki1dkv6yftia" path="res://scenes/world/UFO.tscn" id="19_uytqt"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3pwbt"]
+size = Vector2(50, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ih3nj"]
+albedo_texture = ExtResource("12_vlplf")
+uv1_scale = Vector3(10, 20, 1)
+
+[node name="Level11" type="Node"]
+script = ExtResource("1_5stxv")
+Level = 11
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_xny6x")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("3_6u23j")
+
+[node name="CameraPivot" parent="." instance=ExtResource("4_uytqt")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("5_8syl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Paddle" parent="." instance=ExtResource("6_pel7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="MovingBlock" parent="AllBlocks" instance=ExtResource("7_bslhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -13)
+MinZ = -13.0
+MaxZ = 12.0
+
+[node name="Raw1" type="Node3D" parent="AllBlocks/MovingBlock"]
+
+[node name="Block1" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Block2" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Block3" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="Block4" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+ItemType = 5
+
+[node name="Block5" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+ItemType = 5
+
+[node name="Block6" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 1)
+
+[node name="Block7" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 1)
+
+[node name="Block8" parent="AllBlocks/MovingBlock/Raw1" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 1)
+
+[node name="Raw2" type="Node3D" parent="AllBlocks/MovingBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="BlockI1" parent="AllBlocks/MovingBlock/Raw2" instance=ExtResource("9_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1)
+ItemType = 2
+
+[node name="BlockI2" parent="AllBlocks/MovingBlock/Raw2" instance=ExtResource("9_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1)
+
+[node name="BlockI3" parent="AllBlocks/MovingBlock/Raw2" instance=ExtResource("9_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 1)
+ItemType = 2
+
+[node name="Raw3" type="Node3D" parent="AllBlocks/MovingBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Block1" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
+Color = 4
+
+[node name="Block2" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1)
+Color = 4
+
+[node name="Block3" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1)
+Color = 4
+
+[node name="Block4" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 1)
+Color = 4
+
+[node name="Block5" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 1)
+Color = 4
+
+[node name="Raw4" type="Node3D" parent="AllBlocks/MovingBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Block1" parent="AllBlocks/MovingBlock/Raw4" instance=ExtResource("11_bggyc")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0, 2)
+
+[node name="Block2" parent="AllBlocks/MovingBlock/Raw4" instance=ExtResource("11_bggyc")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 14.5, 0, 1)
+
+[node name="Block3" parent="AllBlocks/MovingBlock/Raw4" instance=ExtResource("11_bggyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 1)
+
+[node name="Block4" parent="AllBlocks/MovingBlock/Raw4" instance=ExtResource("11_bggyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 1)
+
+[node name="Block5" parent="AllBlocks/MovingBlock/Raw4" instance=ExtResource("11_bggyc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8, 0, 2)
+ItemType = 3
+
+[node name="Raw5" type="Node3D" parent="AllBlocks/MovingBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Block1" parent="AllBlocks/MovingBlock/Raw5" instance=ExtResource("12_5stxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+ItemType = 5
+
+[node name="Block2" parent="AllBlocks/MovingBlock/Raw5" instance=ExtResource("12_5stxv")]
+transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 5, 0, 0)
+
+[node name="Block3" parent="AllBlocks/MovingBlock/Raw5" instance=ExtResource("12_5stxv")]
+transform = Transform3D(-1.172251e-07, 0, 1, 0, 1, 0, -1, 0, -1.172251e-07, 11, 0, 0)
+
+[node name="Block4" parent="AllBlocks/MovingBlock/Raw5" instance=ExtResource("12_5stxv")]
+transform = Transform3D(-1, 0, -1.6093648e-07, 0, 1, 0, 1.6093648e-07, 0, -1, 13, 0, -1)
+ItemType = 5
+
+[node name="Raw6" type="Node3D" parent="AllBlocks/MovingBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Block1" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Block2" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Block3" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="Block4" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+
+[node name="Block5" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+
+[node name="Block6" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 1)
+
+[node name="Block7" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 1)
+
+[node name="Block8" parent="AllBlocks/MovingBlock/Raw6" instance=ExtResource("8_ge53f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 1)
+
+[node name="GameHud" parent="." instance=ExtResource("9_j66xf")]
+
+[node name="Explosion" parent="." instance=ExtResource("10_nfdmx")]
+
+[node name="Ground" parent="." instance=ExtResource("11_kcmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.402786)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Grass" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_3pwbt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ih3nj")
+
+[node name="Fir" parent="Background" instance=ExtResource("17_xny6x")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -12, 0, -21)
+ParkScene = ExtResource("18_6u23j")
+
+[node name="Fir2" parent="Background" instance=ExtResource("17_xny6x")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -1, 0, -25)
+ParkScene = ExtResource("18_6u23j")
+
+[node name="Fir3" parent="Background" instance=ExtResource("17_xny6x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 15, 0, -14)
+ParkScene = ExtResource("18_6u23j")
+Seed = 5
+
+[node name="UFO" parent="Background" instance=ExtResource("19_uytqt")]
+transform = Transform3D(1.224311, 0, -5.8737607, 0, 6, 0, 5.8737607, 0, 1.224311, 10, 0, -24)
+
+[editable path="CameraPivot"]
