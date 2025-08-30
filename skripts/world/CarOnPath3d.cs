@@ -1,5 +1,5 @@
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using Godot;
 
 public partial class CarOnPath3d : Node3D
@@ -8,6 +8,8 @@ public partial class CarOnPath3d : Node3D
     private const string PATHFOLLOW3D_PATH = "CarOnPath3d/PathFollow3D";
     private const string CAR_PATH = "CarOnPath3d/PathFollow3D/Car";
     private const string COLLISION_BODY_PATH = "CarOnPath3d/PathFollow3D/StaticBody3D";
+
+    private readonly List<long> hitTimestamps = [];
 
     [Export] private float maxSpeed = 10.0f;
     [Export] private float acceleration = 4.0f;
@@ -32,6 +34,18 @@ public partial class CarOnPath3d : Node3D
     {
         currentSpeed = 0;
         waitingTime = 0;
+
+        //if we have more than 10 hits in the last second, reset the car, to avoid getting stuck
+        var currentTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        hitTimestamps.Add(currentTime);
+        while (hitTimestamps.Count > 0 && currentTime - hitTimestamps[0] > 1000)
+        {
+            hitTimestamps.RemoveAt(0);
+        }
+        if (hitTimestamps.Count > 10)
+        {
+            InitCarOnPathBody();
+        }
     }
 
     private void MoveCarOnPath(double delta)
@@ -76,5 +90,6 @@ public partial class CarOnPath3d : Node3D
 
         currentSpeed = maxSpeed;
         waitingTime = waitAfterHitTime;
+        hitTimestamps.Clear();
     }
 }
