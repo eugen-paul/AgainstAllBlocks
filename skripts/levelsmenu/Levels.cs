@@ -36,7 +36,7 @@ public partial class Levels : CanvasLayer
             child.QueueFree();
         }
 
-        for (int i = 1; i < levelsData.Count; i++)
+        for (int i = 1; i <= levelsData.Count; i++)
         {
             var lvl = LevelSelectionScene.Instantiate<LevelProgress>();
             lvl.Init(levelsData[i]);

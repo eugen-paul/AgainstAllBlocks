@@ -26,9 +26,9 @@ public class CurrentGameData
         Levels = new Dictionary<int, LevelProgressData>();
         for (int i = 1; i < GameScenePaths.LEVELS.Count; i++)
         {
-            if (builder.Levels.ContainsKey(i))
+            if (builder.Levels.TryGetValue(i, out LevelProgressData value))
             {
-                Levels[i] = builder.Levels[i];
+                Levels[i] = value;
             }
             else
             {

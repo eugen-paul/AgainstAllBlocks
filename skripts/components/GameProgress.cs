@@ -126,21 +126,21 @@ public class GameProgress : GameComponet
 
     public void Save(GameProgressData dataToSave)
     {
-        var game = data.Games.Find(x => x.Id == dataToSave.Id);
-
-        if (game == null)
+        var index = data.Games.FindIndex(x => x.Id == dataToSave.Id);
+        if (index >= 0)
+        {
+            data.Games[index] = dataToSave;
+        }
+        else
         {
             if (data.Games.Count >= MAX_GAMES)
             {
                 Debug.Print("Maximum number of save games reached.");
                 return;
             }
+            data.Games.Add(dataToSave);
         }
-        else
-        {
-            data.Games.Remove(game);
-        }
-        data.Games.Add(dataToSave);
+
         Save();
     }
 
