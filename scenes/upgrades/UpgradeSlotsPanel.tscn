@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://bpjq8iu1rkgnm" path="res://skripts/upgrades/UpgradeSlotsPanel.cs" id="1_uucjg"]
 
 [node name="CenterContainer" type="CenterContainer"]
+custom_minimum_size = Vector2(348, 0)
 offset_right = 348.0
 offset_bottom = 84.0
+size_flags_horizontal = 3
 theme = ExtResource("1_lpg4k")
 script = ExtResource("1_uucjg")
 

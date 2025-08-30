@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8qwycv8t1trv"]
+[gd_scene load_steps=6 format=3 uid="uid://c8qwycv8t1trv"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_74542"]
 [ext_resource type="Script" uid="uid://87t1klpanlh0" path="res://skripts/upgrades/UpgradeItemPanel.cs" id="2_j8knt"]
+[ext_resource type="StyleBox" uid="uid://dnuev6e5pmkqa" path="res://scenes/upgrades/upgradePanel.tres" id="3_00rb6"]
 [ext_resource type="PackedScene" uid="uid://k2a405xa84tn" path="res://scenes/upgrades/upgradeItemIcon.tscn" id="3_vdvc4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35ay7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwvnf"]
 
 [node name="UpgradeItemPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(380, 70)
@@ -12,17 +13,22 @@ offset_right = 380.0
 offset_bottom = 70.0
 size_flags_horizontal = 3
 theme = ExtResource("1_74542")
-theme_override_styles/panel = SubResource("StyleBoxEmpty_35ay7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mwvnf")
 script = ExtResource("2_j8knt")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("3_00rb6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 

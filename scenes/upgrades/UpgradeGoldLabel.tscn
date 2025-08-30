@@ -1,17 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://d33drh6duqexa"]
+[gd_scene load_steps=5 format=3 uid="uid://d33drh6duqexa"]
 
 [ext_resource type="Script" uid="uid://dh0yvvq8me54w" path="res://skripts/upgrades/UpgradeGoldLabel.cs" id="1_ohhht"]
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="2_8o1j1"]
+[ext_resource type="StyleBox" uid="uid://dnuev6e5pmkqa" path="res://scenes/upgrades/upgradePanel.tres" id="3_swuew"]
+[ext_resource type="Texture2D" uid="uid://d4ncmkdk2efva" path="res://assets/textures/gui/goldenBall-GOLD.png" id="4_swuew"]
 
 [node name="GoldLabel" type="HBoxContainer"]
 offset_right = 88.0
 offset_bottom = 33.0
 script = ExtResource("1_ohhht")
 
-[node name="Label" type="Label" parent="."]
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(150, 70)
 layout_mode = 2
-text = "UIM_GOLD:"
+theme = ExtResource("2_8o1j1")
+theme_override_styles/panel = ExtResource("3_swuew")
 
-[node name="GoldValueLabel" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 10
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_swuew")
+stretch_mode = 2
+
+[node name="GoldValueLabel" type="Label" parent="Panel/MarginContainer"]
 auto_translate_mode = 2
 layout_mode = 2
+size_flags_horizontal = 8
 localize_numeral_system = false
+text = "321"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+text = "UIM_GOLD:"

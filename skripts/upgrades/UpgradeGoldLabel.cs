@@ -2,6 +2,9 @@ using Godot;
 
 public partial class UpgradeGoldLabel : HBoxContainer, IUpgradeListener
 {
+
+    private static readonly string GOLD_LABEL_PATH = "Panel/MarginContainer/GoldValueLabel";
+
     public override void _EnterTree()
     {
         GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().AddListener(this);
@@ -15,7 +18,7 @@ public partial class UpgradeGoldLabel : HBoxContainer, IUpgradeListener
 
     private void SetGoldValue(int Gold)
     {
-        GetNode<Label>("GoldValueLabel").Text = Gold.ToString();
+        GetNode<Label>(GOLD_LABEL_PATH).Text = Gold.ToString();
     }
 
     public void UpgrageDataChange(AUpgradeSignal upgradeSignal)
