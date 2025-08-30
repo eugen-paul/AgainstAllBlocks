@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://f3mko01jekbp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tum4o"]
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hrud5"]
+top_radius = 1.0
+bottom_radius = 1.0
+radial_segments = 12
+rings = 1
+
+[node name="StaticBody3D" type="StaticBody3D" groups=["Wall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_tum4o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_hrud5")

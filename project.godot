@@ -35,6 +35,10 @@ project/assembly_name="AgainstAllBlocks"
 
 import/blender/enabled=false
 
+[global_group]
+
+Wall="Wall :)"
+
 [input]
 
 shoot={
