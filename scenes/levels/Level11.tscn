@@ -99,22 +99,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 [node name="Block1" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 Color = 4
+Power = 2
 
 [node name="Block2" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1)
 Color = 4
+Power = 2
 
 [node name="Block3" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1)
 Color = 4
+Power = 2
 
 [node name="Block4" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 1)
 Color = 4
+Power = 2
 
 [node name="Block5" parent="AllBlocks/MovingBlock/Raw3" instance=ExtResource("7_grq4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 1)
 Color = 4
+Power = 2
 
 [node name="Raw4" type="Node3D" parent="AllBlocks/MovingBlock"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
