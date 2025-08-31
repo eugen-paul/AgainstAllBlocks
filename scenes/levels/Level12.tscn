@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cf6y5mr7rq0sr"]
+[gd_scene load_steps=31 format=3 uid="uid://cf6y5mr7rq0sr"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_ntqvd"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_dg8ko"]
@@ -21,6 +21,57 @@ size = Vector2(50, 100)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0q27"]
 albedo_texture = ExtResource("12_r2wqc")
 uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_aq8cv"]
+size = Vector2(10, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw76o"]
+albedo_color = Color(0.43904907, 0.43904915, 0.43904895, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_jiyf8"]
+size = Vector2(9, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kco4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_0upgq"]
+text = "RED"
+font_size = 127
+uppercase = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1ll7"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_bi80g"]
+text = "BLUE"
+font_size = 127
+uppercase = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdkd6"]
+albedo_color = Color(0, 0.5019608, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hlxf4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2wqc"]
+albedo_color = Color(1, 0, 0, 1)
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjko5"]
+albedo_color = Color(0, 0.2901961, 1, 1)
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_aq8cv"]
+size = Vector3(1, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jiyf8"]
+albedo_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+billboard_keep_scale = true
+stencil_flags = 2
+stencil_outline_thickness = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq8cv"]
 size = Vector3(1, 2.5297852, 27.467773)
@@ -267,6 +318,183 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, -0.032081366)
 mesh = SubResource("PlaneMesh_gthn1")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_c0q27")
+
+[node name="RedPanel" type="Node3D" parent="Background"]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -8.299155, 3.6703424, -18.452868)
+
+[node name="Panel" type="MeshInstance3D" parent="Background/RedPanel"]
+mesh = SubResource("QuadMesh_aq8cv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uw76o")
+
+[node name="Panel2" type="MeshInstance3D" parent="Background/RedPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+mesh = SubResource("QuadMesh_jiyf8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7kco4")
+
+[node name="Text" type="MeshInstance3D" parent="Background/RedPanel"]
+transform = Transform3D(1.9999998, 0, 0, 0, 2, 0, 0, 0, 1.9999998, 0, 0, 0.030253649)
+mesh = SubResource("TextMesh_0upgq")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_v1ll7")
+
+[node name="BluePanel" type="Node3D" parent="Background"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 8.299, 3.67, -18.453)
+
+[node name="Panel" type="MeshInstance3D" parent="Background/BluePanel"]
+mesh = SubResource("QuadMesh_aq8cv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uw76o")
+
+[node name="Panel2" type="MeshInstance3D" parent="Background/BluePanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+mesh = SubResource("QuadMesh_jiyf8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7kco4")
+
+[node name="Text" type="MeshInstance3D" parent="Background/BluePanel"]
+transform = Transform3D(1.9999998, 0, 0, 0, 2, 0, 0, 0, 1.9999998, 0, 0, 0.030253649)
+mesh = SubResource("TextMesh_bi80g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_hdkd6")
+
+[node name="SmallWall1" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 0, -38)
+WallType = 1
+
+[node name="SmallWall6" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 0, -34)
+WallType = 1
+
+[node name="SmallWall2" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 0, -26)
+WallType = 1
+
+[node name="SmallWall7" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 0, -22)
+WallType = 1
+
+[node name="SmallWall3" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -26)
+WallType = 1
+
+[node name="SmallWall8" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -22)
+WallType = 1
+
+[node name="SmallWall4" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -38)
+WallType = 1
+
+[node name="SmallWall5" parent="Background" instance=ExtResource("14_aq8cv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -34)
+WallType = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5, -32)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.9748935, 0, -0.22267164, 0, 1, 0, 0.22267164, 0, 0.9748935, -12, 0.5, -26)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.98673135, 0, -0.16236162, 0, 1, 0, 0.16236162, 0, 0.98673135, -17, 0.5, -24)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.9847562, 0, 0.17394038, 0, 1, 0, -0.17394038, 0, 0.9847562, -18, 0.5, -27)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.5, -27)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 13, 0.5, -32)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.9797295, 0, 0.2003256, 0, 1, 0, -0.2003256, 0, 0.9797295, 18, 0.5, -33)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.9797295, 0, 0.2003256, 0, 1, 0, -0.2003256, 0, 0.9797295, 19.221691, 0.5, -21.044874)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.51977265, 0, 0.8543047, 0, 1, 0, -0.8543047, 0, 0.51977265, 15.672966, 0.5, -22.586533)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.9797295, 0, 0.2003256, 0, 1, 0, -0.2003256, 0, 0.9797295, 17.941822, 0.5, -28.200499)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.98086697, 0, -0.1946795, 0, 1, 0, 0.1946795, 0, 0.98086697, 11.941822, 0.5, -35.2005)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.8820775, 0, -0.4711043, 0, 1, 0, 0.4711043, 0, 0.8820775, 20.144611, 0.5, -29.790152)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjko5")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.5, -33)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.5, -34)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 0.5, -34)
+mesh = SubResource("BoxMesh_aq8cv")
+surface_material_override/0 = SubResource("StandardMaterial3D_jiyf8")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0.5, -34)
+mesh = SubResource("BoxMesh_aq8cv")
+surface_material_override/0 = SubResource("StandardMaterial3D_jiyf8")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -30)
+mesh = SubResource("BoxMesh_aq8cv")
+surface_material_override/0 = SubResource("StandardMaterial3D_jiyf8")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0.5, -27)
+mesh = SubResource("BoxMesh_aq8cv")
+surface_material_override/0 = SubResource("StandardMaterial3D_jiyf8")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 0.5, -27)
+mesh = SubResource("BoxMesh_aq8cv")
+surface_material_override/0 = SubResource("StandardMaterial3D_jiyf8")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.91507936, 0, 0.40327382, 0, 1, 0, -0.40327382, 0, 0.91507936, -14, 0.5, -24)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.94083345, 0, -0.33886927, 0, 1, 0, 0.33886927, 0, 0.94083345, -15, 0.5, -30)
+mesh = SubResource("BoxMesh_hlxf4")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
 
 [node name="Wall" type="Node3D" parent="."]
 
