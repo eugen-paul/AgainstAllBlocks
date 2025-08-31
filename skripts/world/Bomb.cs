@@ -9,11 +9,9 @@ public partial class Bomb : CharacterBody3D, AutoSound
     [Export]
     public float StartHeight { get; set; } = 22.0f;
 
-    [Export]
-    public float Explosionradius { get; set; } = 2.0f;
+    public float explosionradius = 2.0f;
 
-    [Export]
-    public int ScoreBonus { get; set; } = 20;
+    public int scoreBonus = 0;
 
     [Export]
     public PackedScene ExplosionScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_BOMB_EXPLOSION_SCENE);
@@ -30,7 +28,11 @@ public partial class Bomb : CharacterBody3D, AutoSound
     {
         if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_POWER))
         {
-            Explosionradius = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_POWER) + 2f;
+            explosionradius = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_POWER) + 2f;
+        }
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_SCORE))
+        {
+            scoreBonus = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_SCORE);
         }
     }
 
@@ -55,7 +57,7 @@ public partial class Bomb : CharacterBody3D, AutoSound
         {
             if (node is ABlock block)
             {
-                if (GlobalPosition.DistanceTo(block.GlobalPosition) <= Explosionradius)
+                if (GlobalPosition.DistanceTo(block.GlobalPosition) <= explosionradius)
                 {
                     hits.Add(block);
                 }
@@ -66,14 +68,14 @@ public partial class Bomb : CharacterBody3D, AutoSound
         {
             if (node is ABlock block)
             {
-                block.Hit(ScoreBonus);
+                block.Hit(scoreBonus);
             }
         }
 
         var explosion = ExplosionScene.Instantiate<Explosion>();
         explosion.Level = Level;
         explosion.Position = GlobalPosition;
-        explosion.Explosionradius = Explosionradius;
+        explosion.Explosionradius = explosionradius;
         Level.AddChild(explosion);
         Level.TemporaryAdd(explosion);
         explosion.Explode();

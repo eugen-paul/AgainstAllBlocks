@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cf6y5mr7rq0sr"]
+[gd_scene load_steps=30 format=3 uid="uid://cf6y5mr7rq0sr"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_ntqvd"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_dg8ko"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="6_dg8ko"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="8_v1ll7"]
 [ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="9_bi80g"]
+[ext_resource type="Texture2D" uid="uid://ceaeuglbpamc3" path="res://assets/textures/world/SmalWall_PLANK_2.png" id="12_aq8cv"]
 [ext_resource type="PackedScene" uid="uid://b4k2540jks2cy" path="res://scenes/world/ground8.tscn" id="12_dg8ko"]
 [ext_resource type="PackedScene" uid="uid://ibgrooiadd32" path="res://scenes/world/Walls8.tscn" id="12_ntqvd"]
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="12_r2wqc"]
@@ -66,7 +67,7 @@ stencil_outline_thickness = 0.1
 size = Vector3(1, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jiyf8"]
-albedo_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+albedo_texture = ExtResource("12_aq8cv")
 billboard_keep_scale = true
 stencil_flags = 2
 stencil_outline_thickness = 0.1

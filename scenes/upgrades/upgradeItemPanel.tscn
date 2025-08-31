@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8qwycv8t1trv"]
+[gd_scene load_steps=7 format=3 uid="uid://c8qwycv8t1trv"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_74542"]
 [ext_resource type="Script" uid="uid://87t1klpanlh0" path="res://skripts/upgrades/UpgradeItemPanel.cs" id="2_j8knt"]
@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://k2a405xa84tn" path="res://scenes/upgrades/upgradeItemIcon.tscn" id="3_vdvc4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwvnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00rb6"]
+bg_color = Color(0, 0, 0, 0.1254902)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [node name="UpgradeItemPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(380, 70)
@@ -32,8 +40,25 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" parent="Panel/HBoxContainer" instance=ExtResource("3_vdvc4")]
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(66, 66)
 layout_mode = 2
+theme = ExtResource("1_74542")
+theme_override_styles/panel = SubResource("StyleBoxFlat_00rb6")
+
+[node name="TextureRect" parent="Panel/HBoxContainer/Panel" instance=ExtResource("3_vdvc4")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer"]

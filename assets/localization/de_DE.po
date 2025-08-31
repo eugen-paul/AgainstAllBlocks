@@ -241,6 +241,26 @@ msgid "UPGRADE_BOMB_POWER_3."
 msgstr "Explosionsradius um 3 Meter vergrößert."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_SCORE."
+msgstr "Extrapunkte bei jedem Upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_SCORE_0."
+msgstr "Keine Extrapunkte."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_SCORE_1."
+msgstr "1 Extrapunkt pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_SCORE_2."
+msgstr "2 Extrapunkte pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_SCORE_3."
+msgstr "3 Extrapunkte pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
 msgstr "Kaufe einen neuen Upgrade-Slot für {0} Gold."
 

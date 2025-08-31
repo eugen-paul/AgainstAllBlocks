@@ -3,7 +3,7 @@ using Godot;
 
 public partial class UpgradeItemPanel : PanelContainer, IUpgradeListener
 {
-    private static readonly string UPGRADE_ICON_PATH = "Panel/HBoxContainer/TextureRect";
+    private static readonly string UPGRADE_ICON_PATH = "Panel/HBoxContainer/Panel/TextureRect";
     private static readonly string UPGRADE_LABEL_PATH = "Panel/HBoxContainer/Label";
     private static readonly string UPGRADE_BUTTON_PATH = "Panel/HBoxContainer/UpgradeButton";
     private static readonly string INFO_BUTTON_PATH = "Panel/HBoxContainer/InfoButton";

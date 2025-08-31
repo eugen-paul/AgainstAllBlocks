@@ -75,6 +75,18 @@ public class UpgradeItemInfo
                                                    "res://assets/textures/gui/upgrades/BOMB_POWER-1.png",
                                                    "res://assets/textures/gui/upgrades/BOMB_POWER-2.png",
                                                    "res://assets/textures/gui/upgrades/BOMB_POWER-3.png",}.ToImmutableList())},
+        {UpgradeType.BOMB_SCORE, new(UpgradeType.BOMB_SCORE,
+                                3,
+                                "UPGRADE_BOMB_SCORE",
+                                new List<string>(){"UPGRADE_BOMB_SCORE_0",
+                                                   "UPGRADE_BOMB_SCORE_1",
+                                                   "UPGRADE_BOMB_SCORE_2",
+                                                   "UPGRADE_BOMB_SCORE_3",}.ToImmutableList(),
+                                new List<int>(){0, 1, 2, 3,}.ToImmutableList(),
+                                new List<string>(){"res://assets/textures/gui/upgrades/BOMB_SCORE-0.png",
+                                                   "res://assets/textures/gui/upgrades/BOMB_SCORE-1.png",
+                                                   "res://assets/textures/gui/upgrades/BOMB_SCORE-2.png",
+                                                   "res://assets/textures/gui/upgrades/BOMB_SCORE-3.png",}.ToImmutableList())},
     }.ToImmutableDictionary();
 
     public static readonly IList<int> SlotsCost = new List<int>() { 5, 20, 40, 70, }.ToImmutableList();
