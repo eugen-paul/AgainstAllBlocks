@@ -273,7 +273,7 @@ msgstr "Back"
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_HOWTO"
-msgstr "How To"
+msgstr "Help"
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_UPGRADE"
@@ -286,6 +286,32 @@ msgstr "New upgrade slot"
 #: scenes/upgrades/Upgrades.tscn
 msgid "UI_MAXSLOT_LABEL."
 msgstr "Maximum number of upgrade slots has been reached."
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP1"
+msgstr "First, buy slots for the upgrades."
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_NEXT"
+msgstr "Next"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP2"
+msgstr "Buy upgrades. Upgrades can have multiple levels of improvement."
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_PREV"
+msgstr "Back"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP3"
+msgstr "Move the upgrade into the upgrade slot to activate it."
+
+#: scenes/upgrades/Upgrades.tscn
+#, fuzzy
+#| msgid "UIM_HOWTO"
+msgid "UI_HOWTO_STEP4"
+msgstr "Help"
 
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_UPGRADE"

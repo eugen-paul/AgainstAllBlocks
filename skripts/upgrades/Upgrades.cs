@@ -22,6 +22,8 @@ public partial class Upgrades : Control, IUpgradeListener
     private static readonly string BUY_SLOTMAX_TEXT_PATH = "BuySlotMenu/Panel/SlotMaxLabel";
     private static readonly string BUY_SLOT_TEXT = "UI_SLOTBUY";
 
+    private static readonly string HOWTO_MENU_PATH = "HowToMenu";
+    
     public Action CloseUpgradeMenuAction;
 
     [Export]
@@ -31,6 +33,13 @@ public partial class Upgrades : Control, IUpgradeListener
     public PackedScene ItemInfoScene { get; set; } = ResourceLoader.Load<PackedScene>(DEFAULT_UPGRADE_ITEM_INFO_PANEL);
 
     private UpgradeType currentUpgradeType = UpgradeType.EMPTY;
+
+    private readonly string[] HowToStepsPaths =
+    [
+        "HowToMenu/Step1",
+        "HowToMenu/Step2",
+        "HowToMenu/Step3",
+    ];
 
     public override void _Ready()
     {
@@ -52,6 +61,7 @@ public partial class Upgrades : Control, IUpgradeListener
 
         SetUpgradeItemMenuVisibile(false);
         SetBuySlotMenuVisibile(false);
+        SetHowToMenuVisibile(false);
         CheckAndSetUpgradeButtonVisible();
     }
 
@@ -75,6 +85,15 @@ public partial class Upgrades : Control, IUpgradeListener
         GetNode<Control>(BUY_SLOT_MENU_PATH).Visible = visible;
     }
 
+    private void SetHowToMenuVisibile(bool visible)
+    {
+        GetNode<Control>(HOWTO_MENU_PATH).Visible = visible;
+        if (visible)
+        {
+            ShowHowToStep(1);
+        }
+    }
+
     private static bool MaxSlotsReached()
     {
         var upgradeController = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController();
@@ -84,6 +103,25 @@ public partial class Upgrades : Control, IUpgradeListener
     private void OnOkButtonPressed()
     {
         CloseUpgradeMenuAction.Invoke();
+    }
+
+    private void OnHowToButtonPressed()
+    {
+        SetUpgradeItemMenuVisibile(false);
+        SetBuySlotMenuVisibile(false);
+        SetHowToMenuVisibile(true);
+    }
+
+    private void ShowHowToStep(int step)
+    {
+        foreach (var path in HowToStepsPaths)
+        {
+            GetNode<Control>(path).Visible = false;
+        }
+        if (step >= 1 && step <= HowToStepsPaths.Length)
+        {
+            GetNode<Control>(HowToStepsPaths[step - 1]).Visible = true;
+        }
     }
 
     private void CheckAndSetUpgradeButtonVisible()

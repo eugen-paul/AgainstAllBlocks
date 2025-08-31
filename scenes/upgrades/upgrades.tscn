@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2nprom2n6xll"]
+[gd_scene load_steps=33 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
 [ext_resource type="Script" uid="uid://bsfbjc3d1yok5" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://jeafqp4ihvyf" path="res://assets/textures/gui/button_close_window-normal.png" id="7_vyss3"]
 [ext_resource type="Texture2D" uid="uid://cakdauap8vekj" path="res://assets/textures/gui/UpgradeSlotBG-EMPTY.png" id="8_mk56c"]
 [ext_resource type="Texture2D" uid="uid://djuaje2ex3wn5" path="res://assets/textures/gui/button_close_window-pressed.png" id="9_a08vn"]
+[ext_resource type="Texture2D" uid="uid://8hbtnixru6il" path="res://assets/textures/gui/Arrow.png" id="12_jih2h"]
+[ext_resource type="Texture2D" uid="uid://doo84dh52h27j" path="res://assets/textures/gui/HandMove.png" id="13_pfomj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a08vn"]
 
@@ -55,6 +57,84 @@ corner_radius_bottom_left = 3
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny5y6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by5l7"]
+
+[sub_resource type="Animation" id="Animation_jih2h"]
+resource_name = "Size"
+length = 2.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pfomj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nwcl5"]
+_data = {
+&"RESET": SubResource("Animation_pfomj"),
+&"Size": SubResource("Animation_jih2h")
+}
+
+[sub_resource type="Animation" id="Animation_nwcl5"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(51, 326), Vector2(51, 326), Vector2(184, 142), Vector2(184, 142)]
+}
+
+[sub_resource type="Animation" id="Animation_p4fyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51, 326)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcbdg"]
+_data = {
+&"RESET": SubResource("Animation_p4fyn"),
+&"move": SubResource("Animation_nwcl5")
+}
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -176,7 +256,6 @@ grow_vertical = 0
 text = "UIM_BACK"
 
 [node name="HowToButton" type="Button" parent="UpgradeMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -420,9 +499,265 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "UIM_UPGRADE"
 
+[node name="HowToMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRectBgInvisible" type="ColorRect" parent="HowToMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Step1" type="Control" parent="HowToMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HowToMenu/Step1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.134
+offset_bottom = 0.08799744
+grow_horizontal = 2
+color = Color(0.10747976, 0.10747973, 0.10747973, 0.78431374)
+
+[node name="ColorRect2" type="ColorRect" parent="HowToMenu/Step1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25100002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.23199463
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.105882354, 0.105882354, 0.105882354, 0.78431374)
+
+[node name="TextEdit" type="RichTextLabel" parent="HowToMenu/Step1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.277
+anchor_right = 1.0
+anchor_bottom = 0.85700005
+offset_left = 8.0
+offset_top = 0.2639923
+offset_right = -8.0
+offset_bottom = -0.17602539
+grow_horizontal = 2
+grow_vertical = 2
+text = "UI_HOWTO_STEP1"
+
+[node name="Arrow" type="TextureRect" parent="HowToMenu/Step1"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 11.000004
+offset_right = 245.0
+offset_bottom = 59.000004
+rotation = 0.72099984
+texture = ExtResource("12_jih2h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HowToMenu/Step1/Arrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_nwcl5")
+}
+autoplay = "Size"
+
+[node name="ButtonNext" type="Button" parent="HowToMenu/Step1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "UI_NEXT"
+
+[node name="Step2" type="Control" parent="HowToMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HowToMenu/Step2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.36600003
+offset_bottom = -0.088012695
+grow_horizontal = 2
+color = Color(0.105882354, 0.105882354, 0.105882354, 0.78431374)
+
+[node name="ColorRect2" type="ColorRect" parent="HowToMenu/Step2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.47500002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.19998169
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.105882354, 0.105882354, 0.105882354, 0.78431374)
+
+[node name="TextEdit" type="RichTextLabel" parent="HowToMenu/Step2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.53300005
+anchor_right = 1.0
+anchor_bottom = 0.85700005
+offset_left = -0.20800018
+offset_top = -0.34405518
+offset_right = -8.0
+offset_bottom = -0.17602539
+grow_horizontal = 2
+grow_vertical = 2
+text = "UI_HOWTO_STEP2"
+
+[node name="Arrow" type="TextureRect" parent="HowToMenu/Step2"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 207.0
+offset_right = 314.0
+offset_bottom = 255.0
+rotation = 0.72099984
+texture = ExtResource("12_jih2h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HowToMenu/Step2/Arrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_nwcl5")
+}
+autoplay = "Size"
+
+[node name="ButtonPrev" type="Button" parent="HowToMenu/Step2"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -56.0
+offset_right = 152.0
+grow_vertical = 0
+text = "UI_PREV"
+
+[node name="ButtonNext" type="Button" parent="HowToMenu/Step2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "UI_NEXT"
+
+[node name="Step3" type="Control" parent="HowToMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HowToMenu/Step3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.36600003
+offset_bottom = -0.088012695
+grow_horizontal = 2
+color = Color(0.105882354, 0.105882354, 0.105882354, 0.78431374)
+
+[node name="ColorRect2" type="ColorRect" parent="HowToMenu/Step3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.47500002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.19998169
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.105882354, 0.105882354, 0.105882354, 0.78431374)
+
+[node name="TextEdit" type="RichTextLabel" parent="HowToMenu/Step3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.53300005
+anchor_right = 1.0
+anchor_bottom = 0.85700005
+offset_left = -0.20800018
+offset_top = -0.34405518
+offset_right = -8.0
+offset_bottom = -0.17602539
+grow_horizontal = 2
+grow_vertical = 2
+text = "UI_HOWTO_STEP3"
+
+[node name="HandMove" type="TextureRect" parent="HowToMenu/Step3"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 326.0
+offset_right = 99.00014
+offset_bottom = 374.00006
+texture = ExtResource("13_pfomj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HowToMenu/Step3/HandMove"]
+libraries = {
+&"": SubResource("AnimationLibrary_rcbdg")
+}
+autoplay = "move"
+
+[node name="ButtonPrev" type="Button" parent="HowToMenu/Step3"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -56.0
+offset_right = 152.0
+grow_vertical = 0
+text = "UI_PREV"
+
+[node name="ButtonNext" type="Button" parent="HowToMenu/Step3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "UI_NEXT"
+
 [connection signal="pressed" from="UpgradeMenu/CenterContainer/HBoxContainer/PlusSlotButton" to="." method="OnPlusSlotButtonPressed"]
 [connection signal="pressed" from="UpgradeMenu/OkButton" to="." method="OnOkButtonPressed"]
+[connection signal="pressed" from="UpgradeMenu/HowToButton" to="." method="OnHowToButtonPressed"]
 [connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/HBoxContainer/CloseUpgradeItemMenuButton" to="." method="OnCloseUpgradeItemMenuButtonPressed"]
 [connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/PanelContainer/BuyUpgradeItemButton" to="." method="OnBuyUpgradeItemButtonPressed"]
 [connection signal="pressed" from="BuySlotMenu/Panel/CloseBuySlotMenuButton" to="." method="OnCloseBuySlotMenuButtonPressed"]
 [connection signal="pressed" from="BuySlotMenu/Panel/BuySlotButton" to="." method="OnBuySlotButtonPressed"]
+[connection signal="pressed" from="HowToMenu/Step1/ButtonNext" to="." method="ShowHowToStep" binds= [2]]
+[connection signal="pressed" from="HowToMenu/Step2/ButtonPrev" to="." method="ShowHowToStep" binds= [1]]
+[connection signal="pressed" from="HowToMenu/Step2/ButtonNext" to="." method="ShowHowToStep" binds= [3]]
+[connection signal="pressed" from="HowToMenu/Step3/ButtonPrev" to="." method="ShowHowToStep" binds= [2]]
+[connection signal="pressed" from="HowToMenu/Step3/ButtonNext" to="." method="SetHowToMenuVisibile" binds= [false]]

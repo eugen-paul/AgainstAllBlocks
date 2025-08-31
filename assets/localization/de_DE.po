@@ -284,6 +284,32 @@ msgstr "Neuer Upgrade-Slot"
 msgid "UI_MAXSLOT_LABEL."
 msgstr "Die maximale Anzahl an Upgrade-Slots wurde erreicht."
 
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP1"
+msgstr "Kaufe zunächst Slots für die Upgrades."
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_NEXT"
+msgstr "Weiter"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP2"
+msgstr "Kaufe Upgrades. Upgrades können mehrere Verbesserungsstufen haben."
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_PREV"
+msgstr "Zurück"
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP3"
+msgstr "Verschiebe das Upgrade in den Upgrade-Slot, um es zu aktivieren."
+
+#: scenes/upgrades/Upgrades.tscn
+#, fuzzy
+#| msgid "UIM_HOWTO"
+msgid "UI_HOWTO_STEP4"
+msgstr "Hilfe"
+
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_UPGRADE"
 msgstr "Upgrade"

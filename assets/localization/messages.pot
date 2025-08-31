@@ -285,6 +285,30 @@ msgstr ""
 msgid "UI_MAXSLOT_LABEL."
 msgstr ""
 
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP1"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_NEXT"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP2"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_PREV"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP3"
+msgstr ""
+
+#: scenes/upgrades/Upgrades.tscn
+msgid "UI_HOWTO_STEP4"
+msgstr ""
+
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_UPGRADE"
 msgstr ""
