@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://ibgrooiadd32"]
+
+[ext_resource type="PackedScene" uid="uid://d21e1f8rm0sfv" path="res://scenes/world/WallPartLong.tscn" id="1_cc87b"]
+[ext_resource type="PackedScene" uid="uid://daghs7j5j1r0g" path="res://scenes/world/WallPartShort.tscn" id="2_8bdoc"]
+[ext_resource type="PackedScene" uid="uid://f3mko01jekbp" path="res://scenes/world/WallCylinder.tscn" id="3_x65hp"]
+
+[node name="Wall" type="Node3D"]
+
+[node name="Wall1" parent="." instance=ExtResource("1_cc87b")]
+transform = Transform3D(0.99619484, 0, -0.087155744, 0, 1, 0, 0.087155744, 0, 0.99619484, -9, 0, 19)
+
+[node name="Wall2" parent="." instance=ExtResource("1_cc87b")]
+transform = Transform3D(0.99619466, 0, 0.08715573, 0, 1, 0, -0.08715573, 0, 0.99619466, 9, 0, 19)
+
+[node name="Wall3" parent="." instance=ExtResource("1_cc87b")]
+transform = Transform3D(0.9063079, 0, 0.42261833, 0, 1, 0, -0.42261833, 0, 0.9063079, -11.868137, 0, 2.5545805)
+
+[node name="Wall4" parent="." instance=ExtResource("1_cc87b")]
+transform = Transform3D(0.9063079, 0, -0.42261833, 0, 1, 0, 0.42261833, 0, 0.9063079, 11.754571, 0, 2.5545805)
+
+[node name="wallShort1" parent="." instance=ExtResource("2_8bdoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.184259, 0, -9.797859)
+
+[node name="wallShort2" parent="." instance=ExtResource("2_8bdoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.090788, 0, -9.797859)
+
+[node name="Wall5" parent="." instance=ExtResource("1_cc87b")]
+transform = Transform3D(-0.50559723, 0, 0.8627697, 0, 1, 0, -0.8627697, 0, -0.50559723, -7.5269566, 0, -18.875753)
+
+[node name="Wall6" parent="." instance=ExtResource("1_cc87b")]
+transform = Transform3D(0.5, 0, 0.8660255, 0, 1, 0, -0.8660255, 0, 0.5, 7.4357023, 0, -19.123295)
+
+[node name="StaticBody3D1" parent="." instance=ExtResource("3_x65hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.224789, 0, 10.332882)
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("3_x65hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.149406, 0, 10.332882)
+
+[node name="StaticBody3D3" parent="." instance=ExtResource("3_x65hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.224471, 0, -5.0771165)
+
+[node name="StaticBody3D4" parent="." instance=ExtResource("3_x65hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.060127, 0, -5.0771165)
+
+[node name="StaticBody3D6" parent="." instance=ExtResource("3_x65hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.139574, 0, -14.429121)
+
+[node name="StaticBody3D7" parent="." instance=ExtResource("3_x65hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.084513, 0, -14.66911)
+
+[node name="StaticBody3D8" parent="." instance=ExtResource("3_x65hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0035076141, 0, -23.40498)

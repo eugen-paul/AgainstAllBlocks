@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cf6y5mr7rq0sr"]
+[gd_scene load_steps=29 format=3 uid="uid://cf6y5mr7rq0sr"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_ntqvd"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_dg8ko"]
@@ -8,10 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="6_dg8ko"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="8_v1ll7"]
 [ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="9_bi80g"]
-[ext_resource type="PackedScene" uid="uid://d21e1f8rm0sfv" path="res://scenes/world/WallPartLong.tscn" id="10_j4mq4"]
-[ext_resource type="PackedScene" uid="uid://f3mko01jekbp" path="res://scenes/world/WallCylinder.tscn" id="11_c754r"]
 [ext_resource type="PackedScene" uid="uid://b4k2540jks2cy" path="res://scenes/world/ground8.tscn" id="12_dg8ko"]
-[ext_resource type="PackedScene" uid="uid://daghs7j5j1r0g" path="res://scenes/world/WallPartShort.tscn" id="12_ntqvd"]
+[ext_resource type="PackedScene" uid="uid://ibgrooiadd32" path="res://scenes/world/Walls8.tscn" id="12_ntqvd"]
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="12_r2wqc"]
 [ext_resource type="PackedScene" uid="uid://c2b6sgawi7omv" path="res://scenes/world/SmallWall.tscn" id="14_aq8cv"]
 
@@ -496,52 +494,7 @@ transform = Transform3D(0.94083345, 0, -0.33886927, 0, 1, 0, 0.33886927, 0, 0.94
 mesh = SubResource("BoxMesh_hlxf4")
 surface_material_override/0 = SubResource("StandardMaterial3D_r2wqc")
 
-[node name="Wall" type="Node3D" parent="."]
-
-[node name="Wall1" parent="Wall" instance=ExtResource("10_j4mq4")]
-transform = Transform3D(0.99619484, 0, -0.087155744, 0, 1, 0, 0.087155744, 0, 0.99619484, -9, 0, 19)
-
-[node name="Wall2" parent="Wall" instance=ExtResource("10_j4mq4")]
-transform = Transform3D(0.99619466, 0, 0.08715573, 0, 1, 0, -0.08715573, 0, 0.99619466, 9, 0, 19)
-
-[node name="Wall3" parent="Wall" instance=ExtResource("10_j4mq4")]
-transform = Transform3D(0.9063079, 0, 0.42261833, 0, 1, 0, -0.42261833, 0, 0.9063079, -11.868137, 0, 2.5545805)
-
-[node name="Wall4" parent="Wall" instance=ExtResource("10_j4mq4")]
-transform = Transform3D(0.9063079, 0, -0.42261833, 0, 1, 0, 0.42261833, 0, 0.9063079, 11.754571, 0, 2.5545805)
-
-[node name="wallShort1" parent="Wall" instance=ExtResource("12_ntqvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.184259, 0, -9.797859)
-
-[node name="wallShort2" parent="Wall" instance=ExtResource("12_ntqvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.090788, 0, -9.797859)
-
-[node name="Wall5" parent="Wall" instance=ExtResource("10_j4mq4")]
-transform = Transform3D(-0.50559723, 0, 0.8627697, 0, 1, 0, -0.8627697, 0, -0.50559723, -7.5269566, 0, -18.875753)
-
-[node name="Wall6" parent="Wall" instance=ExtResource("10_j4mq4")]
-transform = Transform3D(0.5, 0, 0.8660255, 0, 1, 0, -0.8660255, 0, 0.5, 7.4357023, 0, -19.123295)
-
-[node name="StaticBody3D1" parent="Wall" instance=ExtResource("11_c754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.224789, 0, 10.332882)
-
-[node name="StaticBody3D2" parent="Wall" instance=ExtResource("11_c754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.149406, 0, 10.332882)
-
-[node name="StaticBody3D3" parent="Wall" instance=ExtResource("11_c754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.224471, 0, -5.0771165)
-
-[node name="StaticBody3D4" parent="Wall" instance=ExtResource("11_c754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.060127, 0, -5.0771165)
-
-[node name="StaticBody3D6" parent="Wall" instance=ExtResource("11_c754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.139574, 0, -14.429121)
-
-[node name="StaticBody3D7" parent="Wall" instance=ExtResource("11_c754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.084513, 0, -14.66911)
-
-[node name="StaticBody3D8" parent="Wall" instance=ExtResource("11_c754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0035076141, 0, -23.40498)
+[node name="Wall8" parent="." instance=ExtResource("12_ntqvd")]
 
 [node name="WallMiddle" type="Node3D" parent="."]
 
