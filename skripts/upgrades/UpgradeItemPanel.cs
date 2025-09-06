@@ -18,6 +18,19 @@ public partial class UpgradeItemPanel : PanelContainer, IUpgradeListener
     {
         GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().AddListener(this);
         UpdateData();
+
+        var slotCount = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentSlots().Count;
+        if (slotCount > 0)
+        {
+            GetNode<Button>(UPGRADE_BUTTON_PATH).Disabled = false;
+            GetNode<Button>(INFO_BUTTON_PATH).Disabled = false;
+        }
+        else
+        {
+            GetNode<Button>(UPGRADE_BUTTON_PATH).Disabled = true;
+            GetNode<Button>(INFO_BUTTON_PATH).Disabled = true;
+        }
+
     }
 
     public override void _ExitTree()
@@ -62,6 +75,20 @@ public partial class UpgradeItemPanel : PanelContainer, IUpgradeListener
         if (upgradeSignal is UpgradeSignalUpdateUpgradeData signal && signal.ItemType == Type)
         {
             UpdateData();
+        }
+        else if (upgradeSignal is UpgradeSignalUpdateSlotsCount)
+        {
+            var slotCount = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentSlots().Count;
+            if (slotCount > 0)
+            {
+                GetNode<Button>(UPGRADE_BUTTON_PATH).Disabled = false;
+                GetNode<Button>(INFO_BUTTON_PATH).Disabled = false;
+            }
+            else
+            {
+                GetNode<Button>(UPGRADE_BUTTON_PATH).Disabled = true;
+                GetNode<Button>(INFO_BUTTON_PATH).Disabled = true;
+            }
         }
     }
 

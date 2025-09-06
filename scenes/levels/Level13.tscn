@@ -1,0 +1,353 @@
+[gd_scene load_steps=40 format=3 uid="uid://cfou7ym1i5oej"]
+
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_2t3iw"]
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_maf7r"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="2_py3em"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="3_vnqub"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="4_syluf"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="4_vnqub"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="5_maf7r"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="6_fclr8"]
+[ext_resource type="Texture2D" uid="uid://ie3tyoa8usom" path="res://assets/textures/world/wallRed.png" id="6_xkvsu"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="7_fclr8"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="8_syluf"]
+[ext_resource type="Texture2D" uid="uid://ceaeuglbpamc3" path="res://assets/textures/world/SmalWall_PLANK_2.png" id="9_0r1mb"]
+[ext_resource type="PackedScene" uid="uid://c5wnu1hf6vraw" path="res://scenes/world/CylinderWall.tscn" id="10_syluf"]
+[ext_resource type="PackedScene" uid="uid://hvy5b1sugpce" path="res://scenes/world/TetrisJ.tscn" id="12_old01"]
+[ext_resource type="PackedScene" uid="uid://c44r1l7six3en" path="res://scenes/world/TetrisO.tscn" id="13_48c3j"]
+[ext_resource type="PackedScene" uid="uid://d05n166wjq06y" path="res://scenes/world/TetrisT.tscn" id="14_0r1mb"]
+[ext_resource type="PackedScene" uid="uid://cjk75ow7xmsc1" path="res://scenes/world/TetrisL.tscn" id="15_mares"]
+[ext_resource type="PackedScene" uid="uid://uubm218nn71y" path="res://scenes/world/TetrisS.tscn" id="16_0q43t"]
+[ext_resource type="PackedScene" uid="uid://cn5ue5dueou6m" path="res://scenes/world/GameButton.tscn" id="18_48c3j"]
+[ext_resource type="Script" uid="uid://bk3icerimaop4" path="res://skripts/world/BgBlocks.cs" id="19_f1t7i"]
+[ext_resource type="PackedScene" uid="uid://dl468716htvnm" path="res://scenes/world/particles/ExplosionFireBig.tscn" id="21_nrbed"]
+[ext_resource type="AudioStream" uid="uid://cssh2qfanrwty" path="res://assets/sounds/Bonus.wav" id="22_ktxu8"]
+[ext_resource type="PackedScene" uid="uid://4uumr5iovuni" path="res://scenes/world/Portal.tscn" id="23_nrbed"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syluf"]
+shading_mode = 2
+albedo_texture = ExtResource("6_xkvsu")
+grow_amount = 12.71
+stencil_flags = 2
+stencil_color = Color(0, 0.49411765, 0, 1)
+stencil_outline_thickness = 0.178
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnqub"]
+albedo_color = Color(0.6983812, 0.49009627, 0.2092146, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gpd6i"]
+size = Vector2(50, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqq7g"]
+albedo_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+uv1_scale = Vector3(10, 20, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fclr8"]
+size = Vector2(15, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkvsu"]
+albedo_color = Color(0.44894964, 1.3055467e-06, 9.62615e-08, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gpd6i"]
+size = Vector3(17, 7, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goebf"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_fclr8"]
+text = "Against All
+Blocks"
+uppercase = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpd6i"]
+albedo_color = Color(1, 0.38431373, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mares"]
+size = Vector3(10, 10, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q43t"]
+albedo_texture = ExtResource("9_0r1mb")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0r1mb"]
+size = Vector3(9, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mares"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_0q43t"]
+text = "bonus"
+uppercase = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1t7i"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="Level13" type="Node"]
+script = ExtResource("1_maf7r")
+Level = 13
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_2t3iw")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("2_py3em")
+
+[node name="CameraPivot" parent="." instance=ExtResource("3_vnqub")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("4_vnqub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Wall" parent="WallsDefault/wall" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_syluf")
+
+[node name="Paddle" parent="." instance=ExtResource("4_syluf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Block" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+Power = 5
+
+[node name="Block2" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+Power = 5
+
+[node name="Block3" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+Power = 5
+ItemType = 10
+
+[node name="Block4" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
+Power = 5
+ItemType = 10
+
+[node name="Block5" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+Power = 5
+ItemType = 10
+
+[node name="Block6" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -7)
+Color = 2
+Power = 5
+
+[node name="Block7" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+Color = 2
+Power = 5
+
+[node name="Block8" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+Color = 2
+Power = 5
+
+[node name="Block9" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+Color = 2
+Power = 5
+
+[node name="Block10" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 4)
+Color = 4
+Power = 5
+
+[node name="Block11" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 1)
+Color = 1
+Power = 2
+
+[node name="Block12" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+Color = 1
+Power = 2
+
+[node name="Block13" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+Color = 1
+Power = 2
+
+[node name="Block14" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+Color = 1
+Power = 2
+
+[node name="Block15" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+Color = 1
+Power = 2
+
+[node name="Block16" parent="AllBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+Color = 1
+Power = 2
+
+[node name="GameHud" parent="." instance=ExtResource("5_maf7r")]
+
+[node name="Explosion" parent="." instance=ExtResource("6_fclr8")]
+
+[node name="Ground" parent="." instance=ExtResource("8_syluf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.402786)
+
+[node name="Ground" parent="Ground/ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vnqub")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Grass" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_gpd6i")
+surface_material_override/0 = SubResource("StandardMaterial3D_wqq7g")
+
+[node name="ScorePanel" type="Node3D" parent="Background"]
+transform = Transform3D(0.95195854, 0, 0.30622703, 0, 1, 0, -0.30622703, 0, 0.95195854, -7.9997816, 5.686701, -14.20089)
+
+[node name="BG" type="MeshInstance3D" parent="Background/ScorePanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.501)
+mesh = SubResource("QuadMesh_fclr8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xkvsu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/ScorePanel"]
+mesh = SubResource("BoxMesh_gpd6i")
+surface_material_override/0 = SubResource("StandardMaterial3D_goebf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/ScorePanel"]
+transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, 0, 0, 0.502)
+mesh = SubResource("TextMesh_fclr8")
+surface_material_override/0 = SubResource("StandardMaterial3D_gpd6i")
+
+[node name="TetrisJ" parent="Background" instance=ExtResource("12_old01")]
+transform = Transform3D(7.351372e-08, 1, 4.3711385e-08, 1, -7.351371e-08, -8.742278e-08, -8.742278e-08, 4.3711392e-08, -1, -12, 3, 2)
+
+[node name="TetrisJ2" parent="Background" instance=ExtResource("12_old01")]
+transform = Transform3D(7.351372e-08, 1, 4.3711385e-08, -1, 7.3513725e-08, 0, 0, -4.3711385e-08, 1, 10.4167385, 3, 19)
+
+[node name="TetrisO" parent="Background" instance=ExtResource("13_48c3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -3)
+
+[node name="TetrisO2" parent="Background" instance=ExtResource("13_48c3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.223785, 2, -8.615246)
+
+[node name="TetrisT" parent="Background" instance=ExtResource("14_0r1mb")]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -4.3711392e-08, 4.371139e-08, -4.3711392e-08, 1, 11, 3, 0)
+
+[node name="TetrisT2" parent="Background" instance=ExtResource("14_0r1mb")]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, -8.742278e-08, 4.3711395e-08, -1, 1, -4.371138e-08, -8.742278e-08, -11, 3, -9)
+
+[node name="TetrisL" parent="Background" instance=ExtResource("15_mares")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 7)
+
+[node name="TetrisL2" parent="Background" instance=ExtResource("15_mares")]
+transform = Transform3D(2.9802322e-08, -1, 0, -4.371139e-08, -1.3027009e-15, 1, -1, -2.9802322e-08, -4.371139e-08, -10, 5, 17)
+
+[node name="TetrisS2" parent="Background" instance=ExtResource("16_0q43t")]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -10.538696, 2, 9)
+
+[node name="ActionNodes" type="Node3D" parent="."]
+
+[node name="CylinderWall" parent="ActionNodes" instance=ExtResource("10_syluf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="CylinderWall2" parent="ActionNodes" instance=ExtResource("10_syluf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
+
+[node name="CylinderWall3" parent="ActionNodes" instance=ExtResource("10_syluf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+
+[node name="CylinderWall4" parent="ActionNodes" instance=ExtResource("10_syluf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 14)
+
+[node name="GameButton" parent="." instance=ExtResource("18_48c3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -11.5)
+
+[node name="BgBlocks" type="Node3D" parent="GameButton"]
+transform = Transform3D(0.9821924, 0, -0.18787849, 0, 1, 0, 0.18787849, 0, 0.9821924, -0.78818226, 6, -3.088005)
+script = ExtResource("19_f1t7i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GameButton/BgBlocks"]
+mesh = SubResource("BoxMesh_mares")
+surface_material_override/0 = SubResource("StandardMaterial3D_0q43t")
+
+[node name="Fire1" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9412796, 1.7788353, 1.6759367)
+
+[node name="Bonus1" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9999998, 1, 1)
+
+[node name="Fire2" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016970634, 1.7788353, 1.7379246)
+
+[node name="Bonus2" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, 1, 1)
+Color = 1
+
+[node name="Fire3" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936938, 1.7788353, 1.7515383)
+
+[node name="Bonus3" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9999995, 1, 1)
+Color = 2
+
+[node name="Fire4" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.941279, -0.2211647, 1.6759357)
+
+[node name="Bonus4" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9999998, -1, 1)
+Color = 2
+
+[node name="Fire5" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016970634, -0.2211647, 1.7379246)
+
+[node name="Bonus5" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, -1, 1)
+Color = 4
+
+[node name="Fire6" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936957, -0.2211647, 1.7515383)
+
+[node name="Bonus6" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9999995, -1, 1)
+Color = 3
+
+[node name="Fire7" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.941278, -2.2211647, 1.6759348)
+
+[node name="Bonus7" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9999998, -3, 1)
+Color = 1
+
+[node name="Fire8" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016970634, -2.2211647, 1.7379246)
+
+[node name="Bonus8" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, -3, 1)
+Color = 3
+
+[node name="Fire9" parent="GameButton/BgBlocks" instance=ExtResource("21_nrbed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936976, -2.2211647, 1.7515383)
+
+[node name="Bonus9" parent="GameButton/BgBlocks" instance=ExtResource("7_fclr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9999995, -3, 1)
+Color = 4
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GameButton/BgBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.412, 0.6)
+mesh = SubResource("BoxMesh_0r1mb")
+surface_material_override/0 = SubResource("StandardMaterial3D_mares")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GameButton/BgBlocks/MeshInstance3D2"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0.5)
+mesh = SubResource("TextMesh_0q43t")
+surface_material_override/0 = SubResource("StandardMaterial3D_f1t7i")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameButton/BgBlocks"]
+stream = ExtResource("22_ktxu8")
+
+[node name="Portal" parent="." instance=ExtResource("23_nrbed")]
+
+[editable path="CameraPivot"]
+[editable path="WallsDefault"]
+[editable path="WallsDefault/wall"]
+[editable path="Ground"]
+[editable path="Ground/ground"]

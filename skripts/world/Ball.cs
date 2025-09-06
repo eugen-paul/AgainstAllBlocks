@@ -100,6 +100,17 @@ public partial class Ball : CharacterBody3D
                 LimitSpeed(this);
                 PlaySound(BallSounds.HIT_BALL);
             }
+            else if (node.IsInGroup("ActiveWall"))
+            {
+                var currentVelocityLength = Velocity.Length();
+                Velocity = collision.GetNormal();
+                Velocity *= currentVelocityLength;
+                Velocity = RemoveY(Velocity);
+                if (node is Hitable activeWall)
+                {
+                    activeWall.Hit(ComputeBonus());
+                }
+            }
             else if (node.IsInGroup("Wall"))
             {
                 Velocity = Velocity.Bounce(collision.GetNormal());

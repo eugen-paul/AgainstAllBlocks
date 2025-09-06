@@ -58,7 +58,7 @@ public partial class Levels : CanvasLayer
         if (firstTime)
         {
             firstTime = false;
-            GetNode<ScrollContainer>(SCROLL_CONTAINER_PATH).ScrollVertical = (int)lastReachedLevel.Position.Y - 100;
+            GetNode<ScrollContainer>(SCROLL_CONTAINER_PATH).ScrollVertical = (int)lastReachedLevel.Position.Y - 200;
         }
     }
 

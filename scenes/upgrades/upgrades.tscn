@@ -58,6 +58,21 @@ corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by5l7"]
 
+[sub_resource type="Animation" id="Animation_pfomj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_jih2h"]
 resource_name = "Size"
 length = 2.0
@@ -76,25 +91,25 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_pfomj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nwcl5"]
+_data = {
+&"RESET": SubResource("Animation_pfomj"),
+&"Size": SubResource("Animation_jih2h")
+}
+
+[sub_resource type="Animation" id="Animation_p4fyn"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nwcl5"]
-_data = {
-&"RESET": SubResource("Animation_pfomj"),
-&"Size": SubResource("Animation_jih2h")
+"values": [Vector2(51, 326)]
 }
 
 [sub_resource type="Animation" id="Animation_nwcl5"]
@@ -113,21 +128,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(51, 326), Vector2(51, 326), Vector2(184, 142), Vector2(184, 142)]
-}
-
-[sub_resource type="Animation" id="Animation_p4fyn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(51, 326)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rcbdg"]
@@ -500,6 +500,7 @@ grow_vertical = 0
 text = "UIM_UPGRADE"
 
 [node name="HowToMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

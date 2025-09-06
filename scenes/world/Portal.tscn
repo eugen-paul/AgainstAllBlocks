@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://4uumr5iovuni"]
+
+[ext_resource type="Script" uid="uid://cucswudrhjqh2" path="res://skripts/world/Portal.cs" id="1_dc2wr"]
+[ext_resource type="AudioStream" uid="uid://bwe15mpw46hkh" path="res://assets/sounds/portal.wav" id="1_u336e"]
+[ext_resource type="AudioStream" uid="uid://dgdjwuof1ywgj" path="res://assets/sounds/portalOut.wav" id="2_dc2wr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f1t7i"]
+height = 3.0
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nrbed"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 3.0
+radial_segments = 12
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktxu8"]
+albedo_color = Color(0, 0.7885199, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f1t7i"]
+top_radius = 0.9
+bottom_radius = 0.9
+height = 3.05
+radial_segments = 12
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5yq5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_nrbed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.7853982, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f1t7i"]
+resource_name = "rotation"
+length = 3.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.3561945, 0), Vector3(0, 1.8325957, 0), Vector3(0, 2.3561945, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktxu8"]
+_data = {
+&"RESET": SubResource("Animation_nrbed"),
+&"rotation": SubResource("Animation_f1t7i")
+}
+
+[node name="Portal" type="Node3D"]
+script = ExtResource("1_dc2wr")
+
+[node name="IN" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -1, -11.5)
+
+[node name="Area3D" type="Area3D" parent="IN"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IN/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_f1t7i")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="IN"]
+stream = ExtResource("1_u336e")
+
+[node name="OUT" type="Node3D" parent="."]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 11.0138855, 1, 9.532149)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OUT"]
+transform = Transform3D(6.971098e-15, 1.5893258e-08, -0.99999994, 0.9999999, -4.371137e-08, 2.1175822e-22, -4.3711385e-08, -0.99999994, -1.5893262e-08, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="OUT"]
+transform = Transform3D(-3.6870425e-15, -1.0331603e-07, -0.99999994, 0.9999999, -4.371137e-08, -2.1175822e-22, -4.3711385e-08, -0.99999994, 1.0331604e-07, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OUT"]
+libraries = {
+&"": SubResource("AnimationLibrary_ktxu8")
+}
+autoplay = "rotation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OUT"]
+stream = ExtResource("2_dc2wr")
+
+[node name="OutPoint" type="Node3D" parent="OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[connection signal="body_entered" from="IN/Area3D" to="." method="OnPortalIn"]

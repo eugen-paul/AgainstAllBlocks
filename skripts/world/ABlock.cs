@@ -71,7 +71,7 @@ public abstract partial class ABlock : CharacterBody3D, Hitable, ContainItem
 
     protected void InvokeBlockDestroyed(int a, ContainItem b)
     {
-        BlockDestroyed.Invoke(a, b);
+        BlockDestroyed?.Invoke(a, b);
     }
 
     public Item CreateItem(DefaultLevel level)
