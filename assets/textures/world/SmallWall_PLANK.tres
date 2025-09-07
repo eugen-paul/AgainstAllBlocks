@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://u7ccn4q240gi" path="res://assets/textures/world/SmalWallPLANK.png" id="1_i0wcj"]
 
 [resource]
+shading_mode = 0
 albedo_texture = ExtResource("1_i0wcj")

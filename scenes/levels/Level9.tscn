@@ -20,6 +20,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkh17"]
+shading_mode = 0
 albedo_texture = ExtResource("9_n5281")
 uv1_scale = Vector3(10, 20, 10)
 
@@ -324,5 +325,11 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.0
 
 [node name="BombExplosion2" parent="GameButtonRight" instance=ExtResource("15_px732")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6.1265335, 2.0000005, -1.5846415)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.70710677, 0.35355335, 0.61237246, -0.70710677, 0.35355335, 0.61237246, 0, -0.86602545, 0.49999997, 0, 11, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]

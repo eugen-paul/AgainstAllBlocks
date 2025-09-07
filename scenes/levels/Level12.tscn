@@ -18,6 +18,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0q27"]
+shading_mode = 0
 albedo_texture = ExtResource("12_r2wqc")
 uv1_scale = Vector3(10, 10, 10)
 
@@ -528,5 +529,10 @@ WallType = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallMiddle/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7648926, -11.742676)
 shape = SubResource("BoxShape3D_aq8cv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]

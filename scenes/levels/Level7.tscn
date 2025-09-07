@@ -26,6 +26,7 @@
 size = Vector2(50, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nfcn"]
+shading_mode = 0
 albedo_texture = ExtResource("7_mu46r")
 uv1_scale = Vector3(10, 20, 1)
 
@@ -33,6 +34,7 @@ uv1_scale = Vector3(10, 20, 1)
 size = Vector2(50, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3v1g"]
+shading_mode = 0
 albedo_texture = ExtResource("19_w2poo")
 uv1_scale = Vector3(10, 10, 10)
 
@@ -40,6 +42,7 @@ uv1_scale = Vector3(10, 10, 10)
 size = Vector2(50, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2poo"]
+shading_mode = 0
 albedo_texture = ExtResource("19_q3ki7")
 uv1_scale = Vector3(10, 1, 10)
 
@@ -422,5 +425,11 @@ amount = 6
 visibility_aabb = AABB(-20, -20, -20, 20, 20, 20)
 process_material = SubResource("ParticleProcessMaterial_0h58p")
 draw_pass_1 = SubResource("SphereMesh_w3v1g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.70710677, 0.70710677, 0, -0.70710677, -0.70710677, 0, 13, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]

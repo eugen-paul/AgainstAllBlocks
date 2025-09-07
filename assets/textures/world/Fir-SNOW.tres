@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://dgf8gfmnd581c" path="res://assets/textures/world/Fir-SNOW.png" id="1_cwngx"]
 
 [resource]
+shading_mode = 0
 albedo_texture = ExtResource("1_cwngx")

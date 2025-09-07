@@ -24,6 +24,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18dvp"]
+shading_mode = 0
 albedo_texture = ExtResource("6_troyb")
 uv1_scale = Vector3(10, 20, 1)
 
@@ -31,6 +32,7 @@ uv1_scale = Vector3(10, 20, 1)
 size = Vector2(50, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1d4y"]
+shading_mode = 0
 albedo_texture = ExtResource("14_jrqtr")
 uv1_scale = Vector3(25, 1, 1)
 
@@ -325,6 +327,12 @@ transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -5, 2.
 
 [node name="RocketBG3" parent="Background" instance=ExtResource("16_8kq2n")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -2, 2.04042, -14)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, -0.25000003, 0.4330127, -0.5, -0.43301275, 0.75, 0, -0.8660254, -0.50000006, 0, 14, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]
 [editable path="Background/RocketBG"]

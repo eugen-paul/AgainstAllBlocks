@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://docneu6xqalth" path="res://assets/textures/world/target.png" id="2_nod01"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4skl5"]
+shading_mode = 0
 albedo_texture = ExtResource("2_nod01")
 
 [node name="Target" type="Node3D"]

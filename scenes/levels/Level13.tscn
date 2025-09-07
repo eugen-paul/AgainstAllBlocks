@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://4uumr5iovuni" path="res://scenes/world/Portal.tscn" id="23_nrbed"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syluf"]
-shading_mode = 2
+shading_mode = 0
 albedo_texture = ExtResource("6_xkvsu")
 grow_amount = 12.71
 stencil_flags = 2
@@ -33,12 +33,14 @@ stencil_color = Color(0, 0.49411765, 0, 1)
 stencil_outline_thickness = 0.178
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnqub"]
+shading_mode = 0
 albedo_color = Color(0.6983812, 0.49009627, 0.2092146, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gpd6i"]
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqq7g"]
+shading_mode = 0
 albedo_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
 uv1_scale = Vector3(10, 20, 1)
 
@@ -46,12 +48,14 @@ uv1_scale = Vector3(10, 20, 1)
 size = Vector2(15, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkvsu"]
+shading_mode = 0
 albedo_color = Color(0.44894964, 1.3055467e-06, 9.62615e-08, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gpd6i"]
 size = Vector3(17, 7, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goebf"]
+shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_fclr8"]
@@ -60,12 +64,14 @@ Blocks"
 uppercase = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpd6i"]
+shading_mode = 0
 albedo_color = Color(1, 0.38431373, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mares"]
 size = Vector3(10, 10, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q43t"]
+shading_mode = 0
 albedo_texture = ExtResource("9_0r1mb")
 uv1_scale = Vector3(10, 10, 10)
 
@@ -73,6 +79,7 @@ uv1_scale = Vector3(10, 10, 10)
 size = Vector3(9, 2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mares"]
+shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_0q43t"]
@@ -80,6 +87,7 @@ text = "bonus"
 uppercase = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1t7i"]
+shading_mode = 0
 albedo_color = Color(1, 1, 0, 1)
 
 [node name="Level13" type="Node"]
@@ -345,6 +353,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_f1t7i")
 stream = ExtResource("22_ktxu8")
 
 [node name="Portal" parent="." instance=ExtResource("23_nrbed")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, -0.24999999, -0.43301272, 0.5, 0.43301266, 0.75, 0, -0.86602545, 0.49999997, 0, 17, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]
 [editable path="WallsDefault"]

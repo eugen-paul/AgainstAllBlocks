@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://d20bvh0niaa6m" path="res://assets/textures/world/SmalWall_BRICK.png" id="1_eu3vf"]
 
 [resource]
+shading_mode = 0
 albedo_texture = ExtResource("1_eu3vf")

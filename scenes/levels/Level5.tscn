@@ -20,6 +20,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8d3o"]
+shading_mode = 0
 albedo_texture = ExtResource("7_xlhox")
 uv1_scale = Vector3(10, 20, 1)
 
@@ -343,6 +344,12 @@ transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, -13, 0
 
 [node name="GPUParticles3D" parent="Background/RocketBG4" index="1"]
 emitting = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.49999988, 0.6123725, 0.6123725, -0.8660253, 0.3535534, 0.3535534, 6.6800068e-09, -0.7071068, 0.7071068, 0, 18, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]
 [editable path="Background/MeshInstance3D2/RocketBG"]

@@ -16,6 +16,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovmse"]
+shading_mode = 0
 albedo_texture = ExtResource("15_o8mmk")
 uv1_scale = Vector3(30, 30, 1)
 
@@ -80,5 +81,11 @@ transform = Transform3D(0.968, 0, 0, 0, 1, 0, 0, 0, 0.691891, 0, -0.01, -7)
 mesh = SubResource("PlaneMesh_y68s8")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ovmse")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.25881907, 0.9659258, 0, -0.9659259, -0.25881907, 0, 12, -2)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]

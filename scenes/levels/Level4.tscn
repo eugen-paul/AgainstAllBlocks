@@ -18,6 +18,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aygun"]
+shading_mode = 0
 albedo_texture = ExtResource("7_tp6ac")
 uv1_scale = Vector3(10, 20, 1)
 
@@ -339,5 +340,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -19)
 
 [node name="SmallWall20" parent="Background" instance=ExtResource("10_cvqda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -19)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.86602545, -0.12940955, -0.4829629, 0.5, 0.2241439, 0.8365163, 3.340003e-09, -0.96592593, 0.25881913, 0, 14, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]

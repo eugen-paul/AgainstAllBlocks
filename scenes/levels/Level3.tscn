@@ -20,6 +20,7 @@
 size = Vector2(50, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duay8"]
+shading_mode = 0
 albedo_texture = ExtResource("8_ak6ba")
 uv1_scale = Vector3(30, 30, 20)
 
@@ -27,6 +28,7 @@ uv1_scale = Vector3(30, 30, 20)
 size = Vector2(50, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xs41n"]
+shading_mode = 0
 albedo_texture = ExtResource("10_8pb53")
 uv1_scale = Vector3(10, 5, 10)
 
@@ -34,6 +36,7 @@ uv1_scale = Vector3(10, 5, 10)
 size = Vector2(50, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrq0r"]
+shading_mode = 0
 albedo_texture = ExtResource("11_jsk60")
 uv1_scale = Vector3(25, 1, 1)
 
@@ -405,5 +408,11 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0222, 0.5, -20.154)
 mesh = SubResource("SphereMesh_6gks3")
 skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9659258, 1.131334e-08, -0.25881907, 0.22414388, -0.50000006, 0.8365163, -0.12940957, -0.8660254, -0.48296297, 0, 18, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]

@@ -21,6 +21,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nev20"]
+shading_mode = 0
 albedo_texture = ExtResource("11_pq5j4")
 uv1_scale = Vector3(10, 20, 1)
 
@@ -28,6 +29,7 @@ uv1_scale = Vector3(10, 20, 1)
 size = Vector2(50, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xn4p2"]
+shading_mode = 0
 albedo_texture = ExtResource("14_6byep")
 uv1_scale = Vector3(10, 1, 10)
 
@@ -242,5 +244,11 @@ transform = Transform3D(1.0000005, 0, 0, 0, 1, 0, 0, 0, 1.0000005, -13.320801, 1
 
 [node name="Tunnel2" parent="Road" instance=ExtResource("14_t4g1q")]
 transform = Transform3D(-1.0000007, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1.0000007, 15.482425, 1.9073486e-06, 3.990913)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.96592593, 1.13133405e-08, -0.2588191, 0.2588191, -4.222196e-08, 0.96592593, 0, -1, -4.371139e-08, 0, 21, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]

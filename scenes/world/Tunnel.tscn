@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="2_h5wxb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4g1q"]
+shading_mode = 0
 albedo_texture = ExtResource("1_twbd3")
 uv1_scale = Vector3(5, 5, 5)
 uv1_offset = Vector3(0.2, 0, 0)
@@ -19,6 +20,7 @@ radial_segments = 12
 rings = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bx1m"]
+shading_mode = 0
 albedo_texture = ExtResource("2_h5wxb")
 uv1_scale = Vector3(5, 5, 5)
 
@@ -31,6 +33,7 @@ radial_segments = 8
 rings = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxesk"]
+shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pq5j4"]

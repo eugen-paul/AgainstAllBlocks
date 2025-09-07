@@ -21,6 +21,7 @@
 size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfacm"]
+shading_mode = 0
 albedo_texture = ExtResource("9_keegh")
 uv1_scale = Vector3(10, 20, 1)
 
@@ -59,9 +60,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 [node name="Block1" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11)
 
-[node name="Block2" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -11)
-
 [node name="Block3" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11)
 ItemType = 13
@@ -69,9 +67,6 @@ ItemType = 13
 [node name="Block4" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -11)
 ItemType = 13
-
-[node name="Block5" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11)
 
 [node name="Block6" parent="AllBlocks/Row1" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -11)
@@ -83,20 +78,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9)
 Color = 3
 
-[node name="Block2" parent="AllBlocks/Row2" instance=ExtResource("6_fgy3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -9)
-Color = 3
-
 [node name="Block3" parent="AllBlocks/Row2" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9)
 Color = 3
 
 [node name="Block4" parent="AllBlocks/Row2" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9)
-Color = 3
-
-[node name="Block5" parent="AllBlocks/Row2" instance=ExtResource("6_fgy3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9)
 Color = 3
 
 [node name="Block6" parent="AllBlocks/Row2" instance=ExtResource("6_fgy3j")]
@@ -143,20 +130,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
 Color = 1
 
-[node name="Block2" parent="AllBlocks/Row4" instance=ExtResource("6_fgy3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
-Color = 1
-
 [node name="Block3" parent="AllBlocks/Row4" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 Color = 1
 
 [node name="Block4" parent="AllBlocks/Row4" instance=ExtResource("6_fgy3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
-Color = 1
-
-[node name="Block5" parent="AllBlocks/Row4" instance=ExtResource("6_fgy3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
 Color = 1
 
 [node name="Block6" parent="AllBlocks/Row4" instance=ExtResource("6_fgy3j")]
@@ -322,6 +301,12 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8486328, 1, 0)
 shape = SubResource("BoxShape3D_0xit0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.7071068, 0, -0.7071068, 0.18301271, 0.9659258, 0.18301271, 0.6830127, -0.25881904, 0.6830127, 0, 13, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
 
 [editable path="CameraPivot"]
 [editable path="Background/Bomb"]
