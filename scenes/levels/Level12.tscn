@@ -531,6 +531,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7648926, -11.742676)
 shape = SubResource("BoxShape3D_aq8cv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9659258, -0.06698731, 0.25, -0.25881904, -0.25000006, 0.93301266, 0, -0.9659258, -0.2588191, 0, 18, 0)
 shadow_enabled = true
 directional_shadow_mode = 0
 sky_mode = 1

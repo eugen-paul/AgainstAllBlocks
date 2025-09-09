@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://cfou7ym1i5oej"]
 
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_2t3iw"]
-[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_maf7r"]
+[ext_resource type="Script" uid="uid://ckj8t1ygbwn5x" path="res://skripts/levels/Level13.cs" id="1_nrbed"]
 [ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="2_py3em"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="3_vnqub"]
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="4_syluf"]
@@ -91,8 +91,7 @@ shading_mode = 0
 albedo_color = Color(1, 1, 0, 1)
 
 [node name="Level13" type="Node"]
-script = ExtResource("1_maf7r")
-Level = 13
+script = ExtResource("1_nrbed")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_2t3iw")]
 
