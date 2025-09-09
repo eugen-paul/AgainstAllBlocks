@@ -1,0 +1,249 @@
+[gd_scene load_steps=25 format=3 uid="uid://cv7n6pparcy2n"]
+
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_yx8qf"]
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_d7qvu"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_qg7e6"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="4_7ec8r"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="5_rvv46"]
+[ext_resource type="Texture2D" uid="uid://ba1mialcney34" path="res://assets/textures/world/SmalWall_BRICK_2.png" id="6_7ec8r"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="6_128fm"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="7_44l1g"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="8_128fm"]
+[ext_resource type="Texture2D" uid="uid://ceaeuglbpamc3" path="res://assets/textures/world/SmalWall_PLANK_2.png" id="8_rvv46"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="8_slce7"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="9_noxeg"]
+[ext_resource type="Shader" uid="uid://cnxxkv4r2kp26" path="res://assets/textures/world/AssemblyLine.gdshader" id="13_128fm"]
+[ext_resource type="Texture2D" uid="uid://c63nnbmmwfrao" path="res://assets/textures/world/AssemblyLine.png" id="14_44l1g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_128fm"]
+albedo_texture = ExtResource("6_7ec8r")
+uv1_scale = Vector3(25, 20, 1)
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44l1g"]
+shading_mode = 2
+albedo_texture = ExtResource("8_rvv46")
+uv1_scale = Vector3(4, 4, 4)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_slce7"]
+material = SubResource("StandardMaterial3D_44l1g")
+size = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noxeg"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5q0yo"]
+material = SubResource("StandardMaterial3D_noxeg")
+size = Vector3(2.5, 2.5, 2.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_128fm"]
+render_priority = 0
+shader = ExtResource("13_128fm")
+shader_parameter/albedo_tex = ExtResource("14_44l1g")
+shader_parameter/speed = 1.0
+shader_parameter/tiling = Vector2(10, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ec8r"]
+material = SubResource("ShaderMaterial_128fm")
+size = Vector2(20, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7qvu"]
+shading_mode = 0
+albedo_color = Color(0.7294118, 0.6039216, 0.5137255, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slce7"]
+shading_mode = 0
+albedo_texture = ExtResource("8_rvv46")
+uv1_scale = Vector3(3, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_noxeg"]
+material = SubResource("StandardMaterial3D_slce7")
+size = Vector3(2, 3, 2)
+
+[node name="Level14" type="Node"]
+script = ExtResource("1_yx8qf")
+Level = 14
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_d7qvu")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("3_qg7e6")
+
+[node name="CameraPivot" parent="." instance=ExtResource("4_7ec8r")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("5_rvv46")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Wall" parent="WallsDefault/wall" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_128fm")
+
+[node name="Paddle" parent="." instance=ExtResource("6_128fm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="AssemblyLines" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Line1" type="Node3D" parent="AllBlocks/AssemblyLines"]
+
+[node name="IN" type="Node3D" parent="AllBlocks/AssemblyLines/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/AssemblyLines/Line1/IN"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AllBlocks/AssemblyLines/Line1/IN"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="OUT" type="Node3D" parent="AllBlocks/AssemblyLines/Line1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/AssemblyLines/Line1/OUT"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AllBlocks/AssemblyLines/Line1/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="Line" type="MeshInstance3D" parent="AllBlocks/AssemblyLines/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_7ec8r")
+
+[node name="AssemblyLines2" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -5)
+
+[node name="Line1" type="Node3D" parent="AllBlocks/AssemblyLines2"]
+
+[node name="IN" type="Node3D" parent="AllBlocks/AssemblyLines2/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/AssemblyLines2/Line1/IN"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AllBlocks/AssemblyLines2/Line1/IN"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="OUT" type="Node3D" parent="AllBlocks/AssemblyLines2/Line1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/AssemblyLines2/Line1/OUT"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AllBlocks/AssemblyLines2/Line1/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="Line" type="MeshInstance3D" parent="AllBlocks/AssemblyLines2/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_7ec8r")
+
+[node name="Block" parent="AllBlocks" instance=ExtResource("8_128fm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="GameHud" parent="." instance=ExtResource("7_44l1g")]
+process_mode = 3
+
+[node name="Explosion" parent="." instance=ExtResource("8_slce7")]
+
+[node name="Ground" parent="." instance=ExtResource("9_noxeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Ground" parent="Ground/ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_d7qvu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, 0.3535534, -0.35355347, 0.43301278, -0.17677668, 0.8838835, 0.25, -0.91855866, -0.30618623, -4, 18, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="Background" type="Node" parent="."]
+
+[node name="AssemblyLines3" type="Node3D" parent="Background"]
+transform = Transform3D(-0.8660253, 0, -0.5000001, 0, 1, 0, 0.5000001, 0, -0.8660253, -8, 0, -21)
+
+[node name="Line1" type="Node3D" parent="Background/AssemblyLines3"]
+
+[node name="IN" type="Node3D" parent="Background/AssemblyLines3/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/AssemblyLines3/Line1/IN"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../../../AllBlocks")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/AssemblyLines3/Line1/IN"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="OUT" type="Node3D" parent="Background/AssemblyLines3/Line1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/AssemblyLines3/Line1/OUT"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../../../AllBlocks")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/AssemblyLines3/Line1/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="Line" type="MeshInstance3D" parent="Background/AssemblyLines3/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_7ec8r")
+
+[node name="AssemblyLines4" type="Node3D" parent="Background"]
+transform = Transform3D(-0.86602545, 0, 0.49999982, 0, 1, 0, -0.49999982, 0, -0.86602545, 11.3755455, 3, -20.692703)
+
+[node name="Line1" type="Node3D" parent="Background/AssemblyLines4"]
+
+[node name="IN" type="Node3D" parent="Background/AssemblyLines4/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/AssemblyLines4/Line1/IN"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../../../AllBlocks")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/AssemblyLines4/Line1/IN"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="OUT" type="Node3D" parent="Background/AssemblyLines4/Line1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/AssemblyLines4/Line1/OUT"]
+mesh = SubResource("BoxMesh_slce7")
+skeleton = NodePath("../../../../../AllBlocks")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/AssemblyLines4/Line1/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+mesh = SubResource("BoxMesh_5q0yo")
+
+[node name="Line" type="MeshInstance3D" parent="Background/AssemblyLines4/Line1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_7ec8r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/AssemblyLines4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, 0)
+mesh = SubResource("BoxMesh_noxeg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/AssemblyLines4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+mesh = SubResource("BoxMesh_noxeg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/AssemblyLines4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.5, 0)
+mesh = SubResource("BoxMesh_noxeg")
+
+[editable path="CameraPivot"]
+[editable path="WallsDefault"]
+[editable path="WallsDefault/wall"]
+[editable path="Ground"]
+[editable path="Ground/ground"]

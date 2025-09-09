@@ -38,6 +38,7 @@ public sealed class GameScenePaths
         { 12, GetLevelPath(12) },
         { 13, GetLevelPath(13) },
         { 14, GetLevelPath(14) },
+        { 15, GetLevelPath(15) },
         }
         .ToImmutableDictionary();
 

@@ -24,7 +24,7 @@ public class CurrentGameData
     {
         Id = builder.Id;
         Levels = new Dictionary<int, LevelProgressData>();
-        for (int i = 1; i < GameScenePaths.LEVELS.Count; i++)
+        for (int i = 1; i <= GameScenePaths.LEVELS.Count; i++)
         {
             if (builder.Levels.TryGetValue(i, out LevelProgressData value))
             {
