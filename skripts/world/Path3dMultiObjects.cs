@@ -1,6 +1,5 @@
 using Godot;
 
-[Tool]
 public partial class Path3dMultiObjects : Path3D
 {
     private const string PATHFOLLOW3D_CHILD_NAME = "PathFollow3D";
