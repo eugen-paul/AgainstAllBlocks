@@ -1,0 +1,429 @@
+[gd_scene load_steps=41 format=3 uid="uid://bljrrptb15bsf"]
+
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_brx87"]
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_xnsm0"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_yr581"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="4_5wxs6"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="5_1d13u"]
+[ext_resource type="Texture2D" uid="uid://ie3tyoa8usom" path="res://assets/textures/world/wallRed.png" id="6_5wxs6"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="6_obk36"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="7_27lev"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="8_1d13u"]
+[ext_resource type="Shader" uid="uid://cnxxkv4r2kp26" path="res://assets/textures/world/AssemblyLine.gdshader" id="8_27lev"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="8_e0j6k"]
+[ext_resource type="Texture2D" uid="uid://8hbtnixru6il" path="res://assets/textures/gui/Arrow.png" id="8_obk36"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="9_cp1e4"]
+[ext_resource type="Texture2D" uid="uid://dabpme2mv5c5t" path="res://assets/textures/world/ground_football.png" id="10_yr581"]
+[ext_resource type="Script" uid="uid://cn8u4baa3rxfv" path="res://skripts/world/Footballer.cs" id="11_cp1e4"]
+[ext_resource type="Texture2D" uid="uid://cg7wxqvadtgm5" path="res://assets/textures/world/goalie.png" id="11_e0j6k"]
+[ext_resource type="AudioStream" uid="uid://bspr5iw3rd1c4" path="res://assets/sounds/soccer-ball-kick.wav" id="12_335la"]
+[ext_resource type="Texture2D" uid="uid://dqbnt1bpj4v1y" path="res://assets/textures/world/footballer.png" id="13_ucvlr"]
+[ext_resource type="PackedScene" uid="uid://cn5ue5dueou6m" path="res://scenes/world/GameButton.tscn" id="14_rxqls"]
+[ext_resource type="Script" uid="uid://ccng21qsp22iw" path="res://skripts/world/Goal.cs" id="15_cixp7"]
+[ext_resource type="PackedScene" uid="uid://dl468716htvnm" path="res://scenes/world/particles/ExplosionFireBig.tscn" id="16_cs81e"]
+[ext_resource type="AudioStream" uid="uid://d3tbv4iex4abu" path="res://assets/sounds/goal.wav" id="17_cs81e"]
+[ext_resource type="Texture2D" uid="uid://dqywlbn5tksjt" path="res://assets/textures/world/fans.png" id="22_an4ln"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wxs6"]
+shading_mode = 2
+albedo_texture = ExtResource("6_5wxs6")
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr581"]
+shading_mode = 2
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5wxs6"]
+material = SubResource("StandardMaterial3D_yr581")
+size = Vector3(6, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yr581"]
+size = Vector3(8, 3, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0j6k"]
+render_priority = 0
+shader = ExtResource("8_27lev")
+shader_parameter/albedo_tex = ExtResource("8_obk36")
+shader_parameter/speed = -1.0
+shader_parameter/tiling = Vector2(2, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_5wxs6"]
+material = SubResource("ShaderMaterial_e0j6k")
+size = Vector2(6, 2)
+
+[sub_resource type="Curve3D" id="Curve3D_e0j6k"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5, 0, -8, 0, 0, 0, 0, 0, 0, -3, 0, -6, 0, 0, 0, 0, 0, 0, 3, 0, -6, 0, 0, 0, 0, 0, 0, 5, 0, -8, 0, 0, 0, 0, 0, 0, 3, 0, -6, 0, 0, 0, 0, 0, 0, -3, 0, -6),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cp1e4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucvlr"]
+shading_mode = 2
+albedo_color = Color(1, 0, 0, 1)
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rxqls"]
+material = SubResource("StandardMaterial3D_ucvlr")
+height = 0.1
+radial_segments = 8
+rings = 0
+
+[sub_resource type="Curve3D" id="Curve3D_rxqls"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -9, 0, -8, 0, 0, 0, 0, 0, 0, -1, 0, -8),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_6xomh"]
+size = Vector3(6, 1, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cixp7"]
+shading_mode = 0
+albedo_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxqls"]
+size = Vector3(7, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnsm0"]
+shading_mode = 0
+albedo_texture = ExtResource("10_yr581")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_335la"]
+shading_mode = 0
+albedo_texture = ExtResource("22_an4ln")
+uv1_scale = Vector3(10, 5, 1)
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_y8r8c"]
+material = SubResource("StandardMaterial3D_335la")
+size = Vector2(30, 15)
+
+[node name="Level15" type="Node"]
+script = ExtResource("1_brx87")
+Level = 15
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_xnsm0")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("3_yr581")
+
+[node name="CameraPivot" parent="." instance=ExtResource("4_5wxs6")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("5_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Wall" parent="WallsDefault/wall" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5wxs6")
+
+[node name="Paddle" parent="." instance=ExtResource("6_obk36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Gate" type="Node3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Top" type="MeshInstance3D" parent="AllBlocks/Gate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_5wxs6")
+
+[node name="Left" type="MeshInstance3D" parent="AllBlocks/Gate"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 3, 0, 0)
+mesh = SubResource("BoxMesh_5wxs6")
+
+[node name="Left2" type="MeshInstance3D" parent="AllBlocks/Gate"]
+transform = Transform3D(-4.371138e-08, 1, -3.723912e-15, -0.57862645, -2.5292566e-08, -0.8155925, -0.8155925, -3.5650682e-08, 0.57862645, 2.9999995, 1.204121, -2.5042849)
+mesh = SubResource("BoxMesh_5wxs6")
+
+[node name="Left3" type="MeshInstance3D" parent="AllBlocks/Gate"]
+transform = Transform3D(-4.371138e-08, 1, -3.723912e-15, -0.57862645, -2.5292566e-08, -0.8155925, -0.8155925, -3.5650682e-08, 0.57862645, -3.0000005, 1.204121, -2.5042849)
+mesh = SubResource("BoxMesh_5wxs6")
+
+[node name="Right" type="MeshInstance3D" parent="AllBlocks/Gate"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -3, 0, 0)
+mesh = SubResource("BoxMesh_5wxs6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AllBlocks" groups=["Wall"]]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 7, 2, -11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AllBlocks/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+shape = SubResource("BoxShape3D_yr581")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 2)
+mesh = SubResource("QuadMesh_5wxs6")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="AllBlocks" groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AllBlocks/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+shape = SubResource("BoxShape3D_yr581")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 2)
+mesh = SubResource("QuadMesh_5wxs6")
+
+[node name="Path3D" type="Path3D" parent="AllBlocks"]
+curve = SubResource("Curve3D_e0j6k")
+script = ExtResource("11_cp1e4")
+Speed = 2.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Path3D"]
+transform = Transform3D(-0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071067, -5, 0, -8)
+
+[node name="Goalie" type="Area3D" parent="AllBlocks/Path3D/PathFollow3D"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AllBlocks/Path3D/PathFollow3D/Goalie"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_cp1e4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/Path3D/PathFollow3D/Goalie"]
+mesh = SubResource("CylinderMesh_rxqls")
+
+[node name="Sprite3D" type="Sprite3D" parent="AllBlocks/Path3D/PathFollow3D/Goalie"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
+pixel_size = 0.06
+billboard = 2
+double_sided = false
+texture = ExtResource("11_e0j6k")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D"]
+stream = ExtResource("12_335la")
+
+[node name="Path3D2" type="Path3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+curve = SubResource("Curve3D_rxqls")
+script = ExtResource("11_cp1e4")
+Speed = 2.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Path3D2"]
+transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, -9, 0, -8)
+
+[node name="Footballer" type="Area3D" parent="AllBlocks/Path3D2/PathFollow3D"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AllBlocks/Path3D2/PathFollow3D/Footballer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_cp1e4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/Path3D2/PathFollow3D/Footballer"]
+mesh = SubResource("CylinderMesh_rxqls")
+
+[node name="Sprite3D" type="Sprite3D" parent="AllBlocks/Path3D2/PathFollow3D/Footballer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
+pixel_size = 0.06
+billboard = 2
+double_sided = false
+texture = ExtResource("13_ucvlr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D2"]
+stream = ExtResource("12_335la")
+
+[node name="Path3D3" type="Path3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 8)
+curve = SubResource("Curve3D_rxqls")
+script = ExtResource("11_cp1e4")
+Speed = 2.4
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Path3D3"]
+transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, -9, 0, -8)
+
+[node name="Footballer" type="Area3D" parent="AllBlocks/Path3D3/PathFollow3D"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AllBlocks/Path3D3/PathFollow3D/Footballer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_cp1e4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/Path3D3/PathFollow3D/Footballer"]
+mesh = SubResource("CylinderMesh_rxqls")
+
+[node name="Sprite3D" type="Sprite3D" parent="AllBlocks/Path3D3/PathFollow3D/Footballer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
+pixel_size = 0.06
+billboard = 2
+double_sided = false
+texture = ExtResource("13_ucvlr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D3"]
+stream = ExtResource("12_335la")
+
+[node name="Path3D4" type="Path3D" parent="AllBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10)
+curve = SubResource("Curve3D_rxqls")
+script = ExtResource("11_cp1e4")
+Speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Path3D4"]
+transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, -9, 0, -8)
+
+[node name="Footballer" type="Area3D" parent="AllBlocks/Path3D4/PathFollow3D"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AllBlocks/Path3D4/PathFollow3D/Footballer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_cp1e4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllBlocks/Path3D4/PathFollow3D/Footballer"]
+mesh = SubResource("CylinderMesh_rxqls")
+
+[node name="Sprite3D" type="Sprite3D" parent="AllBlocks/Path3D4/PathFollow3D/Footballer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
+pixel_size = 0.06
+billboard = 2
+double_sided = false
+texture = ExtResource("13_ucvlr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D4"]
+stream = ExtResource("12_335la")
+
+[node name="Block6" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 9)
+Color = 3
+
+[node name="Block7" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 8)
+Color = 3
+
+[node name="Block8" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7)
+Color = 3
+
+[node name="Block9" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6)
+Color = 3
+
+[node name="Block10" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5)
+Color = 3
+
+[node name="Block11" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
+Color = 3
+
+[node name="Block12" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+Color = 3
+
+[node name="Block13" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
+Color = 3
+
+[node name="Block14" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 8)
+Color = 3
+
+[node name="Block15" parent="AllBlocks" instance=ExtResource("8_1d13u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9)
+Color = 3
+
+[node name="GameButton" parent="AllBlocks" instance=ExtResource("14_rxqls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="MeshInstance3D" parent="AllBlocks/GameButton" index="0"]
+visible = false
+
+[node name="MeshInstance3D2" parent="AllBlocks/GameButton" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("BoxMesh_6xomh")
+surface_material_override/0 = SubResource("StandardMaterial3D_cixp7")
+
+[node name="CollisionShape3D" parent="AllBlocks/GameButton/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+shape = SubResource("BoxShape3D_rxqls")
+
+[node name="Goal" type="Node3D" parent="AllBlocks/GameButton"]
+script = ExtResource("15_cixp7")
+
+[node name="Block1" parent="AllBlocks/GameButton/Goal" instance=ExtResource("8_1d13u")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.5, 3, -3)
+
+[node name="Fire1" parent="AllBlocks/GameButton/Goal" instance=ExtResource("16_cs81e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -3)
+
+[node name="Block2" parent="AllBlocks/GameButton/Goal" instance=ExtResource("8_1d13u")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2.5, 3, -3)
+
+[node name="Fire2" parent="AllBlocks/GameButton/Goal" instance=ExtResource("16_cs81e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -3)
+
+[node name="Block3" parent="AllBlocks/GameButton/Goal" instance=ExtResource("8_1d13u")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.5, 3, -3)
+
+[node name="Fire3" parent="AllBlocks/GameButton/Goal" instance=ExtResource("16_cs81e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, -3)
+
+[node name="Block4" parent="AllBlocks/GameButton/Goal" instance=ExtResource("8_1d13u")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.5, 3, -3)
+
+[node name="Fire4" parent="AllBlocks/GameButton/Goal" instance=ExtResource("16_cs81e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3, -3)
+
+[node name="Block5" parent="AllBlocks/GameButton/Goal" instance=ExtResource("8_1d13u")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 3.5, 3, -3)
+
+[node name="Fire5" parent="AllBlocks/GameButton/Goal" instance=ExtResource("16_cs81e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 3, -3)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/GameButton/Goal"]
+stream = ExtResource("17_cs81e")
+
+[node name="GameHud" parent="." instance=ExtResource("7_27lev")]
+
+[node name="Explosion" parent="." instance=ExtResource("8_e0j6k")]
+
+[node name="Ground" parent="." instance=ExtResource("9_cp1e4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Ground" parent="Ground/ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xnsm0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.49999988, 0.6123725, 0.6123725, -0.8660253, 0.3535534, 0.3535534, 6.6800068e-09, -0.7071068, 0.7071068, 0, 18, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="Background" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-3.7855173e-08, -0.5, 0.8660254, -2.1855694e-08, 0.8660254, 0.5, -1, 0, -4.371139e-08, -16, 3, 2)
+mesh = SubResource("QuadMesh_y8r8c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-4.9567603e-08, 0.5, -0.8660254, -2.1855694e-08, 0.8660254, 0.5, 1, 4.371139e-08, -3.1998958e-08, 14, 3, 2)
+mesh = SubResource("QuadMesh_y8r8c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 2.1855694e-08, 5.856215e-09, -2.1855694e-08, 0.8660254, 0.5, 5.856215e-09, -0.5, 0.8660254, 0, 3, -20)
+mesh = SubResource("QuadMesh_y8r8c")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.70710677, -0.3535534, 0.61237246, -2.1855694e-08, 0.8660254, 0.5, -0.7071068, -0.35355338, 0.6123724, -16, 3, -20)
+mesh = SubResource("QuadMesh_y8r8c")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.70710677, 0.35355338, -0.61237246, -6.400254e-08, 0.8660254, 0.5, 0.7071068, -0.35355335, 0.61237246, 15, 3, -20)
+mesh = SubResource("QuadMesh_y8r8c")
+
+[connection signal="body_entered" from="AllBlocks/Path3D/PathFollow3D/Goalie" to="AllBlocks/Path3D" method="OnArea3dBodyEntered"]
+[connection signal="body_entered" from="AllBlocks/Path3D2/PathFollow3D/Footballer" to="AllBlocks/Path3D2" method="OnArea3dBodyEntered"]
+[connection signal="body_entered" from="AllBlocks/Path3D3/PathFollow3D/Footballer" to="AllBlocks/Path3D3" method="OnArea3dBodyEntered"]
+[connection signal="body_entered" from="AllBlocks/Path3D4/PathFollow3D/Footballer" to="AllBlocks/Path3D4" method="OnArea3dBodyEntered"]
+
+[editable path="CameraPivot"]
+[editable path="WallsDefault"]
+[editable path="WallsDefault/wall"]
+[editable path="AllBlocks/GameButton"]
+[editable path="Ground"]
+[editable path="Ground/ground"]

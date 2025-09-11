@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8hbtnixru6il"
-path.s3tc="res://.godot/imported/Arrow.png-6e4468b9f8ad77c92e2f1be58fc4db16.s3tc.ctex"
-path.etc2="res://.godot/imported/Arrow.png-6e4468b9f8ad77c92e2f1be58fc4db16.etc2.ctex"
+uid="uid://dqbnt1bpj4v1y"
+path.s3tc="res://.godot/imported/footballer.png-cb1e84ad6772380119308eb43952952d.s3tc.ctex"
+path.etc2="res://.godot/imported/footballer.png-cb1e84ad6772380119308eb43952952d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/gui/Arrow.png"
-dest_files=["res://.godot/imported/Arrow.png-6e4468b9f8ad77c92e2f1be58fc4db16.s3tc.ctex", "res://.godot/imported/Arrow.png-6e4468b9f8ad77c92e2f1be58fc4db16.etc2.ctex"]
+source_file="res://assets/textures/world/footballer.png"
+dest_files=["res://.godot/imported/footballer.png-cb1e84ad6772380119308eb43952952d.s3tc.ctex", "res://.godot/imported/footballer.png-cb1e84ad6772380119308eb43952952d.etc2.ctex"]
 
 [params]
 
