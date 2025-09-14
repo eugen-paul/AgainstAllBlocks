@@ -1,10 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://c03r1blfxny5b"]
+[gd_scene load_steps=8 format=3 uid="uid://c03r1blfxny5b"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_5dcku"]
 [ext_resource type="Script" uid="uid://bpfniyioksnyh" path="res://skripts/mainmenu/MenuHud.cs" id="1_mh2sp"]
 [ext_resource type="PackedScene" uid="uid://bef6f0qps8e14" path="res://scenes/mainmenu/GameSlotEmpty.tscn" id="3_3oa8s"]
 [ext_resource type="PackedScene" uid="uid://puxcdhmkm8fi" path="res://scenes/mainmenu/GameSlotSave.tscn" id="3_c284c"]
 [ext_resource type="PackedScene" uid="uid://dpvjyg48jchp2" path="res://scenes/fps/Fps.tscn" id="3_qpr6h"]
+[ext_resource type="Texture2D" uid="uid://blnxycr4shiqv" path="res://assets/textures/gui/info_button_background-hover.png" id="5_mhjwf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_usj7t"]
+texture = ExtResource("5_mhjwf")
+texture_margin_left = 6.0
+texture_margin_top = 7.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 48, 48)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_mh2sp")
@@ -13,6 +24,7 @@ GameSlotSave = ExtResource("3_c284c")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 auto_translate_mode = 2
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -45,6 +57,7 @@ horizontal_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5dcku")
@@ -123,45 +136,52 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5dcku")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Settings/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_usj7t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="GridContainer" type="GridContainer" parent="Settings/CenterContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Settings/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="ShowFpsLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="ShowFpsLabel" type="Label" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "MENU_FPS:"
 
-[node name="ShowFpsCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="ShowFpsCheckBox" type="CheckBox" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_5dcku")
 
-[node name="ShowBgLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="ShowBgLabel" type="Label" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "MENU_BG:"
 
-[node name="ShowBgCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="ShowBgCheckBox" type="CheckBox" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_5dcku")
 
-[node name="ShowShadowLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="ShowShadowLabel" type="Label" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 visible = false
 layout_mode = 2
 text = "MENU_SHADOW:"
 
-[node name="ShowShadowCheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="ShowShadowCheckBox" type="CheckBox" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_5dcku")
 
-[node name="EffectsLabel" type="Label" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="EffectsLabel" type="Label" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "MENU_EFFECTS:"
 
-[node name="EffectsOptionButton" type="OptionButton" parent="Settings/CenterContainer/VBoxContainer/GridContainer"]
+[node name="EffectsOptionButton" type="OptionButton" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 selected = 2
@@ -174,11 +194,11 @@ popup/item_1/id = 1
 popup/item_2/text = "E_HIGH"
 popup/item_2/id = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="BackButton" type="Button" parent="Settings/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="BackButton" type="Button" parent="Settings/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "MENU_BACK"
@@ -190,8 +210,8 @@ visible = false
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/SettingsButton" to="." method="OnSettingsButtonPressed"]
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
 [connection signal="pressed" from="Game/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="OnGameBackPressed"]
-[connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox" to="." method="TogleShowFps"]
-[connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox" to="." method="TogleShowBg"]
-[connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/GridContainer/ShowShadowCheckBox" to="." method="TogleShadow"]
-[connection signal="item_selected" from="Settings/CenterContainer/VBoxContainer/GridContainer/EffectsOptionButton" to="." method="OnEffectsOptionButtonItemSelected"]
-[connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="OnSettingsBackPressed"]
+[connection signal="toggled" from="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/ShowFpsCheckBox" to="." method="TogleShowFps"]
+[connection signal="toggled" from="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/ShowBgCheckBox" to="." method="TogleShowBg"]
+[connection signal="toggled" from="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/ShowShadowCheckBox" to="." method="TogleShadow"]
+[connection signal="item_selected" from="Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/EffectsOptionButton" to="." method="OnEffectsOptionButtonItemSelected"]
+[connection signal="pressed" from="Settings/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="OnSettingsBackPressed"]

@@ -24,11 +24,11 @@ public partial class MenuHud : CanvasLayer
         { MenuOptions.SETTING, "Settings" },
     };
 
-    private const string PREFERENCE_SHOW_FPS = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowFpsCheckBox";
-    private const string PREFERENCE_SHOW_BG = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowBgCheckBox";
-    private const string PREFERENCE_SHOW_SHADOW = "Settings/CenterContainer/VBoxContainer/GridContainer/ShowShadowCheckBox";
+    private const string PREFERENCE_SHOW_FPS = "Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/ShowFpsCheckBox";
+    private const string PREFERENCE_SHOW_BG = "Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/ShowBgCheckBox";
+    private const string PREFERENCE_SHOW_SHADOW = "Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/ShowShadowCheckBox";
+    private const string EFFECTS = "Settings/CenterContainer/PanelContainer/VBoxContainer/GridContainer/EffectsOptionButton";
     private const string GAMEPROGRESS_GRID = "Game/CenterContainer/VBoxContainer/GameProgressGridContainer";
-    private const string EFFECTS = "Settings/CenterContainer/VBoxContainer/GridContainer/EffectsOptionButton";
 
     public override void _Ready()
     {

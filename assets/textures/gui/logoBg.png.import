@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crm27lwpcw2fc"
-path.s3tc="res://.godot/imported/star_08.png-0b04c37e76777a91e3d9155e20c69389.s3tc.ctex"
-path.etc2="res://.godot/imported/star_08.png-0b04c37e76777a91e3d9155e20c69389.etc2.ctex"
+uid="uid://d3nch1vnhdhqp"
+path.s3tc="res://.godot/imported/logoBg.png-0d5e85c12d7706867ecbd37e334913da.s3tc.ctex"
+path.etc2="res://.godot/imported/logoBg.png-0d5e85c12d7706867ecbd37e334913da.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/gui/star_08.png"
-dest_files=["res://.godot/imported/star_08.png-0b04c37e76777a91e3d9155e20c69389.s3tc.ctex", "res://.godot/imported/star_08.png-0b04c37e76777a91e3d9155e20c69389.etc2.ctex"]
+source_file="res://assets/textures/gui/logoBg.png"
+dest_files=["res://.godot/imported/logoBg.png-0d5e85c12d7706867ecbd37e334913da.s3tc.ctex", "res://.godot/imported/logoBg.png-0d5e85c12d7706867ecbd37e334913da.etc2.ctex"]
 
 [params]
 

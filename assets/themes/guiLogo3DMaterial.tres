@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://slcwdv4c6sjp"]
+
+[ext_resource type="Texture2D" uid="uid://d3nch1vnhdhqp" path="res://assets/textures/gui/logoBg.png" id="1_nwohf"]
+
+[resource]
+shading_mode = 2
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = ExtResource("1_nwohf")
+uv1_scale = Vector3(3, 3, 3)
+proximity_fade_distance = 0.01
+stencil_flags = 2
+stencil_color = Color(1, 0, 0, 1)
