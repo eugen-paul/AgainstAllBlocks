@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bljrrptb15bsf"]
+[gd_scene load_steps=43 format=3 uid="uid://bljrrptb15bsf"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_brx87"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_xnsm0"]
@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://ccng21qsp22iw" path="res://skripts/world/Goal.cs" id="15_cixp7"]
 [ext_resource type="PackedScene" uid="uid://dl468716htvnm" path="res://scenes/world/particles/ExplosionFireBig.tscn" id="16_cs81e"]
 [ext_resource type="AudioStream" uid="uid://d3tbv4iex4abu" path="res://assets/sounds/goal.wav" id="17_cs81e"]
-[ext_resource type="Texture2D" uid="uid://dqywlbn5tksjt" path="res://assets/textures/world/fans.png" id="22_an4ln"]
+[ext_resource type="Texture2D" uid="uid://ceytct4eiud7a" path="res://assets/textures/world/fans2.png" id="24_xm111"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wxs6"]
 shading_mode = 2
@@ -95,15 +95,39 @@ size = Vector3(7, 2, 3)
 shading_mode = 0
 albedo_texture = ExtResource("10_yr581")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_335la"]
-shading_mode = 0
-albedo_texture = ExtResource("22_an4ln")
-uv1_scale = Vector3(10, 5, 1)
-disable_receive_shadows = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8r8c"]
+atlas = ExtResource("24_xm111")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="QuadMesh" id="QuadMesh_y8r8c"]
-material = SubResource("StandardMaterial3D_335la")
-size = Vector2(30, 15)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm111"]
+atlas = ExtResource("24_xm111")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utyta"]
+atlas = ExtResource("24_xm111")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0ke0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8r8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm111")
+}],
+"loop": true,
+"name": &"Goal",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utyta")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="Level15" type="Node"]
 script = ExtResource("1_brx87")
@@ -396,25 +420,860 @@ sky_mode = 1
 
 [node name="Background" type="Node" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(-3.7855173e-08, -0.5, 0.8660254, -2.1855694e-08, 0.8660254, 0.5, -1, 0, -4.371139e-08, -16, 3, 2)
-mesh = SubResource("QuadMesh_y8r8c")
+[node name="left" type="Node3D" parent="Background"]
+transform = Transform3D(0.9659257, -0.25881898, 0, 0.25881898, 0.9659257, 0, 0, 0, 1, -11.488001, 3.5356421, 15.324638)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(-4.9567603e-08, 0.5, -0.8660254, -2.1855694e-08, 0.8660254, 0.5, 1, 4.371139e-08, -3.1998958e-08, 14, 3, 2)
-mesh = SubResource("QuadMesh_y8r8c")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 2.1855694e-08, 5.856215e-09, -2.1855694e-08, 0.8660254, 0.5, 5.856215e-09, -0.5, 0.8660254, 0, 3, -20)
-mesh = SubResource("QuadMesh_y8r8c")
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(0.70710677, -0.3535534, 0.61237246, -2.1855694e-08, 0.8660254, 0.5, -0.7071068, -0.35355338, 0.6123724, -16, 3, -20)
-mesh = SubResource("QuadMesh_y8r8c")
+[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(0.70710677, 0.35355338, -0.61237246, -6.400254e-08, 0.8660254, 0.5, 0.7071068, -0.35355335, 0.61237246, 15, 3, -20)
-mesh = SubResource("QuadMesh_y8r8c")
+[node name="AnimatedSprite3D4" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D5" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.37114e-07, -4.7683716e-07, 10.000002, -1.4210855e-14, 10.000002, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D6" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711407e-07, -4.7683716e-07, 10.000004, -2.842171e-14, 10.000004, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D7" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711418e-07, -4.7683716e-07, 10.000008, -3.5527137e-14, 10.000008, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D8" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711435e-07, -4.7683716e-07, 10.000013, -2.842171e-14, 10.000013, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D9" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711447e-07, -4.7683716e-07, 10.000015, -1.4210855e-14, 10.000015, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D10" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711458e-07, -4.7683716e-07, 10.000017, 0, 10.000017, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D12" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D13" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D14" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D15" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711395e-07, -4.768371e-07, 10, -1.4210853e-14, 10, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D16" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.37114e-07, -4.768371e-07, 10.000002, -2.8421706e-14, 10.000002, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D17" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711412e-07, -4.768371e-07, 10.000006, -3.552713e-14, 10.000006, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D18" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.371143e-07, -4.768371e-07, 10.000011, -2.8421706e-14, 10.000011, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D19" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.371144e-07, -4.768371e-07, 10.000013, -1.4210853e-14, 10.000013, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D20" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711452e-07, -4.768371e-07, 10.000015, 0, 10.000015, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D25" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.371139e-07, -4.7683704e-07, 9.999998, -1.4210851e-14, 9.999998, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D26" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711395e-07, -4.7683704e-07, 10, -2.8421703e-14, 10, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D27" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711407e-07, -4.7683704e-07, 10.000004, -3.5527123e-14, 10.000004, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D28" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711424e-07, -4.7683704e-07, 10.00001, -2.8421703e-14, 10.00001, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D29" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711435e-07, -4.7683704e-07, 10.000011, -1.4210851e-14, 10.000011, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D30" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711447e-07, -4.7683704e-07, 10.000013, 0, 10.000013, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D38" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711415e-07, -4.7683696e-07, 10.000007, -2.8421698e-14, 10.000007, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D39" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711427e-07, -4.7683696e-07, 10.000009, -1.4210849e-14, 10.000009, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D40" type="AnimatedSprite3D" parent="Background/left"]
+transform = Transform3D(-4.3711438e-07, -4.7683696e-07, 10.0000105, 0, 10.0000105, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="right" type="Node3D" parent="Background"]
+transform = Transform3D(-0.9659257, 0.25881898, -8.4443904e-08, 0.25881898, 0.9659257, 2.2626676e-08, 8.742276e-08, 2.6054016e-15, -1, 11.490936, 3.5356421, -13.43618)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D4" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D5" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.37114e-07, -4.7683716e-07, 10.000002, -1.4210855e-14, 10.000002, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D6" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711407e-07, -4.7683716e-07, 10.000004, -2.842171e-14, 10.000004, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D7" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711418e-07, -4.7683716e-07, 10.000008, -3.5527137e-14, 10.000008, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D8" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711435e-07, -4.7683716e-07, 10.000013, -2.842171e-14, 10.000013, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D9" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711447e-07, -4.7683716e-07, 10.000015, -1.4210855e-14, 10.000015, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D10" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711458e-07, -4.7683716e-07, 10.000017, 0, 10.000017, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D11" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D12" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D13" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D14" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D15" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711395e-07, -4.768371e-07, 10, -1.4210853e-14, 10, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D16" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.37114e-07, -4.768371e-07, 10.000002, -2.8421706e-14, 10.000002, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D17" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711412e-07, -4.768371e-07, 10.000006, -3.552713e-14, 10.000006, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D18" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371143e-07, -4.768371e-07, 10.000011, -2.8421706e-14, 10.000011, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D19" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371144e-07, -4.768371e-07, 10.000013, -1.4210853e-14, 10.000013, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D21" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D22" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D23" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D24" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D25" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371139e-07, -4.7683704e-07, 9.999998, -1.4210851e-14, 9.999998, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D26" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.3711395e-07, -4.7683704e-07, 10, -2.8421703e-14, 10, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D31" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371137e-07, 0, 9.999993, 0, 9.999993, 0, -10, 0, -4.371139e-07, 0, 9.576988, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D32" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371137e-07, 0, 9.999993, 0, 9.999993, 0, -10, 0, -4.371139e-07, 0, 9.576988, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D33" type="AnimatedSprite3D" parent="Background/right"]
+transform = Transform3D(-4.371137e-07, 0, 9.999993, 0, 9.999993, 0, -10, 0, -4.371139e-07, 0, 9.576988, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="top" type="Node3D" parent="Background"]
+transform = Transform3D(1.3113414e-07, 2.0690832e-15, -0.9999999, 0.25881898, 0.9659257, 3.3940015e-08, 0.9659257, -0.25881895, 1.2666587e-07, -14.244229, 3.5356421, -15.2522335)
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D4" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D5" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.37114e-07, -4.7683716e-07, 10.000002, -1.4210855e-14, 10.000002, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D6" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711407e-07, -4.7683716e-07, 10.000004, -2.842171e-14, 10.000004, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D7" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711418e-07, -4.7683716e-07, 10.000008, -3.5527137e-14, 10.000008, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D8" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711435e-07, -4.7683716e-07, 10.000013, -2.842171e-14, 10.000013, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D9" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711447e-07, -4.7683716e-07, 10.000015, -1.4210855e-14, 10.000015, 4.7683716e-07, -10, 0, -4.371139e-07, 0, 0, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D11" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D12" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D13" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D14" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711384e-07, 0, 9.999998, 0, 9.999998, 0, -10, 0, -4.371139e-07, 0, 3.1918297, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D15" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711395e-07, -4.768371e-07, 10, -1.4210853e-14, 10, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D16" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.37114e-07, -4.768371e-07, 10.000002, -2.8421706e-14, 10.000002, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D17" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711412e-07, -4.768371e-07, 10.000006, -3.552713e-14, 10.000006, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D18" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371143e-07, -4.768371e-07, 10.000011, -2.8421706e-14, 10.000011, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D19" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371144e-07, -4.768371e-07, 10.000013, -1.4210853e-14, 10.000013, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D20" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711452e-07, -4.768371e-07, 10.000015, 0, 10.000015, 4.768371e-07, -10, 0, -4.371139e-07, 0, 3.1918297, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D21" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D22" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D23" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D24" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711378e-07, 0, 9.999996, 0, 9.999996, 0, -10, 0, -4.371139e-07, 0, 6.3798566, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D25" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371139e-07, -4.7683704e-07, 9.999998, -1.4210851e-14, 9.999998, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D26" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711395e-07, -4.7683704e-07, 10, -2.8421703e-14, 10, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D27" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711407e-07, -4.7683704e-07, 10.000004, -3.5527123e-14, 10.000004, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D28" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711424e-07, -4.7683704e-07, 10.00001, -2.8421703e-14, 10.00001, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D29" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711435e-07, -4.7683704e-07, 10.000011, -1.4210851e-14, 10.000011, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D30" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711447e-07, -4.7683704e-07, 10.000013, 0, 10.000013, 4.7683704e-07, -10, 0, -4.371139e-07, 0, 6.3798566, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D31" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371137e-07, 0, 9.999993, 0, 9.999993, 0, -10, 0, -4.371139e-07, 0, 9.576988, 0)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D32" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371137e-07, 0, 9.999993, 0, 9.999993, 0, -10, 0, -4.371139e-07, 0, 9.576988, -3.193097)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D33" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371137e-07, 0, 9.999993, 0, 9.999993, 0, -10, 0, -4.371139e-07, 0, 9.576988, -6.3918467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D34" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371137e-07, 0, 9.999993, 0, 9.999993, 0, -10, 0, -4.371139e-07, 0, 9.576988, -9.590945)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D35" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.371138e-07, -4.7683696e-07, 9.999995, -1.4210849e-14, 9.999995, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -12.785969)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D36" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711387e-07, -4.7683696e-07, 9.999997, -2.8421698e-14, 9.999997, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -15.982467)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D37" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711398e-07, -4.7683696e-07, 10.000001, -3.5527113e-14, 10.000001, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -19.181461)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D38" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711415e-07, -4.7683696e-07, 10.000007, -2.8421698e-14, 10.000007, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -22.378391)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D39" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711427e-07, -4.7683696e-07, 10.000009, -1.4210849e-14, 10.000009, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -25.577763)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AnimatedSprite3D40" type="AnimatedSprite3D" parent="Background/top"]
+transform = Transform3D(-4.3711438e-07, -4.7683696e-07, 10.0000105, 0, 10.0000105, 4.7683696e-07, -10, 0, -4.371139e-07, 0, 9.576988, -28.776854)
+transparent = false
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_j0ke0")
+animation = &"Idle"
+autoplay = "Idle"
 
 [connection signal="body_entered" from="AllBlocks/Path3D/PathFollow3D/Goalie" to="AllBlocks/Path3D" method="OnArea3dBodyEntered"]
 [connection signal="body_entered" from="AllBlocks/Path3D2/PathFollow3D/Footballer" to="AllBlocks/Path3D2" method="OnArea3dBodyEntered"]
