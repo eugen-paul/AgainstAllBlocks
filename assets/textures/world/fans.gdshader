@@ -7,7 +7,6 @@ uniform sampler2D tex : source_color, filter_linear, repeat_enable;
 uniform int frame = 0;           // aktueller Frame (0 = sitzend, 1–2 = jubelnd)
 uniform float speed = 2.0;       // Animation-Geschwindigkeit für Jubeln
 uniform bool animate = false;    // true = Animation läuft, false = Frame manuell
-uniform vec2 tiling = vec2(1.0, 1.0); // getrennte Skalierung für X und Y
 
 void fragment() {
     vec2 uv = UV;
@@ -23,7 +22,6 @@ void fragment() {
 
     // Offset berechnen
     uv.x = uv.x * frame_width + frame_width * float(current_frame);
-    uv = uv * tiling;
 
     vec4 tex_color = texture(tex, uv);
     ALBEDO = tex_color.rgb;

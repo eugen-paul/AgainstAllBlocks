@@ -20,6 +20,11 @@ public abstract class AchievementFactory
         return scriptObject.Call(variableName, n).AsString();
     }
 
+    protected string VarN(string variableName, int n, int m)
+    {
+        return scriptObject.Call(variableName, n, m).AsString();
+    }
+
     public abstract string GetAchievementText();
     public abstract IAchievementMonitor CreateMonitor();
 }
@@ -57,7 +62,7 @@ public partial class Achievements : Node
             {12, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(200),   DONT_LOSE_ANY_LIFE()   }},
             {13, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(150),   DONT_LOSE_ANY_LIFE()   }},
             {14, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(200),   DONT_LOSE_ANY_LIFE()   }},
-            {15, new List<AchievementFactory>(){ GET_X_POINTS(20),  GET_X_POINTS(30),    DONT_LOSE_ANY_LIFE()   }},
+            {15, new List<AchievementFactory>(){ GET_X_POINTS(20),  LEVEL_15_X_GOALS_K_SECONDS(2,3),    DONT_LOSE_ANY_LIFE()   }},
             {16, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
             {17, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
             {18, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
@@ -96,6 +101,10 @@ public partial class Achievements : Node
         return new DontCatchAnyItemsAchievementFactory(ScriptObject);
     }
 
+    private AchievementFactory LEVEL_15_X_GOALS_K_SECONDS(int count, int seconds)
+    {
+        return new Level15GoalAchievementFactory(ScriptObject, count, seconds);
+    }
 
     public string GetAchivments(int level, int ball)
     {

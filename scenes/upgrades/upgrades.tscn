@@ -558,7 +558,7 @@ offset_right = -8.0
 offset_bottom = -0.17602539
 grow_horizontal = 2
 grow_vertical = 2
-text = "UI_HOWTO_STEP1"
+text = "UI_HOWTO_STEP1."
 
 [node name="Arrow" type="TextureRect" parent="HowToMenu/Step1"]
 layout_mode = 0
@@ -630,7 +630,7 @@ offset_right = -8.0
 offset_bottom = -0.17602539
 grow_horizontal = 2
 grow_vertical = 2
-text = "UI_HOWTO_STEP2"
+text = "UI_HOWTO_STEP2."
 
 [node name="Arrow" type="TextureRect" parent="HowToMenu/Step2"]
 layout_mode = 0
@@ -711,7 +711,7 @@ offset_right = -8.0
 offset_bottom = -0.17602539
 grow_horizontal = 2
 grow_vertical = 2
-text = "UI_HOWTO_STEP3"
+text = "UI_HOWTO_STEP3."
 
 [node name="HandMove" type="TextureRect" parent="HowToMenu/Step3"]
 layout_mode = 0

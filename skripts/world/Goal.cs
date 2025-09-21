@@ -2,10 +2,12 @@ using Godot;
 
 public partial class Goal : Node3D, ITriggerable
 {
+    public DefaultLevel Level { get; set; } = null;
 
     public override void _Ready()
     {
         GetNode<AudioStreamPlayer>("AudioStreamPlayer").Finished += StopAnimation;
+        Level = GetNodeOrNull<DefaultLevel>("/root/Level15");
     }
 
     public void Trigger()
@@ -21,6 +23,7 @@ public partial class Goal : Node3D, ITriggerable
         explosion.Emitting = true;
 
         GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
+        Level?.SendSignal(new GoalSignal());
 
         StartAnimation();
     }

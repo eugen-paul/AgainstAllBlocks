@@ -166,6 +166,24 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: scenes/localization/Localization_Achievements.gd
+msgctxt "Level 15 Achivment"
+msgid "GOAL"
+msgid_plural "GOALS"
+msgstr[0] ""
+msgstr[1] ""
+
+#: scenes/localization/Localization_Achievements.gd
+msgctxt "Level 15 Achivment"
+msgid "SECOND"
+msgid_plural "SECONDS"
+msgstr[0] ""
+msgstr[1] ""
+
+#: scenes/localization/Localization_Achievements.gd
+msgid "{goals} {g} in {seconds} {s}"
+msgstr ""
+
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
 msgstr ""
 
@@ -286,7 +304,7 @@ msgid "UI_MAXSLOT_LABEL."
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UI_HOWTO_STEP1"
+msgid "UI_HOWTO_STEP1."
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
@@ -294,7 +312,7 @@ msgid "UI_NEXT"
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UI_HOWTO_STEP2"
+msgid "UI_HOWTO_STEP2."
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
@@ -302,11 +320,7 @@ msgid "UI_PREV"
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UI_HOWTO_STEP3"
-msgstr ""
-
-#: scenes/upgrades/Upgrades.tscn
-msgid "UI_HOWTO_STEP4"
+msgid "UI_HOWTO_STEP3."
 msgstr ""
 
 #: scenes/upgrades/UpgradeItemPanel.tscn

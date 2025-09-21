@@ -168,6 +168,24 @@ msgstr[0] "Catch at least {0} bomb."
 msgstr[1] "Catch at least {0} bombs."
 
 #: scenes/localization/Localization_Achievements.gd
+msgctxt "Level 15 Achivment"
+msgid "GOAL"
+msgid_plural "GOALS"
+msgstr[0] "goal"
+msgstr[1] "goals"
+
+#: scenes/localization/Localization_Achievements.gd
+msgctxt "Level 15 Achivment"
+msgid "SECOND"
+msgid_plural "SECONDS"
+msgstr[0] "second"
+msgstr[1] "seconds"
+
+#: scenes/localization/Localization_Achievements.gd
+msgid "{goals} {g} in {seconds} {s}"
+msgstr ""
+
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
 msgstr "Don't use rockets."
 
@@ -288,7 +306,9 @@ msgid "UI_MAXSLOT_LABEL."
 msgstr "Maximum number of upgrade slots has been reached."
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UI_HOWTO_STEP1"
+#, fuzzy
+#| msgid "UI_HOWTO_STEP1"
+msgid "UI_HOWTO_STEP1."
 msgstr "First, buy slots for the upgrades."
 
 #: scenes/upgrades/Upgrades.tscn
@@ -296,7 +316,9 @@ msgid "UI_NEXT"
 msgstr "Next"
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UI_HOWTO_STEP2"
+#, fuzzy
+#| msgid "UI_HOWTO_STEP2"
+msgid "UI_HOWTO_STEP2."
 msgstr "Buy upgrades. Upgrades can have multiple levels of improvement."
 
 #: scenes/upgrades/Upgrades.tscn
@@ -304,14 +326,10 @@ msgid "UI_PREV"
 msgstr "Back"
 
 #: scenes/upgrades/Upgrades.tscn
-msgid "UI_HOWTO_STEP3"
-msgstr "Move the upgrade into the upgrade slot to activate it."
-
-#: scenes/upgrades/Upgrades.tscn
 #, fuzzy
-#| msgid "UIM_HOWTO"
-msgid "UI_HOWTO_STEP4"
-msgstr "Help"
+#| msgid "UI_HOWTO_STEP3"
+msgid "UI_HOWTO_STEP3."
+msgstr "Move the upgrade into the upgrade slot to activate it."
 
 #: scenes/upgrades/UpgradeItemPanel.tscn
 msgid "UIP_UPGRADE"
@@ -324,6 +342,11 @@ msgstr "Info"
 #: scenes/upgrades/UpgradeGoldLabel.tscn
 msgid "UIM_GOLD:"
 msgstr "Gold:"
+
+#, fuzzy
+#~| msgid "UIM_HOWTO"
+#~ msgid "UI_HOWTO_STEP4"
+#~ msgstr "Help"
 
 #~ msgid "UIM_CLOSE"
 #~ msgstr "Close"
