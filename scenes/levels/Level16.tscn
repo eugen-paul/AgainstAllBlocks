@@ -1,0 +1,258 @@
+[gd_scene load_steps=29 format=3 uid="uid://dslb5q8waet0n"]
+
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_4q5y8"]
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_acv7a"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="2_acv7a"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="3_ueyot"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="4_rkuh7"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="5_a5xsx"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="6_tow20"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="7_30cy6"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="7_6564n"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="8_6564n"]
+[ext_resource type="Texture2D" uid="uid://jpem30v454u2" path="res://assets/textures/world/dryearth.png" id="10_ueyot"]
+[ext_resource type="PackedScene" uid="uid://drl0sa2g241ub" path="res://scenes/world/Fir.tscn" id="11_a5xsx"]
+[ext_resource type="Texture2D" uid="uid://sba313nva7m2" path="res://assets/textures/world/grass2.png" id="12_30cy6"]
+[ext_resource type="PackedScene" uid="uid://ctg1t4vybt8bt" path="res://scenes/world/Tent.tscn" id="12_tow20"]
+[ext_resource type="Texture2D" uid="uid://oigq3ssijaih" path="res://assets/textures/world/Wood.png" id="14_bsbyu"]
+[ext_resource type="PackedScene" uid="uid://bmpchvatbf0cx" path="res://scenes/world/particles/Fire.tscn" id="15_ykl8e"]
+[ext_resource type="Texture2D" uid="uid://ceaeuglbpamc3" path="res://assets/textures/world/SmalWall_PLANK_2.png" id="16_ykl8e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkuh7"]
+shading_mode = 0
+albedo_color = Color(0.905882, 0.952941, 1, 1)
+albedo_texture = ExtResource("10_ueyot")
+uv1_scale = Vector3(5, 10, 1)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6564n"]
+size = Vector2(50, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsbyu"]
+shading_mode = 0
+albedo_texture = ExtResource("12_30cy6")
+uv1_scale = Vector3(10, 20, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4og4"]
+shading_mode = 2
+albedo_texture = ExtResource("14_bsbyu")
+uv1_scale = Vector3(4, 4, 1)
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_23dd1"]
+material = SubResource("StandardMaterial3D_l4og4")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 3.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykl8e"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_l4og4"]
+material = SubResource("StandardMaterial3D_ykl8e")
+radial_segments = 16
+rings = 8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5xsx"]
+size = Vector3(14, 4, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_30cy6"]
+height = 4.0
+radius = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6564n"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 0.5
+radial_segments = 16
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ec1fl"]
+shading_mode = 0
+albedo_texture = ExtResource("16_ykl8e")
+uv1_scale = Vector3(5, 5, 5)
+
+[node name="Level16" type="Node"]
+script = ExtResource("1_acv7a")
+Level = 16
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_4q5y8")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("2_acv7a")
+
+[node name="CameraPivot" parent="." instance=ExtResource("3_ueyot")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("4_rkuh7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 18)
+
+[node name="Paddle" parent="." instance=ExtResource("5_a5xsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Block1" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8)
+
+[node name="Block2" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -8)
+
+[node name="Block3" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8)
+
+[node name="Block4" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8)
+
+[node name="Block5" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7)
+
+[node name="Block6" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -7)
+
+[node name="Block7" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
+
+[node name="Block8" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+
+[node name="Block9" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="Block10" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+
+[node name="Block11" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -6)
+
+[node name="Block12" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6)
+
+[node name="Block13" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
+
+[node name="Block14" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
+
+[node name="Block15" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
+
+[node name="Block16" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="Block17" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+
+[node name="Block18" parent="AllBlocks" instance=ExtResource("7_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6)
+
+[node name="GameHud" parent="." instance=ExtResource("6_tow20")]
+
+[node name="Explosion" parent="." instance=ExtResource("7_30cy6")]
+
+[node name="Ground" parent="." instance=ExtResource("8_6564n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Ground" parent="Ground/ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rkuh7")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Fir" parent="Background" instance=ExtResource("11_a5xsx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.6168585, 0, -24.259918)
+PartsCount = 4
+Seed = 43
+
+[node name="Fir2" parent="Background" instance=ExtResource("11_a5xsx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 18.38314, 0, -7.259918)
+PartsCount = 4
+Seed = 38
+
+[node name="Fir3" parent="Background" instance=ExtResource("11_a5xsx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5.3831406, 0, -33.25992)
+PartsCount = 4
+Seed = 36
+
+[node name="Fir4" parent="Background" instance=ExtResource("11_a5xsx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.616859, 0, -38.25992)
+PartsCount = 4
+Seed = 39
+
+[node name="Fir5" parent="Background" instance=ExtResource("11_a5xsx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -15.616859, 0, 3.7400818)
+PartsCount = 4
+Seed = 31
+
+[node name="Fir6" parent="Background" instance=ExtResource("11_a5xsx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 15.383141, 0, 9.740082)
+PartsCount = 4
+Seed = 46
+
+[node name="Grass" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0792923, -0.0100038145, 0.037820816)
+mesh = SubResource("PlaneMesh_6564n")
+surface_material_override/0 = SubResource("StandardMaterial3D_bsbyu")
+
+[node name="Fire" type="Node3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Fire"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.26049614, 0)
+mesh = SubResource("CylinderMesh_23dd1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Fire"]
+transform = Transform3D(-2.1855692e-08, 0.49999997, 0.86602545, -1, -4.371139e-08, 0, 3.7855173e-08, -0.86602545, 0.49999997, 0, 0.26049614, 0)
+mesh = SubResource("CylinderMesh_23dd1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Fire"]
+transform = Transform3D(2.18557e-08, -0.5000001, 0.8660254, -1, -4.371139e-08, 0, 3.7855173e-08, -0.8660254, -0.5000001, 0, 0.26049614, 0)
+mesh = SubResource("CylinderMesh_23dd1")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Fire"]
+mesh = SubResource("SphereMesh_l4og4")
+
+[node name="FireParticles" parent="Background/Fire" instance=ExtResource("15_ykl8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82513094, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, 0.24999999, 0.43301272, -0.5, 0.43301266, 0.75, 0, -0.86602545, 0.49999997, 0, 13, 0)
+sky_mode = 1
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Tent1" parent="World" instance=ExtResource("12_tow20")]
+transform = Transform3D(1.6920049, 0, -2.477321, 0, 2.9999998, 0, 2.477321, 0, 1.6920049, -9.994259, 0, -16.922932)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="World/Tent1" groups=["Wall"]]
+transform = Transform3D(-1.457046e-08, 0, 0.33333328, 0, 0.33333337, 0, -0.33333328, 0, -1.457046e-08, 3.333, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Tent1/StaticBody3D2"]
+transform = Transform3D(0.9999999, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 0.9999999, 0, 0, -1.4025745)
+shape = SubResource("BoxShape3D_a5xsx")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="Tent2" parent="World" instance=ExtResource("12_tow20")]
+transform = Transform3D(-1.4084146, 0, -2.6488426, 0, 2.9999995, 0, 2.6488426, 0, -1.4084146, 9.570539, 0, -17.793932)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Tent2" groups=["Wall"]]
+transform = Transform3D(-1.4570466e-08, 0, 0.33333334, 0, 0.3333334, 0, -0.33333334, 0, -1.4570466e-08, 3.3333335, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Tent2/StaticBody3D"]
+transform = Transform3D(0.9999999, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 0.9999999, 0, 0, -1.4025745)
+shape = SubResource("BoxShape3D_a5xsx")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="FirePlace" type="StaticBody3D" parent="World" groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/FirePlace"]
+shape = SubResource("CylinderShape3D_30cy6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/FirePlace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_6564n")
+surface_material_override/0 = SubResource("StandardMaterial3D_ec1fl")
+
+[editable path="CameraPivot"]
+[editable path="Ground"]
+[editable path="Ground/ground"]

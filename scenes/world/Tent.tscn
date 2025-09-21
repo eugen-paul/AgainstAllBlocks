@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctg1t4vybt8bt"]
+
+[ext_resource type="PackedScene" uid="uid://btm6nk6xmutye" path="res://assets/blender/world/tent.gltf" id="1_2i8pq"]
+[ext_resource type="Texture2D" uid="uid://2muto47uk4lf" path="res://assets/textures/world/tent.png" id="2_vhxgw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npn10"]
+shading_mode = 2
+albedo_texture = ExtResource("2_vhxgw")
+
+[node name="Tent" type="Node3D"]
+
+[node name="tent" parent="." instance=ExtResource("1_2i8pq")]
+
+[node name="Cube" parent="tent" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_npn10")
+
+[editable path="tent"]
