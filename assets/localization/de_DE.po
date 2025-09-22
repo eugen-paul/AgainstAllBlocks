@@ -239,23 +239,23 @@ msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr "Geschwindigkeit des Schlägers um 100% erhöht."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER."
+msgid "UPGRADE_BOMB_RADIUS."
 msgstr "Vergrößert den Explosionsradius mit jedem Upgrade."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_0."
+msgid "UPGRADE_BOMB_RADIUS_0."
 msgstr "Explosionsradius unverändert."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_1."
+msgid "UPGRADE_BOMB_RADIUS_1."
 msgstr "Explosionsradius um 1 Meter vergrößert."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_2."
+msgid "UPGRADE_BOMB_RADIUS_2."
 msgstr "Explosionsradius um 2 Meter vergrößert."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_3."
+msgid "UPGRADE_BOMB_RADIUS_3."
 msgstr "Explosionsradius um 3 Meter vergrößert."
 
 #: scenes/localization/Localization_Upgrades.gd
@@ -268,15 +268,35 @@ msgstr "Keine Extrapunkte."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_BOMB_SCORE_1."
-msgstr "1 Extrapunkt pro zerstörtem Block."
-
-#: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_SCORE_2."
 msgstr "2 Extrapunkte pro zerstörtem Block."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_SCORE_2."
+msgstr "4 Extrapunkte pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_BOMB_SCORE_3."
-msgstr "3 Extrapunkte pro zerstörtem Block."
+msgstr "6 Extrapunkte pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER."
+msgstr "Erhöht die Durchschlagskraft von Bomben mit jedem Upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_0."
+msgstr "Standard Durchschlagskraft von Bomben."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_1."
+msgstr "Erhöht die Durchschlagskraft von Bomben um 1."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_2."
+msgstr "Erhöht die Durchschlagskraft von Bomben um 2."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_3."
+msgstr "Erhöht die Durchschlagskraft von Bomben um 3."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
@@ -303,8 +323,6 @@ msgid "UI_MAXSLOT_LABEL."
 msgstr "Die maximale Anzahl an Upgrade-Slots wurde erreicht."
 
 #: scenes/upgrades/Upgrades.tscn
-#, fuzzy
-#| msgid "UI_HOWTO_STEP1"
 msgid "UI_HOWTO_STEP1."
 msgstr "Kaufe zunächst Slots für die Upgrades."
 
@@ -313,8 +331,6 @@ msgid "UI_NEXT"
 msgstr "Weiter"
 
 #: scenes/upgrades/Upgrades.tscn
-#, fuzzy
-#| msgid "UI_HOWTO_STEP2"
 msgid "UI_HOWTO_STEP2."
 msgstr "Kaufe Upgrades. Upgrades können mehrere Verbesserungsstufen haben."
 
@@ -323,8 +339,6 @@ msgid "UI_PREV"
 msgstr "Zurück"
 
 #: scenes/upgrades/Upgrades.tscn
-#, fuzzy
-#| msgid "UI_HOWTO_STEP3"
 msgid "UI_HOWTO_STEP3."
 msgstr "Verschiebe das Upgrade in den Upgrade-Slot, um es zu aktivieren."
 

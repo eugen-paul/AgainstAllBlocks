@@ -9,9 +9,10 @@ public partial class Bomb : CharacterBody3D, AutoSound
     [Export]
     public float StartHeight { get; set; } = 22.0f;
 
-    public float explosionradius = 2.0f;
+    private float explosionradius = 2.0f;
+    private int explosionpower  = 1;
 
-    public int scoreBonus = 0;
+    private int scoreBonus = 0;
 
     [Export]
     public PackedScene ExplosionScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_BOMB_EXPLOSION_SCENE);
@@ -26,13 +27,17 @@ public partial class Bomb : CharacterBody3D, AutoSound
 
     public override void _Ready()
     {
-        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_POWER))
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_RADIUS))
         {
-            explosionradius = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_POWER) + 2f;
+            explosionradius = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_RADIUS) + 2f;
         }
         if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_SCORE))
         {
-            scoreBonus = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_SCORE);
+            scoreBonus = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_SCORE) * 2;
+        }
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_POWER))
+        {
+            explosionpower = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_POWER);
         }
     }
 
@@ -68,7 +73,7 @@ public partial class Bomb : CharacterBody3D, AutoSound
         {
             if (node is ABlock block)
             {
-                block.Hit(scoreBonus);
+                block.Hit(scoreBonus, explosionpower);
             }
         }
 

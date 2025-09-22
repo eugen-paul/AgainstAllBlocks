@@ -240,23 +240,23 @@ msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER."
+msgid "UPGRADE_BOMB_RADIUS."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_0."
+msgid "UPGRADE_BOMB_RADIUS_0."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_1."
+msgid "UPGRADE_BOMB_RADIUS_1."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_2."
+msgid "UPGRADE_BOMB_RADIUS_2."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_3."
+msgid "UPGRADE_BOMB_RADIUS_3."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
@@ -277,6 +277,26 @@ msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_BOMB_SCORE_3."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_0."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_1."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_2."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_3."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd

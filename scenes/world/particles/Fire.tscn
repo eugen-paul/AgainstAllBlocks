@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://bmpchvatbf0cx"]
+[gd_scene load_steps=27 format=3 uid="uid://bmpchvatbf0cx"]
 
 [ext_resource type="Shader" uid="uid://snw1dmtr5fmn" path="res://scenes/world/particles/processMaterial/FireShader.tres" id="1_axgf2"]
+[ext_resource type="Script" uid="uid://j8qkl4ulkadd" path="res://skripts/world/Fire.cs" id="1_filr0"]
 [ext_resource type="Texture2D" uid="uid://c8lbsajxglfm8" path="res://assets/textures/world/Voronoi01.png" id="2_j4abw"]
 [ext_resource type="Texture2D" uid="uid://chc5fam673hkj" path="res://assets/textures/world/Flame01.png" id="2_t5h64"]
 [ext_resource type="Texture2D" uid="uid://dt3kdojako4uc" path="res://assets/textures/world/fire_01.png" id="4_j4abw"]
@@ -122,6 +123,7 @@ material = SubResource("StandardMaterial3D_d1skm")
 size = Vector2(0.5, 0.5)
 
 [node name="FireParticles" type="Node3D"]
+script = ExtResource("1_filr0")
 
 [node name="Fire" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -242,23 +242,23 @@ msgid "UPGRADE_PADDLE_SPEED_3."
 msgstr "Increases paddle speed by 100%."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER."
+msgid "UPGRADE_BOMB_RADIUS."
 msgstr "Increases the explosion radius with each upgrade."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_0."
+msgid "UPGRADE_BOMB_RADIUS_0."
 msgstr "Standard Explosion radius."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_1."
+msgid "UPGRADE_BOMB_RADIUS_1."
 msgstr "Increases the explosion radius by 1 meter."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_2."
+msgid "UPGRADE_BOMB_RADIUS_2."
 msgstr "Increases the explosion radius by 2 meter."
 
 #: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_POWER_3."
+msgid "UPGRADE_BOMB_RADIUS_3."
 msgstr "Increases the explosion radius by 3 meter."
 
 #: scenes/localization/Localization_Upgrades.gd
@@ -271,15 +271,35 @@ msgstr "No extra points."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_BOMB_SCORE_1."
-msgstr "1 extra point per destroyed block."
-
-#: scenes/localization/Localization_Upgrades.gd
-msgid "UPGRADE_BOMB_SCORE_2."
 msgstr "2 extra points per destroyed block."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_SCORE_2."
+msgstr "4 extra points per destroyed block."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UPGRADE_BOMB_SCORE_3."
-msgstr "3 extra points per destroyed block."
+msgstr "6 extra points per destroyed block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER."
+msgstr "Increases bomb penetration with each upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_0."
+msgstr "Standard penetration power."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_1."
+msgstr "Increases bomb penetration by 1."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_2."
+msgstr "Increases bomb penetration by 2."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_BOMB_POWER_3."
+msgstr "Increases bomb penetration by 3."
 
 #: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
@@ -306,8 +326,6 @@ msgid "UI_MAXSLOT_LABEL."
 msgstr "Maximum number of upgrade slots has been reached."
 
 #: scenes/upgrades/Upgrades.tscn
-#, fuzzy
-#| msgid "UI_HOWTO_STEP1"
 msgid "UI_HOWTO_STEP1."
 msgstr "First, buy slots for the upgrades."
 
@@ -316,8 +334,6 @@ msgid "UI_NEXT"
 msgstr "Next"
 
 #: scenes/upgrades/Upgrades.tscn
-#, fuzzy
-#| msgid "UI_HOWTO_STEP2"
 msgid "UI_HOWTO_STEP2."
 msgstr "Buy upgrades. Upgrades can have multiple levels of improvement."
 
@@ -326,8 +342,6 @@ msgid "UI_PREV"
 msgstr "Back"
 
 #: scenes/upgrades/Upgrades.tscn
-#, fuzzy
-#| msgid "UI_HOWTO_STEP3"
 msgid "UI_HOWTO_STEP3."
 msgstr "Move the upgrade into the upgrade slot to activate it."
 
