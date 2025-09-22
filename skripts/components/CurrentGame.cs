@@ -50,25 +50,23 @@ public class CurrentGameData
 
     public bool UpdateGameData(CurrentProgress progress)
     {
-        if (!Levels.ContainsKey(progress.Level))
+        if (!Levels.TryGetValue(progress.Level, out LevelProgressData currentLevel))
         {
             Debug.Print("Error saving. Data for level " + progress.Level + " cannot be saved.");
             return false;
         }
 
-        if (progress.Level > 1 && !Levels.ContainsKey(progress.Level - 1) && !Levels[progress.Level].Reached)
+        if (progress.Level > 1 && !Levels.ContainsKey(progress.Level - 1) && !currentLevel.Reached)
         {
             Debug.Print("Error saving. Level " + (progress.Level - 1) + " has not been completed yet.");
             return false;
         }
 
-        var currentData = Levels[progress.Level];
+        currentLevel.Ball1 = currentLevel.Ball1 || progress.Ball1;
+        currentLevel.Ball2 = currentLevel.Ball2 || progress.Ball2;
+        currentLevel.Ball3 = currentLevel.Ball3 || progress.Ball3;
 
-        currentData.Ball1 = currentData.Ball1 || progress.Ball1;
-        currentData.Ball2 = currentData.Ball2 || progress.Ball2;
-        currentData.Ball3 = currentData.Ball3 || progress.Ball3;
-
-        currentData.MaxScore = Math.Max(currentData.MaxScore, progress.Score);
+        currentLevel.MaxScore = Math.Max(currentLevel.MaxScore, progress.Score);
 
         if (Levels.ContainsKey(progress.Level + 1))
         {
@@ -155,11 +153,11 @@ public class CurrentGame : GameComponet
         };
 
         bool lastLvl = false;
-        for (int i = 1; i < GameScenePaths.LEVELS.Count; i++)
+        for (int i = 1; i <= GameScenePaths.LEVELS.Count; i++)
         {
-            if (!lastLvl && data.Levels.ContainsKey(i))
+            if (!lastLvl && data.Levels.TryGetValue(i, out LevelProgressData loadedData))
             {
-                builder.Levels[i] = new LevelProgressData(data.Levels[i]);
+                builder.Levels[i] = new LevelProgressData(loadedData);
             }
             else
             {

@@ -24,8 +24,8 @@ curve = SubResource("Curve_j4abw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bsbyu"]
 gravity = Vector3(0, 0, 0)
-scale_min = 2.3
-scale_max = 2.5
+scale_min = 2.0
+scale_max = 2.1
 scale_curve = SubResource("CurveTexture_d1skm")
 color = Color(1.3655106, 0.80052733, 0, 1)
 
@@ -88,7 +88,7 @@ damping_max = 0.5
 scale_min = 4.0
 scale_max = 5.5
 scale_curve = SubResource("CurveTexture_filr0")
-color = Color(0.38281512, 0.3291103, 9.62615e-08, 1)
+color = Color(0, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_031pe")
 
 [sub_resource type="Gradient" id="Gradient_d1skm"]
@@ -138,6 +138,7 @@ process_material = SubResource("ParticleProcessMaterial_j4abw")
 draw_pass_1 = SubResource("QuadMesh_filr0")
 
 [node name="Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63037086, 0)
 sorting_offset = -1.0
 material_override = SubResource("ShaderMaterial_t5h64")
 lifetime = 3.0
