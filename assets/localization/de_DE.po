@@ -299,6 +299,62 @@ msgid "UPGRADE_BOMB_POWER_3."
 msgstr "Erhöht die Durchschlagskraft von Bomben um 3."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT."
+msgstr "Erhöht die Anzahl der abgefeuerten Raketen."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_0."
+msgstr "Eine Rakete."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_1."
+msgstr "Zwei Raketen."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_2."
+msgstr "Drei Raketen."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE."
+msgstr "Extrapunkte bei jedem Upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_0."
+msgstr "Keine Extrapunkte."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_1."
+msgstr "2 Extrapunkte pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_2."
+msgstr "4 Extrapunkte pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_3."
+msgstr "6 Extrapunkte pro zerstörtem Block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER."
+msgstr "Erhöht die Durchschlagskraft von Raketen mit jedem Upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_0."
+msgstr "Standard Durchschlagskraft von Raketen."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_1."
+msgstr "Erhöht die Durchschlagskraft von Raketen um 1."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_2."
+msgstr "Erhöht die Durchschlagskraft von Raketren um 2."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_3."
+msgstr "Erhöht die Durchschlagskraft von Raketen um 3."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
 msgstr "Kaufe einen neuen Upgrade-Slot für {0} Gold."
 
@@ -353,6 +409,11 @@ msgstr "Info"
 #: scenes/upgrades/UpgradeGoldLabel.tscn
 msgid "UIM_GOLD:"
 msgstr "Gold:"
+
+#, fuzzy
+#~| msgid "UPGRADE_BOMB_SCORE_3."
+#~ msgid "UPGRADE_ROCKET_COUNT_3."
+#~ msgstr "6 Extrapunkte pro zerstörtem Block."
 
 #, fuzzy
 #~| msgid "UIM_HOWTO"

@@ -302,6 +302,62 @@ msgid "UPGRADE_BOMB_POWER_3."
 msgstr "Increases bomb penetration by 3."
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT."
+msgstr "Increases the number of rockets fired."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_0."
+msgstr "One rocket."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_1."
+msgstr "Two rockets."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_2."
+msgstr "Three rockets."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE."
+msgstr "Extra points with each upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_0."
+msgstr "No extra points."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_1."
+msgstr "2 extra points per destroyed block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_2."
+msgstr "4 extra points per destroyed block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_3."
+msgstr "6 extra points per destroyed block."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER."
+msgstr "Increases rocket penetration with each upgrade."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_0."
+msgstr "Standard penetration power."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_1."
+msgstr "Increases rocket penetration by 1."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_2."
+msgstr "Increases rocket penetration by 2."
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_3."
+msgstr "Increases rocket penetration by 3."
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
 msgstr "Buy a new upgrade slot for {0} gold."
 
@@ -356,6 +412,11 @@ msgstr "Info"
 #: scenes/upgrades/UpgradeGoldLabel.tscn
 msgid "UIM_GOLD:"
 msgstr "Gold:"
+
+#, fuzzy
+#~| msgid "UPGRADE_BOMB_SCORE_3."
+#~ msgid "UPGRADE_ROCKET_COUNT_3."
+#~ msgstr "6 extra points per destroyed block."
 
 #, fuzzy
 #~| msgid "UIM_HOWTO"

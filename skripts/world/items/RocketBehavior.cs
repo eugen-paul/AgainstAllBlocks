@@ -1,5 +1,6 @@
-
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public class RocketBehavior : ItemBehavior
@@ -17,19 +18,39 @@ public class RocketBehavior : ItemBehavior
 
     public override void DoBehavior()
     {
-        var blocks = level.GetBlocks();
-        Random random = new();
-        int position = random.Next(0, blocks.Count);
-        var blockFromArray = blocks[position];
+        int rocketCount = 1;
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.ROCKET_COUNT))
+        {
+            rocketCount = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.ROCKET_COUNT) + 1;
+        }
 
-        if (blockFromArray is ABlock block)
+        var blocks = level.GetBlocks();
+        var targets = GetRandomBlock(blocks, rocketCount);
+        foreach (var b in targets)
         {
             var rocket = RocketScene.Instantiate<Rocket>();
             rocket.Level = level;
             rocket.Position = item.GlobalPosition;
             level.AddChild(rocket);
-            rocket.SetTarget(block.GlobalPosition);
+            rocket.SetTarget(b.GlobalPosition);
             level.TemporaryAdd(rocket);
         }
+    }
+
+    private static IList<ABlock> GetRandomBlock(Godot.Collections.Array<Node> blocks, int Count)
+    {
+        var random = new Random();
+        var list = new List<ABlock>();
+        foreach (var b in blocks)
+        {
+            if (b is ABlock block)
+            {
+                list.Add(block);
+            }
+        }
+
+        var shuffled = list.OrderBy(x => random.Next()).ToList();
+
+        return [.. shuffled.Take(Count)];
     }
 }

@@ -5,11 +5,9 @@ public partial class Rocket : CharacterBody3D, AutoSound
     [Export]
     public float StartSpeed { get; set; } = 22.0f;
 
-    [Export]
-    public int ScoreBonus { get; set; } = 20;
+    public int scoreBonus = 1;
 
-    [Export]
-    public int Power { get; set; } = 5;
+    public int power = 1;
 
     [Export]
     public PackedScene ExplosionScene { get; set; } = ResourceLoader.Load<PackedScene>(GameScenePaths.DEFAULT_ROCKET_EXPLOSION_SCENE);
@@ -29,6 +27,15 @@ public partial class Rocket : CharacterBody3D, AutoSound
         {
             GetNode<GpuParticles3D>("GPUParticles3D").Emitting = false;
         }
+
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.ROCKET_POWER))
+        {
+            power = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.ROCKET_POWER);
+        }
+        if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.ROCKET_SCORE))
+        {
+            scoreBonus = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.ROCKET_SCORE) * 2;
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -46,7 +53,7 @@ public partial class Rocket : CharacterBody3D, AutoSound
             {
                 if (node is Hitable hitable)
                 {
-                    hitable.Hit(ScoreBonus, Power);
+                    hitable.Hit(scoreBonus, power);
                 }
                 SpawnExplosion(collision.GetPosition());
                 Level.TemporaryDestroyd(this);

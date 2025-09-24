@@ -11,6 +11,9 @@ public enum UpgradeType
     BOMB_RADIUS = 30,
     BOMB_SCORE = 40,
     BOMB_POWER = 50,
+    ROCKET_SCORE = 60,
+    ROCKET_POWER = 70,
+    ROCKET_COUNT = 80,
 }
 
 public interface IUpgradeListener
@@ -44,6 +47,9 @@ public class UpgradeController
         UpgradeType.BOMB_RADIUS,
         UpgradeType.BOMB_SCORE,
         UpgradeType.BOMB_POWER,
+        UpgradeType.ROCKET_SCORE,
+        UpgradeType.ROCKET_POWER,
+        UpgradeType.ROCKET_COUNT,
     }
     .ToImmutableList();
 

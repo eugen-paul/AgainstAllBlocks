@@ -300,6 +300,62 @@ msgid "UPGRADE_BOMB_POWER_3."
 msgstr ""
 
 #: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_0."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_1."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_COUNT_2."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_0."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_1."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_2."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_SCORE_3."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_0."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_1."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_2."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgid "UPGRADE_ROCKET_POWER_3."
+msgstr ""
+
+#: scenes/localization/Localization_Upgrades.gd
 msgid "UI_SLOTBUY."
 msgstr ""
 
