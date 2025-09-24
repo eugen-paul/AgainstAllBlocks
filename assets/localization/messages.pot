@@ -359,16 +359,26 @@ msgstr ""
 msgid "UI_SLOTBUY."
 msgstr ""
 
+#: scenes/localization/Localization_Upgrades.gd
+msgctxt "GUI button to buy new upgradeslot."
+msgid "UIM_BUY_SLOT_BUTTON"
+msgid_plural "UIM_BUY_SLOT_BUTTON_PLURAL"
+msgstr[0] ""
+msgstr[1] ""
+
+#: scenes/localization/Localization_Upgrades.gd
+msgctxt "GUI button to buy new upgrade."
+msgid "UIM_BUY_UPGRADE_BUTTON"
+msgid_plural "UIM_BUY_UPGRADE_BUTTON_PLURAL"
+msgstr[0] ""
+msgstr[1] ""
+
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_BACK"
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_HOWTO"
-msgstr ""
-
-#: scenes/upgrades/Upgrades.tscn
-msgid "UIM_UPGRADE"
 msgstr ""
 
 #: scenes/upgrades/Upgrades.tscn

@@ -50,3 +50,9 @@ var UPGRADE_ROCKET_POWER_2 = tr("UPGRADE_ROCKET_POWER_2.")
 var UPGRADE_ROCKET_POWER_3 = tr("UPGRADE_ROCKET_POWER_3.")
 
 var UI_SLOTBUY = tr("UI_SLOTBUY.")
+
+func FUNC_UIM_BUY_SLOT_BUTTON(n: int) -> String:
+    return tr_n("UIM_BUY_SLOT_BUTTON", "UIM_BUY_SLOT_BUTTON_PLURAL", n, "GUI button to buy new upgradeslot.")
+
+func FUNC_UIM_BUY_UPGRADE_BUTTON(n: int) -> String:
+    return tr_n("UIM_BUY_UPGRADE_BUTTON", "UIM_BUY_UPGRADE_BUTTON_PLURAL", n, "GUI button to buy new upgrade.")

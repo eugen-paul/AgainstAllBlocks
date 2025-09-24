@@ -17,9 +17,9 @@ public partial class Upgrades : Control, IUpgradeListener
     private static readonly string UPGRADE_ITEM_MENU_BUY_BUTTON = "UpgradeItemMenu/Panel/VBoxContainer/PanelContainer/BuyUpgradeItemButton";
 
     private static readonly string BUY_SLOT_MENU_PATH = "BuySlotMenu";
-    private static readonly string BUY_SLOT_TEXT_PATH = "BuySlotMenu/Panel/SlotBuyLabel";
-    private static readonly string BUY_SLOT_BUTTON_PATH = "BuySlotMenu/Panel/BuySlotButton";
-    private static readonly string BUY_SLOTMAX_TEXT_PATH = "BuySlotMenu/Panel/SlotMaxLabel";
+    private static readonly string BUY_SLOT_TEXT_PATH = "BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer/SlotBuyLabel";
+    private static readonly string BUY_SLOT_BUTTON_PATH = "BuySlotMenu/Panel/VBoxContainer/PanelContainer/BuySlotButton";
+    private static readonly string BUY_SLOTMAX_TEXT_PATH = "BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer/SlotMaxLabel";
     private static readonly string BUY_SLOT_TEXT = "UI_SLOTBUY";
 
     private static readonly string HOWTO_MENU_PATH = "HowToMenu";
@@ -165,6 +165,8 @@ public partial class Upgrades : Control, IUpgradeListener
         var goldRest = GameComponets.Instance.Get<CurrentGame>().GetGoldRest();
         var nextLevelCost = UpgradeItemInfo.UpgradeItemInfos[currentUpgradeType].Cost[nextLevel];
 
+        var buyTextTemplate = LocalizationScriptObject.Call("FUNC_UIM_BUY_UPGRADE_BUTTON", nextLevelCost).AsString();
+        GetNode<Button>(UPGRADE_ITEM_MENU_BUY_BUTTON).Text = string.Format(buyTextTemplate, nextLevelCost);
         GetNode<Button>(UPGRADE_ITEM_MENU_BUY_BUTTON).Disabled = nextLevelCost > goldRest;
     }
 
@@ -222,6 +224,8 @@ public partial class Upgrades : Control, IUpgradeListener
             var nextSlotNr = upgradeController.GetCurrentSlots().Count;
             var nextSlotCost = UpgradeItemInfo.SlotsCost[nextSlotNr];
             GetNode<Label>(BUY_SLOT_TEXT_PATH).Text = string.Format(buySlotText, nextSlotCost);
+            var buttonTextTemplate = LocalizationScriptObject.Call("FUNC_UIM_BUY_SLOT_BUTTON", nextSlotCost).AsString();
+            GetNode<Button>(BUY_SLOT_BUTTON_PATH).Text = string.Format(buttonTextTemplate, nextSlotCost);
             GetNode<Button>(BUY_SLOT_BUTTON_PATH).Visible = true;
 
             var goldRest = GameComponets.Instance.Get<CurrentGame>().GetGoldRest();

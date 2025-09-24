@@ -361,6 +361,20 @@ msgstr "Increases rocket penetration by 3."
 msgid "UI_SLOTBUY."
 msgstr "Buy a new upgrade slot for {0} gold."
 
+#: scenes/localization/Localization_Upgrades.gd
+msgctxt "GUI button to buy new upgradeslot."
+msgid "UIM_BUY_SLOT_BUTTON"
+msgid_plural "UIM_BUY_SLOT_BUTTON_PLURAL"
+msgstr[0] "Upgrade for {0}"
+msgstr[1] "Upgrade for {0}"
+
+#: scenes/localization/Localization_Upgrades.gd
+msgctxt "GUI button to buy new upgrade."
+msgid "UIM_BUY_UPGRADE_BUTTON"
+msgid_plural "UIM_BUY_UPGRADE_BUTTON_PLURAL"
+msgstr[0] "Upgrade for {0}"
+msgstr[1] "Upgrade for {0}"
+
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_BACK"
 msgstr "Back"
@@ -368,10 +382,6 @@ msgstr "Back"
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_HOWTO"
 msgstr "Help"
-
-#: scenes/upgrades/Upgrades.tscn
-msgid "UIM_UPGRADE"
-msgstr "Upgrade"
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UI_SLOTBUY_TOP"

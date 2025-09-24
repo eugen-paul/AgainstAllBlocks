@@ -358,6 +358,20 @@ msgstr "Erhöht die Durchschlagskraft von Raketen um 3."
 msgid "UI_SLOTBUY."
 msgstr "Kaufe einen neuen Upgrade-Slot für {0} Gold."
 
+#: scenes/localization/Localization_Upgrades.gd
+msgctxt "GUI button to buy new upgradeslot."
+msgid "UIM_BUY_SLOT_BUTTON"
+msgid_plural "UIM_BUY_SLOT_BUTTON_PLURAL"
+msgstr[0] "Upgrade für {0}"
+msgstr[1] "Upgrade für {0}"
+
+#: scenes/localization/Localization_Upgrades.gd
+msgctxt "GUI button to buy new upgrade."
+msgid "UIM_BUY_UPGRADE_BUTTON"
+msgid_plural "UIM_BUY_UPGRADE_BUTTON_PLURAL"
+msgstr[0] "Upgrade für {0}"
+msgstr[1] "Upgrade für {0}"
+
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_BACK"
 msgstr "Zurück"
@@ -365,10 +379,6 @@ msgstr "Zurück"
 #: scenes/upgrades/Upgrades.tscn
 msgid "UIM_HOWTO"
 msgstr "Hilfe"
-
-#: scenes/upgrades/Upgrades.tscn
-msgid "UIM_UPGRADE"
-msgstr "Upgrade"
 
 #: scenes/upgrades/Upgrades.tscn
 msgid "UI_SLOTBUY_TOP"

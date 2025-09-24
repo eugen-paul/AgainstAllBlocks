@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2nprom2n6xll"]
+[gd_scene load_steps=35 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
 [ext_resource type="Script" uid="uid://bsfbjc3d1yok5" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cakdauap8vekj" path="res://assets/textures/gui/UpgradeSlotBG-EMPTY.png" id="8_mk56c"]
 [ext_resource type="Texture2D" uid="uid://djuaje2ex3wn5" path="res://assets/textures/gui/button_close_window-pressed.png" id="9_a08vn"]
 [ext_resource type="Texture2D" uid="uid://8hbtnixru6il" path="res://assets/textures/gui/Arrow.png" id="12_jih2h"]
+[ext_resource type="Texture2D" uid="uid://d4ncmkdk2efva" path="res://assets/textures/gui/goldenBall-GOLD.png" id="12_nwcl5"]
 [ext_resource type="Texture2D" uid="uid://doo84dh52h27j" path="res://assets/textures/gui/HandMove.png" id="13_pfomj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a08vn"]
@@ -57,6 +58,12 @@ corner_radius_bottom_left = 3
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny5y6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by5l7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_173jn"]
+content_margin_left = 4.0
+content_margin_top = 3.0
+content_margin_right = 4.0
+content_margin_bottom = 3.0
 
 [sub_resource type="Animation" id="Animation_pfomj"]
 length = 0.001
@@ -276,15 +283,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="UpgradeItemMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.658824, 0.658824, 0.658824, 0.588235)
-
 [node name="Panel" type="Panel" parent="UpgradeItemMenu"]
 layout_mode = 1
 anchors_preset = 15
@@ -329,6 +327,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="PanelContainer2" type="PanelContainer" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="GoldLabel" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2" instance=ExtResource("3_44s3h")]
+layout_mode = 2
+size_flags_vertical = 4
+
 [node name="PanelContainer" type="PanelContainer" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_x54yl")
@@ -365,67 +370,52 @@ layout_mode = 2
 [node name="UpgradeItemLevelPanel5" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_docth")]
 layout_mode = 2
 
-[node name="GoldLabel" parent="UpgradeItemMenu/Panel/VBoxContainer" instance=ExtResource("3_44s3h")]
-layout_mode = 2
-size_flags_vertical = 4
-
 [node name="PanelContainer" type="PanelContainer" parent="UpgradeItemMenu/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p4fyn")
 
 [node name="BuyUpgradeItemButton" type="Button" parent="UpgradeItemMenu/Panel/VBoxContainer/PanelContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "UIM_UPGRADE"
+text = ">UIM_UPGRADE<"
+icon = ExtResource("12_nwcl5")
 icon_alignment = 2
 
 [node name="BuySlotMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="BuySlotMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.658824, 0.658824, 0.658824, 0.588235)
 
 [node name="Panel" type="Panel" parent="BuySlotMenu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = -225.0
-offset_right = 213.0
-offset_bottom = 225.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("6_ra80v")
 
-[node name="CloseBuySlotMenuButton" type="Button" parent="BuySlotMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BuySlotMenu/Panel"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -514.0
-offset_bottom = -450.0
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuySlotMenu/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="CloseBuySlotMenuButton" type="Button" parent="BuySlotMenu/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_p4fyn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rcbdg")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_emjd4")
@@ -433,71 +423,69 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_ny5y6")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_by5l7")
 icon = ExtResource("9_a08vn")
 
-[node name="SlotLabel" type="Label" parent="BuySlotMenu/Panel"]
+[node name="Panel" type="Panel" parent="BuySlotMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ra80v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuySlotMenu/Panel/VBoxContainer/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -200.0
-offset_right = 20.0
-offset_bottom = -167.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="GoldLabel" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer" instance=ExtResource("3_44s3h")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_173jn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="SlotLabel" type="Label" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
 text = "UI_SLOTBUY_TOP"
 
-[node name="SlotTextureRect" type="TextureRect" parent="BuySlotMenu/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -152.0
-offset_right = 42.0
-offset_bottom = -68.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SlotTextureRect" type="TextureRect" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("8_mk56c")
+stretch_mode = 2
 
-[node name="SlotBuyLabel" type="Label" parent="BuySlotMenu/Panel"]
+[node name="SlotBuyLabel" type="Label" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(400, 0)
-layout_mode = 0
-offset_left = 13.0
-offset_top = 184.0
-offset_right = 413.0
-offset_bottom = 217.0
+layout_mode = 2
 text = "UI_SLOTBUY."
 autowrap_mode = 2
 
-[node name="SlotMaxLabel" type="Label" parent="BuySlotMenu/Panel"]
+[node name="SlotMaxLabel" type="Label" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
-layout_mode = 0
-offset_left = 13.0
-offset_top = 184.0
-offset_right = 281.0
-offset_bottom = 217.0
+layout_mode = 2
 text = "UI_MAXSLOT_LABEL."
 autowrap_mode = 2
 
-[node name="BuySlotButton" type="Button" parent="BuySlotMenu/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -116.5
-offset_top = -61.0
-offset_right = 116.5
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "UIM_UPGRADE"
+[node name="PanelContainer" type="PanelContainer" parent="BuySlotMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BuySlotButton" type="Button" parent="BuySlotMenu/Panel/VBoxContainer/PanelContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = ">UIM_UPGRADE<"
+icon = ExtResource("12_nwcl5")
+icon_alignment = 2
 
 [node name="HowToMenu" type="Control" parent="."]
 visible = false
@@ -755,8 +743,8 @@ text = "UI_NEXT"
 [connection signal="pressed" from="UpgradeMenu/HowToButton" to="." method="OnHowToButtonPressed"]
 [connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/HBoxContainer/CloseUpgradeItemMenuButton" to="." method="OnCloseUpgradeItemMenuButtonPressed"]
 [connection signal="pressed" from="UpgradeItemMenu/Panel/VBoxContainer/PanelContainer/BuyUpgradeItemButton" to="." method="OnBuyUpgradeItemButtonPressed"]
-[connection signal="pressed" from="BuySlotMenu/Panel/CloseBuySlotMenuButton" to="." method="OnCloseBuySlotMenuButtonPressed"]
-[connection signal="pressed" from="BuySlotMenu/Panel/BuySlotButton" to="." method="OnBuySlotButtonPressed"]
+[connection signal="pressed" from="BuySlotMenu/Panel/VBoxContainer/HBoxContainer/CloseBuySlotMenuButton" to="." method="OnCloseBuySlotMenuButtonPressed"]
+[connection signal="pressed" from="BuySlotMenu/Panel/VBoxContainer/PanelContainer/BuySlotButton" to="." method="OnBuySlotButtonPressed"]
 [connection signal="pressed" from="HowToMenu/Step1/ButtonNext" to="." method="ShowHowToStep" binds= [2]]
 [connection signal="pressed" from="HowToMenu/Step2/ButtonPrev" to="." method="ShowHowToStep" binds= [1]]
 [connection signal="pressed" from="HowToMenu/Step2/ButtonNext" to="." method="ShowHowToStep" binds= [3]]
