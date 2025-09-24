@@ -20,12 +20,14 @@ custom_minimum_size = Vector2(380, 70)
 offset_right = 380.0
 offset_bottom = 70.0
 size_flags_horizontal = 3
+mouse_filter = 2
 theme = ExtResource("1_74542")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mwvnf")
 script = ExtResource("2_j8knt")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = ExtResource("3_00rb6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
@@ -65,6 +67,7 @@ size_flags_horizontal = 0
 auto_translate_mode = 2
 custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 15
 text = "Some text to check how it will look."
 autowrap_mode = 2
