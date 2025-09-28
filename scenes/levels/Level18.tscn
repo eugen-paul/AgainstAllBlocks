@@ -361,7 +361,6 @@ Color = 3
 [node name="Block61" parent="AllBlocks" instance=ExtResource("5_nyx2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1742816, 0, 7.5)
 Color = 3
-ItemType = 13
 
 [node name="Block62" parent="AllBlocks" instance=ExtResource("5_nyx2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6468353, 0, 3.5)
