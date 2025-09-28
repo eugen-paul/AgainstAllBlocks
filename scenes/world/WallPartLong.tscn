@@ -11,6 +11,8 @@ shading_mode = 0
 albedo_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

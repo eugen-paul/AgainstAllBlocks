@@ -145,6 +145,14 @@ public partial class Ball : CharacterBody3D
             else
             {
                 Debug.Print("Collision with somtthing. " + node.ToString());
+                var parent = node;
+                var i = 0;
+                while (parent.GetParent() != null && i < 10)
+                {
+                    parent = parent.GetParent();
+                    Debug.Print("Parent: " + parent.ToString());
+                    i++;
+                }
             }
         }
     }
