@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://kthg8gtjc36d"]
+
+[ext_resource type="Script" uid="uid://c0q7msn51norn" path="res://skripts/world/ArrowArea.cs" id="1_e3w36"]
+[ext_resource type="Shader" uid="uid://cnxxkv4r2kp26" path="res://assets/textures/world/AssemblyLine.gdshader" id="1_ox21e"]
+[ext_resource type="Texture2D" uid="uid://8hbtnixru6il" path="res://assets/textures/gui/Arrow.png" id="2_e3w36"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4vt82"]
+size = Vector3(2, 3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu37j"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8bx85"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_eu37j")
+shader = ExtResource("1_ox21e")
+shader_parameter/albedo_tex = ExtResource("2_e3w36")
+shader_parameter/speed = -3.0
+shader_parameter/tiling = Vector2(2, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1tver"]
+material = SubResource("ShaderMaterial_8bx85")
+
+[node name="ArrowArea" type="Node3D"]
+script = ExtResource("1_e3w36")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_4vt82")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.01, 0)
+mesh = SubResource("PlaneMesh_1tver")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnArea3dBodyEntered"]

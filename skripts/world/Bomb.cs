@@ -37,7 +37,7 @@ public partial class Bomb : CharacterBody3D, AutoSound
         }
         if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.BOMB_POWER))
         {
-            explosionpower = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_POWER);
+            explosionpower = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.BOMB_POWER) + 1;
         }
     }
 

@@ -5,7 +5,7 @@ public partial class Rocket : CharacterBody3D, AutoSound
     [Export]
     public float StartSpeed { get; set; } = 22.0f;
 
-    public int scoreBonus = 1;
+    public int scoreBonus = 0;
 
     public int power = 1;
 
@@ -30,7 +30,7 @@ public partial class Rocket : CharacterBody3D, AutoSound
 
         if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.ROCKET_POWER))
         {
-            power = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.ROCKET_POWER);
+            power = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.ROCKET_POWER) + 1;
         }
         if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.ROCKET_SCORE))
         {

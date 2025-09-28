@@ -64,7 +64,7 @@ public partial class Achievements : Node
             {14, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(200),   DONT_LOSE_ANY_LIFE()   }},
             {15, new List<AchievementFactory>(){ LEVEL_15_X_GOALS_K_SECONDS(2,4),  LEVEL_15_X_GOALS_K_SECONDS(3,8),    DONT_LOSE_ANY_LIFE()   }},
             {16, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(200),   DONT_LOSE_ANY_LIFE() }},
-            {17, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {17, new List<AchievementFactory>(){ GET_X_POINTS(200), GET_X_POINTS(250),   DONT_LOSE_ANY_LIFE() }},
             {18, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
             {19, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
             {20, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
