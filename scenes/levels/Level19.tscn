@@ -1,0 +1,510 @@
+[gd_scene load_steps=22 format=3 uid="uid://d0nvrff5tl3jo"]
+
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_6lxxo"]
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_hyscn"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_3imyq"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="4_bafx0"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="5_61cm1"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="6_14636"]
+[ext_resource type="PackedScene" uid="uid://cjvo5nc236kqy" path="res://scenes/world/BlockTetrisO.tscn" id="7_bafx0"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="7_o7jym"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="8_61cm1"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="8_u105c"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="9_55ndh"]
+[ext_resource type="Texture2D" uid="uid://mw1v8y5a3h05" path="res://assets/textures/world/Snow.png" id="10_6lxxo"]
+[ext_resource type="PackedScene" uid="uid://d2xrpiuj1anim" path="res://scenes/world/Iglu.tscn" id="11_hyscn"]
+[ext_resource type="Texture2D" uid="uid://dj0cdhoh8ssxn" path="res://assets/textures/gui/star_04.png" id="14_61cm1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6gwt5"]
+size = Vector2(50, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exlif"]
+shading_mode = 0
+albedo_texture = ExtResource("10_6lxxo")
+uv1_scale = Vector3(10, 20, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bafx0"]
+shading_mode = 2
+albedo_texture = ExtResource("10_6lxxo")
+uv1_scale = Vector3(3, 3, 3)
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_61cm1"]
+material = SubResource("StandardMaterial3D_bafx0")
+radius = 10.0
+height = 10.0
+radial_segments = 8
+rings = 8
+is_hemisphere = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bafx0"]
+emission_shape = 3
+emission_box_extents = Vector3(15, 1, 25)
+angle_min = 1.0728835e-05
+angle_max = 45.00001
+gravity = Vector3(0, -4, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
+turbulence_noise_speed_random = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14636"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.47060454, 0.6908114, 1, 1)
+albedo_texture = ExtResource("14_61cm1")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_61cm1"]
+material = SubResource("StandardMaterial3D_14636")
+size = Vector2(0.5, 0.5)
+
+[node name="Level19" type="Node"]
+script = ExtResource("1_6lxxo")
+Level = 19
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_hyscn")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("3_3imyq")
+
+[node name="CameraPivot" parent="." instance=ExtResource("4_bafx0")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("5_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Paddle" parent="." instance=ExtResource("6_14636")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Top" type="Node3D" parent="AllBlocks"]
+
+[node name="Block1" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11)
+
+[node name="Block2" parent="AllBlocks/Top" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -11)
+Color = 1
+Power = 2
+
+[node name="Block3" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -11)
+
+[node name="Block4" parent="AllBlocks/Top" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -11)
+Color = 1
+ItemType = 15
+
+[node name="Block5" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11)
+
+[node name="Block6" parent="AllBlocks/Top" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+Color = 1
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -11)
+
+[node name="Block8" parent="AllBlocks/Top" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -11)
+Color = 1
+ItemType = 15
+
+[node name="Block9" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11)
+
+[node name="Block10" parent="AllBlocks/Top" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -11)
+Color = 1
+Power = 2
+
+[node name="Block11" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -11)
+
+[node name="Block12" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -11)
+
+[node name="Block13" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -11)
+
+[node name="Block14" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -11)
+
+[node name="Block15" parent="AllBlocks/Top" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -11)
+
+[node name="Down" type="Node3D" parent="AllBlocks"]
+
+[node name="Block1" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1)
+
+[node name="Block12" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 1)
+
+[node name="Block13" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
+
+[node name="Block14" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+
+[node name="Block15" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
+
+[node name="Block2" parent="AllBlocks/Down" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1)
+Color = 1
+Power = 2
+ItemType = 4
+
+[node name="Block3" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)
+
+[node name="Block4" parent="AllBlocks/Down" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+Color = 1
+ItemType = 15
+
+[node name="Block5" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+
+[node name="Block6" parent="AllBlocks/Down" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+Color = 1
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Block8" parent="AllBlocks/Down" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+Color = 1
+ItemType = 15
+
+[node name="Block9" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="Block10" parent="AllBlocks/Down" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+Color = 1
+Power = 2
+ItemType = 4
+
+[node name="Block11" parent="AllBlocks/Down" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1)
+
+[node name="Left" type="Node3D" parent="AllBlocks"]
+
+[node name="Block1" parent="AllBlocks/Left" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 0, -9.5)
+Color = 1
+Power = 2
+
+[node name="Block2" parent="AllBlocks/Left" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="Block3" parent="AllBlocks/Left" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 0, -6.5)
+Color = 1
+ItemType = 15
+
+[node name="Block4" parent="AllBlocks/Left" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+
+[node name="Block5" parent="AllBlocks/Left" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 0, -3.5)
+Color = 1
+ItemType = 9
+
+[node name="Block6" parent="AllBlocks/Left" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -2)
+
+[node name="Block7" parent="AllBlocks/Left" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5, 0, -0.5)
+Color = 1
+Power = 2
+
+[node name="Right" type="Node3D" parent="AllBlocks"]
+
+[node name="Block1" parent="AllBlocks/Right" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, 0, -9.5)
+Color = 1
+Power = 2
+
+[node name="Block2" parent="AllBlocks/Right" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8)
+
+[node name="Block3" parent="AllBlocks/Right" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, 0, -6.5)
+Color = 1
+ItemType = 15
+
+[node name="Block4" parent="AllBlocks/Right" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
+
+[node name="Block5" parent="AllBlocks/Right" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, 0, -3.5)
+Color = 1
+ItemType = 9
+
+[node name="Block6" parent="AllBlocks/Right" instance=ExtResource("7_bafx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2)
+
+[node name="Block7" parent="AllBlocks/Right" instance=ExtResource("8_61cm1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, 0, -0.5)
+Color = 1
+Power = 2
+
+[node name="Center" type="Node3D" parent="AllBlocks"]
+
+[node name="Block1" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -9.5)
+Color = 1
+ItemType = 4
+
+[node name="Block2" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -9.5)
+Color = 1
+
+[node name="Block3" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -9.5)
+Color = 1
+ItemType = 15
+
+[node name="Block4" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9.5)
+Color = 1
+ItemType = 15
+
+[node name="Block5" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9.5)
+Color = 1
+
+[node name="Block6" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -9.5)
+Color = 1
+ItemType = 4
+
+[node name="Block7" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8)
+Color = 1
+
+[node name="Block8" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8)
+Color = 1
+Power = 3
+
+[node name="Block9" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -8)
+Color = 1
+Power = 3
+
+[node name="Block10" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8)
+Color = 1
+Power = 3
+
+[node name="Block11" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8)
+Color = 1
+Power = 3
+
+[node name="Block12" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+Color = 1
+
+[node name="Block13" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6.5)
+Color = 1
+
+[node name="Block14" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6.5)
+Color = 1
+Power = 3
+
+[node name="Block15" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6.5)
+Color = 1
+ItemType = 10
+
+[node name="Block16" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6.5)
+Color = 1
+ItemType = 10
+
+[node name="Block17" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6.5)
+Color = 1
+Power = 3
+
+[node name="Block18" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6.5)
+Color = 1
+
+[node name="Block19" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+Color = 1
+
+[node name="Block20" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
+Color = 1
+Power = 3
+
+[node name="Block21" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
+Color = 1
+ItemType = 10
+
+[node name="Block22" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+Color = 1
+ItemType = 10
+
+[node name="Block23" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+Color = 1
+Power = 3
+
+[node name="Block24" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+Color = 1
+
+[node name="Block25" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3.5)
+Color = 1
+ItemType = 4
+
+[node name="Block26" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.5)
+Color = 1
+Power = 3
+
+[node name="Block27" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3.5)
+Color = 1
+ItemType = 10
+
+[node name="Block28" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3.5)
+Color = 1
+ItemType = 10
+
+[node name="Block29" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.5)
+Color = 1
+Power = 3
+
+[node name="Block30" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3.5)
+Color = 1
+ItemType = 4
+
+[node name="Block31" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
+Color = 1
+
+[node name="Block32" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
+Color = 1
+Power = 3
+
+[node name="Block33" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+Color = 1
+Power = 3
+
+[node name="Block34" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+Color = 1
+Power = 3
+
+[node name="Block35" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+Color = 1
+Power = 3
+
+[node name="Block36" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+Color = 1
+
+[node name="Block37" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -0.5)
+Color = 1
+
+[node name="Block38" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -0.5)
+Color = 1
+ItemType = 8
+
+[node name="Block39" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.5)
+Color = 1
+
+[node name="Block40" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.5)
+Color = 1
+
+[node name="Block41" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.5)
+Color = 1
+ItemType = 8
+
+[node name="Block42" parent="AllBlocks/Center" instance=ExtResource("8_61cm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -0.5)
+Color = 1
+
+[node name="GameHud" parent="." instance=ExtResource("7_o7jym")]
+
+[node name="Explosion" parent="." instance=ExtResource("8_u105c")]
+
+[node name="Ground" parent="." instance=ExtResource("9_55ndh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Snow" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_6gwt5")
+surface_material_override/0 = SubResource("StandardMaterial3D_exlif")
+
+[node name="Iglu" parent="Background" instance=ExtResource("11_hyscn")]
+transform = Transform3D(0.70710677, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.70710677, -11, 0, -25)
+
+[node name="Iglu2" parent="Background" instance=ExtResource("11_hyscn")]
+transform = Transform3D(-0.32954237, 0, -0.9441408, 0, 1, 0, 0.9441408, 0, -0.32954237, -1, 0, -25)
+
+[node name="Iglu3" parent="Background" instance=ExtResource("11_hyscn")]
+transform = Transform3D(0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071068, -17, 0, -16)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -5, -31)
+mesh = SubResource("SphereMesh_61cm1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -5, -37)
+mesh = SubResource("SphereMesh_61cm1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.92675173, 0, 0.3756744, 0, 1, 0, -0.3756744, 0, 0.92675173, 18.106895, -5, 8)
+mesh = SubResource("SphereMesh_61cm1")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+amount = 64
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_bafx0")
+draw_pass_1 = SubResource("QuadMesh_61cm1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.70710677, 3.090862e-08, -0.70710677, 0.70710677, -3.090862e-08, 0.70710677, 0, -1, -4.371139e-08, 0, 18, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
+
+[editable path="CameraPivot"]

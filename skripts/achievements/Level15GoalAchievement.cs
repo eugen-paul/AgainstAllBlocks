@@ -21,7 +21,7 @@ public class Level15GoalAchievementFactory : AchievementFactory
 
     public override string GetAchievementText()
     {
-        return string.Format(VarN("FUNC_LEVEL_15_X_GOALS_K_SECONDS", count, seconds), count, seconds);
+        return VarN("FUNC_LEVEL_15_X_GOALS_K_SECONDS", count, seconds);
     }
 }
 
@@ -41,24 +41,17 @@ public class Level15GoalAchievement : IAchievementMonitor
     {
         if (signal is GoalSignal)
         {
-            goalsTime.Add(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
+            var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            goalsTime.Add(now);
+            while (goalsTime.Count > 0 && goalsTime[0] < now - seconds * 1000)
+            {
+                goalsTime.RemoveAt(0);
+            }
         }
     }
 
     public bool IsReached()
     {
-        if (goalsTime.Count < count)
-        {
-            return false;
-        }
-
-        for (int i = 0; i <= goalsTime.Count - count; i++)
-        {
-            if (goalsTime[i + count - 1] - goalsTime[i] <= seconds * 1000)
-            {
-                return true;
-            }
-        }
-        return false;
+        return goalsTime.Count >= count;
     }
 }

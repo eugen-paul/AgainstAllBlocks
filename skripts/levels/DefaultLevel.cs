@@ -78,14 +78,6 @@ public partial class DefaultLevel : Node
         gameHud.SetScore(Score);
         gameHud.SetLifes(Lifes);
 
-        GetNode<GpuParticles3D>("Explosion").Finished += StartRound;
-        StartRound();
-
-        InitBlockDestoyedCallbacks();
-
-        InitStages();
-        SetBackground();
-
         achievementFactory1 = GetNode<Achievements>("Achievements").GetMonitor(Level, 0);
         GameAction += achievementFactory1.GameSignal;
 
@@ -94,6 +86,14 @@ public partial class DefaultLevel : Node
 
         achievementFactory3 = GetNode<Achievements>("Achievements").GetMonitor(Level, 2);
         GameAction += achievementFactory3.GameSignal;
+
+        GetNode<GpuParticles3D>("Explosion").Finished += StartRound;
+        StartRound();
+
+        InitBlockDestoyedCallbacks();
+
+        InitStages();
+        SetBackground();
         // SetLights();
     }
 
@@ -236,6 +236,7 @@ public partial class DefaultLevel : Node
         AddChild(startArrow);
 
         startBall = BallScene.Instantiate<Ball>();
+        startBall.Level = this;
         startBall.Position = startArrow.Position;
         startBall.BallLeavesScreen += BallLoose;
         balls.Add(startBall);
@@ -245,6 +246,7 @@ public partial class DefaultLevel : Node
     public void AddBall(float x)
     {
         var ball = BallScene.Instantiate<Ball>();
+        ball.Level = this;
         ball.Position = new Vector3(x, 0.5f, paddle.Position.Z - 1f);
         ball.BallLeavesScreen += BallLoose;
         ball.Velocity = Vector3.Back * ball.StartSpeed;

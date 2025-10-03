@@ -34,6 +34,8 @@ public partial class Ball : CharacterBody3D
 
     private BallType _type = BallType.NORMAL;
 
+     public DefaultLevel Level { get; set; } = null;
+
     [Export]
     public BallType Type
     {
@@ -62,6 +64,16 @@ public partial class Ball : CharacterBody3D
         .ToImmutableDictionary();
 
     private readonly ICollisionBallPaddle collisionBallPaddle = new CollisionBallPaddle();
+
+    public override void _EnterTree()
+    {
+        Level?.SendSignal(new NewBallSignal());
+    }
+
+    public override void _ExitTree()
+    {
+        Level?.SendSignal(new LoseBallSignal());
+    }
 
     public override void _PhysicsProcess(double delta)
     {

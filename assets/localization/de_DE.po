@@ -183,6 +183,12 @@ msgid "{goals} {g} in {seconds} {s}"
 msgstr "{goals} {g} in {seconds} {s}"
 
 #: scenes/localization/Localization_Achievements.gd
+msgid "GET_X_ACTIVE_BALLS."
+msgid_plural "GET_X_ACTIVE_BALLS_PLURAL."
+msgstr[0] "{0} Ball gleichzeitig auf dem Feld."
+msgstr[1] "{0} Bälle gleichzeitig auf dem Feld."
+
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
 msgstr "Benutze keine Raketen."
 

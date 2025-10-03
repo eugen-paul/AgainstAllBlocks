@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2xrpiuj1anim"]
+
+[ext_resource type="PackedScene" uid="uid://dd05g4hpgdasu" path="res://assets/blender/world/iglu.gltf" id="1_5vujp"]
+[ext_resource type="Texture2D" uid="uid://3rxlxby3dy5g" path="res://assets/textures/world/Iglu.png" id="2_kpra2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpra2"]
+shading_mode = 2
+albedo_texture = ExtResource("2_kpra2")
+disable_receive_shadows = true
+stencil_flags = 2
+
+[node name="Iglu" type="Node3D"]
+
+[node name="iglu" parent="." instance=ExtResource("1_5vujp")]
+
+[node name="Iglu" parent="iglu" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kpra2")
+
+[editable path="iglu"]
