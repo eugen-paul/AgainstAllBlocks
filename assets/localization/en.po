@@ -189,7 +189,7 @@ msgstr "{goals} {g} in {seconds} {s}"
 msgid "GET_X_ACTIVE_BALLS."
 msgid_plural "GET_X_ACTIVE_BALLS_PLURAL."
 msgstr[0] "{0} ball on the field at the same time."
-msgstr[1] "{0} balls on the field at the same time"
+msgstr[1] "{0} balls on the field at the same time."
 
 #: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
@@ -428,6 +428,10 @@ msgstr "Info"
 #: scenes/upgrades/UpgradeGoldLabel.tscn
 msgid "UIM_GOLD:"
 msgstr "Gold:"
+
+#: scenes/levelsmenu/Loading.tscn
+msgid "LOADING_LEVEL_TEXT."
+msgstr "Loading ..."
 
 #, fuzzy
 #~| msgid "UPGRADE_BOMB_SCORE_3."

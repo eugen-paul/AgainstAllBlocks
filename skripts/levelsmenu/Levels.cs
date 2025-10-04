@@ -7,17 +7,20 @@ public partial class Levels : CanvasLayer
     private const string LEVELS_CONTAINER_PATH = "Main/Panel/ScrollContainer/VBoxContainer";
     private const string UPGRADES_PATH = "UpgradesLayer/Upgrades";
     private const string SCROLL_CONTAINER_PATH = "Main/Panel/ScrollContainer";
+    private const string LOADING_PATH = "Loading";
 
     private enum MenuOptions
     {
         UPGRADE_FRAME,
-        EXIT_FRAME
+        EXIT_FRAME,
+        LOADING,
     }
 
     private readonly Dictionary<MenuOptions, string> MenuOptionNames = new()
     {
         { MenuOptions.UPGRADE_FRAME, "UpgradesLayer" },
         { MenuOptions.EXIT_FRAME, "ExitFrameLayer" },
+        { MenuOptions.LOADING, "Loading" },
     };
 
     [Export]
@@ -39,15 +42,17 @@ public partial class Levels : CanvasLayer
         for (int i = 1; i <= levelsData.Count; i++)
         {
             var lvl = LevelSelectionScene.Instantiate<LevelProgress>();
-            lvl.Init(levelsData[i]);
+            lvl.Init(levelsData[i], LoadLevel);
             lvlContainer.AddChild(lvl);
-            if(levelsData[i].Reached)
+            if (levelsData[i].Reached)
             {
                 lastReachedLevel = lvl;
             }
         }
 
         GetNode<Upgrades>(UPGRADES_PATH).CloseUpgradeMenuAction += HideAll;
+
+        GetNode<Loading>(LOADING_PATH).LoadError += OnLoadingLoadError;
 
         HideAll();
     }
@@ -106,5 +111,16 @@ public partial class Levels : CanvasLayer
         var next = ResourceLoader.Load<PackedScene>(GameScenePaths.MAIN_SCENE);
         GameComponets.Instance.Get<CurrentGame>().ResetGame();
         GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
+    }
+
+    private void LoadLevel(int level)
+    {
+        ShowOnly(MenuOptions.LOADING);
+        GetNode<Loading>(LOADING_PATH).LoadLevel(level);
+    }
+
+    private void OnLoadingLoadError()
+    {
+        HideAll();
     }
 }

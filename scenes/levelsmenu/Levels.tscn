@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://chrl878ej5bb1"]
+[gd_scene load_steps=6 format=3 uid="uid://chrl878ej5bb1"]
 
 [ext_resource type="Script" uid="uid://dhe1b6pt7piml" path="res://skripts/levelsmenu/Levels.cs" id="1_04quj"]
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_p8xvk"]
 [ext_resource type="PackedScene" uid="uid://02acrbjo7gjn" path="res://scenes/levelsmenu/LevelProgress.tscn" id="2_5rkhu"]
 [ext_resource type="PackedScene" uid="uid://d2nprom2n6xll" path="res://scenes/upgrades/upgrades.tscn" id="4_ml64u"]
+[ext_resource type="PackedScene" uid="uid://vb3aa5qdw6js" path="res://scenes/levelsmenu/Loading.tscn" id="5_rey1c"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_04quj")
@@ -165,6 +166,9 @@ text = "YES"
 [node name="ExitNoButton" type="Button" parent="ExitFrameLayer/ExitFrame/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "NO"
+
+[node name="Loading" parent="." instance=ExtResource("5_rey1c")]
+visible = false
 
 [connection signal="pressed" from="Main/MenuButton" to="." method="OnMenuButtonPressed"]
 [connection signal="pressed" from="Main/UpgradesButton" to="." method="OnUpgradesButtonPressed"]

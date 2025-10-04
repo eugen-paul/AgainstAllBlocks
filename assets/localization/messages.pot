@@ -12,6 +12,7 @@
 # res://scenes/upgrades/UpgradeItemLevelPanel.tscn
 # res://scenes/upgrades/UpgradeItemPanel.tscn
 # res://scenes/upgrades/UpgradeGoldLabel.tscn
+# res://scenes/levelsmenu/Loading.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -425,4 +426,8 @@ msgstr ""
 
 #: scenes/upgrades/UpgradeGoldLabel.tscn
 msgid "UIM_GOLD:"
+msgstr ""
+
+#: scenes/levelsmenu/Loading.tscn
+msgid "LOADING_LEVEL_TEXT."
 msgstr ""

@@ -1,4 +1,5 @@
 
+using System;
 using Godot;
 
 public class GetXActiveBallsAchievementFactory : AchievementFactory
@@ -24,6 +25,7 @@ public class GetXActiveBallsAchievementFactory : AchievementFactory
 public class GetXActiveBallsAchievement : IAchievementMonitor
 {
     private int count;
+    private int maxCount;
     private readonly int countToReach;
 
     public GetXActiveBallsAchievement(int countToReach)
@@ -41,11 +43,12 @@ public class GetXActiveBallsAchievement : IAchievementMonitor
         else if (signal is NewBallSignal)
         {
             count++;
+            maxCount = Math.Max(maxCount, count);
         }
     }
 
     public bool IsReached()
     {
-        return count >= countToReach;
+        return maxCount >= countToReach;
     }
 }

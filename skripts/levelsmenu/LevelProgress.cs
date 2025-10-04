@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class LevelProgress : Control
@@ -10,6 +11,8 @@ public partial class LevelProgress : Control
     private const string START_BUTTON_PATH = "TextureButton/StartButton";
 
     private LevelProgressData levelProgressData = null;
+
+    private event Action<int> StartLevelAction;
 
     public override void _Ready()
     {
@@ -42,14 +45,20 @@ public partial class LevelProgress : Control
         MouseFilter = MouseFilterEnum.Ignore;
     }
 
-    public void Init(LevelProgressData levelProgressData)
+    public override void _ExitTree()
     {
+        base._ExitTree();
+        StartLevelAction = null;
+    }
+
+    public void Init(LevelProgressData levelProgressData, Action<int> startLevelAction)
+    {
+        this.StartLevelAction += startLevelAction;
         this.levelProgressData = levelProgressData;
     }
 
     private void OnStartButtonPressed()
     {
-        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.GetLevelPath(levelProgressData.Level), cacheMode : ResourceLoader.CacheMode.IgnoreDeep);
-        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
+        StartLevelAction?.Invoke(levelProgressData.Level);
     }
 }

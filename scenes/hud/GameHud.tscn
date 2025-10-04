@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtjimqviqdhjd"]
+[gd_scene load_steps=16 format=3 uid="uid://dtjimqviqdhjd"]
 
 [ext_resource type="Script" uid="uid://bqsytodjcbp1t" path="res://skripts/hud/GameHud.cs" id="1_lvqwn"]
 [ext_resource type="PackedScene" uid="uid://byls65odfvomi" path="res://scenes/hud/ScoreNumberLabel.tscn" id="3_2haen"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://y24if70s5ihk" path="res://scenes/hud/GoldenBallStatus.tscn" id="9_nofyi"]
 [ext_resource type="AudioStream" uid="uid://4rr5vaq3ra7w" path="res://assets/sounds/winfantasia.wav" id="9_tex8u"]
 [ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="12_hujxl"]
+[ext_resource type="PackedScene" uid="uid://vb3aa5qdw6js" path="res://scenes/levelsmenu/Loading.tscn" id="13_okuoa"]
 
 [sub_resource type="Animation" id="Animation_pfd3l"]
 resource_name = "show"
@@ -251,6 +252,9 @@ visible = false
 
 [node name="Achievements" type="Node" parent="."]
 script = ExtResource("12_hujxl")
+
+[node name="Loading" parent="." instance=ExtResource("13_okuoa")]
+visible = false
 
 [connection signal="pressed" from="TopPanel/PauseButton" to="." method="OnPauseButtonPressed"]
 [connection signal="pressed" from="GameOverRect/VBoxContainer/VBoxContainer/RestartButton" to="." method="OnRestartButtonPressed"]

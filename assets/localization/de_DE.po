@@ -426,6 +426,10 @@ msgstr "Info"
 msgid "UIM_GOLD:"
 msgstr "Gold:"
 
+#: scenes/levelsmenu/Loading.tscn
+msgid "LOADING_LEVEL_TEXT."
+msgstr "Lade ..."
+
 #, fuzzy
 #~| msgid "UPGRADE_BOMB_SCORE_3."
 #~ msgid "UPGRADE_ROCKET_COUNT_3."

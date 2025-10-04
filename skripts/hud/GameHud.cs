@@ -2,6 +2,7 @@ using Godot;
 
 public partial class GameHud : CanvasLayer
 {
+    private const string LOADING_PATH = "Loading";
 
     public int CurrentLevel { get; set; }
 
@@ -46,6 +47,8 @@ public partial class GameHud : CanvasLayer
         GetNode<Control>("GameOverRect").Hide();
         GetNode<Control>("WinRect").Hide();
         GetNode<Control>("PauseRect").Hide();
+        GetNode<Loading>(LOADING_PATH).Hide();
+        GetNode<Loading>(LOADING_PATH).LoadError += OnLoadingLoadError;
     }
 
     public void GameOver()
@@ -98,8 +101,10 @@ public partial class GameHud : CanvasLayer
 
     private void OnNextLevelButtonPressed()
     {
-        var next = ResourceLoader.Load<PackedScene>(GameScenePaths.GetLevelPath(CurrentLevel + 1));
-        GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
+        // var next = ResourceLoader.Load<PackedScene>(GameScenePaths.GetLevelPath(CurrentLevel + 1));
+        // GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
+        GetNode<Loading>(LOADING_PATH).Show();
+        GetNode<Loading>(LOADING_PATH).LoadLevel(CurrentLevel + 1);
     }
 
     private void OnMenuButtonPressed()
@@ -150,5 +155,10 @@ public partial class GameHud : CanvasLayer
                 OnPauseButtonPressed();
                 break;
         }
+    }
+
+    private void OnLoadingLoadError()
+    {
+        GetNode<Loading>(LOADING_PATH).Hide();
     }
 }

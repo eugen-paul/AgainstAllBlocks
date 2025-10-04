@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
 
 
@@ -59,6 +61,7 @@ public partial class SceneLoader : Node
     {
         pathesToLoad = [.. addToSceneItems];
         itemsCount = addToSceneItems.Count + gpuParticles3dList.Count + gpuParticles2dList.Count;
+        Debug.Print("Time: " + DateTime.Now.ToString("O")); //Preload DateTime
     }
 
     private void GoToNext()
