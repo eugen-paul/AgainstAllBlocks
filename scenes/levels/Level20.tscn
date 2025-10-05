@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://jkgi10ofyfx1"]
+
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_vbyam"]
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_uil3b"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_ys0c0"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="4_yjc84"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="5_syhd8"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="6_pypvy"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="7_ochlc"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="8_uc46i"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="9_i47ay"]
+
+[node name="Level20" type="Node"]
+script = ExtResource("1_vbyam")
+Level = 20
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_uil3b")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("3_ys0c0")
+
+[node name="CameraPivot" parent="." instance=ExtResource("4_yjc84")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("5_syhd8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 12)
+
+[node name="Paddle" parent="." instance=ExtResource("6_pypvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="GameHud" parent="." instance=ExtResource("7_ochlc")]
+
+[node name="Explosion" parent="." instance=ExtResource("8_uc46i")]
+
+[node name="Ground" parent="." instance=ExtResource("9_i47ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9659258, -0.06698732, -0.25000006, 0.2588191, 0.25000003, 0.9330127, 0, -0.9659259, 0.25881907, 0, 18, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+sky_mode = 1
+
+[editable path="CameraPivot"]
