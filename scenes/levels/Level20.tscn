@@ -1,17 +1,127 @@
-[gd_scene load_steps=10 format=3 uid="uid://jkgi10ofyfx1"]
+[gd_scene load_steps=34 format=3 uid="uid://jkgi10ofyfx1"]
 
-[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_vbyam"]
+[ext_resource type="Script" uid="uid://cd5u4k1cc8dyr" path="res://skripts/levels/Level20.cs" id="1_i47ay"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_uil3b"]
 [ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="3_ys0c0"]
 [ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="4_yjc84"]
 [ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="5_syhd8"]
 [ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="6_pypvy"]
 [ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="7_ochlc"]
+[ext_resource type="PackedScene" uid="uid://cmhs6l5anm08o" path="res://scenes/world/Block.tscn" id="7_uc46i"]
 [ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="8_uc46i"]
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="9_i47ay"]
+[ext_resource type="Texture2D" uid="uid://ccft7ue54mpae" path="res://assets/textures/world/dirt.png" id="10_pypvy"]
+[ext_resource type="Texture2D" uid="uid://sba313nva7m2" path="res://assets/textures/world/grass2.png" id="10_syhd8"]
+[ext_resource type="Shader" uid="uid://cnxxkv4r2kp26" path="res://assets/textures/world/AssemblyLine.gdshader" id="11_pypvy"]
+[ext_resource type="Texture2D" uid="uid://bg4jtvfelin8h" path="res://assets/textures/world/watter.png" id="12_ochlc"]
+[ext_resource type="PackedScene" uid="uid://xguplrjwx2vu" path="res://scenes/world/CastleWall.tscn" id="15_uc46i"]
+[ext_resource type="PackedScene" uid="uid://b2dpjh75k68v3" path="res://scenes/world/CaslteDoor.tscn" id="16_i47ay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_syhd8"]
+size = Vector3(23, 3, 2)
+
+[sub_resource type="Curve3D" id="Curve3D_ep5us"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_i47ay"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, -7, 0, 25),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_c7dpw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -11, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 7, 0, 25),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_mpd8d"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 15),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_k28g0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -11, 0, 0, 0, 0, 0, 0, 7, 0, -11, 0, 0, 0, 0, 0, 0, 7, 0, 15, 0, 0, 0, 0, 0, 0, 14, 0, 15),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_s5cdd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -22, 0, 0, 0, 0, 0, 0, 7, 0, -22, 0, 0, 0, 0, 0, 0, 7, 0, 15),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_q714n"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 18),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_r3vgc"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -11, 0, 0, 0, 0, 0, 0, -7, 0, -11, 0, 0, 0, 0, 0, 0, -7, 0, 18, 0, 0, 0, 0, 0, 0, -14, 0, 18),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_4n55p"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -22, 0, 0, 0, 0, 0, 0, -7, 0, -22, 0, 0, 0, 0, 0, 0, -7, 0, 23),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_wdnd8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -30, 0, 0, 0, 0, 0, 0, -7, 0, -30, 0, 0, 0, 0, 0, 0, -7, 0, 16),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syhd8"]
+shading_mode = 0
+albedo_texture = ExtResource("10_pypvy")
+uv1_scale = Vector3(3, 6, 4)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uc46i"]
+size = Vector2(40, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i47ay"]
+shading_mode = 0
+albedo_texture = ExtResource("10_syhd8")
+uv1_scale = Vector3(10, 20, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7dpw"]
+shading_mode = 0
+albedo_texture = ExtResource("10_pypvy")
+uv1_scale = Vector3(5, 10, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syhd8"]
+render_priority = 0
+shader = ExtResource("11_pypvy")
+shader_parameter/albedo_tex = ExtResource("12_ochlc")
+shader_parameter/speed = 1.0
+shader_parameter/tiling = Vector2(10, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pypvy"]
+material = SubResource("ShaderMaterial_syhd8")
+size = Vector2(40, 5)
 
 [node name="Level20" type="Node"]
-script = ExtResource("1_vbyam")
+script = ExtResource("1_i47ay")
 Level = 20
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_uil3b")]
@@ -22,12 +132,732 @@ script = ExtResource("3_ys0c0")
 [node name="CameraPivot" parent="." instance=ExtResource("4_yjc84")]
 
 [node name="WallsDefault" parent="." instance=ExtResource("5_syhd8")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 12)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 12)
+
+[node name="WallTop" type="StaticBody3D" parent="." groups=["Wall"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 12)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.272992e-06, 1, 26)
+shape = SubResource("BoxShape3D_syhd8")
 
 [node name="Paddle" parent="." instance=ExtResource("6_pypvy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
 
 [node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Pack1" type="Node3D" parent="AllBlocks"]
+
+[node name="Path3D1" type="Path3D" parent="AllBlocks/Pack1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+curve = SubResource("Curve3D_ep5us")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack1/Path3D1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -5)
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack1/Path3D1/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, -9)
+Color = 2
+ItemType = 4
+
+[node name="Block2" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -9)
+Color = 2
+
+[node name="Block3" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -9)
+Color = 2
+
+[node name="Block4" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, -9)
+Color = 2
+
+[node name="Block5" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, -9)
+Color = 2
+ItemType = 4
+
+[node name="Block6" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, -6)
+Color = 2
+
+[node name="Block7" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -6)
+Color = 2
+
+[node name="Block8" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -6)
+Color = 2
+
+[node name="Block9" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, -6)
+Color = 2
+
+[node name="Block10" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, -6)
+Color = 2
+
+[node name="Block11" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, -3)
+Color = 2
+ItemType = 11
+
+[node name="Block12" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -3)
+Color = 2
+
+[node name="Block13" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -3)
+Color = 2
+ItemType = 4
+
+[node name="Block14" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, -3)
+Color = 2
+
+[node name="Block15" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, -3)
+Color = 2
+ItemType = 11
+
+[node name="Block16" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 0)
+Color = 2
+
+[node name="Block17" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 2
+
+[node name="Block18" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+Color = 2
+ItemType = 11
+
+[node name="Block19" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+Color = 2
+
+[node name="Block20" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, 0)
+Color = 2
+
+[node name="CaslteDoor" parent="AllBlocks" instance=ExtResource("16_i47ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+
+[node name="Pack2" type="Node3D" parent="AllBlocks"]
+
+[node name="Path3D1" type="Path3D" parent="AllBlocks/Pack2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+curve = SubResource("Curve3D_i47ay")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack2/Path3D1"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, 0)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack2/Path3D1/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+
+[node name="Block2" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Block3" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+
+[node name="Block4" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 2)
+ItemType = 7
+
+[node name="Block5" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 2)
+ItemType = 8
+
+[node name="Block6" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0000048, 0, 4)
+
+[node name="Block7" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 4)
+
+[node name="Block8" parent="AllBlocks/Pack2/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.0000048, 0, 4)
+
+[node name="Path3D2" type="Path3D" parent="AllBlocks/Pack2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+curve = SubResource("Curve3D_c7dpw")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack2/Path3D2"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, -11)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack2/Path3D2/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+
+[node name="Block2" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Block3" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+
+[node name="Block4" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 2)
+ItemType = 8
+
+[node name="Block5" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 2)
+ItemType = 7
+
+[node name="Block6" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0000048, 0, 4)
+
+[node name="Block7" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 4)
+
+[node name="Block8" parent="AllBlocks/Pack2/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.0000048, 0, 4)
+
+[node name="Pack3" type="Node3D" parent="AllBlocks"]
+
+[node name="Path3D1" type="Path3D" parent="AllBlocks/Pack3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -25)
+curve = SubResource("Curve3D_mpd8d")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack3/Path3D1"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, 0)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack3/Path3D1/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block2" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block3" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block4" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.00001, 0, 2.0000038)
+Color = 1
+Power = 2
+
+[node name="Block5" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 2.0000038)
+Color = 1
+Power = 2
+ItemType = 10
+
+[node name="Block6" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 2.0000038)
+Color = 1
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.000011, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Block8" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Block9" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Path3D2" type="Path3D" parent="AllBlocks/Pack3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -25)
+curve = SubResource("Curve3D_k28g0")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack3/Path3D2"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, -11)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack3/Path3D2/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block2" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block3" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block4" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.00001, 0, 2.0000038)
+Color = 1
+Power = 2
+
+[node name="Block5" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 2.0000038)
+Color = 1
+Power = 2
+ItemType = 10
+
+[node name="Block6" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 2.0000038)
+Color = 1
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.000011, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Block8" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Block9" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Path3D3" type="Path3D" parent="AllBlocks/Pack3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -25)
+curve = SubResource("Curve3D_s5cdd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack3/Path3D3"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, -22)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack3/Path3D3/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block2" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block3" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+Color = 1
+Power = 2
+
+[node name="Block4" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.00001, 0, 2.0000038)
+Color = 1
+Power = 2
+
+[node name="Block5" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 2.0000038)
+Color = 1
+Power = 2
+ItemType = 10
+
+[node name="Block6" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 2.0000038)
+Color = 1
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.000011, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Block8" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Block9" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 4.0000095)
+Color = 1
+Power = 2
+
+[node name="Pack4" type="Node3D" parent="AllBlocks"]
+
+[node name="Path3D1" type="Path3D" parent="AllBlocks/Pack4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -25)
+curve = SubResource("Curve3D_q714n")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack4/Path3D1"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, 0)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack4/Path3D1/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block2" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.9999976, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block3" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7683716e-06, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block4" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000072, 0, 0)
+Color = 3
+Power = 3
+ItemType = 12
+
+[node name="Block5" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.00001, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block6" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block8" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 2.0000038)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Block9" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block10" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block11" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block12" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 4.0000095)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Block13" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block14" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block15" parent="AllBlocks/Pack4/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Path3D2" type="Path3D" parent="AllBlocks/Pack4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -25)
+curve = SubResource("Curve3D_r3vgc")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack4/Path3D2"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, -11)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack4/Path3D2/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block2" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.9999976, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block3" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7683716e-06, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block4" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000072, 0, 0)
+Color = 3
+Power = 3
+ItemType = 12
+
+[node name="Block5" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.00001, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block6" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 2.0000038)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Block8" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block9" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block10" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block11" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block12" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block13" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block14" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block15" parent="AllBlocks/Pack4/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 4.0000095)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Path3D3" type="Path3D" parent="AllBlocks/Pack4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -25)
+curve = SubResource("Curve3D_4n55p")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack4/Path3D3"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, -22)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack4/Path3D3/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 3
+Power = 3
+ItemType = 12
+
+[node name="Block2" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.9999976, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block3" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7683716e-06, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block4" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000072, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block5" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.00001, 0, 0)
+Color = 3
+Power = 3
+
+[node name="Block6" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block7" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 2.0000038)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Block8" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block9" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 2.0000038)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Block10" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 2.0000038)
+Color = 3
+Power = 2
+
+[node name="Block11" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 4.0000095)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Block12" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block13" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block14" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 4.0000095)
+Color = 3
+Power = 2
+
+[node name="Block15" parent="AllBlocks/Pack4/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 4.0000095)
+Color = 3
+Power = 2
+ItemType = 12
+
+[node name="Path3D4" type="Path3D" parent="AllBlocks/Pack4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -25)
+curve = SubResource("Curve3D_wdnd8")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AllBlocks/Pack4/Path3D4"]
+transform = Transform3D(0.9999976, 0, 0, 0, 1, 0, 0, 0, 0.9999976, 0, 0, -30)
+rotation_mode = 0
+loop = false
+
+[node name="Node3D" type="Node3D" parent="AllBlocks/Pack4/Path3D4/PathFollow3D"]
+
+[node name="Block1" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+Color = 3
+Power = 5
+
+[node name="Block2" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.9999976, 0, 0)
+Color = 3
+Power = 5
+
+[node name="Block3" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7683716e-06, 0, 0)
+Color = 3
+Power = 5
+ItemType = 2
+
+[node name="Block4" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000072, 0, 0)
+Color = 3
+Power = 5
+
+[node name="Block5" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.00001, 0, 0)
+Color = 3
+Power = 5
+
+[node name="Block6" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 2.0000038)
+Color = 3
+Power = 3
+
+[node name="Block7" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 2.0000038)
+Color = 3
+Power = 3
+ItemType = 2
+
+[node name="Block8" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 2.0000038)
+Color = 3
+Power = 3
+
+[node name="Block9" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 2.0000038)
+Color = 3
+Power = 3
+
+[node name="Block10" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 2.0000038)
+Color = 3
+Power = 3
+
+[node name="Block11" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 4.0000095)
+Color = 3
+Power = 3
+ItemType = 2
+
+[node name="Block12" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 4.0000095)
+Color = 3
+Power = 3
+
+[node name="Block13" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 4.0000095)
+Color = 3
+Power = 3
+
+[node name="Block14" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 4.0000095)
+Color = 3
+Power = 3
+ItemType = 2
+
+[node name="Block15" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 4.0000095)
+Color = 3
+Power = 3
 
 [node name="GameHud" parent="." instance=ExtResource("7_ochlc")]
 
@@ -36,12 +866,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
 [node name="Ground" parent="." instance=ExtResource("9_i47ay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
+[node name="Ground" parent="Ground/ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_syhd8")
+
 [node name="Background" type="Node" parent="."]
 
+[node name="Grass" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0792923, -0.0100038145, 12.037821)
+mesh = SubResource("PlaneMesh_uc46i")
+surface_material_override/0 = SubResource("StandardMaterial3D_i47ay")
+
+[node name="Grass2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0792923, -0.0100038145, -37.96218)
+mesh = SubResource("PlaneMesh_uc46i")
+surface_material_override/0 = SubResource("StandardMaterial3D_c7dpw")
+
+[node name="River" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, -15.5)
+mesh = SubResource("PlaneMesh_pypvy")
+
+[node name="CastleWall" parent="Background" instance=ExtResource("15_uc46i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -18)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.9659258, -0.06698732, -0.25000006, 0.2588191, 0.25000003, 0.9330127, 0, -0.9659259, 0.25881907, 0, 18, 0)
+transform = Transform3D(0.90796006, 0.05688679, -0.41517767, 0.40364012, -0.3849797, 0.8299792, -0.112620115, -0.92117023, -0.37250796, 0, 18, 0)
 shadow_enabled = true
 directional_shadow_mode = 0
 sky_mode = 1
 
 [editable path="CameraPivot"]
+[editable path="Ground"]
+[editable path="Ground/ground"]

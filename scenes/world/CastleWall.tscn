@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://xguplrjwx2vu"]
+
+[ext_resource type="PackedScene" uid="uid://bwvtt3mt8n5v1" path="res://assets/blender/world/castleWall.gltf" id="1_iv8el"]
+[ext_resource type="Texture2D" uid="uid://cdvm1ohnw56kk" path="res://assets/textures/world/CastleWallTop.png" id="2_7hhya"]
+[ext_resource type="Texture2D" uid="uid://bpkavxv2dqxlj" path="res://assets/textures/world/CastleWall.png" id="3_h7a6t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iv8el"]
+shading_mode = 0
+albedo_texture = ExtResource("2_7hhya")
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ualn"]
+shading_mode = 0
+albedo_texture = ExtResource("3_h7a6t")
+uv1_scale = Vector3(4, 14, 1)
+
+[node name="CastleWall" type="Node3D"]
+
+[node name="castleWall" parent="." instance=ExtResource("1_iv8el")]
+
+[node name="Wall" parent="castleWall" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_iv8el")
+surface_material_override/1 = SubResource("StandardMaterial3D_1ualn")
+
+[editable path="castleWall"]

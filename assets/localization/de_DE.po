@@ -185,8 +185,14 @@ msgstr "{goals} {g} in {seconds} {s}"
 #: scenes/localization/Localization_Achievements.gd
 msgid "GET_X_ACTIVE_BALLS."
 msgid_plural "GET_X_ACTIVE_BALLS_PLURAL."
-msgstr[0] "{0} Ball gleichzeitig auf dem Feld."
-msgstr[1] "{0} Bälle gleichzeitig auf dem Feld."
+msgstr[0] "Während des Spiels muss mindestens {0} Ball auf dem Spielfeld sein."
+msgstr[1] "Während des Spiels müssen mindestens {0} Bälle auf dem Spielfeld sein."
+
+#: scenes/localization/Localization_Achievements.gd
+msgid "GET_X_ACTIVE_BALLS_AT_END."
+msgid_plural "GET_X_ACTIVE_BALLS_AT_END_PLURAL."
+msgstr[0] "Am Ende des Spiels muss mindestens {0} Ball auf dem Feld sein."
+msgstr[1] "Am Ende des Spiels müssen mindestens {0} Bälle auf dem Feld sein."
 
 #: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."

@@ -48,7 +48,7 @@ public partial class Achievements : Node
         ScriptObject = (GodotObject)script.New();
 
         ACHIEVEMENTS = new Dictionary<int, List<AchievementFactory>> {
-            { 1, new List<AchievementFactory>(){ GET_X_POINTS(10),  CATCH_X_ROCKETS(1),  CATCH_X_BOMBS(3)       }},
+            { 1, new List<AchievementFactory>(){ GET_X_POINTS(10),  CATCH_X_ROCKETS(1),  GET_X_ACTIVE_BALLS_AT_END(2)       }},
             { 2, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(150),   DONT_CATCH_ROCKETS()   }},
             { 3, new List<AchievementFactory>(){ GET_X_POINTS(110), GET_X_POINTS(150),   DONT_CATCH_ANY_ITEMS() }},
             { 4, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(140),   DONT_LOSE_ANY_LIFE()   }},
@@ -62,12 +62,13 @@ public partial class Achievements : Node
             {12, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(200),   DONT_LOSE_ANY_LIFE()   }},
             {13, new List<AchievementFactory>(){ GET_X_POINTS(100), GET_X_POINTS(150),   DONT_LOSE_ANY_LIFE()   }},
             {14, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(200),   DONT_LOSE_ANY_LIFE()   }},
-            {15, new List<AchievementFactory>(){ LEVEL_15_X_GOALS_K_SECONDS(2,4),  LEVEL_15_X_GOALS_K_SECONDS(3,8),    DONT_LOSE_ANY_LIFE()   }},
+            {15, new List<AchievementFactory>(){ LEVEL_15_X_GOALS_K_SECONDS(2,4), LEVEL_15_X_GOALS_K_SECONDS(3,8),  DONT_LOSE_ANY_LIFE() }},
             {16, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(200),   DONT_LOSE_ANY_LIFE() }},
             {17, new List<AchievementFactory>(){ GET_X_POINTS(200), GET_X_POINTS(250),   DONT_LOSE_ANY_LIFE() }},
             {18, new List<AchievementFactory>(){ GET_X_POINTS(150), GET_X_POINTS(250),   CATCH_X_BOMBS(5) }},
             {19, new List<AchievementFactory>(){ GET_X_POINTS(300), GET_X_POINTS(400),   GET_X_ACTIVE_BALLS(4) }},
-            {20, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(20),    GET_X_POINTS(30) }},
+            {20, new List<AchievementFactory>(){ GET_X_POINTS(350), GET_X_ACTIVE_BALLS_AT_END(2), CATCH_X_ROCKETS(11) }},
+            {20, new List<AchievementFactory>(){ GET_X_POINTS(10),  GET_X_POINTS(10),    GET_X_POINTS(10) }},
         };
     }
 
@@ -109,6 +110,11 @@ public partial class Achievements : Node
     private AchievementFactory GET_X_ACTIVE_BALLS(int count)
     {
         return new GetXActiveBallsAchievementFactory(ScriptObject, count);
+    }
+
+    private AchievementFactory GET_X_ACTIVE_BALLS_AT_END(int count)
+    {
+        return new GetXActiveBallsAtEndOfLevelAchievementFactory(ScriptObject, count);
     }
 
     public string GetAchivments(int level, int ball)

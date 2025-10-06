@@ -191,6 +191,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: scenes/localization/Localization_Achievements.gd
+msgid "GET_X_ACTIVE_BALLS_AT_END."
+msgid_plural "GET_X_ACTIVE_BALLS_AT_END_PLURAL."
+msgstr[0] ""
+msgstr[1] ""
+
+#: scenes/localization/Localization_Achievements.gd
 msgid "DONT_USE_ROCKETS."
 msgstr ""
 

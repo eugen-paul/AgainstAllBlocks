@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
 using Godot.Collections;
 
@@ -60,7 +61,7 @@ public partial class DefaultLevel : Node
         {
             paddle.MaxPaddleSpeed += GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.PADDLE_SPEED) * 10f;
         }
-        
+
         if (GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().IsUpgradeTypeActive(UpgradeType.EXTRA_LIFE))
         {
             Lifes = LIFES_COUNT + GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(UpgradeType.EXTRA_LIFE);
@@ -104,7 +105,7 @@ public partial class DefaultLevel : Node
         {
             LevelDone();
         }
-    }   
+    }
 
     private void SetBackground()
     {
@@ -348,7 +349,7 @@ public partial class DefaultLevel : Node
         paddle.Hide();
     }
 
-    protected void StartRound()
+    protected virtual void StartRound()
     {
         running = true;
 
@@ -361,7 +362,7 @@ public partial class DefaultLevel : Node
         AddStartBall();
     }
 
-    protected void GameOver()
+    protected virtual void GameOver()
     {
         DestroyAllTemporary();
         GetNode<GpuParticles3D>("Explosion").Show();
@@ -390,11 +391,11 @@ public partial class DefaultLevel : Node
     /// <summary>
     /// Level has been successfully completed. Score is being updated.
     /// </summary>
-    protected void LevelDone()
+    protected virtual void LevelDone()
     {
+        var ballStatus = ComputeBallStatus();
         DestroyAllTemporary();
         running = false;
-        var ballStatus = ComputeBallStatus();
         SaveProgress();
         gameHud.LevelDone(ballStatus);
     }

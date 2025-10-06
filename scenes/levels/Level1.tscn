@@ -64,7 +64,7 @@ ItemType = 8
 [node name="Block5" parent="AllBlocks/Row1" instance=ExtResource("8_uyx01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -16)
 Color = 4
-ItemType = 8
+ItemType = 4
 
 [node name="GameHud" parent="." instance=ExtResource("9_6l6x7")]
 process_mode = 3

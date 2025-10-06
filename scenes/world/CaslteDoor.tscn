@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2dpjh75k68v3"]
+
+[ext_resource type="Script" uid="uid://cckbuje3f5ddm" path="res://skripts/world/CaslteDoor.cs" id="1_nhsxw"]
+[ext_resource type="Texture2D" uid="uid://oigq3ssijaih" path="res://assets/textures/world/Wood.png" id="1_yfojb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q714n"]
+shading_mode = 0
+albedo_color = Color(0.6507462, 0.32214952, 0.15465727, 1)
+albedo_texture = ExtResource("1_yfojb")
+uv1_scale = Vector3(10, 6, 1)
+uv1_offset = Vector3(0.5, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ep5us"]
+material = SubResource("StandardMaterial3D_q714n")
+size = Vector3(7, 6, 0.3)
+
+[node name="CaslteDoor" type="Node3D"]
+script = ExtResource("1_nhsxw")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_ep5us")
