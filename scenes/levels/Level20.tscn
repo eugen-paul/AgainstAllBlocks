@@ -205,7 +205,7 @@ Color = 2
 [node name="Block11" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, -3)
 Color = 2
-ItemType = 11
+ItemType = 6
 
 [node name="Block12" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -3)
@@ -223,7 +223,7 @@ Color = 2
 [node name="Block15" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, -3)
 Color = 2
-ItemType = 11
+ItemType = 6
 
 [node name="Block16" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 0)
@@ -236,7 +236,7 @@ Color = 2
 [node name="Block18" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 Color = 2
-ItemType = 11
+ItemType = 6
 
 [node name="Block19" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
@@ -368,21 +368,19 @@ ItemType = 10
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 2.0000038)
 Color = 1
 Power = 2
+ItemType = 11
 
 [node name="Block7" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.000011, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Block8" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Block9" parent="AllBlocks/Pack3/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Path3D2" type="Path3D" parent="AllBlocks/Pack3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -25)
@@ -414,6 +412,7 @@ Power = 2
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.00001, 0, 2.0000038)
 Color = 1
 Power = 2
+ItemType = 11
 
 [node name="Block5" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 2.0000038)
@@ -429,17 +428,14 @@ Power = 2
 [node name="Block7" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.000011, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Block8" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Block9" parent="AllBlocks/Pack3/Path3D2/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Path3D3" type="Path3D" parent="AllBlocks/Pack3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -25)
@@ -482,21 +478,19 @@ ItemType = 10
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 2.0000038)
 Color = 1
 Power = 2
+ItemType = 11
 
 [node name="Block7" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.000011, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Block8" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.722046e-06, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Block9" parent="AllBlocks/Pack3/Path3D3/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.999999, 0, 4.0000095)
 Color = 1
-Power = 2
 
 [node name="Pack4" type="Node3D" parent="AllBlocks"]
 
@@ -783,81 +777,81 @@ loop = false
 [node name="Block1" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
 Color = 3
-Power = 5
+Power = 4
 
 [node name="Block2" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.9999976, 0, 0)
 Color = 3
-Power = 5
+Power = 4
 
 [node name="Block3" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7683716e-06, 0, 0)
 Color = 3
-Power = 5
+Power = 4
 ItemType = 2
 
 [node name="Block4" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000072, 0, 0)
 Color = 3
-Power = 5
+Power = 4
 
 [node name="Block5" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.00001, 0, 0)
 Color = 3
-Power = 5
+Power = 4
 
 [node name="Block6" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 2.0000038)
 Color = 3
-Power = 3
+Power = 2
 
 [node name="Block7" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 2.0000038)
 Color = 3
-Power = 3
+Power = 2
 ItemType = 2
 
 [node name="Block8" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 2.0000038)
 Color = 3
-Power = 3
+Power = 2
 
 [node name="Block9" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 2.0000038)
 Color = 3
-Power = 3
+Power = 2
 
 [node name="Block10" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 2.0000038)
 Color = 3
-Power = 3
+Power = 2
 
 [node name="Block11" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.999999, 0, 4.0000095)
 Color = 3
-Power = 3
+Power = 2
 ItemType = 2
 
 [node name="Block12" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.99999666, 0, 4.0000095)
 Color = 3
-Power = 3
+Power = 2
 
 [node name="Block13" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.722046e-06, 0, 4.0000095)
 Color = 3
-Power = 3
+Power = 2
 
 [node name="Block14" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0000081, 0, 4.0000095)
 Color = 3
-Power = 3
+Power = 2
 ItemType = 2
 
 [node name="Block15" parent="AllBlocks/Pack4/Path3D4/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.000011, 0, 4.0000095)
 Color = 3
-Power = 3
+Power = 2
 
 [node name="GameHud" parent="." instance=ExtResource("7_ochlc")]
 
