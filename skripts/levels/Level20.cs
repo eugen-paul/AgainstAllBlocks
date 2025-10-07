@@ -1,12 +1,9 @@
 using Godot;
-using System;
-using System.Diagnostics;
 
 public enum LevelState
 {
     NotStarted,
     DoorOpening,
-    ArmeeStartMoving,
     ArmeeMoving,
     ArmeeOnField,
     LevelDone
@@ -14,7 +11,6 @@ public enum LevelState
 
 public partial class Level20 : DefaultLevel
 {
-
     private const string DOOR_PATH = "AllBlocks/CaslteDoor";
     private CaslteDoor door;
 
@@ -36,10 +32,6 @@ public partial class Level20 : DefaultLevel
         {
             case LevelState.NotStarted:
                 break;
-            case LevelState.ArmeeStartMoving:
-                door.Close();
-                state = LevelState.ArmeeMoving;
-                break;
             case LevelState.ArmeeMoving:
                 DoArmeeMoving(delta);
                 break;
@@ -52,7 +44,7 @@ public partial class Level20 : DefaultLevel
     protected override void StartRound()
     {
         base.StartRound();
-        state = LevelState.ArmeeStartMoving;
+        state = LevelState.ArmeeMoving;
     }
 
     protected override void LevelDone()
@@ -117,6 +109,7 @@ public partial class Level20 : DefaultLevel
                 if (blocks.GetChildren().Count > 0)
                 {
                     allDone = false;
+                    break;
                 }
             }
         }
