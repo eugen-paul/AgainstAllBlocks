@@ -20,6 +20,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_syhd8"]
 size = Vector3(23, 3, 2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syhd8"]
+render_priority = 0
+shader = ExtResource("11_pypvy")
+shader_parameter/albedo_tex = ExtResource("12_ochlc")
+shader_parameter/speed = 1.0
+shader_parameter/tiling = Vector2(10, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pypvy"]
+material = SubResource("ShaderMaterial_syhd8")
+size = Vector2(40, 5)
+
 [sub_resource type="Curve3D" id="Curve3D_ep5us"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -109,17 +120,6 @@ shading_mode = 0
 albedo_texture = ExtResource("10_pypvy")
 uv1_scale = Vector3(5, 10, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_syhd8"]
-render_priority = 0
-shader = ExtResource("11_pypvy")
-shader_parameter/albedo_tex = ExtResource("12_ochlc")
-shader_parameter/speed = 1.0
-shader_parameter/tiling = Vector2(10, 2)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_pypvy"]
-material = SubResource("ShaderMaterial_syhd8")
-size = Vector2(40, 5)
-
 [node name="Level20" type="Node"]
 script = ExtResource("1_i47ay")
 Level = 20
@@ -142,6 +142,11 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallTop"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.272992e-06, 1, 26)
 shape = SubResource("BoxShape3D_syhd8")
+
+[node name="River" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, -15.5)
+mesh = SubResource("PlaneMesh_pypvy")
+skeleton = NodePath("../Background")
 
 [node name="Paddle" parent="." instance=ExtResource("6_pypvy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
@@ -875,10 +880,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i47ay")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0792923, -0.0100038145, -37.96218)
 mesh = SubResource("PlaneMesh_uc46i")
 surface_material_override/0 = SubResource("StandardMaterial3D_c7dpw")
-
-[node name="River" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, -15.5)
-mesh = SubResource("PlaneMesh_pypvy")
 
 [node name="CastleWall" parent="Background" instance=ExtResource("15_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -18)

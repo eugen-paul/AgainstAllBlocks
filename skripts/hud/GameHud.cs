@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Godot;
 
 public partial class GameHud : CanvasLayer
@@ -32,7 +31,6 @@ public partial class GameHud : CanvasLayer
 
     public override void _Ready()
     {
-        Debug.Print("Ready GameHud");
         scoreNumberLabel = GetNode<ScoreNumberLabel>("TopPanel/ScoreNumberLabel");
         lifeContainer = GetNode<LifeContainer>("TopPanel/LifesHBoxContainer");
         var prefs = GameComponets.Instance.Get<UserPreferences>();
