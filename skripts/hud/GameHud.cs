@@ -1,10 +1,24 @@
+using System.Diagnostics;
 using Godot;
 
 public partial class GameHud : CanvasLayer
 {
     private const string LOADING_PATH = "Loading";
 
-    public int CurrentLevel { get; set; }
+    private int currentLevel = 0;
+
+    public int CurrentLevel
+    {
+        get => currentLevel;
+        set
+        {
+            currentLevel = value;
+            if (CurrentLevel >= GameScenePaths.MaxLevel)
+            {
+                GetNode<Button>("WinRect/CenterContainer/VBoxContainer/VBoxContainer/NextGameButton").Hide();
+            }
+        }
+    }
 
     private ScoreNumberLabel scoreNumberLabel;
 
@@ -18,16 +32,13 @@ public partial class GameHud : CanvasLayer
 
     public override void _Ready()
     {
+        Debug.Print("Ready GameHud");
         scoreNumberLabel = GetNode<ScoreNumberLabel>("TopPanel/ScoreNumberLabel");
         lifeContainer = GetNode<LifeContainer>("TopPanel/LifesHBoxContainer");
         var prefs = GameComponets.Instance.Get<UserPreferences>();
         if (prefs.GetParamShowFps())
         {
             GetNode<CanvasLayer>("Fps").Show();
-        }
-        if (CurrentLevel >= GameScenePaths.MaxLevel)
-        {
-            GetNode<Button>("WinRect/CenterContainer/VBoxContainer/VBoxContainer/NextGameButton").Hide();
         }
         StartGame();
     }
