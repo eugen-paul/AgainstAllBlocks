@@ -13,12 +13,14 @@ disable_receive_shadows = true
 shading_mode = 0
 albedo_texture = ExtResource("3_h7a6t")
 uv1_scale = Vector3(4, 14, 1)
+disable_receive_shadows = true
 
 [node name="CastleWall" type="Node3D"]
 
 [node name="castleWall" parent="." instance=ExtResource("1_iv8el")]
 
 [node name="Wall" parent="castleWall" index="0"]
+cast_shadow = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_iv8el")
 surface_material_override/1 = SubResource("StandardMaterial3D_1ualn")
 

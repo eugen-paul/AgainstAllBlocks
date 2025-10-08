@@ -193,6 +193,7 @@ Color = 2
 [node name="Block8" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -6)
 Color = 2
+ItemType = 4
 
 [node name="Block9" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, -6)
@@ -226,7 +227,7 @@ Color = 2
 ItemType = 6
 
 [node name="Block16" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 0)
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -4, 0, 0)
 Color = 2
 
 [node name="Block17" parent="AllBlocks/Pack1/Path3D1/PathFollow3D/Node3D" instance=ExtResource("7_uc46i")]
