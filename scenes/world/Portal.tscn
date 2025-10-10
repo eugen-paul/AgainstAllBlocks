@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4uumr5iovuni"]
+[gd_scene load_steps=11 format=3 uid="uid://4uumr5iovuni"]
 
 [ext_resource type="Script" uid="uid://cucswudrhjqh2" path="res://skripts/world/Portal.cs" id="1_dc2wr"]
 [ext_resource type="AudioStream" uid="uid://bwe15mpw46hkh" path="res://assets/sounds/portal.wav" id="1_u336e"]
@@ -28,21 +28,6 @@ rings = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5yq5"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_nrbed"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.7853982, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_f1t7i"]
 resource_name = "rotation"
 length = 3.0
@@ -63,7 +48,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ktxu8"]
 _data = {
-&"RESET": SubResource("Animation_nrbed"),
 &"rotation": SubResource("Animation_f1t7i")
 }
 
@@ -96,7 +80,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
 stream = ExtResource("1_u336e")
 
 [node name="OUT" type="Node3D" parent="."]
-transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 11.0138855, 1, 9.532149)
+transform = Transform3D(-0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071067, 11.0138855, 1, 9.532149)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OUT"]
 transform = Transform3D(6.971098e-15, 1.5893258e-08, -0.99999994, 0.9999999, -4.371137e-08, 2.1175822e-22, -4.3711385e-08, -0.99999994, -1.5893262e-08, 9.536743e-07, 0, -1)

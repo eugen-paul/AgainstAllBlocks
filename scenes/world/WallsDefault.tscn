@@ -32,6 +32,7 @@ shape = SubResource("BoxShape3D_03pcu")
 [node name="wall" parent="." instance=ExtResource("1_v1wlo")]
 
 [node name="Wall" parent="wall" index="0"]
+cast_shadow = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_w3dj3")
 
 [editable path="wall"]
