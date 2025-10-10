@@ -27,7 +27,7 @@ public partial class Loading : CanvasLayer
                     LoadError?.Invoke();
                     break;
                 case ResourceLoader.ThreadLoadStatus.Loaded:
-                    var next = ResourceLoader.Load<PackedScene>(loadingPath, cacheMode: ResourceLoader.CacheMode.IgnoreDeep);
+                    var next = ResourceLoader.Load<PackedScene>(loadingPath, cacheMode: ResourceLoader.CacheMode.Reuse);
                     loadingPath = null;
                     GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, next);
                     break;
@@ -43,6 +43,6 @@ public partial class Loading : CanvasLayer
     public void LoadLevel(int level)
     {
         loadingPath = GameScenePaths.GetLevelPath(level);
-        ResourceLoader.LoadThreadedRequest(loadingPath, cacheMode: ResourceLoader.CacheMode.IgnoreDeep);
+        ResourceLoader.LoadThreadedRequest(loadingPath, cacheMode: ResourceLoader.CacheMode.Reuse);
     }
 }
