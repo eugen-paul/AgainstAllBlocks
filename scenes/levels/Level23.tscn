@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cy6voe0otbkkb"]
+[gd_scene load_steps=48 format=3 uid="uid://cy6voe0otbkkb"]
 
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_lduaw"]
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="2_snakt"]
@@ -19,6 +19,8 @@
 [ext_resource type="Shader" uid="uid://caq2l6iohfqju" path="res://assets/textures/world/AssemblyLinePlus.gdshader" id="15_1csy6"]
 [ext_resource type="AudioStream" uid="uid://dgdjwuof1ywgj" path="res://assets/sounds/portalOut.wav" id="15_gdda7"]
 [ext_resource type="Texture2D" uid="uid://cp8bshfm7etsa" path="res://assets/textures/world/Lava.png" id="16_5t6ms"]
+[ext_resource type="PackedScene" uid="uid://1a0hiv6p88v" path="res://scenes/world/Actor.tscn" id="17_5t6ms"]
+[ext_resource type="Script" uid="uid://752fk4ivqifx" path="res://skripts/world/AnomationsFromList.cs" id="18_iyakl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_h3fgq"]
 size = Vector3(2, 40, 2)
@@ -145,24 +147,8 @@ tracks/0/keys = {
 "values": [Vector3(0, 0.7853982, 0), Vector3(0, 2.0943952, 0), Vector3(0, 0.7853982, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_gdda7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.7853982, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1csy6"]
 _data = {
-&"RESET": SubResource("Animation_gdda7"),
 &"rotation": SubResource("Animation_h3fgq")
 }
 
@@ -591,6 +577,27 @@ transform = Transform3D(-1, 1.9106855e-15, 4.3711385e-08, 0, 1, -4.371139e-08, -
 mesh = SubResource("PlaneMesh_fpmil")
 surface_material_override/0 = SubResource("ShaderMaterial_1csy6")
 
+[node name="Actor" parent="Background" node_paths=PackedStringArray("AnimationPlayer") instance=ExtResource("17_5t6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, -14)
+script = ExtResource("18_iyakl")
+AnimationPlayer = NodePath("Actor2/AnimationPlayer")
+AnimationNames = Array[String](["Wave", "Idle_1"])
+RandomOrder = true
+
+[node name="Skeleton3D" parent="Background/Actor/Actor2/Armature" index="0"]
+bones/0/rotation = Quaternion(-2.1073419e-08, 0.7071068, 0.7071068, -2.1073424e-08)
+bones/3/rotation = Quaternion(-0.001099262, -3.7723282e-08, 2.2064507e-10, 0.9999994)
+bones/5/rotation = Quaternion(0.033212546, 4.9709903e-15, -7.918488e-09, 0.9994483)
+bones/6/rotation = Quaternion(-0.6903163, -0.15166013, -0.6906512, 0.15317816)
+bones/7/rotation = Quaternion(-0.2651422, -2.1136605e-08, 1.8246267e-08, 0.9642093)
+bones/8/rotation = Quaternion(-0.6903162, 0.15166019, 0.69065136, 0.15317819)
+bones/9/rotation = Quaternion(-0.2651422, 2.1153017e-08, -1.8305903e-08, 0.9642093)
+bones/10/rotation = Quaternion(-1.06733964e-07, -0.7071066, 0.70710707, -3.9055982e-07)
+bones/15/rotation = Quaternion(-0.001411937, 0.99786586, -0.023070179, -0.061071467)
+
+[node name="AnimationPlayer" parent="Background/Actor/Actor2" index="1"]
+autoplay = "Wave"
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.49999988, 0.6123725, 0.6123725, -0.8660253, 0.3535534, 0.3535534, 6.6800068e-09, -0.7071068, 0.7071068, 0, 18, 0)
 shadow_enabled = true
@@ -626,7 +633,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
 stream = ExtResource("14_h3fgq")
 
 [node name="OUT" type="Node3D" parent="Portal1"]
-transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, 11.0138855, 1, -4.4678507)
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 11.0138855, 1, -4.4678507)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Portal1/OUT"]
 transform = Transform3D(6.971098e-15, 1.5893258e-08, -0.99999994, 0.9999999, -4.371137e-08, 2.1175822e-22, -4.3711385e-08, -0.99999994, -1.5893262e-08, 9.536743e-07, 0, -1)
@@ -752,3 +759,5 @@ shape = SubResource("CylinderShape3D_lduaw")
 [connection signal="body_entered" from="Portal2/IN/Area3D" to="Portal2" method="OnPortalIn"]
 
 [editable path="CameraPivot"]
+[editable path="Background/Actor"]
+[editable path="Background/Actor/Actor2"]

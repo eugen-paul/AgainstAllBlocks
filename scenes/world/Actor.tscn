@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://1a0hiv6p88v"]
+
+[ext_resource type="PackedScene" uid="uid://bhalwmneq4vgp" path="res://assets/blender/world/Actor.gltf" id="1_ehqor"]
+[ext_resource type="Texture2D" uid="uid://c6jyqgdqc3nxx" path="res://assets/textures/world/Actor.png" id="2_ju1nt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju1nt"]
+shading_mode = 2
+albedo_texture = ExtResource("2_ju1nt")
+disable_receive_shadows = true
+
+[node name="Actor" type="Node3D"]
+
+[node name="Actor2" parent="." instance=ExtResource("1_ehqor")]
+
+[node name="Actor" parent="Actor2/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ju1nt")
+
+[editable path="Actor2"]
