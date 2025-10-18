@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6bwtq10wkfb2"]
+[gd_scene load_steps=21 format=3 uid="uid://b6bwtq10wkfb2"]
 
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_gh4c8"]
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_vglk2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="8_jl5b0"]
 [ext_resource type="Texture2D" uid="uid://mw1v8y5a3h05" path="res://assets/textures/world/Snow.png" id="9_efgkr"]
 [ext_resource type="PackedScene" uid="uid://drl0sa2g241ub" path="res://scenes/world/Fir.tscn" id="10_o8kbv"]
+[ext_resource type="Texture2D" uid="uid://dj0cdhoh8ssxn" path="res://assets/textures/gui/star_04.png" id="13_wccfu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cu34a"]
 size = Vector2(50, 100)
@@ -34,6 +35,33 @@ height = 10.0
 radial_segments = 8
 rings = 8
 is_hemisphere = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8g1ob"]
+emission_shape = 3
+emission_box_extents = Vector3(15, 1, 25)
+angle_min = 1.0728835e-05
+angle_max = 45.00001
+gravity = Vector3(0, -4, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
+turbulence_noise_speed_random = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14636"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.47060454, 0.6908114, 1, 1)
+albedo_texture = ExtResource("13_wccfu")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_41clt"]
+material = SubResource("StandardMaterial3D_14636")
+size = Vector2(0.5, 0.5)
 
 [node name="Level22" type="Node"]
 script = ExtResource("1_vglk2")
@@ -615,6 +643,13 @@ mesh = SubResource("SphereMesh_vglk2")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(0.92675173, 0, 0.3756744, 0, 1, 0, -0.3756744, 0, 0.92675173, -20.562687, -8.006891, -24.146866)
 mesh = SubResource("SphereMesh_vglk2")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+amount = 64
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_8g1ob")
+draw_pass_1 = SubResource("QuadMesh_41clt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.8660254, 0.24999999, 0.43301272, -0.5, 0.43301266, 0.75, 0, -0.86602545, 0.49999997, 0, 13, 0)

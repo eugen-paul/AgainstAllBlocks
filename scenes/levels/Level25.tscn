@@ -1,0 +1,764 @@
+[gd_scene load_steps=34 format=3 uid="uid://cwoowbel7tpcm"]
+
+[ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_4xp52"]
+[ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_jvd6j"]
+[ext_resource type="Script" uid="uid://b4yesqifqq1m4" path="res://skripts/achievements/Achievements.cs" id="2_pjn40"]
+[ext_resource type="PackedScene" uid="uid://ilgmnf4akk63" path="res://scenes/world/Camera.tscn" id="3_arvnb"]
+[ext_resource type="PackedScene" uid="uid://duxltcssq86s8" path="res://scenes/world/WallsDefault.tscn" id="4_qdq40"]
+[ext_resource type="PackedScene" uid="uid://bmtuft6tbbo8m" path="res://scenes/world/Paddle.tscn" id="5_wlqgk"]
+[ext_resource type="PackedScene" uid="uid://crx2108kah47v" path="res://scenes/world/BlockTetrisJ.tscn" id="7_2rnau"]
+[ext_resource type="PackedScene" uid="uid://dtjimqviqdhjd" path="res://scenes/hud/GameHud.tscn" id="7_pqriy"]
+[ext_resource type="PackedScene" uid="uid://c6nck4s02ppm0" path="res://scenes/world/BlockTetrisL.tscn" id="8_akxr2"]
+[ext_resource type="PackedScene" uid="uid://8jwcfmfscua5" path="res://scenes/world/particles/PaddleExplosion.tscn" id="8_wufj8"]
+[ext_resource type="PackedScene" uid="uid://b2gmbju8na10s" path="res://scenes/world/Ground.tscn" id="9_kekn5"]
+[ext_resource type="Texture2D" uid="uid://sba313nva7m2" path="res://assets/textures/world/grass2.png" id="9_pjn40"]
+[ext_resource type="PackedScene" uid="uid://cjvo5nc236kqy" path="res://scenes/world/BlockTetrisO.tscn" id="9_t7ixj"]
+[ext_resource type="PackedScene" uid="uid://diie3y4utlcq" path="res://scenes/world/BlockTetrisS.tscn" id="10_pfrk0"]
+[ext_resource type="PackedScene" uid="uid://oelc8xv1mmug" path="res://scenes/world/BlockTetrisT.tscn" id="11_8q66d"]
+[ext_resource type="PackedScene" uid="uid://mljipl60q0uq" path="res://scenes/world/StageSquare.tscn" id="11_akxr2"]
+[ext_resource type="PackedScene" uid="uid://dphgciccoudk6" path="res://scenes/world/BlockTetrisZ.tscn" id="12_vbndg"]
+[ext_resource type="Script" uid="uid://cucswudrhjqh2" path="res://skripts/world/Portal.cs" id="12_wlqgk"]
+[ext_resource type="AudioStream" uid="uid://bwe15mpw46hkh" path="res://assets/sounds/portal.wav" id="13_jvd6j"]
+[ext_resource type="PackedScene" uid="uid://cohv2lojgck8e" path="res://scenes/world/BlockTetrisI.tscn" id="13_virt5"]
+[ext_resource type="AudioStream" uid="uid://dgdjwuof1ywgj" path="res://assets/sounds/portalOut.wav" id="14_pqriy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slce7"]
+shading_mode = 0
+albedo_texture = ExtResource("9_pjn40")
+uv1_scale = Vector3(5, 10, 1)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2rnau"]
+material = SubResource("StandardMaterial3D_slce7")
+size = Vector2(50, 100)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f1t7i"]
+height = 3.0
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nrbed"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 3.0
+radial_segments = 12
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktxu8"]
+albedo_color = Color(0, 0.7885199, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f1t7i"]
+top_radius = 0.9
+bottom_radius = 0.9
+height = 3.05
+radial_segments = 12
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5yq5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_f1t7i"]
+resource_name = "rotation"
+length = 3.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.3561945, 0), Vector3(0, 1.8325957, 0), Vector3(0, 2.3561945, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wlqgk"]
+resource_name = "rotation_2"
+length = 3.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.6580628, 0), Vector3(0, -2.3561945, 0), Vector3(0, -1.6580628, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvd6j"]
+resource_name = "rotation_3"
+length = 4.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.6580628, 0), Vector3(0, -2.3561945, 0), Vector3(0, -1.6580628, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pqriy"]
+resource_name = "rotation_4"
+length = 4.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.3561945, 0), Vector3(0, 1.8325957, 0), Vector3(0, 2.3561945, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktxu8"]
+_data = {
+&"rotation": SubResource("Animation_f1t7i"),
+&"rotation_2": SubResource("Animation_wlqgk"),
+&"rotation_3": SubResource("Animation_jvd6j"),
+&"rotation_4": SubResource("Animation_pqriy")
+}
+
+[node name="Level25" type="Node"]
+script = ExtResource("1_jvd6j")
+Level = 25
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_4xp52")]
+
+[node name="Achievements" type="Node" parent="."]
+script = ExtResource("2_pjn40")
+
+[node name="CameraPivot" parent="." instance=ExtResource("3_arvnb")]
+
+[node name="WallsDefault" parent="." instance=ExtResource("4_qdq40")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 3)
+
+[node name="Paddle" parent="." instance=ExtResource("5_wlqgk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 23)
+
+[node name="Stage" parent="." instance=ExtResource("11_akxr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
+Items = Array[int]([12])
+
+[node name="AllBlocks" type="Node3D" parent="."]
+
+[node name="Block" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="Block75" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -13)
+ItemType = 10
+
+[node name="Block2" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, 0, -5)
+
+[node name="Block3" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, 0, -2)
+
+[node name="Block52" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, -9)
+
+[node name="Block61" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6, 0, -12)
+
+[node name="Block76" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9, 0, -16)
+
+[node name="Block4" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -9.5, 0, -1.5)
+ItemType = 1
+
+[node name="Block5" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 3, 0, -2)
+
+[node name="Block27" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 8, 0, -7)
+
+[node name="Block92" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 5.5, 0, -17.5)
+ItemType = 10
+
+[node name="Block93" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 2.5, 0, -3.5)
+ItemType = 10
+
+[node name="Block94" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -0.5, 0, -17.5)
+
+[node name="Block84" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 9, 0, -17)
+ItemType = 1
+
+[node name="Block83" parent="AllBlocks" instance=ExtResource("7_2rnau")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 2, 0, -16)
+
+[node name="Block6" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.5, 0, -0.5)
+
+[node name="Block63" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.5, 0, -10.5)
+
+[node name="Block79" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.5, 0, -14.5)
+
+[node name="Block53" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5, 0, -8.5)
+ItemType = 2
+
+[node name="Block62" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5, 0, -10.5)
+
+[node name="Block7" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1, 0, -3)
+
+[node name="Block25" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6, 0, -5)
+
+[node name="Block55" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3, 0, -10)
+
+[node name="Block96" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6, 0, -21)
+
+[node name="Block44" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2, 0, -6)
+ItemType = 2
+
+[node name="Block26" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9, 0, -6)
+ItemType = 1
+
+[node name="Block85" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1, 0, -16)
+
+[node name="Block11" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5, 0, -1)
+
+[node name="Block12" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.5, 0, -2.5)
+
+[node name="Block48" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.5, 0, -7.5)
+
+[node name="Block56" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, -20.5)
+
+[node name="Block90" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.5, 0, -17.5)
+
+[node name="Block57" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 0, 1.5)
+
+[node name="Block102" parent="AllBlocks" instance=ExtResource("8_akxr2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.5, 0, 0.5)
+
+[node name="Block13" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="Block14" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="Block15" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -11)
+
+[node name="Block16" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+
+[node name="Block17" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="Block18" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -10)
+
+[node name="Block80" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -15)
+
+[node name="Block19" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
+
+[node name="Block21" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="Block69" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -12)
+
+[node name="Block22" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="Block101" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -17)
+
+[node name="Block97" parent="AllBlocks" instance=ExtResource("9_t7ixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -18)
+
+[node name="Block23" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2)
+
+[node name="Block49" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+
+[node name="Block98" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
+
+[node name="Block66" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -11)
+
+[node name="Block91" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -16)
+
+[node name="Block67" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -12)
+
+[node name="Block24" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0, -1.5)
+
+[node name="Block28" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.5, 0, -3.5)
+
+[node name="Block77" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.5, 0, -12.5)
+
+[node name="Block43" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.5, 0, -4.5)
+ItemType = 10
+
+[node name="Block29" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 0, -5.5)
+
+[node name="Block30" parent="AllBlocks" instance=ExtResource("10_pfrk0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5, 0, -18.5)
+
+[node name="Block31" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+
+[node name="Block64" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -12)
+
+[node name="Block32" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, -4.5)
+
+[node name="Block41" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, -7.5)
+
+[node name="Block33" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+ItemType = 2
+
+[node name="Block60" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+
+[node name="Block34" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
+
+[node name="Block35" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -2)
+
+[node name="Block36" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, 0)
+
+[node name="Block74" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0, -13)
+
+[node name="Block99" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, 0, -19)
+
+[node name="Block54" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 0, 2)
+
+[node name="Block38" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6, 0, -6)
+
+[node name="Block68" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4, 0, -13)
+ItemType = 10
+
+[node name="Block37" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Block42" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 0, 1.5)
+
+[node name="Block81" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.5, 0, -15.5)
+ItemType = 10
+
+[node name="Block50" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.5, 0, -7.5)
+
+[node name="Block39" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 0, -19)
+ItemType = 10
+
+[node name="Block40" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+ItemType = 10
+
+[node name="Block82" parent="AllBlocks" instance=ExtResource("11_8q66d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -15)
+
+[node name="Block8" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+
+[node name="Block100" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2)
+
+[node name="Block95" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -17)
+
+[node name="Block89" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -17)
+
+[node name="Block65" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -10)
+
+[node name="Block73" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -13)
+
+[node name="Block20" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -6)
+
+[node name="Block86" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -16)
+ItemType = 2
+
+[node name="Block70" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12)
+ItemType = 1
+
+[node name="Block58" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -10)
+
+[node name="Block9" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.5, 0, -4.5)
+
+[node name="Block78" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.5, 0, -13.5)
+
+[node name="Block71" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.5, 0, -14.5)
+
+[node name="Block10" parent="AllBlocks" instance=ExtResource("12_vbndg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, 0, -3.5)
+
+[node name="Block45" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="Block59" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
+ItemType = 2
+
+[node name="Block87" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -16)
+
+[node name="Block46" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.5, 0, -4.5)
+
+[node name="Block47" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, -5.5)
+
+[node name="Block51" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6, 0, 2)
+
+[node name="Block88" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0, -16.5)
+ItemType = 2
+
+[node name="Block72" parent="AllBlocks" instance=ExtResource("13_virt5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.5, 0, -14.5)
+
+[node name="GameHud" parent="." instance=ExtResource("7_pqriy")]
+
+[node name="Explosion" parent="." instance=ExtResource("8_wufj8")]
+
+[node name="Ground" parent="." instance=ExtResource("9_kekn5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, 0.24999999, 0.43301275, -0.5, 0.43301266, 0.75000006, 0, -0.86602545, 0.49999997, -14, 13, 0)
+sky_mode = 1
+
+[node name="Background" type="Node" parent="."]
+
+[node name="BGGround" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_2rnau")
+
+[node name="Portal1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+script = ExtResource("12_wlqgk")
+
+[node name="IN" type="Node3D" parent="Portal1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1, -1)
+
+[node name="Area3D" type="Area3D" parent="Portal1/IN"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal1/IN/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_f1t7i")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Portal1/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal1/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal1/IN"]
+stream = ExtResource("13_jvd6j")
+
+[node name="OUT" type="Node3D" parent="Portal1"]
+transform = Transform3D(-0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071067, 11.0138855, 1, 16.53215)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Portal1/OUT"]
+transform = Transform3D(6.971098e-15, 1.5893258e-08, -0.99999994, 0.9999999, -4.371137e-08, 2.1175822e-22, -4.3711385e-08, -0.99999994, -1.5893262e-08, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal1/OUT"]
+transform = Transform3D(-3.6870425e-15, -1.0331603e-07, -0.99999994, 0.9999999, -4.371137e-08, -2.1175822e-22, -4.3711385e-08, -0.99999994, 1.0331604e-07, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Portal1/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Portal1/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Portal1/OUT"]
+libraries = {
+&"": SubResource("AnimationLibrary_ktxu8")
+}
+autoplay = "rotation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal1/OUT"]
+stream = ExtResource("14_pqriy")
+
+[node name="OutPoint" type="Node3D" parent="Portal1/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Portal2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+script = ExtResource("12_wlqgk")
+
+[node name="IN" type="Node3D" parent="Portal2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, -1)
+
+[node name="Area3D" type="Area3D" parent="Portal2/IN"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal2/IN/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_f1t7i")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Portal2/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal2/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal2/IN"]
+stream = ExtResource("13_jvd6j")
+
+[node name="OUT" type="Node3D" parent="Portal2"]
+transform = Transform3D(-0.087155744, 0, -0.9961945, 0, 1, 0, 0.9961945, 0, -0.087155744, -10.9861145, 1, 16.53215)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Portal2/OUT"]
+transform = Transform3D(6.971098e-15, 1.5893258e-08, -0.99999994, 0.9999999, -4.371137e-08, 2.1175822e-22, -4.3711385e-08, -0.99999994, -1.5893262e-08, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal2/OUT"]
+transform = Transform3D(-3.6870425e-15, -1.0331603e-07, -0.99999994, 0.9999999, -4.371137e-08, -2.1175822e-22, -4.3711385e-08, -0.99999994, 1.0331604e-07, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Portal2/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Portal2/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Portal2/OUT"]
+libraries = {
+&"": SubResource("AnimationLibrary_ktxu8")
+}
+autoplay = "rotation_2"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal2/OUT"]
+stream = ExtResource("14_pqriy")
+
+[node name="OutPoint" type="Node3D" parent="Portal2/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Portal3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+script = ExtResource("12_wlqgk")
+
+[node name="IN" type="Node3D" parent="Portal3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1, -11.5)
+
+[node name="Area3D" type="Area3D" parent="Portal3/IN"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal3/IN/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_f1t7i")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Portal3/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal3/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal3/IN"]
+stream = ExtResource("13_jvd6j")
+
+[node name="OUT" type="Node3D" parent="Portal3"]
+transform = Transform3D(-0.087155744, 0, -0.9961945, 0, 1, 0, 0.9961945, 0, -0.087155744, -10.9861145, 1, 12.532149)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Portal3/OUT"]
+transform = Transform3D(6.971098e-15, 1.5893258e-08, -0.99999994, 0.9999999, -4.371137e-08, 2.1175822e-22, -4.3711385e-08, -0.99999994, -1.5893262e-08, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal3/OUT"]
+transform = Transform3D(-3.6870425e-15, -1.0331603e-07, -0.99999994, 0.9999999, -4.371137e-08, -2.1175822e-22, -4.3711385e-08, -0.99999994, 1.0331604e-07, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Portal3/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Portal3/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Portal3/OUT"]
+libraries = {
+&"": SubResource("AnimationLibrary_ktxu8")
+}
+autoplay = "rotation_3"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal3/OUT"]
+stream = ExtResource("14_pqriy")
+
+[node name="OutPoint" type="Node3D" parent="Portal3/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Portal4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+script = ExtResource("12_wlqgk")
+
+[node name="IN" type="Node3D" parent="Portal4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, -11.5)
+
+[node name="Area3D" type="Area3D" parent="Portal4/IN"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal4/IN/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_f1t7i")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Portal4/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal4/IN"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+skeleton = NodePath("../../OUT")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal4/IN"]
+stream = ExtResource("13_jvd6j")
+
+[node name="OUT" type="Node3D" parent="Portal4"]
+transform = Transform3D(-0.70710653, 0, 0.70710653, 0, 1, 0, -0.70710653, 0, -0.70710653, 11.0138855, 1, 12.532149)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Portal4/OUT"]
+transform = Transform3D(6.971098e-15, 1.5893258e-08, -0.99999994, 0.9999999, -4.371137e-08, 2.1175822e-22, -4.3711385e-08, -0.99999994, -1.5893262e-08, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal4/OUT"]
+transform = Transform3D(-3.6870425e-15, -1.0331603e-07, -0.99999994, 0.9999999, -4.371137e-08, -2.1175822e-22, -4.3711385e-08, -0.99999994, 1.0331604e-07, 9.536743e-07, 0, -1)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Portal4/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nrbed")
+surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Portal4/OUT"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f1t7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5yq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Portal4/OUT"]
+libraries = {
+&"": SubResource("AnimationLibrary_ktxu8")
+}
+autoplay = "rotation_4"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Portal4/OUT"]
+stream = ExtResource("14_pqriy")
+
+[node name="OutPoint" type="Node3D" parent="Portal4/OUT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[connection signal="body_entered" from="Portal1/IN/Area3D" to="Portal1" method="OnPortalIn"]
+[connection signal="body_entered" from="Portal2/IN/Area3D" to="Portal2" method="OnPortalIn"]
+[connection signal="body_entered" from="Portal3/IN/Area3D" to="Portal3" method="OnPortalIn"]
+[connection signal="body_entered" from="Portal4/IN/Area3D" to="Portal4" method="OnPortalIn"]
+
+[editable path="CameraPivot"]
