@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://hrhxph4lyun" path="res://scenes/world/FirPart2.tscn" id="18_6u23j"]
 [ext_resource type="PackedScene" uid="uid://ki1dkv6yftia" path="res://scenes/world/UFO.tscn" id="19_uytqt"]
 [ext_resource type="PackedScene" uid="uid://rwg51yn1kopn" path="res://scenes/world/UFO2.tscn" id="20_8syl2"]
-[ext_resource type="Script" uid="uid://de1t3kbehpdnh" path="res://skripts/world/UfoPath3d.cs" id="20_pel7f"]
+[ext_resource type="Script" uid="uid://bs7mjgrd0mbeu" path="res://skripts/world/MovingOnPath3d.cs" id="20_pel7f"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3pwbt"]
 size = Vector2(50, 100)
@@ -227,10 +227,11 @@ Seed = 5
 transform = Transform3D(1.224311, 0, -5.8737607, 0, 6, 0, 5.8737607, 0, 1.224311, 10, 0, -24)
 visible = false
 
-[node name="UfoPath3D" type="Path3D" parent="Background"]
+[node name="UfoPath3D" type="Path3D" parent="Background" node_paths=PackedStringArray("PathFollower")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4.1622076, -29)
 curve = SubResource("Curve3D_8syl2")
 script = ExtResource("20_pel7f")
+PathFollower = NodePath("PathFollow3D")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Background/UfoPath3D"]
 transform = Transform3D(-0.63828254, 0.5021465, 0.58338386, 0.5823639, 0.8106002, -0.06053091, -0.5032932, 0.3011226, -0.80989516, -4.0451984, 0.57171917, -3.1463394)

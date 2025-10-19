@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cwoowbel7tpcm"]
+[gd_scene load_steps=41 format=3 uid="uid://cwoowbel7tpcm"]
 
 [ext_resource type="PackedScene" uid="uid://bkyf8x20ta2hk" path="res://scenes/world/WorldEnvironment.tscn" id="1_4xp52"]
 [ext_resource type="Script" uid="uid://bo66qhjay8nip" path="res://skripts/levels/DefaultLevel.cs" id="1_jvd6j"]
@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://bwe15mpw46hkh" path="res://assets/sounds/portal.wav" id="13_jvd6j"]
 [ext_resource type="PackedScene" uid="uid://cohv2lojgck8e" path="res://scenes/world/BlockTetrisI.tscn" id="13_virt5"]
 [ext_resource type="AudioStream" uid="uid://dgdjwuof1ywgj" path="res://assets/sounds/portalOut.wav" id="14_pqriy"]
+[ext_resource type="Script" uid="uid://bs7mjgrd0mbeu" path="res://skripts/world/MovingOnPath3d.cs" id="19_pfrk0"]
+[ext_resource type="PackedScene" uid="uid://1a0hiv6p88v" path="res://scenes/world/Actor.tscn" id="19_t7ixj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slce7"]
 shading_mode = 0
@@ -58,6 +60,15 @@ size = Vector3(2, 2, 2)
 shading_mode = 2
 albedo_color = Color(3.85046e-07, 0.57779473, 0, 1)
 disable_receive_shadows = true
+
+[sub_resource type="Curve3D" id="Curve3D_pfrk0"]
+closed = true
+bake_interval = 2.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -11, 2, -1, 0, 0, 0, 0, 0, 0, -11, 2, -23, 0, 0, 0, 0, 0, 0, 11, 2, -23, 0, 0, 0, 0, 0, 0, 11, 2, -1, 0, 0, 0, 0, 0, 0, 11, 2, -23, 0, 0, 0, 0, 0, 0, -11, 2, -23),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_f1t7i"]
 height = 3.0
@@ -524,190 +535,269 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_2rnau")
 
-[node name="Tube4M" type="MeshInstance3D" parent="Background"]
+[node name="Tubes" type="Node3D" parent="Background"]
+
+[node name="Tube4M" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(6.9710977e-15, 1.5893256e-08, -0.9999999, -3.5527137e-15, 0.99999994, 1.5893262e-08, 0.9999998, 1.4210855e-14, 6.947167e-16, -14.999999, 1, -27)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M2" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M2" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(6.9710977e-15, 1.5893256e-08, -0.9999999, -3.5527137e-15, 0.99999994, 1.5893262e-08, 0.9999998, 1.4210855e-14, 6.947167e-16, -2.999999, 7, -27)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M4" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M4" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(6.9710977e-15, 1.5893256e-08, -0.9999999, -3.5527137e-15, 0.99999994, 1.5893262e-08, 0.9999998, 1.4210855e-14, 6.947167e-16, 13.000001, 1, -21)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M6" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M6" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(6.9710977e-15, 1.5893256e-08, -0.9999999, -3.5527137e-15, 0.99999994, 1.5893262e-08, 0.9999998, 1.4210855e-14, 6.947167e-16, 13.000001, 1, -10)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M3" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M3" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, 10.000001, 4, -27)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M10" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M10" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, -18, 4, -27)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M11" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M11" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, 16, 4, -10)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M12" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M12" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, 13.575205, 1, 3.3834689)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M14" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M14" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-6.9710985e-15, -1.0331601e-07, 0.99999976, 3.5527137e-15, -0.9999999, -1.0331601e-07, 0.99999976, 1.4210853e-14, 6.947166e-16, 14.987066, 3, 3.3834689)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M13" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M13" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, 13.257933, 1, 7.3834686)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M15" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M15" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, -13.424795, 1, 3.3834689)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M16" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M16" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, -13.424795, 1, 7.3834686)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M5" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M5" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(0.9999997, -4.3711367e-08, 1.642028e-15, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.3711374e-08, -0.99999994, -5.960464e-08, 13, 4, -24)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, -8.999999, 4, -27)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M4" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M4" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-0.9999997, -4.3711395e-08, 2.525949e-16, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.371138e-08, 0.99999994, 5.960464e-08, -8.999999, 10, -19)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M5" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M5" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-0.9999997, -4.3711395e-08, 2.525949e-16, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.371138e-08, 0.99999994, 5.960464e-08, -8.999999, 10, -9)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M2" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M2" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, 3.000001, 4, -27)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M6" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M6" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-3.5527145e-15, 0.99999994, 5.9604645e-08, -6.9710977e-15, -5.9604638e-08, 0.9999998, 0.99999976, 1.4210854e-14, 6.947166e-16, -13.999999, 10, -3)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M7" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M7" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-0.9999997, -4.3711395e-08, 2.525949e-16, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.371138e-08, 0.99999994, 5.960464e-08, 13.000001, 4, -31)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M8" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M8" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-0.9999997, -4.3711395e-08, 2.525949e-16, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.371138e-08, 0.99999994, 5.960464e-08, 13.000001, 4, -16)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Box" type="MeshInstance3D" parent="Background"]
+[node name="Box" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4, -27)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box5" type="MeshInstance3D" parent="Background"]
+[node name="Box5" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, -3)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Tube10M14" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M14" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(8.742275e-08, -0.9999999, -5.9604638e-08, -6.9710964e-15, -5.960463e-08, 0.99999976, -0.99999964, -8.742278e-08, -2.3528055e-15, 11.333334, 10, -15.333333)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M15" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M15" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-0.9999997, -4.3711395e-08, 2.525949e-16, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.371138e-08, 0.99999994, 5.960464e-08, 5.333334, 10, -20.333332)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Box11" type="MeshInstance3D" parent="Background"]
+[node name="Box11" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.333334, 10, -15.333334)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box2" type="MeshInstance3D" parent="Background"]
+[node name="Box2" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, -27)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box4" type="MeshInstance3D" parent="Background"]
+[node name="Box4" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4, -21)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box6" type="MeshInstance3D" parent="Background"]
+[node name="Box6" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4, -10)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box9" type="MeshInstance3D" parent="Background"]
+[node name="Box9" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 3.415039)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box10" type="MeshInstance3D" parent="Background"]
+[node name="Box10" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, 7.415039)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Tube4M7" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M7" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(6.9710977e-15, 1.5893256e-08, -0.9999999, -3.5527137e-15, 0.99999994, 1.5893262e-08, 0.9999998, 1.4210855e-14, 6.947167e-16, -14.999999, 1, -21)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M8" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M8" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(6.9710977e-15, 1.5893256e-08, -0.9999999, -3.5527137e-15, 0.99999994, 1.5893262e-08, 0.9999998, 1.4210855e-14, 6.947167e-16, -14.999999, 1, -10)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube4M9" type="MeshInstance3D" parent="Background"]
+[node name="Tube4M9" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(0.9999997, -4.3711367e-08, 1.642028e-15, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.3711374e-08, -0.99999994, -5.960464e-08, -15, 4, -24)
 mesh = SubResource("CylinderMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Tube10M9" type="MeshInstance3D" parent="Background"]
+[node name="Tube10M9" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(-0.9999997, -4.3711395e-08, 2.525949e-16, -6.9710972e-15, -5.960463e-08, 0.99999976, -4.371138e-08, 0.99999994, 5.960464e-08, -14.999999, 4, -16)
 mesh = SubResource("CylinderMesh_t7ixj")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ktxu8")
 
-[node name="Box7" type="MeshInstance3D" parent="Background"]
+[node name="Box7" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4, -21)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box8" type="MeshInstance3D" parent="Background"]
+[node name="Box8" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4, -10)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
 
-[node name="Box3" type="MeshInstance3D" parent="Background"]
+[node name="Box3" type="MeshInstance3D" parent="Background/Tubes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4, -27)
 mesh = SubResource("BoxMesh_akxr2")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_t7ixj")
+
+[node name="ActorOnPath" type="Path3D" parent="Background" node_paths=PackedStringArray("PathFollower")]
+curve = SubResource("Curve3D_pfrk0")
+script = ExtResource("19_pfrk0")
+Speed = 1.0
+PathFollower = NodePath("PathFollow3D")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Background/ActorOnPath"]
+transform = Transform3D(-0.99999964, 0, 0, 0, 0.99999875, 0, 0, 0, -0.9999981, -11, 2, -1)
+use_model_front = true
+
+[node name="Actor" parent="Background/ActorOnPath/PathFollow3D" instance=ExtResource("19_t7ixj")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000013, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Background/ActorOnPath/PathFollow3D/Actor/Actor2/Armature" index="0"]
+bones/0/rotation = Quaternion(-2.1073419e-08, 0.7071068, 0.7071068, -2.1073424e-08)
+bones/1/position = Vector3(-5.9302426e-08, -0.19278315, 0.9949303)
+bones/3/rotation = Quaternion(-0.001099262, -3.7723296e-08, -4.1467826e-11, 0.9999994)
+bones/4/rotation = Quaternion(-0.002972806, -6.992174e-15, 9.93078e-17, 0.9999956)
+bones/5/rotation = Quaternion(0.033212546, -1.4775775e-16, -1.4140387e-16, 0.9994483)
+bones/6/rotation = Quaternion(-0.6894511, -0.14758489, -0.69148356, 0.15724632)
+bones/7/rotation = Quaternion(-0.26513764, -0.00567155, -0.0015595616, 0.9641927)
+bones/8/rotation = Quaternion(-0.6894511, 0.14758489, 0.69148356, 0.15724632)
+bones/9/rotation = Quaternion(-0.26194265, 0.034187246, 0.17207348, 0.9490037)
+bones/10/rotation = Quaternion(-2.753214e-07, -0.7071066, 0.70710707, -2.2197243e-07)
+bones/11/rotation = Quaternion(-0.034770835, -0.0007268471, -0.0013498985, 0.9993942)
+bones/12/rotation = Quaternion(0.06506218, -2.0452312e-10, -2.537301e-09, 0.99788123)
+bones/13/rotation = Quaternion(-0.61666745, 0.025823591, -0.026034953, 0.7863692)
+bones/14/rotation = Quaternion(-0.15106869, -0.03784904, -3.874653e-05, 0.98779845)
+bones/15/rotation = Quaternion(-0.0959434, 0.000606895, 0.0015312686, 0.99538547)
+bones/16/rotation = Quaternion(0.2782441, -1.8698362e-10, -1.1196437e-08, 0.9605105)
+bones/17/rotation = Quaternion(-0.6484911, -0.017877713, 0.031851877, 0.76034546)
+bones/18/rotation = Quaternion(-0.28530887, 0.039840423, 0.004969566, 0.95759434)
+bones/19/position = Vector3(-0.14424953, -0.023278361, 0.089133106)
+bones/19/rotation = Quaternion(-7.0645484e-08, -0.352723, 0.9357278, 2.6629843e-08)
+bones/21/position = Vector3(0.1442495, -0.09941878, 0.12028147)
+bones/21/rotation = Quaternion(-7.562357e-08, -0.24359962, 0.9698759, 2.475808e-08)
+
+[node name="AnimationPlayer" parent="Background/ActorOnPath/PathFollow3D/Actor/Actor2" index="1"]
+autoplay = "Walk"
 
 [node name="Portal1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
@@ -971,3 +1061,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 [connection signal="body_entered" from="Portal4/IN/Area3D" to="Portal4" method="OnPortalIn"]
 
 [editable path="CameraPivot"]
+[editable path="Background/ActorOnPath/PathFollow3D/Actor"]
+[editable path="Background/ActorOnPath/PathFollow3D/Actor/Actor2"]
