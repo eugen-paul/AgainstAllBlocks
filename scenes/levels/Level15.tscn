@@ -219,6 +219,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
 pixel_size = 0.06
 billboard = 2
 double_sided = false
+texture_filter = 0
 texture = ExtResource("11_e0j6k")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D"]
@@ -248,6 +249,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
 pixel_size = 0.06
 billboard = 2
 double_sided = false
+texture_filter = 0
 texture = ExtResource("13_ucvlr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D2"]
@@ -277,6 +279,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
 pixel_size = 0.06
 billboard = 2
 double_sided = false
+texture_filter = 0
 texture = ExtResource("13_ucvlr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D3"]
@@ -306,6 +309,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98618746, 0)
 pixel_size = 0.06
 billboard = 2
 double_sided = false
+texture_filter = 0
 texture = ExtResource("13_ucvlr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AllBlocks/Path3D4"]
@@ -765,7 +769,7 @@ transparent = false
 double_sided = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_j0ke0")
-animation = &"Idle"
+animation = &"Goal"
 autoplay = "Idle"
 
 [node name="AnimatedSprite3D11" type="AnimatedSprite3D" parent="Background/right"]
