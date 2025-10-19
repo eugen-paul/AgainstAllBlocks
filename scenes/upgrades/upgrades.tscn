@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d2nprom2n6xll"]
+[gd_scene load_steps=38 format=3 uid="uid://d2nprom2n6xll"]
 
 [ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_ammi4"]
 [ext_resource type="Script" uid="uid://bsfbjc3d1yok5" path="res://skripts/upgrades/Upgrades.cs" id="2_iup4k"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://djuaje2ex3wn5" path="res://assets/textures/gui/button_close_window-pressed.png" id="9_a08vn"]
 [ext_resource type="Texture2D" uid="uid://8hbtnixru6il" path="res://assets/textures/gui/Arrow.png" id="12_jih2h"]
 [ext_resource type="Texture2D" uid="uid://d4ncmkdk2efva" path="res://assets/textures/gui/goldenBall-GOLD.png" id="12_nwcl5"]
+[ext_resource type="PackedScene" uid="uid://b6fchsiaiv5l6" path="res://scenes/upgrades/UpgradeSlotsPanelUpgradeInfo.tscn" id="12_p4fyn"]
 [ext_resource type="Texture2D" uid="uid://doo84dh52h27j" path="res://assets/textures/gui/HandMove.png" id="13_pfomj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a08vn"]
@@ -26,13 +27,15 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwcl5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra80v"]
-bg_color = Color(0.5137255, 0.5137255, 0.5137255, 0.69803923)
+bg_color = Color(0.21960784, 0.12941177, 0.08235294, 1)
 border_width_left = 2
 border_width_top = 3
 border_width_right = 2
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_530qx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x54yl"]
 content_margin_left = 5.0
@@ -58,6 +61,8 @@ corner_radius_bottom_left = 3
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny5y6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by5l7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hb4bq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_173jn"]
 content_margin_left = 4.0
@@ -168,7 +173,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.615686, 0.352941, 0.219608, 1)
+color = Color(0.21960784, 0.12941177, 0.08235294, 1)
 
 [node name="GoldLabel" parent="UpgradeMenu" instance=ExtResource("3_44s3h")]
 layout_mode = 0
@@ -331,6 +336,7 @@ grow_vertical = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_530qx")
 
 [node name="GoldLabel" parent="UpgradeItemMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2" instance=ExtResource("3_44s3h")]
 layout_mode = 2
@@ -441,6 +447,7 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hb4bq")
 
 [node name="GoldLabel" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer" instance=ExtResource("3_44s3h")]
 layout_mode = 2
@@ -458,7 +465,15 @@ layout_mode = 2
 layout_mode = 2
 text = "UI_SLOTBUY_TOP"
 
+[node name="CenterContainer" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("12_p4fyn")]
+layout_mode = 2
+
+[node name="UpgradeSlotsContainer" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("3_616ga")]
+visible = false
+layout_mode = 2
+
 [node name="SlotTextureRect" type="TextureRect" parent="BuySlotMenu/Panel/VBoxContainer/Panel/VBoxContainer/PanelContainer2/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

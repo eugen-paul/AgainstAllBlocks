@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6fchsiaiv5l6"]
+
+[ext_resource type="Theme" uid="uid://2u3mfphi8ajw" path="res://assets/themes/guiTheme.tres" id="1_stisq"]
+[ext_resource type="Script" uid="uid://c82waskx3ljwc" path="res://skripts/upgrades/UpgradeSlotsPanelUpgradeInfo.cs" id="2_stisq"]
+[ext_resource type="PackedScene" uid="uid://jo5icpu0pyb5" path="res://scenes/upgrades/upgradeSlot.tscn" id="3_ik3ou"]
+
+[node name="CenterContainer" type="CenterContainer"]
+custom_minimum_size = Vector2(348, 0)
+offset_right = 348.0
+offset_bottom = 84.0
+size_flags_horizontal = 3
+theme = ExtResource("1_stisq")
+script = ExtResource("2_stisq")
+
+[node name="SlotsContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Slot1" parent="SlotsContainer" instance=ExtResource("3_ik3ou")]
+layout_mode = 2
+
+[node name="Slot2" parent="SlotsContainer" instance=ExtResource("3_ik3ou")]
+layout_mode = 2
+
+[node name="Slot3" parent="SlotsContainer" instance=ExtResource("3_ik3ou")]
+layout_mode = 2
+
+[node name="Slot4" parent="SlotsContainer" instance=ExtResource("3_ik3ou")]
+layout_mode = 2

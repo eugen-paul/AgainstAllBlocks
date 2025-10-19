@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class UpgradeSlot : PanelContainer, IUpgradeListener
@@ -63,6 +62,11 @@ public partial class UpgradeSlot : PanelContainer, IUpgradeListener
         }
         var currentLevel = GameComponets.Instance.Get<CurrentGame>().GetUpgradeController().GetCurrentUpgradeLevel(ItemType);
         SetItemTexture(UpgradeItemInfo.UpgradeItemInfos[ItemType].Textures[currentLevel]);
+    }
+
+    public void SetAktive(bool aktive)
+    {
+        Modulate = aktive ? new Color(1, 1, 1, 1f) : new Color(1, 1, 1, 0.5f);
     }
 
     private void SetForeground(string path)

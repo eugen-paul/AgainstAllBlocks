@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_p8xvk")
-color = Color(0.5924281, 0.30021206, 0.17046589, 1)
+color = Color(0.22021243, 0.13005361, 0.08150657, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Main/Panel"]
 layout_mode = 1

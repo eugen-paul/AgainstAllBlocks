@@ -3,6 +3,7 @@ using Godot;
 
 public partial class UpgradeItemPanel : PanelContainer, IUpgradeListener
 {
+    private static readonly string UPGRADE_PANEL_PATH = "Panel/HBoxContainer/Panel";
     private static readonly string UPGRADE_ICON_PATH = "Panel/HBoxContainer/Panel/TextureRect";
     private static readonly string UPGRADE_LABEL_PATH = "Panel/HBoxContainer/Label";
     private static readonly string UPGRADE_BUTTON_PATH = "Panel/HBoxContainer/UpgradeButton";
@@ -50,6 +51,13 @@ public partial class UpgradeItemPanel : PanelContainer, IUpgradeListener
 
         GetNode<UpgradeItemIcon>(UPGRADE_ICON_PATH).Init(Type);
         GetNode<Label>(UPGRADE_LABEL_PATH).Text = Var(levelDescription);
+
+        if (Type != UpgradeType.EMPTY && level == 0)
+        {
+            GetNode<Panel>(UPGRADE_PANEL_PATH).Modulate = new Color(1, 1, 1, 0.5f);
+        } else {
+            GetNode<Panel>(UPGRADE_PANEL_PATH).Modulate = new Color(1, 1, 1, 1f);
+        }
 
         var maxLevelReached = level >= UpgradeItemInfo.UpgradeItemInfos[Type].MaxLevel;
         GetNode<Button>(UPGRADE_BUTTON_PATH).Visible = !maxLevelReached;
