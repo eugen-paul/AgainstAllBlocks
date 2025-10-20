@@ -766,38 +766,17 @@ Speed = 1.0
 PathFollower = NodePath("PathFollow3D")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Background/ActorOnPath"]
-transform = Transform3D(-0.99999964, 0, 0, 0, 0.99999875, 0, 0, 0, -0.9999981, -11, 2, -1)
+transform = Transform3D(-0.9999996, 0, 0, 0, 0.99999875, 0, 0, 0, -0.99999785, -11, 2, -1)
 use_model_front = true
 
 [node name="Actor" parent="Background/ActorOnPath/PathFollow3D" instance=ExtResource("19_t7ixj")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000013, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Background/ActorOnPath/PathFollow3D/Actor/Actor2/Armature" index="0"]
-bones/0/rotation = Quaternion(-2.1073419e-08, 0.7071068, 0.7071068, -2.1073424e-08)
-bones/1/position = Vector3(-5.9302426e-08, -0.19278315, 0.9949303)
-bones/3/rotation = Quaternion(-0.001099262, -3.7723296e-08, -4.1467826e-11, 0.9999994)
-bones/4/rotation = Quaternion(-0.002972806, -6.992174e-15, 9.93078e-17, 0.9999956)
-bones/5/rotation = Quaternion(0.033212546, -1.4775775e-16, -1.4140387e-16, 0.9994483)
-bones/6/rotation = Quaternion(-0.6894511, -0.14758489, -0.69148356, 0.15724632)
-bones/7/rotation = Quaternion(-0.26513764, -0.00567155, -0.0015595616, 0.9641927)
-bones/8/rotation = Quaternion(-0.6894511, 0.14758489, 0.69148356, 0.15724632)
-bones/9/rotation = Quaternion(-0.26194265, 0.034187246, 0.17207348, 0.9490037)
-bones/10/rotation = Quaternion(-2.753214e-07, -0.7071066, 0.70710707, -2.2197243e-07)
-bones/11/rotation = Quaternion(-0.034770835, -0.0007268471, -0.0013498985, 0.9993942)
-bones/12/rotation = Quaternion(0.06506218, -2.0452312e-10, -2.537301e-09, 0.99788123)
-bones/13/rotation = Quaternion(-0.61666745, 0.025823591, -0.026034953, 0.7863692)
-bones/14/rotation = Quaternion(-0.15106869, -0.03784904, -3.874653e-05, 0.98779845)
-bones/15/rotation = Quaternion(-0.0959434, 0.000606895, 0.0015312686, 0.99538547)
-bones/16/rotation = Quaternion(0.2782441, -1.8698362e-10, -1.1196437e-08, 0.9605105)
-bones/17/rotation = Quaternion(-0.6484911, -0.017877713, 0.031851877, 0.76034546)
-bones/18/rotation = Quaternion(-0.28530887, 0.039840423, 0.004969566, 0.95759434)
-bones/19/position = Vector3(-0.14424953, -0.023278361, 0.089133106)
-bones/19/rotation = Quaternion(-7.0645484e-08, -0.352723, 0.9357278, 2.6629843e-08)
-bones/21/position = Vector3(0.1442495, -0.09941878, 0.12028147)
-bones/21/rotation = Quaternion(-7.562357e-08, -0.24359962, 0.9698759, 2.475808e-08)
-
 [node name="AnimationPlayer" parent="Background/ActorOnPath/PathFollow3D/Actor/Actor2" index="1"]
 autoplay = "Walk"
+
+[node name="AnimationTree" parent="Background/ActorOnPath/PathFollow3D/Actor" index="1"]
+active = false
 
 [node name="Portal1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://1a0hiv6p88v"]
+[gd_scene load_steps=12 format=3 uid="uid://1a0hiv6p88v"]
 
-[ext_resource type="PackedScene" uid="uid://bhalwmneq4vgp" path="res://assets/blender/world/Actor.gltf" id="1_ehqor"]
+[ext_resource type="PackedScene" uid="uid://cxpumc3imp5qm" path="res://assets/blender/world/Actor.gltf" id="1_ehqor"]
 [ext_resource type="Texture2D" uid="uid://c6jyqgdqc3nxx" path="res://assets/textures/world/Actor.png" id="2_ju1nt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju1nt"]
@@ -8,11 +8,60 @@ shading_mode = 2
 albedo_texture = ExtResource("2_ju1nt")
 disable_receive_shadows = true
 
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_13264"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:chest", "Armature/Skeleton3D:head", "Armature/Skeleton3D:lowerarm.l", "Armature/Skeleton3D:lowerarm.r", "Armature/Skeleton3D:neck", "Armature/Skeleton3D:upperarm.l", "Armature/Skeleton3D:upperarm.r"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfdjq"]
+animation = &"Idle_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_58tps"]
+animation = &"Idle_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kofxl"]
+animation = &"Idle_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wl4eh"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ib1dm"]
+states/End/position = Vector2(817, 100)
+states/Idle_1/node = SubResource("AnimationNodeAnimation_vfdjq")
+states/Idle_1/position = Vector2(398, 2)
+states/Idle_2/node = SubResource("AnimationNodeAnimation_58tps")
+states/Idle_2/position = Vector2(398, 76)
+states/Idle_3/node = SubResource("AnimationNodeAnimation_kofxl")
+states/Idle_3/position = Vector2(398, 156)
+states/Start/position = Vector2(94, 100)
+states/Walk/node = SubResource("AnimationNodeAnimation_wl4eh")
+states/Walk/position = Vector2(398, 234)
+graph_offset = Vector2(-127, -124)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ju1nt"]
+animation = &"HoldItem"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_58tps"]
+graph_offset = Vector2(-157.69507, -184.39232)
+nodes/output/position = Vector2(880, -80)
+nodes/DefaultStateMachine/node = SubResource("AnimationNodeStateMachine_ib1dm")
+nodes/DefaultStateMachine/position = Vector2(200, -80)
+nodes/HoldItemAnimation/node = SubResource("AnimationNodeAnimation_ju1nt")
+nodes/HoldItemAnimation/position = Vector2(280, 180)
+nodes/BlendDefaultWithHoldItem/node = SubResource("AnimationNodeBlend2_13264")
+nodes/BlendDefaultWithHoldItem/position = Vector2(540, -80)
+node_connections = [&"output", 0, &"BlendDefaultWithHoldItem", &"BlendDefaultWithHoldItem", 0, &"DefaultStateMachine", &"BlendDefaultWithHoldItem", 1, &"HoldItemAnimation"]
+
 [node name="Actor" type="Node3D"]
 
 [node name="Actor2" parent="." instance=ExtResource("1_ehqor")]
 
 [node name="Actor" parent="Actor2/Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ju1nt")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Actor2")
+tree_root = SubResource("AnimationNodeBlendTree_58tps")
+anim_player = NodePath("../Actor2/AnimationPlayer")
+parameters/BlendDefaultWithHoldItem/blend_amount = 0.0
 
 [editable path="Actor2"]

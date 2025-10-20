@@ -584,30 +584,8 @@ AnimationPlayer = NodePath("Actor2/AnimationPlayer")
 AnimationNames = Array[String](["Wave", "Idle_1", "Idle_2", "Idle_3"])
 RandomOrder = true
 
-[node name="Skeleton3D" parent="Background/Actor/Actor2/Armature" index="0"]
-bones/0/rotation = Quaternion(-2.1073419e-08, 0.7071068, 0.7071068, -2.1073424e-08)
-bones/1/position = Vector3(-5.9302426e-08, -0.19278315, 0.9949303)
-bones/3/rotation = Quaternion(-0.001099262, -3.7723296e-08, -4.1467826e-11, 0.9999994)
-bones/4/rotation = Quaternion(-0.002972806, -6.992174e-15, 9.93078e-17, 0.9999956)
-bones/5/rotation = Quaternion(0.03321255, -1.4775776e-16, -1.4140388e-16, 0.9994484)
-bones/6/rotation = Quaternion(-0.6894511, -0.14758489, -0.69148356, 0.15724632)
-bones/7/rotation = Quaternion(-0.26513764, -0.00567155, -0.0015595616, 0.9641927)
-bones/8/rotation = Quaternion(-0.6894511, 0.14758489, 0.69148356, 0.15724632)
-bones/9/rotation = Quaternion(-0.26513764, 0.00567155, 0.0015595616, 0.9641927)
-bones/10/rotation = Quaternion(-2.753214e-07, -0.7071066, 0.70710707, -2.2197243e-07)
-bones/11/rotation = Quaternion(-0.034770835, -0.0007268471, -0.0013498985, 0.9993941)
-bones/12/rotation = Quaternion(0.06506218, -2.0452312e-10, -2.537301e-09, 0.99788123)
-bones/13/rotation = Quaternion(-0.61666745, 0.025823591, -0.026034953, 0.7863692)
-bones/15/rotation = Quaternion(-0.034770835, 0.00072672724, 0.0013498969, 0.9993941)
-bones/16/rotation = Quaternion(0.06506218, -3.0508537e-10, -2.691544e-09, 0.99788123)
-bones/17/rotation = Quaternion(-0.61666745, -0.025823554, 0.026034977, 0.7863692)
-bones/19/position = Vector3(-0.14424953, -0.023278361, 0.089133106)
-bones/19/rotation = Quaternion(-7.0645484e-08, -0.352723, 0.9357278, 2.6629843e-08)
-bones/21/position = Vector3(0.1442495, -0.023278361, 0.08913311)
-bones/21/rotation = Quaternion(-7.0645484e-08, -0.352723, 0.9357278, 2.6629843e-08)
-
-[node name="AnimationPlayer" parent="Background/Actor/Actor2" index="1"]
-autoplay = "Wave"
+[node name="AnimationTree" parent="Background/Actor" index="1"]
+active = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.49999988, 0.6123725, 0.6123725, -0.8660253, 0.3535534, 0.3535534, 6.6800068e-09, -0.7071068, 0.7071068, 0, 18, 0)
