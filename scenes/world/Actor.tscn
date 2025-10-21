@@ -1,59 +1,106 @@
-[gd_scene load_steps=12 format=3 uid="uid://1a0hiv6p88v"]
+[gd_scene load_steps=19 format=3 uid="uid://1a0hiv6p88v"]
 
 [ext_resource type="PackedScene" uid="uid://cxpumc3imp5qm" path="res://assets/blender/world/Actor.gltf" id="1_ehqor"]
 [ext_resource type="Texture2D" uid="uid://c6jyqgdqc3nxx" path="res://assets/textures/world/Actor.png" id="2_ju1nt"]
+[ext_resource type="Script" uid="uid://c6qkwsduvwra5" path="res://skripts/world/ActorAnimationTree.cs" id="3_13264"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju1nt"]
 shading_mode = 2
 albedo_texture = ExtResource("2_ju1nt")
 disable_receive_shadows = true
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_13264"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:chest", "Armature/Skeleton3D:head", "Armature/Skeleton3D:lowerarm.l", "Armature/Skeleton3D:lowerarm.r", "Armature/Skeleton3D:neck", "Armature/Skeleton3D:upperarm.l", "Armature/Skeleton3D:upperarm.r"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_13264"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfdjq"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ybmkv"]
+animation = &"Standing"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ju1nt"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dts8b"]
 animation = &"Idle_1"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_58tps"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxc5a"]
 animation = &"Idle_2"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kofxl"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iky1b"]
 animation = &"Idle_3"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wl4eh"]
-animation = &"Walk"
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a3y1c"]
+advance_mode = 2
+advance_expression = "do_idle == 1"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ib1dm"]
-states/End/position = Vector2(817, 100)
-states/Idle_1/node = SubResource("AnimationNodeAnimation_vfdjq")
-states/Idle_1/position = Vector2(398, 2)
-states/Idle_2/node = SubResource("AnimationNodeAnimation_58tps")
-states/Idle_2/position = Vector2(398, 76)
-states/Idle_3/node = SubResource("AnimationNodeAnimation_kofxl")
-states/Idle_3/position = Vector2(398, 156)
-states/Start/position = Vector2(94, 100)
-states/Walk/node = SubResource("AnimationNodeAnimation_wl4eh")
-states/Walk/position = Vector2(398, 234)
-graph_offset = Vector2(-127, -124)
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hnxw3"]
+advance_mode = 2
+advance_expression = "do_idle == 2"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ju1nt"]
-animation = &"HoldItem"
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1gk5b"]
+advance_mode = 2
+advance_expression = "do_idle == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bw3hi"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_che1h"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bf17f"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cqv3g"]
+states/End/position = Vector2(579, 145)
+states/Idle_1/node = SubResource("AnimationNodeAnimation_dts8b")
+states/Idle_1/position = Vector2(445, 73)
+states/Idle_2/node = SubResource("AnimationNodeAnimation_xxc5a")
+states/Idle_2/position = Vector2(445, 145)
+states/Idle_3/node = SubResource("AnimationNodeAnimation_iky1b")
+states/Idle_3/position = Vector2(445, 220)
+states/Start/position = Vector2(320, 145)
+transitions = ["Start", "Idle_1", SubResource("AnimationNodeStateMachineTransition_a3y1c"), "Start", "Idle_2", SubResource("AnimationNodeStateMachineTransition_hnxw3"), "Start", "Idle_3", SubResource("AnimationNodeStateMachineTransition_1gk5b"), "Idle_1", "End", SubResource("AnimationNodeStateMachineTransition_bw3hi"), "Idle_2", "End", SubResource("AnimationNodeStateMachineTransition_che1h"), "Idle_3", "End", SubResource("AnimationNodeStateMachineTransition_bf17f")]
+graph_offset = Vector2(-140, -141)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_58tps"]
-graph_offset = Vector2(-157.69507, -184.39232)
-nodes/output/position = Vector2(880, -80)
-nodes/DefaultStateMachine/node = SubResource("AnimationNodeStateMachine_ib1dm")
-nodes/DefaultStateMachine/position = Vector2(200, -80)
-nodes/HoldItemAnimation/node = SubResource("AnimationNodeAnimation_ju1nt")
-nodes/HoldItemAnimation/position = Vector2(280, 180)
-nodes/BlendDefaultWithHoldItem/node = SubResource("AnimationNodeBlend2_13264")
-nodes/BlendDefaultWithHoldItem/position = Vector2(540, -80)
-node_connections = [&"output", 0, &"BlendDefaultWithHoldItem", &"BlendDefaultWithHoldItem", 0, &"DefaultStateMachine", &"BlendDefaultWithHoldItem", 1, &"HoldItemAnimation"]
+graph_offset = Vector2(-29.993103, -261.95502)
+nodes/output/position = Vector2(1480, -240)
+nodes/StateMachineIdle/node = SubResource("AnimationNodeStateMachine_cqv3g")
+nodes/StateMachineIdle/position = Vector2(260, -40)
+nodes/AnimationStanding/node = SubResource("AnimationNodeAnimation_ybmkv")
+nodes/AnimationStanding/position = Vector2(260, -240)
+nodes/OneShotIdle/node = SubResource("AnimationNodeOneShot_ju1nt")
+nodes/OneShotIdle/position = Vector2(540, -240)
+nodes/AnimationSitting/node = SubResource("AnimationNodeAnimation_13264")
+nodes/AnimationSitting/position = Vector2(260, 180)
+node_connections = [&"output", 0, &"OneShotIdle", &"OneShotIdle", 0, &"AnimationStanding", &"OneShotIdle", 1, &"StateMachineIdle"]
 
 [node name="Actor" type="Node3D"]
 
 [node name="Actor2" parent="." instance=ExtResource("1_ehqor")]
+
+[node name="Skeleton3D" parent="Actor2/Armature" index="0"]
+bones/0/rotation = Quaternion(-2.1073419e-08, 0.7071068, 0.7071068, -2.1073424e-08)
+bones/1/position = Vector3(-5.9302426e-08, -0.19278315, 0.9949303)
+bones/3/rotation = Quaternion(-0.001099262, -3.7723296e-08, -4.1467826e-11, 0.9999994)
+bones/4/rotation = Quaternion(-0.002972806, -6.992174e-15, 9.93078e-17, 0.9999956)
+bones/5/rotation = Quaternion(0.033211842, 0.0064868703, -0.00016268916, 0.9994273)
+bones/6/rotation = Quaternion(-0.6896839, -0.148611, -0.6912638, 0.15622227)
+bones/7/rotation = Quaternion(-0.26517707, -0.008702272, -0.019635994, 0.9639605)
+bones/8/rotation = Quaternion(-0.6879516, 0.14111704, 0.6928324, 0.16368166)
+bones/9/rotation = Quaternion(-0.26513276, 0.011590358, 0.0368718, 0.963437)
+bones/10/rotation = Quaternion(-2.753214e-07, -0.7071066, 0.70710707, -2.2197243e-07)
+bones/11/rotation = Quaternion(-0.034770835, -0.0007268471, -0.0013498985, 0.9993941)
+bones/12/rotation = Quaternion(0.06506218, -2.0452312e-10, -2.537301e-09, 0.99788123)
+bones/13/rotation = Quaternion(-0.61666745, 0.025823591, -0.026034953, 0.7863692)
+bones/14/rotation = Quaternion(-0.15106869, -0.03784904, -3.874653e-05, 0.98779845)
+bones/15/rotation = Quaternion(-0.034770835, 0.00072672724, 0.0013498969, 0.9993941)
+bones/16/rotation = Quaternion(0.06506218, -3.0508537e-10, -2.691544e-09, 0.99788123)
+bones/17/rotation = Quaternion(-0.61666745, -0.025823554, 0.026034977, 0.7863692)
+bones/18/rotation = Quaternion(-0.15106869, 0.03784904, 3.874653e-05, 0.98779845)
+bones/19/position = Vector3(-0.14424953, -0.023278361, 0.089133106)
+bones/19/rotation = Quaternion(-7.0645484e-08, -0.352723, 0.9357278, 2.6629843e-08)
+bones/21/position = Vector3(0.1442495, -0.023278361, 0.08913311)
+bones/21/rotation = Quaternion(-7.0645484e-08, -0.352723, 0.9357278, 2.6629843e-08)
 
 [node name="Actor" parent="Actor2/Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ju1nt")
@@ -62,6 +109,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ju1nt")
 root_node = NodePath("../Actor2")
 tree_root = SubResource("AnimationNodeBlendTree_58tps")
 anim_player = NodePath("../Actor2/AnimationPlayer")
-parameters/BlendDefaultWithHoldItem/blend_amount = 0.0
+parameters/OneShotIdle/active = false
+parameters/OneShotIdle/internal_active = false
+parameters/OneShotIdle/request = 0
+script = ExtResource("3_13264")
 
 [editable path="Actor2"]
