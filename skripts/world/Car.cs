@@ -73,6 +73,6 @@ public partial class Car : Node3D
 
     public void SetRandomColor()
     {
-        Color = (CarColor)random.Next(Enum.GetNames(typeof(CarColor)).Length);
+        Color = (CarColor)random.Next(Enum.GetNames<CarColor>().Length);
     }
 }
